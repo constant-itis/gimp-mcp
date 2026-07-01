@@ -280,18 +280,31 @@ def list_images() -> str:
 
 
 @mcp.tool
-def new_image(width: int = 1024, height: int = 1024, fill_white: bool = True) -> str:
-    """Create a new RGB image. Returns the new image id."""
+def new_image(width: int = 1024, height: int = 1024, fill_white: bool = True,
+              transparent: bool = False) -> str:
+    """Create a new image. Returns the new image id.
+
+    transparent=True → a true-alpha canvas (for cut-out / sticker / badge art). Otherwise
+    an opaque canvas: white when fill_white (default), else the context background. (Set
+    transparent=True for transparent art — a non-filled opaque layer is NOT transparent.)
+    """
     img = bridge.eval(f"(car (gimp-image-new {int(width)} {int(height)} RGB))").strip()
+    kind = "RGBA-IMAGE" if transparent else "RGB-IMAGE"
     layer = bridge.eval(
-        f'(car (gimp-layer-new {img} {int(width)} {int(height)} RGB-IMAGE "bg" 100 LAYER-MODE-NORMAL))'
+        f'(car (gimp-layer-new {img} {int(width)} {int(height)} {kind} "bg" 100 LAYER-MODE-NORMAL))'
     ).strip()
     bridge.eval(f"(gimp-image-insert-layer {img} {layer} 0 -1)")
-    if fill_white:
+    bridge.eval(f"(gimp-image-set-active-layer {img} {layer})")
+    if transparent:
+        bridge.eval(f"(gimp-drawable-fill {layer} FILL-TRANSPARENT)")
+        bg = "transparent"
+    elif fill_white:
         bridge.eval("(gimp-context-set-background '(255 255 255))")
-        bridge.eval(f"(gimp-image-set-active-layer {img} {layer})")
         bridge.eval(f"(gimp-drawable-fill {layer} FILL-BACKGROUND)")
-    return f"created image id={img} ({width}x{height})"
+        bg = "white"
+    else:
+        bg = "opaque (context bg)"
+    return f"created image id={img} ({width}x{height}, {bg})"
 
 
 @mcp.tool

@@ -52,6 +52,21 @@ def draw_rect(image_id: int, x: int, y: int, width: int, height: int,
 
 
 @mcp.tool
+def erase(image_id: int) -> str:
+    """Clear the current selection to transparency (whole active layer if no selection).
+
+    Adds an alpha channel first if the layer lacks one — the cut-a-hole / knockout
+    primitive for punching transparent gaps into art (orbit rings, windows, negative space).
+    """
+    iid = int(image_id)
+    d = _drawable(iid)
+    bridge.eval(f"(if (= (car (gimp-drawable-has-alpha {d})) FALSE) (gimp-layer-add-alpha {d}))")
+    bridge.eval(f"(gimp-edit-clear {d})")
+    _flush()
+    return f"cleared selection to transparency on image {iid}"
+
+
+@mcp.tool
 def select_by_color(image_id: int, color: str, threshold: int = 15,
                     operation: str = "replace") -> str:
     """Select every pixel close to `color` (the magic-wand-by-color / keying primitive).

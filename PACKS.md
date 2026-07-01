@@ -11,7 +11,7 @@ Set `GIMP_MCP_PACKS`:
 
 | value | loads | ~tools |
 |-------|-------|--------|
-| *(unset)* or `all` | core + every bundled pack | 79 |
+| *(unset)* or `all` | core + every bundled pack | 80 |
 | `core` | core only | 16 |
 | `text,fx,recipes` | core + just those | varies |
 
@@ -42,7 +42,7 @@ and `_render`.
 | `transform` | scale_image, scale_to_fit, crop, autocrop, rotate, flip, resize_canvas |
 | `color` | brightness_contrast, hue_saturation, desaturate, invert, auto_levels, curves_adjust |
 | `fx` | gaussian_blur, sharpen, pixelize, drop_shadow, vignette, oilify, emboss, lens_flare, motion_blur, gradient_fill, add_border, overlay_blend |
-| `select` | select, fill, draw_rect, select_by_color, feather_selection, grow_shrink_selection, color_to_alpha, trim_to_content |
+| `select` | select, fill, erase, draw_rect, select_by_color, feather_selection, grow_shrink_selection, color_to_alpha, trim_to_content |
 | `generate` | draw_ellipse, draw_polygon, draw_star, draw_line, sunburst, render_plasma, render_noise — *draw imagery from scratch* |
 | `recipes` | apply_recipe, list_recipes, show_recipe, save_recipe, delete_recipe |
 | `journal` | journal (macro-recorder) |

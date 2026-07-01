@@ -162,7 +162,7 @@ Techniques are **saved, parameterized, and reused**, not rebuilt each time:
 Recipes are **abilities, not baked-in behavior** — data you can read, edit, share, and
 extend; nothing forces a workflow.
 
-## Tools (16 core + 63 in packs = 79)
+## Tools (16 core + 64 in packs = 80)
 
 Modular: the **core** (~16, always on) reaches the whole PDB and drives the vision loop;
 the rest live in opt-in **packs** ([PACKS.md](PACKS.md)). Listing below is the full set.
