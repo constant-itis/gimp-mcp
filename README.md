@@ -271,11 +271,33 @@ the factory drops anything that doesn't actually run. See [teach/README.md](teac
 - `gimp-drawable-histogram` returns mean/std on a **0..255** scale on 2.10 (white =
   255.0), not 0..1.
 
+## Troubleshooting
+
+| Symptom | Cause & fix |
+|---|---|
+| **"cannot reach GIMP Script-Fu server"** / connection refused | The server isn't up. Run `./start-gimp-server.sh` (headless) or `--gui` (watchable). Check `gimp` is on your `PATH` and `gimp_status` reports OK. |
+| **Text renders nothing / blank** | GIMP was launched with `-f`/`--no-fonts`, which makes `gimp-text-fontname` silently no-op. Use `start-gimp-server.sh` (it omits `-f`); don't add it. Also check the font name with `list_fonts`. |
+| **New tools don't show up in your client** | The stdio MCP server loads tools at session start. **Restart the MCP session** (e.g. a new Claude Code session) after pulling changes or editing packs. |
+| **Only *some* tools appear** | `GIMP_MCP_PACKS` is limiting them. Unset it (or set `all`) for the full 89; see [PACKS.md](PACKS.md). |
+| **`"returned no return values"` error** | Usually a missing font (see above) or bad args. The tool's error text now appends a hint — follow it (`list_fonts`, `pdb_help`, etc.). |
+| **Transparent art looks black or white** | For *viewing*: use `look(bg="checker")` (auto already does this when there's alpha). For *exporting*: `export_image` preserves alpha by default (PNG/WebP); pass `flatten=True` only if you want it composited. To *make* a transparent canvas use `new_image(transparent=True)` — `fill_white=False` alone leaves an opaque layer. |
+| **Can't watch it work in a window** | Start with `./start-gimp-server.sh --gui`. GIMP is single-instance, so it attaches to a GIMP you already have open. Then `show <image_id>` pops it into the window; every tool flushes the display. |
+| **Port already in use / multiple GIMPs** | Override with `GIMP_HOST` / `GIMP_PORT` env vars (both the launcher and the server read them). |
+| **Edits go to the wrong image/layer** | State is by integer id. Re-check with `list_images` / `list_layers` / `describe`; ids are stale after `close_image` or a GIMP restart. |
+| **A destructive step went wrong** | GIMP 2.10 has no API undo — take a `checkpoint` *before* risky/automated ops and `restore_checkpoint` to recover. |
+
 ## Path to GIMP 3.x
 
 If you later install GIMP 3, Python 3 GI plugins come back *and* the Script-Fu server
 still exists — this bridge keeps working; you'd just gain the option of richer
 in-process plugins.
+
+## Contributing
+
+Contributions are welcome — most are additive (a new pack, a recipe, or a tool in an
+existing pack) with no core changes. See **[CONTRIBUTING.md](CONTRIBUTING.md)** for setup,
+the test/dogfood loop, and the pack/recipe contracts. Bug reports and "this tool fought me
+as an agent" friction reports are just as valuable as code.
 
 ## License
 
