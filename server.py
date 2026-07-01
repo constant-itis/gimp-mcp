@@ -32,6 +32,46 @@ def _q(path: str) -> str:
     return path.replace("\\", "\\\\").replace('"', '\\"')
 
 
+# ── error hints: turn opaque GIMP failures into actionable guidance ────────────
+# Small/local models (Hermes, Qwen, etc.) recover poorly from raw GIMP errors;
+# every tool routes through bridge.eval, so we translate failures in ONE place.
+_ERROR_HINTS = [
+    ("no return values",   "the proc failed — often a missing font, or GIMP was launched with -f/--no-fonts (text renders nothing). Call list_fonts; if fonts are truly gone, restart with start-gimp-server.sh."),
+    ("invalid image",      "that image id is stale or closed — call list_images to see live ids."),
+    ("invalid drawable",   "that layer/drawable id is stale — call list_layers <image_id>."),
+    ("invalid item",       "that item id is stale — re-fetch it (list_layers / describe)."),
+    ("not found",          "no such PDB procedure — search names with pdb_query, then pdb_help."),
+    ("wrong number",       "wrong argument count — check the exact signature with pdb_help <procedure>."),
+]
+
+
+def _hint(msg: str) -> str:
+    low = msg.lower()
+    for needle, tip in _ERROR_HINTS:
+        if needle in low:
+            return "\n  hint: " + tip
+    return ""
+
+
+_raw_eval = bridge.eval
+
+
+def _smart_eval(scheme: str) -> str:
+    """bridge.eval + actionable error text. Applied globally so every tool benefits."""
+    try:
+        return _raw_eval(scheme)
+    except ConnectionError as e:
+        raise ConnectionError(
+            f"{e}\n  hint: Script-Fu server unreachable — run ./start-gimp-server.sh "
+            f"(headless), or in the GUI use Filters ▸ Script-Fu ▸ Start Server on :10008."
+        ) from None
+    except GimpError as e:
+        raise GimpError(f"{e}{_hint(str(e))}") from None
+
+
+bridge.eval = _smart_eval
+
+
 # ── core: raw eval + introspection ───────────────────────────────────────────
 
 @mcp.tool
@@ -228,33 +268,87 @@ def _flush():
     bridge.eval("(gimp-displays-flush)")
 
 
+def _place_layer(iid: int, lid, anchor: str, dx: int = 0, dy: int = 0, margin: int = 0):
+    """Move layer `lid` to a canvas gravity anchor (+ optional offset). Shared by
+    `place` and `add_text`. anchor keywords: center/top/bottom/left/right and the
+    corner/edge combos (top-left, bottom-center, …). Returns (x, y)."""
+    W = int(bridge.eval(f"(car (gimp-image-width {iid}))").strip())
+    H = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
+    lw = int(bridge.eval(f"(car (gimp-drawable-width {lid}))").strip())
+    lh = int(bridge.eval(f"(car (gimp-drawable-height {lid}))").strip())
+    a = str(anchor).lower().replace("_", "-").replace(" ", "-")
+    m = int(margin)
+    if "left" in a:    x = m
+    elif "right" in a: x = W - lw - m
+    else:              x = (W - lw) // 2
+    if "top" in a:     y = m
+    elif "bottom" in a:y = H - lh - m
+    else:              y = (H - lh) // 2
+    x += int(dx); y += int(dy)
+    bridge.eval(f"(gimp-layer-set-offsets {lid} {x} {y})")
+    return x, y
+
+
 # ── VISION: the keystone preview loop ────────────────────────────────────────
 
-@mcp.tool
-def render_preview(image_id: int, max_dim: int = 640) -> str:
-    """Export a flattened, downscaled PNG of the image so Claude can SEE it.
+def _render(iid: int, max_dim: int, bg: str, path: str):
+    """Duplicate → composite a background → flatten → downscale → save PNG.
 
-    Returns the file path (read it with the Read tool to view), the preview
-    dimensions, and the scale factor preview->original. Use this to look before
-    and after edits, and to map preview coordinates back to image coordinates
-    (image_coord = preview_coord / scale). This is how visual judgement works.
+    bg controls how transparency is shown (transparent art is INVISIBLE when
+    flattened onto white — this is the whole reason the loop needs a background):
+      auto    → checker if the image has alpha, else a plain flatten
+      checker → grey transparency checkerboard (see the alpha like an editor does)
+      black / white → solid backdrop (judge art as it'll sit on a dark/light shirt)
+      none    → keep the alpha channel in the PNG (no backdrop)
+    Returns (w, h, pw, ph, scale, mode).
     """
-    iid = int(image_id)
     w = int(bridge.eval(f"(car (gimp-image-width {iid}))").strip())
     h = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
     scale = min(1.0, max_dim / max(w, h))
     pw, ph = max(1, round(w * scale)), max(1, round(h * scale))
-    path = f"/tmp/gimp-preview-{iid}.png"
     dup = bridge.eval(f"(car (gimp-image-duplicate {iid}))").strip()
     try:
-        bridge.eval(f"(gimp-image-flatten {dup})")
+        mode = str(bg).lower()
+        if mode == "auto":
+            d0 = bridge.eval(f"(car (gimp-image-get-active-drawable {dup}))").strip()
+            has_alpha = bridge.eval(f"(car (gimp-drawable-has-alpha {d0}))").strip() == "TRUE"
+            mode = "checker" if has_alpha else "flat"
+        if mode in ("checker", "black", "white"):
+            bl = bridge.eval(f'(car (gimp-layer-new {dup} {w} {h} RGB-IMAGE "bg" 100 LAYER-MODE-NORMAL))').strip()
+            bridge.eval(f"(gimp-image-insert-layer {dup} {bl} 0 -1)")
+            bridge.eval(f"(gimp-image-lower-item-to-bottom {dup} {bl})")
+            bridge.eval(f"(gimp-image-set-active-layer {dup} {bl})")
+            if mode == "checker":
+                bridge.eval("(gimp-context-set-foreground '(153 153 153))")
+                bridge.eval("(gimp-context-set-background '(102 102 102))")
+                bridge.eval(f"(plug-in-checkerboard RUN-NONINTERACTIVE {dup} {bl} 0 {max(6, min(w, h)//24)})")
+            else:
+                bridge.eval(f"(gimp-context-set-foreground {_color('#ffffff' if mode == 'white' else '#000000')})")
+                bridge.eval(f"(gimp-image-set-active-layer {dup} {bl})")
+                bridge.eval(f"(gimp-drawable-fill {bl} FILL-FOREGROUND)")
+        if mode != "none":
+            bridge.eval(f"(gimp-image-flatten {dup})")
         if scale < 1.0:
             bridge.eval(f"(gimp-image-scale {dup} {pw} {ph})")
         d = bridge.eval(f"(car (gimp-image-get-active-drawable {dup}))").strip()
-        bridge.eval(f'(file-png-save RUN-NONINTERACTIVE {dup} {d} "{_q(path)}" "prev" 0 9 1 1 1 1 1)')
+        bridge.eval(f'(file-png-save RUN-NONINTERACTIVE {dup} {d} "{_q(path)}" "l" 0 9 1 1 1 1 1)')
     finally:
         bridge.eval(f"(gimp-image-delete {dup})")
-    return (f"{path}\norig={w}x{h}  preview={pw}x{ph}  scale={scale:.4f}\n"
+    return w, h, pw, ph, scale, mode
+
+
+@mcp.tool
+def render_preview(image_id: int, max_dim: int = 640, bg: str = "auto") -> str:
+    """Export a downscaled PNG of the image so Claude can SEE it, then Read the path.
+
+    Returns the file path, preview dimensions, and the scale factor preview->original
+    (image_coord = preview_coord / scale). `bg` controls how transparency is shown:
+    auto | checker | black | white | none (see `look`). Prefer `look` for inline view.
+    """
+    iid = int(image_id)
+    path = f"/tmp/gimp-preview-{iid}.png"
+    w, h, pw, ph, scale, mode = _render(iid, max_dim, bg, path)
+    return (f"{path}\norig={w}x{h}  preview={pw}x{ph}  scale={scale:.4f}  bg={mode}\n"
             f"(image_coord = preview_coord / {scale:.4f}) — Read the path to view it.")
 
 
@@ -344,18 +438,25 @@ def delete_layer(image_id: int, layer_id: int) -> str:
 
 @mcp.tool
 def add_text(image_id: int, text: str, x: int = 20, y: int = 20, size: float = 48,
-             color: str = "0,0,0", font: str = "Sans Bold") -> str:
-    """Add a text layer at (x,y). color is '#rrggbb' or 'r,g,b'. Returns the text layer id.
+             color: str = "0,0,0", font: str = "Sans Bold", anchor: str = "") -> str:
+    """Add a text layer. color is '#rrggbb' or 'r,g,b'. Returns the layer id + final bbox.
 
-    Render a preview afterward to check placement/legibility, then nudge with set_layer.
+    Pass `anchor` (center | top-center | bottom-center | top-left | ... , same names as
+    `place`) to auto-position the rendered text and ignore x/y — no need to measure the
+    text first. Returns 'layer=<id> bbox=x,y,WxH' so you know exactly where it landed.
     """
     iid = int(image_id)
     bridge.eval(f"(gimp-context-set-foreground {_color(color)})")
     lid = bridge.eval(
         f'(car (gimp-text-fontname {iid} -1 {int(x)} {int(y)} "{_q(text)}" 0 TRUE {float(size)} UNIT-PIXEL "{_q(font)}"))'
     ).strip()
+    if anchor:
+        _place_layer(iid, lid, anchor)
+    lw = int(bridge.eval(f"(car (gimp-drawable-width {lid}))").strip())
+    lh = int(bridge.eval(f"(car (gimp-drawable-height {lid}))").strip())
+    off = bridge.eval(f"(gimp-drawable-offsets {lid})").strip().strip("()").split()
     _flush()
-    return f"added text layer id={lid}: '{text}' at ({x},{y})"
+    return f"layer={lid} bbox={off[0]},{off[1]},{lw}x{lh}  '{text}'"
 
 
 @mcp.tool
@@ -607,28 +708,20 @@ def close_image(image_id: int) -> str:
 # ── auto-vision: render and return the image INLINE ──────────────────────────
 
 @mcp.tool
-def look(image_id: int, max_dim: int = 768):
+def look(image_id: int, max_dim: int = 768, bg: str = "auto"):
     """Render the image and return it INLINE so you see it immediately (no Read step).
 
-    Flattens a copy, downscales to max_dim, returns the PNG as image content.
-    Use this constantly: edit → look → judge → adjust. For numeric coordinates/size
-    use `describe`; for region brightness use `inspect`.
+    Use this constantly: edit → look → judge → adjust. `bg` decides how transparency
+    is shown — this matters because transparent art is INVISIBLE flattened on white:
+      auto (default) → checkerboard if the image has alpha, else a plain flatten
+      checker        → grey transparency checkerboard
+      black / white  → composite on a solid backdrop (preview on a dark/light shirt)
+      none           → keep the alpha (PNG with transparency)
+    For exact coordinates/size use `describe`; for region brightness use `inspect`.
     """
     iid = int(image_id)
-    w = int(bridge.eval(f"(car (gimp-image-width {iid}))").strip())
-    h = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
-    scale = min(1.0, max_dim / max(w, h))
-    pw, ph = max(1, round(w * scale)), max(1, round(h * scale))
     path = f"/tmp/gimp-look-{iid}.png"
-    dup = bridge.eval(f"(car (gimp-image-duplicate {iid}))").strip()
-    try:
-        bridge.eval(f"(gimp-image-flatten {dup})")
-        if scale < 1.0:
-            bridge.eval(f"(gimp-image-scale {dup} {pw} {ph})")
-        d = bridge.eval(f"(car (gimp-image-get-active-drawable {dup}))").strip()
-        bridge.eval(f'(file-png-save RUN-NONINTERACTIVE {dup} {d} "{_q(path)}" "l" 0 9 1 1 1 1 1)')
-    finally:
-        bridge.eval(f"(gimp-image-delete {dup})")
+    _render(iid, max_dim, bg, path)
     return MCPImage(path=path)
 
 
@@ -1017,6 +1110,64 @@ def motion_blur(image_id: int, length: float = 20, angle: float = 0,
     )
     _flush()
     return f"motion blur ({kind}, length={length}, angle={angle}) on image {iid}"
+
+
+# ── PLACEMENT / TRANSPARENCY (agent ergonomics) ──────────────────────────────
+
+@mcp.tool
+def place(image_id: int, anchor: str = "center", dx: int = 0, dy: int = 0,
+          layer_id: int = -1, margin: int = 0) -> str:
+    """Move a layer to a canvas anchor (gravity) — no manual width/height math.
+
+    Collapses the get-size → compute-offset → set-offset round-trip into one call.
+    anchor: center | top | bottom | left | right | top-left | top-right |
+    bottom-left | bottom-right | top-center | bottom-center (etc). `dx`/`dy` nudge
+    after anchoring; `margin` insets from the edges. layer_id defaults to the active
+    layer. Ideal for titles, badges, watermarks, logo placement.
+    """
+    iid = int(image_id)
+    lid = _drawable(iid) if int(layer_id) < 0 else int(layer_id)
+    x, y = _place_layer(iid, lid, anchor, dx, dy, margin)
+    _flush()
+    return f"placed layer {lid} at '{anchor}' -> ({x},{y}) on image {iid}"
+
+
+@mcp.tool
+def color_to_alpha(image_id: int, color: str = "#ffffff") -> str:
+    """Knock a color out to transparency on the active layer (native soft keying).
+
+    Softer/cleaner than select-by-color+delete for solid or near-solid backgrounds —
+    each pixel keeps a matching amount of alpha. The go-to for making print/sticker art
+    transparent. Adds an alpha channel first if the layer lacks one.
+    """
+    iid = int(image_id)
+    d = _drawable(iid)
+    bridge.eval(f"(if (= (car (gimp-drawable-has-alpha {d})) FALSE) (gimp-image-set-active-layer {iid} {d}))")
+    bridge.eval(f"(if (= (car (gimp-drawable-has-alpha {d})) FALSE) (gimp-layer-add-alpha {d}))")
+    bridge.eval(f"(plug-in-colortoalpha RUN-NONINTERACTIVE {iid} {d} {_color(color)})")
+    _flush()
+    return f"keyed {color} -> alpha on image {iid}"
+
+
+@mcp.tool
+def trim_to_content(image_id: int) -> str:
+    """Crop the canvas to the non-transparent bounding box of the active layer.
+
+    Trims empty margins around transparent art before export (tighter print files,
+    correct centering). No-op if the layer is fully opaque or fully empty.
+    """
+    iid = int(image_id)
+    d = _drawable(iid)
+    bridge.eval(f"(gimp-image-select-item {iid} CHANNEL-OP-REPLACE {d})")
+    b = bridge.eval(f"(gimp-selection-bounds {iid})").strip().strip("()").split()
+    bridge.eval(f"(gimp-selection-none {iid})")
+    if not b or b[0].upper() in ("FALSE", "0", "#F"):
+        return f"no content bounds on image {iid} (fully transparent or no alpha) — not trimmed"
+    x1, y1, x2, y2 = int(b[1]), int(b[2]), int(b[3]), int(b[4])
+    nw, nh = x2 - x1, y2 - y1
+    bridge.eval(f"(gimp-image-crop {iid} {nw} {nh} {x1} {y1})")
+    _flush()
+    return f"trimmed image {iid} to content: {nw}x{nh} (was cropped from {x1},{y1})"
 
 
 # ── KNOWLEDGE BASE: search the generated GIMP corpus in-session ───────────────

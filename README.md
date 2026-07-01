@@ -32,6 +32,29 @@ eyes for "is this area dark enough for light text?") and `describe` (exact size 
 layers / dpi), the agent works the way a person does: make a change, look at the result,
 correct. Everything else is in service of that loop.
 
+`look` and `render_preview` take a `bg` argument — `auto` (default) shows a transparency
+**checkerboard** when the image has alpha, so transparent/cut-out art is actually visible
+instead of vanishing onto white. Use `bg=black`/`bg=white` to preview art as it'll sit on
+a dark or light background (shirt, sticker, page), or `bg=none` to keep the alpha.
+
+## Built for agents driving it (frontier *and* local models)
+
+The tool surface is shaped around how an LLM actually works this, not how a human clicks:
+
+- **See transparency, not white** — the vision loop composites alpha onto a checkerboard
+  by default, so the model never edits blind on cut-out art.
+- **No coordinate math** — `place` / `add_text(anchor=…)` position by gravity
+  (`center`, `top-center`, `bottom-left`, …). One call instead of a
+  measure → compute → set-offset round-trip that small models routinely get wrong.
+- **Native transparency ops** — `color_to_alpha` (soft-key a background out) and
+  `trim_to_content` (crop to the alpha bounding box) make print/sticker workflows one call.
+- **Recoverable errors** — failures are translated into actionable hints ("font missing —
+  call `list_fonts`", "stale image id — call `list_images`", "server down — run
+  `start-gimp-server.sh`"). This matters most for local models (Hermes, Qwen, etc.) that
+  otherwise stall on GIMP's opaque `"returned no return values"`.
+- **Fewer round-trips** — `gimp_batch` runs many statements in one call with per-step
+  error capture; wrappers return the ids/bboxes you'd otherwise have to re-query.
+
 ## Why a Script-Fu bridge (not a GIMP plugin)
 
 On modern Linux, GIMP 2.10's **Python-Fu is effectively gone** — `gimp-python` was
@@ -80,7 +103,7 @@ claude mcp add gimp -s user -- python3 "$(pwd)/server.py"
 That's it — no GIMP scripting knowledge required on your end; the model composes the
 Scheme and checks its work with `look`.
 
-## Tools (61)
+## Tools (64)
 
 **The core three** make the whole PDB reachable — the rest are conveniences:
 
@@ -88,8 +111,8 @@ Scheme and checks its work with `look`.
 - `pdb_query(keyword)` — search the PDB for procedure names
 - `pdb_help(procedure)` — a procedure's blurb + typed argument list
 
-**Vision:** `look` (inline render — the feedback loop), `render_preview`, `describe`
-(metadata), `inspect` (region luminance/contrast + placement hint)
+**Vision:** `look` (inline render — the feedback loop, transparency-aware `bg`),
+`render_preview`, `describe` (metadata), `inspect` (region luminance/contrast + placement hint)
 
 **Editing:** layers (`new_layer`, `add_layer_from_file`, `set_layer`, `list_layers`,
 `merge_visible`, `delete_layer`), text (`add_text`, `list_fonts`, `outline_text`,
@@ -100,7 +123,9 @@ patches), transforms (`crop`, `autocrop`, `rotate`, `flip`, `resize_canvas`,
 `sharpen`, `pixelize`, `drop_shadow`, `vignette`, `oilify`, `emboss`, `lens_flare`,
 `motion_blur`), selections (`select`, `select_by_color` — magic-wand/keying,
 `feather_selection`, `grow_shrink_selection`), fills/shapes (`fill`, `draw_rect`,
-`gradient_fill`, `add_border`, `overlay_blend`)
+`gradient_fill`, `add_border`, `overlay_blend`), placement & transparency
+(`place` — anchor a layer by gravity, `color_to_alpha` — soft-key a bg to transparent,
+`trim_to_content` — crop to the alpha bounds)
 
 **Session & safety:** `load_image`, `list_images`, `new_image`, `export_image`,
 `save_xcf`, `export_layers`, `close_image`, `checkpoint`/`restore_checkpoint`
