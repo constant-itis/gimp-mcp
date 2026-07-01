@@ -295,23 +295,31 @@ def new_image(width: int = 1024, height: int = 1024, fill_white: bool = True) ->
 
 
 @mcp.tool
-def export_image(image_id: int, path: str) -> str:
-    """Flatten a copy of the image and export it to `path`.
+def export_image(image_id: int, path: str, flatten: bool = False) -> str:
+    """Export a copy of the image to `path` (format from the extension).
 
-    Format is chosen from the file extension (.png/.jpg/.webp/.tiff/...).
-    The original in-memory image is left unflattened.
+    Transparency is PRESERVED by default (the layers are merged, not flattened) so
+    PNG/WebP/etc. keep their alpha — important for cut-out / sticker / print art.
+    Set flatten=True to composite onto the background first. Formats without an alpha
+    channel (JPEG/BMP) are always flattened. The original image is left untouched.
     """
+    ext = os.path.splitext(path)[1].lower()
+    no_alpha_fmt = ext in (".jpg", ".jpeg", ".bmp", ".pnm", ".ppm", ".pgm")
     with _suspend():
         dup = bridge.eval(f"(car (gimp-image-duplicate {int(image_id)}))").strip()
         try:
-            bridge.eval(f"(gimp-image-flatten {dup})")
+            if flatten or no_alpha_fmt:
+                bridge.eval(f"(gimp-image-flatten {dup})")
+            else:
+                bridge.eval(f"(gimp-image-merge-visible-layers {dup} CLIP-TO-IMAGE)")
             d = bridge.eval(f"(car (gimp-image-get-active-drawable {dup}))").strip()
             bridge.eval(
                 f'(gimp-file-save RUN-NONINTERACTIVE {dup} {d} "{_q(path)}" "{_q(os.path.basename(path))}")'
             )
         finally:
             bridge.eval(f"(gimp-image-delete {dup})")
-    return f"exported image {image_id} -> {path}"
+    kept = "flattened" if (flatten or no_alpha_fmt) else "alpha preserved"
+    return f"exported image {image_id} -> {path} ({kept})"
 
 
 # ── VISION: the keystone preview loop ────────────────────────────────────────

@@ -32,16 +32,23 @@ def fill(image_id: int, color: str = "0,0,0") -> str:
 
 @mcp.tool
 def draw_rect(image_id: int, x: int, y: int, width: int, height: int,
-             color: str = "0,0,0", fill_shape: bool = True) -> str:
-    """Draw a filled rectangle on the active layer (selection-based fill, then deselect)."""
+             color: str = "0,0,0", fill_shape: bool = True, line_width: int = 3) -> str:
+    """Draw a rectangle on the active layer. fill_shape=True fills it; False strokes an
+    outline `line_width` px thick. Selection-based, then deselected."""
     iid = int(image_id)
     d = _drawable(iid)
     bridge.eval(f"(gimp-image-select-rectangle {iid} CHANNEL-OP-REPLACE {int(x)} {int(y)} {int(width)} {int(height)})")
     bridge.eval(f"(gimp-context-set-foreground {_color(color)})")
-    bridge.eval(f"(gimp-edit-fill {d} FILL-FOREGROUND)")
+    if fill_shape:
+        bridge.eval(f"(gimp-edit-fill {d} FILL-FOREGROUND)")
+        how = "filled"
+    else:
+        bridge.eval(f"(gimp-context-set-line-width {int(line_width)})")
+        bridge.eval(f"(gimp-drawable-edit-stroke-selection {d})")
+        how = f"outlined ({line_width}px)"
     bridge.eval(f"(gimp-selection-none {iid})")
     _flush()
-    return f"drew rectangle on image {iid} at ({x},{y}) {width}x{height}"
+    return f"drew {how} rectangle on image {iid} at ({x},{y}) {width}x{height}"
 
 
 @mcp.tool

@@ -13,6 +13,7 @@ Zero third-party deps — stdlib socket/struct only.
 
 import socket
 import struct
+import threading
 
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 10008
@@ -28,6 +29,11 @@ class GimpBridge:
         self.host = host
         self.port = port
         self.timeout = timeout
+        # GIMP's Script-Fu server is single-threaded. Serialize eval so two concurrent
+        # callers never open competing connections (which the server would queue/refuse
+        # and could interleave on the wire). Note: this makes each eval atomic, not a
+        # whole multi-eval tool sequence — MCP requests are processed serially anyway.
+        self._lock = threading.Lock()
 
     def eval(self, command: str) -> str:
         """Send one Scheme expression, return its printed result.
@@ -39,7 +45,7 @@ class GimpBridge:
         if len(payload) > 0xFFFF:
             raise ValueError("command too long for Script-Fu protocol (>65535 bytes)")
         try:
-            with socket.create_connection((self.host, self.port), self.timeout) as s:
+            with self._lock, socket.create_connection((self.host, self.port), self.timeout) as s:
                 s.settimeout(self.timeout)
                 s.sendall(MAGIC + struct.pack(">H", len(payload)) + payload)
                 hdr = self._recv_exact(s, 4)

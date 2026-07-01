@@ -9,6 +9,8 @@
 
 # gimp-mcp
 
+[![ci](https://github.com/constant-itis/gimp-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/constant-itis/gimp-mcp/actions/workflows/ci.yml)
+
 Drive **GIMP 2.10** from an AI agent. An [MCP](https://modelcontextprotocol.io)
 server bridges tool calls to GIMP's built-in **Script-Fu** server, exposing the
 *entire* GIMP procedure database (every filter, layer op, transform, exporter) —
