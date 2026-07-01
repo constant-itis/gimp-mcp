@@ -63,3 +63,26 @@ python3 teach/factory.py        # executes seed + teach/specs/*.json, emits the 
 
 This is the flywheel: the capable model does the work *and* checks it, and the smaller
 model learns from the verified result — no human labeling in the loop.
+
+## Measured: it works on a local model
+
+`trial_35b.py` closes the loop and *measures* the uplift. It few-shots a local
+**Qwen 35B** (on an evo-x2 box, OpenAI-compatible endpoint) with a slice of the corpus,
+hands it fresh briefs, lets **the 35B plan the tool calls**, then executes its plan
+against live GIMP and scores it.
+
+Result on 6 briefs (including novel ones it had no example of):
+
+> **valid tool-call plans: 6/6 · executed clean against GIMP: 6/6 · visually on-brief: ~5/6**
+
+A local 35B, few-shot with the corpus, autonomously produced a perfect concentric
+bullseye, a die-cut star sticker, a simple sun-and-hills landscape, and a distressed
+headline — all runnable gimp-mcp programs. The remaining gap is *aesthetic judgment*
+(one badge's palette drifted), not tool-driving ability — exactly what more/richer demos
+improve. So: **few-shotting this corpus makes a small local model able to drive gimp-mcp.**
+That's the whole thesis, measured.
+
+```bash
+python3 teach/trial_35b.py     # needs the Script-Fu server + a local LLM endpoint
+# override the endpoint with GIMP_MCP_LLM_URL
+```

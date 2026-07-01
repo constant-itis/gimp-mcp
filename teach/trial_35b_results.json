@@ -1,0 +1,329 @@
+[
+  {
+    "id": "35b-nova-labs",
+    "task": "A circular emblem for 'NOVA LABS' with the name arched across the top on a dark navy field ringed in gold, with a bright star in the centre.",
+    "trace": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 800,
+          "height": 800,
+          "transparent": true
+        },
+        "result": "created image id=281 (800x800, transparent)"
+      },
+      {
+        "tool": "draw_ellipse",
+        "args": {
+          "image_id": 281,
+          "x": 100,
+          "y": 100,
+          "width": 600,
+          "height": 600,
+          "color": "#0a192f",
+          "line_width": 10
+        },
+        "result": "drew filled ellipse on image 281 at (100,100) 600x600"
+      },
+      {
+        "tool": "draw_ellipse",
+        "args": {
+          "image_id": 281,
+          "x": 105,
+          "y": 105,
+          "width": 590,
+          "height": 590,
+          "color": "#ffd700",
+          "line_width": 5
+        },
+        "result": "drew filled ellipse on image 281 at (105,105) 590x590"
+      },
+      {
+        "tool": "draw_star",
+        "args": {
+          "image_id": 281,
+          "cx": 400,
+          "cy": 450,
+          "points": 5,
+          "outer": 80,
+          "inner": 40,
+          "color": "#ffd700",
+          "rotation": 0,
+          "fill_shape": "true"
+        },
+        "result": "drew 5-point star at (400,450) r=80/40 on image 281"
+      },
+      {
+        "tool": "arc_text",
+        "args": {
+          "image_id": 281,
+          "text": "NOVA LABS",
+          "radius": 300,
+          "size": 72,
+          "center_angle": 90,
+          "step_deg": 10,
+          "color": "#ffffff"
+        },
+        "result": "arc text 'NOVA LABS' on layer 2721 (r=300, center_angle=90, image 281)"
+      }
+    ],
+    "verified": true,
+    "error": null,
+    "preview": "/home/nhac/projects/gimp-mcp/teach/out/35b-nova-labs.png",
+    "planned": true,
+    "n_steps": 5
+  },
+  {
+    "id": "35b-blast",
+    "task": "The word 'BLAST' as a big distressed orange headline centered on a black canvas.",
+    "trace": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 1200,
+          "height": 400
+        },
+        "result": "created image id=283 (1200x400, white)"
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": 283,
+          "color": "#000000"
+        },
+        "result": "filled selection on image 283 with #000000"
+      },
+      {
+        "tool": "add_text",
+        "args": {
+          "image_id": 283,
+          "text": "BLAST",
+          "size": 200,
+          "color": "#ff8c00",
+          "anchor": "center"
+        },
+        "result": "layer=2745 bbox=243,83,714x234  'BLAST'"
+      },
+      {
+        "tool": "apply_recipe",
+        "args": {
+          "name": "distressed-text",
+          "image_id": 283,
+          "params": {
+            "grit": 10
+          }
+        },
+        "result": "applied 'distressed-text' to image 283 \u2014 7 steps, params {\"grit\": 10, \"blur\": 7}"
+      }
+    ],
+    "verified": true,
+    "error": null,
+    "preview": "/home/nhac/projects/gimp-mcp/teach/out/35b-blast.png",
+    "planned": true,
+    "n_steps": 4
+  },
+  {
+    "id": "35b-star-sticker",
+    "task": "A single yellow five-pointed star as a transparent sticker with a die-cut white outline.",
+    "trace": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 600,
+          "height": 600,
+          "transparent": true
+        },
+        "result": "created image id=285 (600x600, transparent)"
+      },
+      {
+        "tool": "draw_star",
+        "args": {
+          "image_id": 285,
+          "cx": 300,
+          "cy": 300,
+          "points": 5,
+          "outer": 200,
+          "inner": 80,
+          "color": "#f1c40f"
+        },
+        "result": "drew 5-point star at (300,300) r=200/80 on image 285"
+      },
+      {
+        "tool": "apply_recipe",
+        "args": {
+          "name": "sticker-outline",
+          "image_id": 285
+        },
+        "result": "applied 'sticker-outline' to image 285 \u2014 11 steps, params {\"outline\": 14, \"outline_color\": \"'(255 255 255)\", \"shadow\": 18}"
+      },
+      {
+        "tool": "trim_to_content",
+        "args": {
+          "image_id": 285
+        },
+        "result": "trimmed image 285 to content: 410x390 (was cropped from 95,86)"
+      }
+    ],
+    "verified": true,
+    "error": null,
+    "preview": "/home/nhac/projects/gimp-mcp/teach/out/35b-star-sticker.png",
+    "planned": true,
+    "n_steps": 4
+  },
+  {
+    "id": "35b-sunny-hills",
+    "task": "A simple sunny landscape on a 900x600 canvas: light-blue sky, green ground across the bottom third, and a yellow sun with rays in the top-left corner.",
+    "trace": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 900,
+          "height": 600
+        },
+        "result": "created image id=287 (900x600, white)"
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": 287,
+          "color": "#87CEEB"
+        },
+        "result": "filled selection on image 287 with #87CEEB"
+      },
+      {
+        "tool": "draw_rect",
+        "args": {
+          "image_id": 287,
+          "x": 0,
+          "y": 400,
+          "width": 900,
+          "height": 200,
+          "color": "#228B22"
+        },
+        "result": "drew filled rectangle on image 287 at (0,400) 900x200"
+      },
+      {
+        "tool": "sunburst",
+        "args": {
+          "image_id": 287,
+          "cx": 100,
+          "cy": 100,
+          "rays": 16,
+          "radius": 80,
+          "color": "#FFD700"
+        },
+        "result": "drew 16-ray sunburst at (100,100) r=80 on image 287"
+      }
+    ],
+    "verified": true,
+    "error": null,
+    "preview": "/home/nhac/projects/gimp-mcp/teach/out/35b-sunny-hills.png",
+    "planned": true,
+    "n_steps": 4
+  },
+  {
+    "id": "35b-vintage-fade",
+    "task": "A purple-to-orange diagonal gradient given a faded vintage-photo treatment.",
+    "trace": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 800,
+          "height": 600
+        },
+        "result": "created image id=289 (800x600, white)"
+      },
+      {
+        "tool": "gradient_fill",
+        "args": {
+          "image_id": 289,
+          "color1": "#8e44ad",
+          "color2": "#e67e22",
+          "direction": "diagonal"
+        },
+        "result": "gradient #8e44ad->#e67e22 (diagonal) on image 289"
+      },
+      {
+        "tool": "apply_recipe",
+        "args": {
+          "name": "vintage",
+          "image_id": 289
+        },
+        "result": "applied 'vintage' to image 289 \u2014 16 steps, params {\"desat\": 35, \"grain\": 24, \"vignette\": 55}"
+      }
+    ],
+    "verified": true,
+    "error": null,
+    "preview": "/home/nhac/projects/gimp-mcp/teach/out/35b-vintage-fade.png",
+    "planned": true,
+    "n_steps": 3
+  },
+  {
+    "id": "35b-bullseye",
+    "task": "A target/bullseye: concentric circles alternating red and white, centered.",
+    "trace": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 800,
+          "height": 800,
+          "fill_white": true
+        },
+        "result": "created image id=291 (800x800, white)"
+      },
+      {
+        "tool": "draw_ellipse",
+        "args": {
+          "image_id": 291,
+          "x": 100,
+          "y": 100,
+          "width": 600,
+          "height": 600,
+          "color": "#c0392b"
+        },
+        "result": "drew filled ellipse on image 291 at (100,100) 600x600"
+      },
+      {
+        "tool": "draw_ellipse",
+        "args": {
+          "image_id": 291,
+          "x": 200,
+          "y": 200,
+          "width": 400,
+          "height": 400,
+          "color": "#ffffff"
+        },
+        "result": "drew filled ellipse on image 291 at (200,200) 400x400"
+      },
+      {
+        "tool": "draw_ellipse",
+        "args": {
+          "image_id": 291,
+          "x": 300,
+          "y": 300,
+          "width": 200,
+          "height": 200,
+          "color": "#c0392b"
+        },
+        "result": "drew filled ellipse on image 291 at (300,300) 200x200"
+      },
+      {
+        "tool": "draw_ellipse",
+        "args": {
+          "image_id": 291,
+          "x": 375,
+          "y": 375,
+          "width": 50,
+          "height": 50,
+          "color": "#ffffff"
+        },
+        "result": "drew filled ellipse on image 291 at (375,375) 50x50"
+      }
+    ],
+    "verified": true,
+    "error": null,
+    "preview": "/home/nhac/projects/gimp-mcp/teach/out/35b-bullseye.png",
+    "planned": true,
+    "n_steps": 5
+  }
+]

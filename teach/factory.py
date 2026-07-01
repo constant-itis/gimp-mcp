@@ -35,8 +35,10 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, ROOT)
 
 import _core
-import packs.layers, packs.text, packs.transform, packs.color  # noqa: E402
-import packs.fx, packs.select, packs.recipes, packs.journal, packs.watch  # noqa: E402
+# load every bundled pack so the factory's registry matches the live tool surface
+for _p in ("layers", "text", "transform", "color", "fx", "select",
+           "generate", "paths", "batch", "animate", "recipes", "journal", "watch"):
+    __import__(f"packs.{_p}")
 from _core import mcp, bridge, _render  # noqa: E402
 
 TOOLS = {t.name: t.fn for t in asyncio.run(mcp._list_tools()) if hasattr(t, "fn")}
