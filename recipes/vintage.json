@@ -1,0 +1,23 @@
+{
+  "name": "vintage",
+  "description": "Aged-photo look on the active layer: desaturate, warm the midtones, add film grain, and burn in a vignette.",
+  "params": { "desat": 35, "grain": 24, "vignette": 55 },
+  "steps": [
+    { "scheme": "(gimp-drawable-desaturate $LAYER DESATURATE-LUMINOSITY)" },
+    { "scheme": "(gimp-curves-spline $LAYER HISTOGRAM-RED 6 #(0 20 128 140 255 255))" },
+    { "scheme": "(gimp-curves-spline $LAYER HISTOGRAM-BLUE 6 #(0 30 128 110 255 205))" },
+    { "scheme": "(gimp-image-set-active-layer $IMG $LAYER)" },
+    { "scheme": "(plug-in-hsv-noise RUN-NONINTERACTIVE $IMG $LAYER 8 0 0 {grain})" },
+    { "bind": "VIG", "scheme": "(car (gimp-layer-new $IMG $W $H RGBA-IMAGE \"vignette\" 100 LAYER-MODE-NORMAL))" },
+    { "scheme": "(gimp-image-insert-layer $IMG $VIG 0 -1)" },
+    { "scheme": "(gimp-drawable-fill $VIG FILL-TRANSPARENT)" },
+    { "scheme": "(let* ((mx (quotient $W 8)) (my (quotient $H 8))) (gimp-image-select-ellipse $IMG CHANNEL-OP-REPLACE mx my (- $W (* 2 mx)) (- $H (* 2 my))))" },
+    { "scheme": "(gimp-selection-invert $IMG)" },
+    { "scheme": "(gimp-selection-feather $IMG (quotient (min $W $H) 4))" },
+    { "scheme": "(gimp-context-set-foreground '(0 0 0))" },
+    { "scheme": "(gimp-image-set-active-layer $IMG $VIG)" },
+    { "scheme": "(gimp-edit-fill $VIG FILL-FOREGROUND)" },
+    { "scheme": "(gimp-selection-none $IMG)" },
+    { "scheme": "(gimp-layer-set-opacity $VIG {vignette})" }
+  ]
+}

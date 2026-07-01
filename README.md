@@ -88,22 +88,56 @@ claude mcp add gimp -s user -- python3 "$(pwd)/server.py"
 
 ## Quickstart
 
-1. **Start GIMP's Script-Fu server** (once per session):
-   ```bash
-   ./start-gimp-server.sh
-   ```
-   Launches GIMP headless on `127.0.0.1:10008` (idempotent — no-op if already up).
-   To drive a GIMP window you can *watch*, open the GUI and use
-   `Filters ▸ Script-Fu ▸ Start Server` on the same port instead — edits then appear
-   live in the window.
+**Headless (fast, no window):**
+```bash
+./start-gimp-server.sh          # GIMP on 127.0.0.1:10008, idempotent
+```
+Then ask your agent — the `gimp` tools load automatically:
+> "Load ~/pic.jpg, scale to 800px wide, bump the contrast, `look` at it, export a PNG."
 
-2. **Ask your agent.** The `gimp` tools load automatically. For example:
-   > "Load ~/pic.jpg, scale to 800px wide, bump the contrast, then `look` at it and export a PNG."
+The model composes the Scheme and checks its own work with `look`. No GIMP scripting
+needed on your end.
 
-That's it — no GIMP scripting knowledge required on your end; the model composes the
-Scheme and checks its work with `look`.
+## Watch it work — the designer workflow
 
-## Tools (64)
+The common case isn't "generate an image from scratch." It's: **you already have GIMP
+open with your artwork** and you say *"hey, do X to this."* Because GIMP is
+single-instance, you point the server at the window you already have open:
+
+```bash
+# 1. open GIMP with your image (normally)
+# 2. attach the server to that same window:
+./start-gimp-server.sh --gui      # (or in GIMP: Filters ▸ Script-Fu ▸ Start Server)
+# 3. tell your agent: "work on the image I have open — do X"
+```
+
+The agent finds your open image (`list_images` / `suggest`), `show`s it, and edits it
+**live in your window** — every tool flushes the display so you watch it happen. Ask to
+"see it" any time and it opens/refreshes the view.
+
+**House rules — [AGENTS.md](AGENTS.md).** A short convention set for *any* LLM driving
+the tool: attach to the file you already have open, compose abilities (don't railroad),
+**show a preview + offer options at each stage**, and **snapshot (`checkpoint`) before
+any destructive/automated step** — GIMP 2.10 has no API undo, so the snapshot *is* the
+undo. `suggest` gives the agent a context-aware menu of next moves to offer you.
+
+## Recipes & journaling — the power-user layer
+
+Techniques are **saved, parameterized, and reused**, not rebuilt each time:
+
+- **`apply_recipe(name, image_id, params)`** runs a named, tunable pipeline on any image
+  — e.g. `distressed-text` (grit dial), `vintage`, `sticker-outline`. Bundled recipes are
+  just editable JSON in `recipes/`; your own live in `~/.config/gimp-mcp/recipes/`
+  (`$GIMP_MCP_RECIPES`). `list_recipes` / `show_recipe` to browse.
+- **`journal`** is a macro-recorder: `journal start` → do edits → `journal show` /
+  `journal script` (a standalone replay `.py`) / `save_recipe(from_journal=True)` to turn
+  what you just did into a reusable recipe. Pure queries and preview scratch are filtered
+  out, so the log reads like the recipe you'd hand-write.
+
+Recipes are **abilities, not baked-in behavior** — data you can read, edit, share, and
+extend; nothing forces a workflow.
+
+## Tools (72)
 
 **The core three** make the whole PDB reachable — the rest are conveniences:
 
@@ -111,8 +145,13 @@ Scheme and checks its work with `look`.
 - `pdb_query(keyword)` — search the PDB for procedure names
 - `pdb_help(procedure)` — a procedure's blurb + typed argument list
 
-**Vision:** `look` (inline render — the feedback loop, transparency-aware `bg`),
-`render_preview`, `describe` (metadata), `inspect` (region luminance/contrast + placement hint)
+**Vision & watch:** `look` (inline render — the feedback loop, transparency-aware `bg`),
+`render_preview`, `describe` (metadata), `inspect` (region luminance/contrast + placement
+hint), `show` (open it in the GIMP window to watch live), `suggest` (context-aware menu of
+next moves)
+
+**Recipes & journal:** `apply_recipe`, `list_recipes`, `show_recipe`, `save_recipe`,
+`delete_recipe`, `journal` (record → replay script / new recipe)
 
 **Editing:** layers (`new_layer`, `add_layer_from_file`, `set_layer`, `list_layers`,
 `merge_visible`, `delete_layer`), text (`add_text`, `list_fonts`, `outline_text`,

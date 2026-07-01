@@ -1,0 +1,14 @@
+{
+  "name": "distressed-text",
+  "description": "Weathered grit on the active layer: noise -> blur -> contrast-stretch -> threshold as a mask. Lower grit = lighter wear. Works on any text or art layer.",
+  "params": { "grit": 80, "blur": 7 },
+  "steps": [
+    { "bind": "MASK", "scheme": "(car (gimp-layer-create-mask $LAYER ADD-MASK-WHITE))" },
+    { "scheme": "(gimp-layer-add-mask $LAYER $MASK)" },
+    { "scheme": "(plug-in-randomize-hurl RUN-NONINTERACTIVE $IMG $MASK 100 1 TRUE $RAND)" },
+    { "scheme": "(plug-in-gauss RUN-NONINTERACTIVE $IMG $MASK {blur} {blur} 0)" },
+    { "scheme": "(gimp-levels-stretch $MASK)" },
+    { "scheme": "(gimp-threshold $MASK {grit} 255)" },
+    { "scheme": "(gimp-layer-remove-mask $LAYER MASK-APPLY)" }
+  ]
+}

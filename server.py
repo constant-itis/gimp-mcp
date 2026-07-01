@@ -13,6 +13,10 @@ Needs: the Script-Fu server running — ./start-gimp-server.sh
 
 import os
 import sys
+import re
+import json
+import glob
+import random
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -53,13 +57,53 @@ def _hint(msg: str) -> str:
     return ""
 
 
+# ── journaling: record the design ops as they happen (macro-recorder) ─────────
+# Every tool routes through bridge.eval, so this one hook captures a replayable
+# log. Pure reads and preview/export scratch work are filtered out so the journal
+# reads like the recipe you'd hand-write, not socket noise.
+_JOURNAL = {"on": False, "label": "", "ops": []}
+_SUSPEND = {"n": 0}                       # reentrant: >0 = don't record (previews/exports)
+_READ_RE = re.compile(
+    r"gimp-(image-(width|height|base-type|get-layers|get-resolution|get-filename|"
+    r"get-active-(drawable|layer))|drawable-(width|height|offsets|has-alpha|histogram|"
+    r"get-pixel)|item-get-(name|visible)|layer-get-opacity|selection-bounds|image-list|"
+    r"version)|gimp-procedural-db|gimp-fonts-get-list|gimp-displays-flush"
+)
+_WRITE_RE = re.compile(
+    r"plug-in-|script-fu-|-set-|-fill|-insert|-add-|-remove|-delete|threshold|levels|"
+    r"curves|transform|gradient|-select|merge|create-mask|anchor|-scale|-crop|-rotate|"
+    r"-flip|desaturate|invert|brightness|hue-saturation|colortoalpha|text-fontname|edit-|"
+    r"floating|convert|set-offsets|set-opacity|set-mode"
+)
+
+
+def _journal_add(scheme: str):
+    if not _JOURNAL["on"] or _SUSPEND["n"] > 0:
+        return
+    s = scheme.strip()
+    if s.startswith(";"):
+        _JOURNAL["ops"].append(s)          # explicit marker (e.g. apply_recipe)
+        return
+    if _READ_RE.search(s) and not _WRITE_RE.search(s):
+        return                             # pure query — not a design op
+    _JOURNAL["ops"].append(s)
+
+
+class _suspend:
+    """`with _suspend():` — don't journal scratch work (previews, exports, snapshots)."""
+    def __enter__(self): _SUSPEND["n"] += 1
+    def __exit__(self, *a): _SUSPEND["n"] -= 1
+
+
 _raw_eval = bridge.eval
 
 
 def _smart_eval(scheme: str) -> str:
-    """bridge.eval + actionable error text. Applied globally so every tool benefits."""
+    """bridge.eval + journaling + actionable error text. Applied globally."""
     try:
-        return _raw_eval(scheme)
+        out = _raw_eval(scheme)
+        _journal_add(scheme)
+        return out
     except ConnectionError as e:
         raise ConnectionError(
             f"{e}\n  hint: Script-Fu server unreachable — run ./start-gimp-server.sh "
@@ -264,6 +308,12 @@ def _drawable(image_id) -> str:
     return bridge.eval(f"(car (gimp-image-get-active-drawable {int(image_id)}))").strip()
 
 
+def _truthy(scheme: str) -> bool:
+    """Eval a predicate and interpret the result. GIMP booleans come back over the
+    bridge as '1'/'0' (NOT 'TRUE'/'FALSE') — this normalizes both."""
+    return bridge.eval(scheme).strip().upper() in ("1", "TRUE", "#T", "YES")
+
+
 def _flush():
     bridge.eval("(gimp-displays-flush)")
 
@@ -306,12 +356,13 @@ def _render(iid: int, max_dim: int, bg: str, path: str):
     h = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
     scale = min(1.0, max_dim / max(w, h))
     pw, ph = max(1, round(w * scale)), max(1, round(h * scale))
+    _SUSPEND["n"] += 1                      # scratch work — keep it out of the journal
     dup = bridge.eval(f"(car (gimp-image-duplicate {iid}))").strip()
     try:
         mode = str(bg).lower()
         if mode == "auto":
             d0 = bridge.eval(f"(car (gimp-image-get-active-drawable {dup}))").strip()
-            has_alpha = bridge.eval(f"(car (gimp-drawable-has-alpha {d0}))").strip() == "TRUE"
+            has_alpha = _truthy(f"(car (gimp-drawable-has-alpha {d0}))")
             mode = "checker" if has_alpha else "flat"
         if mode in ("checker", "black", "white"):
             bl = bridge.eval(f'(car (gimp-layer-new {dup} {w} {h} RGB-IMAGE "bg" 100 LAYER-MODE-NORMAL))').strip()
@@ -334,6 +385,7 @@ def _render(iid: int, max_dim: int, bg: str, path: str):
         bridge.eval(f'(file-png-save RUN-NONINTERACTIVE {dup} {d} "{_q(path)}" "l" 0 9 1 1 1 1 1)')
     finally:
         bridge.eval(f"(gimp-image-delete {dup})")
+        _SUSPEND["n"] -= 1
     return w, h, pw, ph, scale, mode
 
 
@@ -350,6 +402,89 @@ def render_preview(image_id: int, max_dim: int = 640, bg: str = "auto") -> str:
     w, h, pw, ph, scale, mode = _render(iid, max_dim, bg, path)
     return (f"{path}\norig={w}x{h}  preview={pw}x{ph}  scale={scale:.4f}  bg={mode}\n"
             f"(image_coord = preview_coord / {scale:.4f}) — Read the path to view it.")
+
+
+_SHOWN = set()
+
+
+@mcp.tool
+def show(image_id: int) -> str:
+    """Open this image in the GIMP WINDOW so a human can WATCH edits happen live.
+
+    Only meaningful when the server was started with `--gui`
+    (`./start-gimp-server.sh --gui`). First call opens a window; later calls just
+    refresh it. In headless mode there is no display — this reports that and is
+    otherwise harmless. Your own visual checks should still use `look` (works in
+    both modes); `show` is for the human watching the GUI.
+    """
+    iid = int(image_id)
+    try:
+        with _suspend():
+            if iid not in _SHOWN:
+                bridge.eval(f"(gimp-display-new {iid})")
+                _SHOWN.add(iid)
+            bridge.eval("(gimp-displays-flush)")
+        return f"image {iid} is live in the GIMP window — watch it update as tools run."
+    except GimpError:
+        return ("no display — you're running headless. Restart the server with "
+                "`./start-gimp-server.sh --gui` to watch in a window. (`look` still works headless.)")
+
+
+@mcp.tool
+def suggest(image_id: int = -1) -> str:
+    """Read the current image state and propose relevant next moves — the menu to
+    show the user at each stage (see AGENTS.md). Advisory only; picks nothing.
+
+    Pass an image id, or omit to use the first open image (e.g. the one the designer
+    already has open in GIMP). Great for local models that don't know what's possible.
+    """
+    ids = bridge.eval("(vector->list (cadr (gimp-image-list)))").strip().strip("()").split()
+    if not ids:
+        return ("no images open.\n"
+                "  · already working in GIMP? start the server in it (./start-gimp-server.sh --gui) "
+                "and your open image shows up here\n"
+                "  · or load_image(path) / new_image(w, h)")
+    iid = int(image_id) if int(image_id) >= 0 else int(ids[0])
+    with _suspend():
+        w = int(bridge.eval(f"(car (gimp-image-width {iid}))").strip())
+        h = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
+        nlayers = int(bridge.eval(f"(car (gimp-image-get-layers {iid}))").strip())
+        d = _drawable(iid)
+        alpha = _truthy(f"(car (gimp-drawable-has-alpha {d}))")
+        fname = bridge.eval(f"(car (gimp-image-get-filename {iid}))").strip().strip('"')
+        try:
+            dpi = round(float(bridge.eval(f"(car (gimp-image-get-resolution {iid}))").strip()))
+        except (GimpError, ValueError):
+            dpi = 0
+        tight = False
+        if alpha:
+            bridge.eval(f"(gimp-image-select-item {iid} CHANNEL-OP-REPLACE {d})")
+            b = bridge.eval(f"(gimp-selection-bounds {iid})").strip().strip("()").split()
+            bridge.eval(f"(gimp-selection-none {iid})")
+            if b and b[0].upper() not in ("FALSE", "0", "#F"):
+                tight = (int(b[3]) - int(b[1]) < w) or (int(b[4]) - int(b[2]) < h)
+
+    tips = []
+    if len(ids) > 1:
+        tips.append(f"{len(ids)} images open — this is #{iid}; pass image_id to target another")
+    tips.append("see it: `look` (checker/black/white bg) — or `show` to watch live in the GIMP window")
+    if alpha and tight:
+        tips.append("transparent margins around the art → `trim_to_content` before export")
+    if alpha:
+        tips.append("die-cut edge → apply_recipe('sticker-outline'); keep a hard bg out with `color_to_alpha`")
+    if not alpha:
+        tips.append("solid background → `color_to_alpha` to knock it out to transparency")
+        tips.append("age it → apply_recipe('vintage'); grit text/art → apply_recipe('distressed-text')")
+    tips.append("add a title → add_text(anchor='top-center') / place; badge arc → arc_text")
+    if nlayers > 1:
+        tips.append(f"{nlayers} layers → `merge_visible`, or `export_layers` to split them out")
+    if not fname:
+        tips.append("unsaved → `save_xcf` (keep layers) and/or `export_image` (flatten to PNG)")
+    if dpi and dpi < 150 and max(w, h) < 2000:
+        tips.append(f"low res for print ({w}x{h}@{dpi}dpi) → upscale (LoHalo) before a print export")
+    tips.append("before any destructive/automated step: `checkpoint` first (it's the undo) — see AGENTS.md")
+    head = f"image {iid}: {w}x{h}  layers={nlayers}  alpha={'yes' if alpha else 'no'}  {dpi or '?'}dpi  {'unsaved' if not fname else fname}"
+    return head + "\noptions:\n" + "\n".join(f"  · {t}" for t in tips)
 
 
 # ── LAYERS ───────────────────────────────────────────────────────────────────
@@ -736,7 +871,7 @@ def describe(image_id: int) -> str:
     mode = {"0": "RGB", "1": "GRAY", "2": "INDEXED"}.get(base, base)
     nlayers = bridge.eval(f"(car (gimp-image-get-layers {iid}))").strip()
     d = _drawable(iid)
-    alpha = bridge.eval(f"(car (gimp-drawable-has-alpha {d}))").strip()
+    alpha = _truthy(f"(car (gimp-drawable-has-alpha {d}))")
     try:
         res = bridge.eval(f"(gimp-image-get-resolution {iid})").strip().strip("()").split()
         dpi = f"{float(res[0]):.0f}"
@@ -744,7 +879,7 @@ def describe(image_id: int) -> str:
         dpi = "?"
     name = bridge.eval(f"(car (gimp-image-get-filename {iid}))").strip().strip('"') or "(unsaved)"
     return (f"image {iid}: {w}x{h}px  mode={mode}  layers={nlayers}  "
-            f"active-alpha={'yes' if alpha=='TRUE' else 'no'}  {dpi}dpi\n  file: {name}")
+            f"active-alpha={'yes' if alpha else 'no'}  {dpi}dpi\n  file: {name}")
 
 
 @mcp.tool
@@ -1168,6 +1303,208 @@ def trim_to_content(image_id: int) -> str:
     bridge.eval(f"(gimp-image-crop {iid} {nw} {nh} {x1} {y1})")
     _flush()
     return f"trimmed image {iid} to content: {nw}x{nh} (was cropped from {x1},{y1})"
+
+
+# ── RECIPES & JOURNAL: the power-user layer ──────────────────────────────────
+# A recipe = a named, parameterized sequence of Scheme steps replayable on ANY
+# image. Bundled recipes ship in <repo>/recipes/; user recipes live in
+# ~/.config/gimp-mcp/recipes/ (override with $GIMP_MCP_RECIPES). Steps use:
+#   $BINDINGS — runtime handles: $IMG $LAYER $W $H $CX $CY $RAND, plus anything a
+#               step captures via its "bind" field (e.g. a new mask/layer id).
+#   {params}  — user knobs with defaults; a param whose name contains "color" is
+#               auto-converted from #hex / "r,g,b" to a Scheme color literal.
+
+_BUNDLED_RECIPES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "recipes")
+_USER_RECIPES = os.path.expanduser(os.environ.get("GIMP_MCP_RECIPES", "~/.config/gimp-mcp/recipes"))
+
+
+def _recipe_files() -> dict:
+    """name -> path, user recipes overriding bundled ones of the same name."""
+    found = {}
+    for d in (_BUNDLED_RECIPES, _USER_RECIPES):
+        for p in sorted(glob.glob(os.path.join(d, "*.json"))):
+            found[os.path.splitext(os.path.basename(p))[0]] = p
+    return found
+
+
+def _load_recipe(name: str) -> dict:
+    files = _recipe_files()
+    if name not in files:
+        raise GimpError(f"no recipe '{name}'. Available: {', '.join(sorted(files)) or '(none)'}")
+    with open(files[name]) as f:
+        return json.load(f)
+
+
+def _subst(scheme: str, env: dict, params: dict) -> str:
+    for k in sorted(params, key=len, reverse=True):
+        scheme = scheme.replace("{" + k + "}", str(params[k]))
+    for k in sorted(env, key=len, reverse=True):
+        scheme = scheme.replace("$" + k, str(env[k]))
+    return scheme
+
+
+@mcp.tool
+def list_recipes() -> str:
+    """List available recipes (bundled + your saved ones) with their tunable params."""
+    files = _recipe_files()
+    if not files:
+        return "no recipes yet — apply a bundled one, or capture with save_recipe(from_journal=True)."
+    out = []
+    for name, path in sorted(files.items()):
+        try:
+            r = json.load(open(path))
+            loc = "user" if path.startswith(_USER_RECIPES) else "bundled"
+            ps = ", ".join(f"{k}={v}" for k, v in r.get("params", {}).items())
+            out.append(f"{name} [{loc}] — {r.get('description', '')[:90]}" + (f"  (params: {ps})" if ps else ""))
+        except Exception as e:
+            out.append(f"{name} — (unreadable: {e})")
+    return "\n".join(out)
+
+
+@mcp.tool
+def show_recipe(name: str) -> str:
+    """Show a recipe's description, params, and its Scheme steps (for review/editing)."""
+    r = _load_recipe(name)
+    lines = [f"=== {name} ===", r.get("description", ""),
+             f"params: {json.dumps(r.get('params', {}))}", "steps:"]
+    for i, s in enumerate(r.get("steps", [])):
+        pre = f"${s['bind']} = " if s.get("bind") else ""
+        lines.append(f"  {i:2}: {pre}{s['scheme']}")
+    return "\n".join(lines)
+
+
+@mcp.tool
+def apply_recipe(name: str, image_id: int, params: str = "{}", layer_id: int = -1) -> str:
+    """Apply a saved recipe to an image — the power move. `params` is a JSON object of
+    overrides (e.g. '{"grit": 60}'); omitted knobs use the recipe's defaults. Targets
+    the active layer unless `layer_id` is given. Runtime handles ($IMG/$LAYER/$W/$H/…)
+    are bound automatically. Recorded in the journal as a single high-level step.
+    """
+    iid = int(image_id)
+    r = _load_recipe(name)
+    knobs = dict(r.get("params", {}))
+    try:
+        knobs.update(json.loads(params) if isinstance(params, str) and params.strip() else (params or {}))
+    except (ValueError, TypeError) as e:
+        raise GimpError(f"params must be a JSON object like '{{\"grit\": 60}}' — got {params!r}: {e}")
+    for k, v in list(knobs.items()):
+        if "color" in k.lower() and isinstance(v, str) and not v.strip().startswith("'("):
+            knobs[k] = _color(v)
+    layer = _drawable(iid) if int(layer_id) < 0 else int(layer_id)
+    W = int(bridge.eval(f"(car (gimp-image-width {iid}))").strip())
+    H = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
+    env = {"IMG": iid, "LAYER": layer, "W": W, "H": H,
+           "CX": W // 2, "CY": H // 2, "RAND": random.randint(1, 999999)}
+    if _JOURNAL["on"]:
+        _JOURNAL["ops"].append(f"; apply_recipe {name} {json.dumps(knobs)}")
+    _SUSPEND["n"] += 1
+    try:
+        for step in r.get("steps", []):
+            res = bridge.eval(_subst(step["scheme"], env, knobs))
+            if step.get("bind"):
+                tok = res.strip().strip("()").split()
+                env[step["bind"]] = tok[0] if tok else res.strip()
+    finally:
+        _SUSPEND["n"] -= 1
+    _flush()
+    return f"applied '{name}' to image {iid} — {len(r.get('steps', []))} steps, params {json.dumps(knobs)}"
+
+
+@mcp.tool
+def save_recipe(name: str, description: str = "", from_journal: bool = True,
+                image_id: int = -1, steps: str = "", params: str = "{}") -> str:
+    """Save a reusable recipe to your user library (~/.config/gimp-mcp/recipes/).
+
+    from_journal=True turns the ops you just ran (see `journal`) into a recipe: pass
+    image_id so its handle becomes $IMG and its active layer becomes $LAYER. Other
+    literal ids stay as-is — for multi-layer pipelines, `show_recipe` then edit the
+    intermediate handles into $BINDINGs. Or author directly: steps=<JSON list of
+    {"scheme": "...", "bind": "NAME"?}>, params=<JSON object of defaults>.
+    """
+    try:
+        pdict = json.loads(params) if params and params.strip() else {}
+    except ValueError as e:
+        raise GimpError(f"params must be a JSON object: {e}")
+    if steps:
+        step_list = json.loads(steps)
+    elif from_journal:
+        raw = [s for s in _JOURNAL["ops"] if not s.strip().startswith(";")]
+        if not raw:
+            raise GimpError("journal is empty — run `journal start`, do some edits, then save_recipe.")
+        step_list = [{"scheme": s} for s in raw]
+        if int(image_id) >= 0:
+            iid = int(image_id)
+            lyr = str(_drawable(iid))
+            for st in step_list:
+                st["scheme"] = re.sub(rf"(?<![0-9]){iid}(?![0-9])", "$IMG", st["scheme"])
+                st["scheme"] = re.sub(rf"(?<![0-9]){lyr}(?![0-9])", "$LAYER", st["scheme"])
+    else:
+        raise GimpError("nothing to save — set from_journal=True (with image_id) or pass steps=<JSON>.")
+    os.makedirs(_USER_RECIPES, exist_ok=True)
+    path = os.path.join(_USER_RECIPES, f"{name}.json")
+    with open(path, "w") as f:
+        json.dump({"name": name, "description": description, "params": pdict, "steps": step_list}, f, indent=2)
+    return f"saved recipe '{name}' ({len(step_list)} steps) -> {path}"
+
+
+@mcp.tool
+def delete_recipe(name: str) -> str:
+    """Delete a recipe from your user library. Bundled recipes can't be deleted."""
+    path = os.path.join(_USER_RECIPES, f"{name}.json")
+    if not os.path.exists(path):
+        raise GimpError(f"no user recipe '{name}' at {path} (bundled recipes are read-only).")
+    os.remove(path)
+    return f"deleted user recipe '{name}'"
+
+
+@mcp.tool
+def journal(action: str = "show", label: str = "", path: str = "") -> str:
+    """Record/replay the design ops you run — a macro recorder for the session.
+
+    action:
+      start  → begin recording (optional label); clears the previous log
+      stop   → pause recording
+      show   → list the recorded ops
+      clear  → wipe the log
+      script → write a standalone replay .py to `path` (default /tmp/gimp-journal.py)
+    Pure queries and preview/export scratch are filtered out automatically, so the log
+    reads like a recipe. Turn a recording into a reusable recipe with
+    save_recipe(from_journal=True, image_id=<id>).
+    """
+    a = action.lower().strip()
+    if a == "start":
+        _JOURNAL.update(on=True, label=label, ops=[])
+        return f"journal recording{f' [{label}]' if label else ''} — run your edits, then `journal show` / save_recipe."
+    if a == "stop":
+        _JOURNAL["on"] = False
+        return f"journal paused — {len(_JOURNAL['ops'])} ops recorded."
+    if a == "clear":
+        _JOURNAL["ops"] = []
+        return "journal cleared."
+    if a == "show":
+        ops = _JOURNAL["ops"]
+        head = f"journal [{_JOURNAL['label']}]  recording={_JOURNAL['on']}  {len(ops)} ops"
+        return head + (":\n" + "\n".join(f"{i:3}: {s}" for i, s in enumerate(ops)) if ops else " (empty)")
+    if a == "script":
+        p = path or "/tmp/gimp-journal.py"
+        ops = [s for s in _JOURNAL["ops"] if not s.strip().startswith(";")]
+        body = "\n".join(f"    ev({json.dumps(s)})" for s in ops) or "    pass"
+        script = (
+            "#!/usr/bin/env python3\n"
+            '"""Replay of a gimp-mcp session. Start the Script-Fu server, load your\n'
+            'source image, set IMG, then run. Generated by gimp-mcp `journal script`."""\n'
+            "import os, sys\n"
+            "sys.path.insert(0, os.path.expanduser('~/projects/gimp-mcp'))\n"
+            "from gimp_bridge import GimpBridge\n"
+            "b = GimpBridge(); ev = lambda s: b.eval(s).strip()\n"
+            "IMG = 1  # <- set to your image id\n\n"
+            "def run():\n" + body + "\n\n"
+            "if __name__ == '__main__':\n    run()\n"
+        )
+        with open(p, "w") as f:
+            f.write(script)
+        return f"wrote replay script ({len(ops)} ops) -> {p}"
+    raise GimpError(f"unknown action '{action}' — use start | stop | show | clear | script")
 
 
 # ── KNOWLEDGE BASE: search the generated GIMP corpus in-session ───────────────
