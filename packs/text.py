@@ -42,13 +42,16 @@ def list_fonts(keyword: str = "", limit: int = 40) -> str:
 @mcp.tool
 def outline_text(image_id: int, text: str, x: int = 20, y: int = 20, size: float = 72,
                  fill_color: str = "#ffffff", outline_color: str = "#000000",
-                 outline_width: int = 3, font: str = "Sans Bold") -> str:
-    """Add text with a colored outline (fill layer + grown-alpha outline layer beneath)."""
+                 outline_width: int = 3, font: str = "Sans Bold", anchor: str = "") -> str:
+    """Add text with a colored outline (fill layer + grown-alpha outline layer beneath).
+    Pass `anchor` (center | top-center | … same as `place`) to auto-position, ignoring x/y."""
     iid = int(image_id)
     bridge.eval(f"(gimp-context-set-foreground {_color(fill_color)})")
     tid = bridge.eval(
         f'(car (gimp-text-fontname {iid} -1 {int(x)} {int(y)} "{_q(text)}" 0 TRUE {float(size)} UNIT-PIXEL "{_q(font)}"))'
     ).strip()
+    if anchor:
+        _place_layer(iid, tid, anchor)
     w = int(bridge.eval(f"(car (gimp-image-width {iid}))").strip())
     h = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
     ol = bridge.eval(f'(car (gimp-layer-new {iid} {w} {h} RGBA-IMAGE "outline" 100 LAYER-MODE-NORMAL))').strip()
@@ -68,13 +71,16 @@ def outline_text(image_id: int, text: str, x: int = 20, y: int = 20, size: float
 @mcp.tool
 def text_with_shadow(image_id: int, text: str, x: int = 20, y: int = 20, size: float = 72,
                      color: str = "#ffffff", font: str = "Sans Bold",
-                     dx: int = 5, dy: int = 5, blur: float = 8) -> str:
-    """Add a text layer with a soft drop shadow behind it."""
+                     dx: int = 5, dy: int = 5, blur: float = 8, anchor: str = "") -> str:
+    """Add a text layer with a soft drop shadow behind it.
+    Pass `anchor` (center | top-center | … same as `place`) to auto-position, ignoring x/y."""
     iid = int(image_id)
     bridge.eval(f"(gimp-context-set-foreground {_color(color)})")
     tid = bridge.eval(
         f'(car (gimp-text-fontname {iid} -1 {int(x)} {int(y)} "{_q(text)}" 0 TRUE {float(size)} UNIT-PIXEL "{_q(font)}"))'
     ).strip()
+    if anchor:
+        _place_layer(iid, tid, anchor)
     bridge.eval(f"(gimp-image-set-active-layer {iid} {tid})")
     bridge.eval(f"(script-fu-drop-shadow {iid} {tid} {int(dx)} {int(dy)} {float(blur)} '(0 0 0) 80 TRUE)")
     _flush()

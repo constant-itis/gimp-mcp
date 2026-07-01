@@ -1,0 +1,133 @@
+[
+  {
+    "id": "explorers-guild-seal",
+    "task": "Concentric ring seal: gold outer ring, deep-green field, white compass-star center, 'EXPLORERS GUILD' arched top, 'EST MCMXII' along bottom.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1000, "height": 1000}, "capture": "IMG"},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#0c1410"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 90, "y": 90, "width": 820, "height": 820}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#caa63a"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 130, "y": 130, "width": 740, "height": 740}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#12402c"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 300, "y": 300, "width": 400, "height": 400}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#0c1410"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "none"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "✦", "x": 500, "y": 500, "size": 240, "color": "#f4ecd6", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "EXPLORERS GUILD", "radius": 415, "size": 62, "font": "Serif Bold", "center_angle": 90, "step_deg": 8.5, "color": "#f4ecd6"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "EST MCMXII", "radius": 415, "size": 58, "font": "Serif Bold", "center_angle": 270, "step_deg": 9.5, "flip": true, "color": "#caa63a"}}
+    ]
+  },
+  {
+    "id": "orbital-command-patch",
+    "task": "Retro-futurist NASA-console mission patch: dark gradient sky, red planet disc, orbit ring, 'ORBITAL COMMAND' arched top, 'FLIGHT 07' bottom.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1000, "height": 1000}, "capture": "IMG"},
+      {"tool": "gradient_fill", "args": {"image_id": "$IMG", "color1": "#0a0d1c", "color2": "#1c2740", "direction": "vertical"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 120, "y": 120, "width": 760, "height": 760}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#0f1424"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 250, "y": 300, "width": 340, "height": 340}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#c0492f"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 300, "y": 350, "width": 240, "height": 240}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#e07a52"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "none"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "07", "x": 650, "y": 430, "size": 150, "color": "#f2c14e", "font": "Monospace Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "ORBITAL COMMAND", "radius": 400, "size": 60, "font": "Sans Bold", "center_angle": 90, "step_deg": 8, "color": "#e6ecff"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "FLIGHT 07", "radius": 400, "size": 58, "font": "Monospace Bold", "center_angle": 270, "step_deg": 9.5, "flip": true, "color": "#f2c14e"}},
+      {"tool": "vignette", "args": {"image_id": "$IMG", "strength": 0.5, "feather": 0.6}}
+    ]
+  },
+  {
+    "id": "harbor-monogram-medallion",
+    "task": "Navy monogram medallion: cream disc on navy, ringed border, large serif 'H' centered, 'HARBOR & CO' arched top, 'SINCE 1899' bottom.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1000, "height": 1000}, "capture": "IMG"},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#14243c"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 110, "y": 110, "width": 780, "height": 780}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#c9a24b"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 135, "y": 135, "width": 730, "height": 730}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#14243c"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 250, "y": 250, "width": 500, "height": 500}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#f3ecd8"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "none"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "H", "x": 500, "y": 500, "size": 300, "color": "#14243c", "font": "Serif Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "HARBOR & CO", "radius": 415, "size": 60, "font": "Serif Bold", "center_angle": 90, "step_deg": 9, "color": "#f3ecd8"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "SINCE 1899", "radius": 415, "size": 56, "font": "Serif Bold", "center_angle": 270, "step_deg": 10, "flip": true, "color": "#c9a24b"}}
+    ]
+  },
+  {
+    "id": "geometric-summit-crest",
+    "task": "Geometric mountain crest: hex-shield feel via layered rectangles, teal-to-white sky, diamond peak, 'SUMMIT SOCIETY' arched top, 'ELEVATE' banner text.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1000, "height": 1000}, "capture": "IMG"},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#0e2b2e"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 140, "y": 140, "width": 720, "height": 720}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#123c40"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "none"}},
+      {"tool": "gradient_fill", "args": {"image_id": "$IMG", "color1": "#123c40", "color2": "#123c40", "direction": "vertical"}},
+      {"tool": "draw_rect", "args": {"image_id": "$IMG", "x": 300, "y": 500, "width": 400, "height": 6, "color": "#7fd6c9", "fill_shape": true, "line_width": 1}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "▲", "x": 500, "y": 470, "size": 220, "color": "#7fd6c9", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "▲", "x": 420, "y": 500, "size": 120, "color": "#4a9c92", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "▲", "x": 585, "y": 505, "size": 130, "color": "#4a9c92", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "ELEVATE", "x": 500, "y": 660, "size": 66, "color": "#f2f7f5", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "SUMMIT SOCIETY", "radius": 400, "size": 62, "font": "Sans Bold", "center_angle": 90, "step_deg": 8.5, "color": "#e8f4f1"}},
+      {"tool": "add_border", "args": {"image_id": "$IMG", "size": 14, "color": "#7fd6c9"}}
+    ]
+  },
+  {
+    "id": "coffee-roasters-stamp",
+    "task": "Rustic coffee roaster stamp: kraft-brown field, cream double ring, bean/cup mark, 'MIDNIGHT ROASTERS' arched top, 'SMALL BATCH' bottom, distressed grit.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1000, "height": 1000}, "capture": "IMG"},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#3a2416"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 100, "y": 100, "width": 800, "height": 800}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#e8dcc0"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 128, "y": 128, "width": 744, "height": 744}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#3a2416"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 155, "y": 155, "width": 690, "height": 690}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#e8dcc0"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 300, "y": 300, "width": 400, "height": 400}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#3a2416"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "none"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "☕", "x": 500, "y": 500, "size": 210, "color": "#e8dcc0", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "MIDNIGHT ROASTERS", "radius": 400, "size": 54, "font": "Serif Bold", "center_angle": 90, "step_deg": 7.5, "color": "#3a2416"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "SMALL BATCH", "radius": 400, "size": 52, "font": "Serif Bold", "center_angle": 270, "step_deg": 9.5, "flip": true, "color": "#8a5a30"}},
+      {"tool": "apply_recipe", "args": {"name": "distressed-text", "image_id": "$IMG", "params": "{\"grit\":65}"}}
+    ]
+  },
+  {
+    "id": "aviator-wings-badge",
+    "task": "Aviation badge: dark navy sky, gold laurel ring, central star, chevron wings text, 'AERO CORPS' arched top, 'PILOT' bottom, drop shadow.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1000, "height": 1000}, "capture": "IMG"},
+      {"tool": "gradient_fill", "args": {"image_id": "$IMG", "color1": "#0a1226", "color2": "#182a4d", "direction": "radial"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 130, "y": 130, "width": 740, "height": 740}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#b8912f"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "ellipse", "x": 158, "y": 158, "width": 684, "height": 684}},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#0d1730"}},
+      {"tool": "select", "args": {"image_id": "$IMG", "shape": "none"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "★", "x": 500, "y": 440, "size": 200, "color": "#f0c34a", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "✈", "x": 500, "y": 620, "size": 110, "color": "#dfe6f2", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "AERO CORPS", "radius": 400, "size": 64, "font": "Sans Bold", "center_angle": 90, "step_deg": 9, "color": "#f0c34a"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "PILOT", "radius": 400, "size": 62, "font": "Sans Bold", "center_angle": 270, "step_deg": 11, "flip": true, "color": "#dfe6f2"}},
+      {"tool": "drop_shadow", "args": {"image_id": "$IMG", "offset_x": 0, "offset_y": 8, "blur": 18, "color": "#000000", "opacity": 60}}
+    ]
+  },
+  {
+    "id": "grand-cinema-poster",
+    "task": "Framed Art-Deco cinema poster (portrait): black field, gold frame, radiating sunburst rectangles, 'THE GRAND' large title, 'A MOTION PICTURE EVENT' subtitle, arc tagline bottom.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 800, "height": 1100}, "capture": "IMG"},
+      {"tool": "gradient_fill", "args": {"image_id": "$IMG", "color1": "#1a1206", "color2": "#000000", "direction": "vertical"}},
+      {"tool": "draw_rect", "args": {"image_id": "$IMG", "x": 360, "y": 60, "width": 80, "height": 460, "color": "#3a2c0e", "fill_shape": true, "line_width": 1}},
+      {"tool": "draw_rect", "args": {"image_id": "$IMG", "x": 260, "y": 90, "width": 40, "height": 420, "color": "#2c220b", "fill_shape": true, "line_width": 1}},
+      {"tool": "draw_rect", "args": {"image_id": "$IMG", "x": 500, "y": 90, "width": 40, "height": 420, "color": "#2c220b", "fill_shape": true, "line_width": 1}},
+      {"tool": "draw_rect", "args": {"image_id": "$IMG", "x": 160, "y": 130, "width": 30, "height": 360, "color": "#241b08", "fill_shape": true, "line_width": 1}},
+      {"tool": "draw_rect", "args": {"image_id": "$IMG", "x": 610, "y": 130, "width": 30, "height": 360, "color": "#241b08", "fill_shape": true, "line_width": 1}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "★", "x": 400, "y": 300, "size": 160, "color": "#e8b93a", "font": "Serif Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "THE GRAND", "x": 400, "y": 640, "size": 96, "color": "#f4d97a", "font": "Serif Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "A MOTION PICTURE EVENT", "x": 400, "y": 730, "size": 34, "color": "#c9a24b", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "IN GLORIOUS TECHNICOLOR", "radius": 300, "size": 40, "font": "Serif Bold", "center_angle": 270, "step_deg": 8.5, "flip": true, "color": "#e8b93a"}},
+      {"tool": "add_border", "args": {"image_id": "$IMG", "size": 18, "color": "#c9a24b"}}
+    ]
+  }
+]

@@ -1,0 +1,663 @@
+[
+  {
+    "id": "diecut-circle-badge",
+    "task": "Build a two-tone circular badge with arced text, knock the white background to alpha, and export a die-cut transparent sticker.",
+    "steps": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 700,
+          "height": 700
+        },
+        "capture": "IMG"
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 90,
+          "y": 90,
+          "width": 520,
+          "height": 520
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#1b7a5a"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 160,
+          "y": 160,
+          "width": 380,
+          "height": 380
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#f4d35e"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "none"
+        }
+      },
+      {
+        "tool": "add_text",
+        "args": {
+          "image_id": "$IMG",
+          "text": "EST 2130",
+          "x": 350,
+          "y": 350,
+          "size": 54,
+          "color": "#1b7a5a",
+          "font": "Sans Bold",
+          "anchor": "center"
+        }
+      },
+      {
+        "tool": "arc_text",
+        "args": {
+          "image_id": "$IMG",
+          "text": "RESTORATION GUILD",
+          "radius": 210,
+          "size": 40,
+          "font": "Sans Bold",
+          "color": "#ffffff",
+          "center_angle": 270,
+          "step_deg": 18,
+          "flip": false
+        }
+      },
+      {
+        "tool": "color_to_alpha",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "trim_to_content",
+        "args": {
+          "image_id": "$IMG"
+        }
+      },
+      {
+        "tool": "export_image",
+        "args": {
+          "image_id": "$IMG",
+          "path": "/tmp/teach_diecut_circle_badge.png"
+        }
+      }
+    ]
+  },
+  {
+    "id": "knockout-gradient-wordmark",
+    "task": "Create a bold wordmark over a gradient panel, knock out the white, and export a transparent logo.",
+    "steps": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 900,
+          "height": 400
+        },
+        "capture": "IMG"
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "rectangle",
+          "x": 60,
+          "y": 120,
+          "width": 780,
+          "height": 160
+        }
+      },
+      {
+        "tool": "gradient_fill",
+        "args": {
+          "image_id": "$IMG",
+          "color1": "#ff5f6d",
+          "color2": "#ffc371",
+          "direction": "horizontal"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "none"
+        }
+      },
+      {
+        "tool": "outline_text",
+        "args": {
+          "image_id": "$IMG",
+          "text": "TERRA",
+          "x": 450,
+          "y": 200,
+          "size": 120,
+          "font": "Sans Bold",
+          "anchor": "center",
+          "fill_color": "#ffffff"
+        }
+      },
+      {
+        "tool": "color_to_alpha",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "trim_to_content",
+        "args": {
+          "image_id": "$IMG"
+        }
+      },
+      {
+        "tool": "export_image",
+        "args": {
+          "image_id": "$IMG",
+          "path": "/tmp/teach_knockout_gradient_wordmark.png"
+        }
+      }
+    ]
+  },
+  {
+    "id": "sticker-outline-star",
+    "task": "Draw a colored disc, trim it to alpha, then apply the sticker-outline recipe to give it a die-cut white edge and shadow.",
+    "steps": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 600,
+          "height": 600
+        },
+        "capture": "IMG"
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 150,
+          "y": 150,
+          "width": 300,
+          "height": 300
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#8e44ad"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "none"
+        }
+      },
+      {
+        "tool": "add_text",
+        "args": {
+          "image_id": "$IMG",
+          "text": "GO",
+          "x": 300,
+          "y": 300,
+          "size": 110,
+          "color": "#ffffff",
+          "font": "Sans Bold",
+          "anchor": "center"
+        }
+      },
+      {
+        "tool": "color_to_alpha",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "trim_to_content",
+        "args": {
+          "image_id": "$IMG"
+        }
+      },
+      {
+        "tool": "apply_recipe",
+        "args": {
+          "name": "sticker-outline",
+          "image_id": "$IMG",
+          "params": "{\"outline\":16,\"outline_color\":\"#ffffff\",\"shadow\":20}"
+        }
+      },
+      {
+        "tool": "export_image",
+        "args": {
+          "image_id": "$IMG",
+          "path": "/tmp/teach_sticker_outline_star.png"
+        }
+      }
+    ]
+  },
+  {
+    "id": "transparent-hex-emblem",
+    "task": "Stack two hex-like squares rotated visually via nested rectangles into a layered emblem, knock white to alpha, and export a trimmed transparent badge.",
+    "steps": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 640,
+          "height": 640
+        },
+        "capture": "IMG"
+      },
+      {
+        "tool": "draw_rect",
+        "args": {
+          "image_id": "$IMG",
+          "x": 140,
+          "y": 140,
+          "width": 360,
+          "height": 360,
+          "color": "#0f4c81",
+          "fill_shape": true,
+          "line_width": 0
+        }
+      },
+      {
+        "tool": "draw_rect",
+        "args": {
+          "image_id": "$IMG",
+          "x": 200,
+          "y": 200,
+          "width": 240,
+          "height": 240,
+          "color": "#2a9d8f",
+          "fill_shape": true,
+          "line_width": 0
+        }
+      },
+      {
+        "tool": "draw_rect",
+        "args": {
+          "image_id": "$IMG",
+          "x": 200,
+          "y": 200,
+          "width": 240,
+          "height": 240,
+          "color": "#e9f5db",
+          "fill_shape": false,
+          "line_width": 8
+        }
+      },
+      {
+        "tool": "add_text",
+        "args": {
+          "image_id": "$IMG",
+          "text": "B",
+          "x": 320,
+          "y": 320,
+          "size": 150,
+          "color": "#f4d35e",
+          "font": "Serif Bold",
+          "anchor": "center"
+        }
+      },
+      {
+        "tool": "color_to_alpha",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "trim_to_content",
+        "args": {
+          "image_id": "$IMG"
+        }
+      },
+      {
+        "tool": "export_image",
+        "args": {
+          "image_id": "$IMG",
+          "path": "/tmp/teach_transparent_hex_emblem.png"
+        }
+      }
+    ]
+  },
+  {
+    "id": "print-ready-tag-shadow",
+    "task": "Compose a rounded price-tag shape with text, knock out the white, add a soft drop shadow, and export a print-ready transparent PNG.",
+    "steps": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 800,
+          "height": 500
+        },
+        "capture": "IMG"
+      },
+      {
+        "tool": "draw_rect",
+        "args": {
+          "image_id": "$IMG",
+          "x": 120,
+          "y": 150,
+          "width": 560,
+          "height": 200,
+          "color": "#d62828",
+          "fill_shape": true,
+          "line_width": 0
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 90,
+          "y": 180,
+          "width": 120,
+          "height": 140
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#d62828"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 120,
+          "y": 230,
+          "width": 40,
+          "height": 40
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "none"
+        }
+      },
+      {
+        "tool": "add_text",
+        "args": {
+          "image_id": "$IMG",
+          "text": "SALE",
+          "x": 430,
+          "y": 250,
+          "size": 90,
+          "color": "#ffffff",
+          "font": "Sans Bold",
+          "anchor": "center"
+        }
+      },
+      {
+        "tool": "color_to_alpha",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "trim_to_content",
+        "args": {
+          "image_id": "$IMG"
+        }
+      },
+      {
+        "tool": "drop_shadow",
+        "args": {
+          "image_id": "$IMG",
+          "offset_x": 8,
+          "offset_y": 8,
+          "blur": 18,
+          "color": "#000000",
+          "opacity": 55
+        }
+      },
+      {
+        "tool": "export_image",
+        "args": {
+          "image_id": "$IMG",
+          "path": "/tmp/teach_print_ready_tag_shadow.png"
+        }
+      }
+    ]
+  },
+  {
+    "id": "feathered-glow-cutout",
+    "task": "Make a feathered soft-edged colored orb on white, knock out the white to leave a glowing transparent blob, and export it trimmed.",
+    "steps": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 600,
+          "height": 600
+        },
+        "capture": "IMG"
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 170,
+          "y": 170,
+          "width": 260,
+          "height": 260
+        }
+      },
+      {
+        "tool": "feather_selection",
+        "args": {
+          "image_id": "$IMG",
+          "radius": 40
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#00b4d8"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 240,
+          "y": 240,
+          "width": 120,
+          "height": 120
+        }
+      },
+      {
+        "tool": "feather_selection",
+        "args": {
+          "image_id": "$IMG",
+          "radius": 20
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#caf0f8"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "none"
+        }
+      },
+      {
+        "tool": "color_to_alpha",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "trim_to_content",
+        "args": {
+          "image_id": "$IMG"
+        }
+      },
+      {
+        "tool": "export_image",
+        "args": {
+          "image_id": "$IMG",
+          "path": "/tmp/teach_feathered_glow_cutout.png"
+        }
+      }
+    ]
+  },
+  {
+    "id": "distressed-transparent-stamp",
+    "task": "Build an outlined ring stamp with arced text, grit it with the distressed-text recipe, knock out white, and export a worn transparent stamp PNG.",
+    "steps": [
+      {
+        "tool": "new_image",
+        "args": {
+          "width": 700,
+          "height": 700
+        },
+        "capture": "IMG"
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 110,
+          "y": 110,
+          "width": 480,
+          "height": 480
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#7f5539"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "ellipse",
+          "x": 150,
+          "y": 150,
+          "width": 400,
+          "height": 400
+        }
+      },
+      {
+        "tool": "fill",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "select",
+        "args": {
+          "image_id": "$IMG",
+          "shape": "none"
+        }
+      },
+      {
+        "tool": "arc_text",
+        "args": {
+          "image_id": "$IMG",
+          "text": "APPROVED ORIGINAL",
+          "radius": 250,
+          "size": 42,
+          "font": "Serif Bold",
+          "color": "#7f5539",
+          "center_angle": 270,
+          "step_deg": 15,
+          "flip": false
+        }
+      },
+      {
+        "tool": "add_text",
+        "args": {
+          "image_id": "$IMG",
+          "text": "OK",
+          "x": 350,
+          "y": 350,
+          "size": 130,
+          "color": "#7f5539",
+          "font": "Serif Bold",
+          "anchor": "center"
+        }
+      },
+      {
+        "tool": "apply_recipe",
+        "args": {
+          "name": "distressed-text",
+          "image_id": "$IMG",
+          "params": "{\"grit\":78}"
+        }
+      },
+      {
+        "tool": "color_to_alpha",
+        "args": {
+          "image_id": "$IMG",
+          "color": "#ffffff"
+        }
+      },
+      {
+        "tool": "trim_to_content",
+        "args": {
+          "image_id": "$IMG"
+        }
+      },
+      {
+        "tool": "export_image",
+        "args": {
+          "image_id": "$IMG",
+          "path": "/tmp/teach_distressed_transparent_stamp.png"
+        }
+      }
+    ]
+  }
+]

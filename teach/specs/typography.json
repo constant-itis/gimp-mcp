@@ -1,0 +1,84 @@
+[
+  {
+    "id": "varsity-collegiate-arch",
+    "task": "A collegiate varsity emblem: 'BRUINS' arched over the year 1924 in stacked athletic lettering on a navy field with a cream outline.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1000, "height": 1000}, "capture": "IMG"},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#0d1b3e"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "BRUINS", "radius": 300, "size": 130, "font": "Serif Bold", "color": "#f4e9c1", "center_angle": 90, "step_deg": 9}},
+      {"tool": "outline_text", "args": {"image_id": "$IMG", "text": "1924", "x": 500, "y": 520, "size": 200, "fill_color": "#c9a227", "outline_color": "#f4e9c1", "outline_width": 7, "font": "Serif Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "ATHLETIC CLUB", "radius": 300, "size": 70, "font": "Sans Bold", "color": "#f4e9c1", "center_angle": 270, "step_deg": 12, "flip": true}}
+    ]
+  },
+  {
+    "id": "retro-layered-3d-title",
+    "task": "A 1970s layered 3D title 'SUNSET' where cyan and magenta offset copies stack behind a white face on a warm cream backdrop.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1300, "height": 600}, "capture": "IMG"},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#f6ead0"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "SUNSET", "x": 690, "y": 320, "size": 210, "color": "#e0407a", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "SUNSET", "x": 670, "y": 305, "size": 210, "color": "#3ec6d8", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "outline_text", "args": {"image_id": "$IMG", "text": "SUNSET", "x": 650, "y": 290, "size": 210, "fill_color": "#fffdf7", "outline_color": "#26304a", "outline_width": 5, "font": "Sans Bold", "anchor": "center"}}
+    ]
+  },
+  {
+    "id": "stencil-crate-shipping",
+    "task": "A weathered military stencil label 'CARGO 07' spray-painted onto an olive-drab crate, distressed to look worn.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1200, "height": 500}, "capture": "IMG"},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#4b5320"}},
+      {"tool": "add_border", "args": {"image_id": "$IMG", "size": 14, "color": "#2f3416"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "CARGO 07", "x": 600, "y": 250, "size": 150, "color": "#e8e4d0", "font": "Monospace Bold", "anchor": "center"}},
+      {"tool": "apply_recipe", "args": {"name": "distressed-text", "image_id": "$IMG", "params": "{\"grit\": 82}"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "FRAGILE - THIS SIDE UP", "x": 600, "y": 410, "size": 46, "color": "#e8e4d0", "font": "Monospace Bold", "anchor": "center"}}
+    ]
+  },
+  {
+    "id": "western-saloon-drop-shadow",
+    "task": "An Old West saloon headline 'GOLD RUSH' in tuscan serif with a hard black shadow on a dusty tan poster, framed by a dark border.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1200, "height": 700}, "capture": "IMG"},
+      {"tool": "gradient_fill", "args": {"image_id": "$IMG", "color1": "#e6cfa0", "color2": "#c39a5e", "direction": "vertical"}},
+      {"tool": "add_border", "args": {"image_id": "$IMG", "size": 20, "color": "#3a2413"}},
+      {"tool": "text_with_shadow", "args": {"image_id": "$IMG", "text": "GOLD", "x": 600, "y": 250, "size": 190, "color": "#7c1f1f", "font": "Serif Bold", "dx": 8, "dy": 8, "blur": 2, "anchor": "center"}},
+      {"tool": "text_with_shadow", "args": {"image_id": "$IMG", "text": "RUSH", "x": 600, "y": 470, "size": 190, "color": "#7c1f1f", "font": "Serif Bold", "dx": 8, "dy": 8, "blur": 2, "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "★ EST. 1849 ★", "x": 600, "y": 620, "size": 44, "color": "#3a2413", "font": "Serif Bold", "anchor": "center"}}
+    ]
+  },
+  {
+    "id": "monogram-medallion",
+    "task": "An elegant interlocking monogram 'V&M' in gold on a black roundel with a thin gold border and a curved luxury tagline.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 900, "height": 900}, "capture": "IMG"},
+      {"tool": "fill", "args": {"image_id": "$IMG", "color": "#101014"}},
+      {"tool": "add_border", "args": {"image_id": "$IMG", "size": 8, "color": "#c8a24a"}},
+      {"tool": "outline_text", "args": {"image_id": "$IMG", "text": "V&M", "x": 450, "y": 420, "size": 300, "fill_color": "#1a1a20", "outline_color": "#d9b45a", "outline_width": 6, "font": "Serif Bold", "anchor": "center"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "VILLA MARINA", "radius": 320, "size": 60, "font": "Serif Bold", "color": "#d9b45a", "center_angle": 270, "step_deg": 11, "flip": true}}
+    ]
+  },
+  {
+    "id": "kinetic-stacked-echo",
+    "task": "Kinetic stacked typography where the word 'MOTION' repeats down the canvas fading from bright to dark to suggest speed, on a deep purple background.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 900, "height": 1200}, "capture": "IMG"},
+      {"tool": "gradient_fill", "args": {"image_id": "$IMG", "color1": "#2a0f4a", "color2": "#0c0518", "direction": "vertical"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "MOTION", "x": 450, "y": 220, "size": 150, "color": "#ff5edb", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "MOTION", "x": 450, "y": 420, "size": 150, "color": "#b93fb0", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "MOTION", "x": 450, "y": 620, "size": 150, "color": "#7a2c85", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "MOTION", "x": 450, "y": 820, "size": 150, "color": "#4d1f5c", "font": "Sans Bold", "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "MOTION", "x": 450, "y": 1020, "size": 150, "color": "#2e1638", "font": "Sans Bold", "anchor": "center"}}
+    ]
+  },
+  {
+    "id": "transom-glass-signage",
+    "task": "A vintage transom-window shop sign reading 'APOTHECARY' in gold serif caps with a drop shadow, arched shop name above and street number below on a frosted teal panel.",
+    "steps": [
+      {"tool": "new_image", "args": {"width": 1400, "height": 600}, "capture": "IMG"},
+      {"tool": "gradient_fill", "args": {"image_id": "$IMG", "color1": "#2c5f5a", "color2": "#173432", "direction": "diagonal"}},
+      {"tool": "add_border", "args": {"image_id": "$IMG", "size": 16, "color": "#0e211f"}},
+      {"tool": "arc_text", "args": {"image_id": "$IMG", "text": "WEST END", "radius": 360, "size": 58, "font": "Serif Bold", "color": "#e7d8a8", "center_angle": 90, "step_deg": 10}},
+      {"tool": "text_with_shadow", "args": {"image_id": "$IMG", "text": "APOTHECARY", "x": 700, "y": 340, "size": 140, "color": "#e9c766", "font": "Serif Bold", "dx": 4, "dy": 5, "blur": 4, "anchor": "center"}},
+      {"tool": "add_text", "args": {"image_id": "$IMG", "text": "Nº 214", "x": 700, "y": 500, "size": 56, "color": "#e7d8a8", "font": "Serif Bold", "anchor": "center"}}
+    ]
+  }
+]

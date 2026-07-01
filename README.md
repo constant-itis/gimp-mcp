@@ -209,6 +209,16 @@ See `knowledge/README.md` for the full layout and regeneration story.
 | `build-knowledge.sh`   | one-shot regenerate of the machine-readable knowledge |
 | `knowledge/`           | the AI-native GIMP reference (see `knowledge/README.md`) |
 
+## Teaching a smaller model (`teach/`)
+
+The Opus→Fable move: a strong model manufactures a **verified** corpus of worked
+examples that teaches a small / local model (Hermes, a Qwen, a fine-tune) to drive
+gimp-mcp. [`teach/factory.py`](teach/) executes JSON task specs against a live GIMP,
+records the exact tool-call trace, renders + checks each, and emits `demos.jsonl`
+(fine-tune ready), `fewshot.md` (prompt-ready examples), and a `contact-sheet.png`. The
+bundled curriculum (36 verified design tasks) was authored by a seed pass + subagents;
+the factory drops anything that doesn't actually run. See [teach/README.md](teach/README.md).
+
 ## Wire protocol (confirmed on GIMP 2.10.30)
 
 - Request:  `'G'` + uint16_be(len) + scheme

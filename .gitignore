@@ -12,3 +12,6 @@ venv/
 # local logs / scratch
 *.log
 /tmp/
+
+# teach: per-task renders (bulky; contact-sheet.png is the committed proof)
+teach/out/
