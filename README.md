@@ -80,7 +80,7 @@ claude mcp add gimp -s user -- python3 "$(pwd)/server.py"
 That's it — no GIMP scripting knowledge required on your end; the model composes the
 Scheme and checks its work with `look`.
 
-## Tools (53)
+## Tools (61)
 
 **The core three** make the whole PDB reachable — the rest are conveniences:
 
@@ -93,11 +93,14 @@ Scheme and checks its work with `look`.
 
 **Editing:** layers (`new_layer`, `add_layer_from_file`, `set_layer`, `list_layers`,
 `merge_visible`, `delete_layer`), text (`add_text`, `list_fonts`, `outline_text`,
-`text_with_shadow`), transforms (`crop`, `autocrop`, `rotate`, `flip`, `resize_canvas`,
+`text_with_shadow`, `arc_text` — text on a circular arc, for seals/badges/mission
+patches), transforms (`crop`, `autocrop`, `rotate`, `flip`, `resize_canvas`,
 `scale_image`, `scale_to_fit`), color/tone (`brightness_contrast`, `hue_saturation`,
 `desaturate`, `invert`, `auto_levels`, `curves_adjust`), filters (`gaussian_blur`,
-`sharpen`, `pixelize`, `drop_shadow`, `vignette`), fills/shapes (`select`, `fill`,
-`draw_rect`, `gradient_fill`, `add_border`, `overlay_blend`)
+`sharpen`, `pixelize`, `drop_shadow`, `vignette`, `oilify`, `emboss`, `lens_flare`,
+`motion_blur`), selections (`select`, `select_by_color` — magic-wand/keying,
+`feather_selection`, `grow_shrink_selection`), fills/shapes (`fill`, `draw_rect`,
+`gradient_fill`, `add_border`, `overlay_blend`)
 
 **Session & safety:** `load_image`, `list_images`, `new_image`, `export_image`,
 `save_xcf`, `export_layers`, `close_image`, `checkpoint`/`restore_checkpoint`

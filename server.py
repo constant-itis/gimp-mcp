@@ -862,6 +862,163 @@ def overlay_blend(image_id: int, path: str, mode: str = "normal", opacity: float
     return f"overlaid {path} as layer {lid} (mode={mode}, opacity={opacity}) on image {iid}"
 
 
+# ── RICHER SELECTIONS ────────────────────────────────────────────────────────
+
+@mcp.tool
+def select_by_color(image_id: int, color: str, threshold: int = 15,
+                    operation: str = "replace") -> str:
+    """Select every pixel close to `color` (the magic-wand-by-color / keying primitive).
+
+    threshold 0-255 = how far a pixel may differ and still be selected (higher = looser).
+    operation: replace | add | subtract | intersect. Use this to key out a solid/near-solid
+    background before deleting it, then `fill`/delete the selection.
+    """
+    iid = int(image_id)
+    d = _drawable(iid)
+    op = {"add": "CHANNEL-OP-ADD", "subtract": "CHANNEL-OP-SUBTRACT",
+          "intersect": "CHANNEL-OP-INTERSECT"}.get(operation.lower(), "CHANNEL-OP-REPLACE")
+    bridge.eval(f"(gimp-context-set-sample-threshold-int {int(threshold)})")
+    bridge.eval(f"(gimp-image-select-color {iid} {op} {d} {_color(color)})")
+    _flush()
+    return f"selected color {color} (±{threshold}, {operation}) on image {iid}"
+
+
+@mcp.tool
+def feather_selection(image_id: int, radius: float = 10) -> str:
+    """Feather (soften) the current selection edge by `radius` px."""
+    iid = int(image_id)
+    bridge.eval(f"(gimp-selection-feather {iid} {float(radius)})")
+    _flush()
+    return f"feathered selection by {radius}px on image {iid}"
+
+
+@mcp.tool
+def grow_shrink_selection(image_id: int, pixels: int) -> str:
+    """Grow (pixels > 0) or shrink (pixels < 0) the current selection by |pixels| px."""
+    iid = int(image_id)
+    n = int(pixels)
+    if n >= 0:
+        bridge.eval(f"(gimp-selection-grow {iid} {n})")
+        verb = "grew"
+    else:
+        bridge.eval(f"(gimp-selection-shrink {iid} {-n})")
+        verb = "shrank"
+    _flush()
+    return f"{verb} selection by {abs(n)}px on image {iid}"
+
+
+# ── PATHS / CURVED TEXT ──────────────────────────────────────────────────────
+
+@mcp.tool
+def arc_text(image_id: int, text: str, radius: float = 400, size: float = 100,
+             font: str = "Sans Bold", color: str = "#ffffff",
+             center_x: int = -1, center_y: int = -1, center_angle: float = 90,
+             step_deg: float = 8, flip: bool = False) -> str:
+    """Set text along a circular arc — the mission-patch / seal / badge primitive.
+
+    Each glyph is rendered, rotated to sit radially, and placed on a circle of
+    `radius` px around (center_x, center_y) — defaults to the image center. The band
+    is centred on `center_angle` (math degrees: 90 = top arch ∩, 270 = bottom arch ∪)
+    and consumes `step_deg` degrees per character. Set flip=True for a bottom arc so
+    the letters read upright. All glyphs are composited into one returned layer so you
+    can style it (outline_text-style) or distress it afterward.
+    """
+    import math
+    iid = int(image_id)
+    W = int(bridge.eval(f"(car (gimp-image-width {iid}))").strip())
+    H = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
+    cx = W / 2 if center_x < 0 else center_x
+    cy = H / 2 if center_y < 0 else center_y
+    span = (len(text) - 1) * step_deg
+    direction = -1 if flip else 1
+    arc = bridge.eval(
+        f'(car (gimp-layer-new {iid} {W} {H} RGBA-IMAGE "arc-text" 100 LAYER-MODE-NORMAL))'
+    ).strip()
+    bridge.eval(f"(gimp-image-insert-layer {iid} {arc} 0 -1)")
+    bridge.eval(f"(gimp-drawable-fill {arc} FILL-TRANSPARENT)")
+    bridge.eval("(gimp-context-set-transform-resize TRANSFORM-RESIZE-ADJUST)")
+    bridge.eval(f"(gimp-context-set-foreground {_color(color)})")
+    for i, ch in enumerate(text):
+        if ch == " ":
+            continue
+        th = center_angle + direction * (span / 2 - i * step_deg)
+        rad = math.radians(th)
+        t = bridge.eval(
+            f'(car (gimp-text-fontname {iid} -1 0 0 "{_q(ch)}" 0 TRUE {float(size)} UNIT-PIXEL "{_q(font)}"))'
+        ).strip()
+        rot = math.radians(90 - th) + (math.pi if flip else 0)
+        bridge.eval(f"(gimp-item-transform-rotate {t} {rot} TRUE 0 0)")
+        gw = int(bridge.eval(f"(car (gimp-drawable-width {t}))").strip())
+        gh = int(bridge.eval(f"(car (gimp-drawable-height {t}))").strip())
+        px = int(cx + radius * math.cos(rad) - gw / 2)
+        py = int(cy - radius * math.sin(rad) - gh / 2)
+        bridge.eval(f"(gimp-layer-set-offsets {t} {px} {py})")
+        # composite this glyph into the arc layer, then drop the temp text layer
+        bridge.eval(f"(gimp-image-select-item {iid} CHANNEL-OP-REPLACE {t})")
+        bridge.eval(f"(gimp-image-set-active-layer {iid} {arc})")
+        bridge.eval(f"(gimp-edit-fill {arc} FILL-FOREGROUND)")
+        bridge.eval(f"(gimp-image-remove-layer {iid} {t})")
+    bridge.eval(f"(gimp-selection-none {iid})")
+    _flush()
+    return f"arc text '{text}' on layer {arc} (r={radius}, center_angle={center_angle}, image {iid})"
+
+
+# ── MORE FX ──────────────────────────────────────────────────────────────────
+
+@mcp.tool
+def oilify(image_id: int, mask_size: int = 8, intensity: bool = False) -> str:
+    """Oil-painting smear. mask_size 1-200 (bigger = broader strokes).
+    intensity=True uses the intensity algorithm (crisper) vs RGB."""
+    iid = int(image_id)
+    d = _drawable(iid)
+    bridge.eval(f"(plug-in-oilify RUN-NONINTERACTIVE {iid} {d} {int(mask_size)} {1 if intensity else 0})")
+    _flush()
+    return f"oilified image {iid} (mask_size={mask_size})"
+
+
+@mcp.tool
+def emboss(image_id: int, azimuth: float = 30, elevation: float = 45,
+           depth: int = 20, bumpmap: bool = False) -> str:
+    """Emboss the active drawable. azimuth = light angle°, elevation = light height°,
+    depth = filter width. bumpmap=True keeps colors (bump) vs grayscale emboss."""
+    iid = int(image_id)
+    d = _drawable(iid)
+    bridge.eval(
+        f"(plug-in-emboss RUN-NONINTERACTIVE {iid} {d} {float(azimuth)} {float(elevation)} "
+        f"{int(depth)} {0 if bumpmap else 1})"
+    )
+    _flush()
+    return f"embossed image {iid} (azimuth={azimuth}, elevation={elevation}, depth={depth})"
+
+
+@mcp.tool
+def lens_flare(image_id: int, x: int, y: int) -> str:
+    """Add a lens-flare highlight centered at (x, y) px on the active drawable."""
+    iid = int(image_id)
+    d = _drawable(iid)
+    bridge.eval(f"(plug-in-flarefx RUN-NONINTERACTIVE {iid} {d} {int(x)} {int(y)})")
+    _flush()
+    return f"lens flare at ({x},{y}) on image {iid}"
+
+
+@mcp.tool
+def motion_blur(image_id: int, length: float = 20, angle: float = 0,
+                kind: str = "linear") -> str:
+    """Directional motion blur. length = px, angle = 0-360°.
+    kind: linear | radial | zoom (radial/zoom pivot on the image center)."""
+    iid = int(image_id)
+    d = _drawable(iid)
+    t = {"radial": 1, "zoom": 2}.get(kind.lower(), 0)
+    W = int(bridge.eval(f"(car (gimp-image-width {iid}))").strip())
+    H = int(bridge.eval(f"(car (gimp-image-height {iid}))").strip())
+    bridge.eval(
+        f"(plug-in-mblur RUN-NONINTERACTIVE {iid} {d} {t} {float(length)} {float(angle)} "
+        f"{W//2} {H//2})"
+    )
+    _flush()
+    return f"motion blur ({kind}, length={length}, angle={angle}) on image {iid}"
+
+
 # ── KNOWLEDGE BASE: search the generated GIMP corpus in-session ───────────────
 
 _KN = os.path.join(os.path.dirname(os.path.abspath(__file__)), "knowledge")
