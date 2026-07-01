@@ -86,6 +86,10 @@ claude mcp add gimp -s user -- python3 "$(pwd)/server.py"
 
 (For other clients, point them at `python3 /abs/path/to/server.py`, stdio transport.)
 
+**Go lean if you want.** The tool surface is modular (core + opt-in packs). Load only
+what you need with `GIMP_MCP_PACKS` — e.g. `GIMP_MCP_PACKS=core,text,select` gives ~24
+tools instead of 72, which context-limited / local models appreciate. See [PACKS.md](PACKS.md).
+
 ## Quickstart
 
 **Headless (fast, no window):**
@@ -137,7 +141,10 @@ Techniques are **saved, parameterized, and reused**, not rebuilt each time:
 Recipes are **abilities, not baked-in behavior** — data you can read, edit, share, and
 extend; nothing forces a workflow.
 
-## Tools (72)
+## Tools (16 core + 56 in packs = 72)
+
+Modular: the **core** (~16, always on) reaches the whole PDB and drives the vision loop;
+the rest live in opt-in **packs** ([PACKS.md](PACKS.md)). Listing below is the full set.
 
 **The core three** make the whole PDB reachable — the rest are conveniences:
 
@@ -188,9 +195,13 @@ See `knowledge/README.md` for the full layout and regeneration story.
 
 | file | role |
 |------|------|
-| `server.py`            | MCP server exposing the 53 tools |
+| `server.py`            | entry point — loads the core + enabled packs, serves over stdio |
+| `_core.py`             | the lean substrate: eval/introspection, vision loop, IO, safety, shared infra |
+| `packs/`               | opt-in tool bundles (layers, text, fx, recipes, watch, …) — see PACKS.md |
+| `recipes/`             | bundled recipe pipelines (editable JSON) |
+| `AGENTS.md` · `PACKS.md` | house rules for driving it · the pack system |
 | `gimp_bridge.py`       | zero-dep socket client for the Script-Fu wire protocol |
-| `start-gimp-server.sh` | launches GIMP headless with the Script-Fu server (idempotent) |
+| `start-gimp-server.sh` | launches GIMP (headless, or `--gui` to watch) with the Script-Fu server |
 | `build_pdb_dump.py`    | introspects the live PDB → `knowledge/pdb_full.json` |
 | `build_index.py`       | builds `knowledge/pdb_index.md` + per-domain `_slices/` |
 | `build-knowledge.sh`   | one-shot regenerate of the machine-readable knowledge |
