@@ -63,6 +63,19 @@ The tool surface is shaped around how an LLM actually works this, not how a huma
 - **Fewer round-trips** — `gimp_batch` runs many statements in one call with per-step
   error capture; wrappers return the ids/bboxes you'd otherwise have to re-query.
 
+## Not just editing — drawing from scratch
+
+<p align="center">
+  <img src="assets/showcase.png" alt="a landscape drawn from scratch by an agent" width="620">
+  <br>
+  <sub><i>no source image — every shape here (sunburst, sun, layered mountains, stars) was
+  drawn by an agent from the <code>generate</code> pack primitives, checking each move with <code>look</code></i></sub>
+</p>
+
+The `generate` pack (`draw_ellipse`/`draw_polygon`/`draw_star`/`draw_line`/`sunburst` +
+procedural `render_plasma`/`render_noise`) turns the tool from an *editor* into a *canvas*:
+an agent composes original vector/procedural art and iterates against the vision loop.
+
 ## Why a Script-Fu bridge (not a GIMP plugin)
 
 On modern Linux, GIMP 2.10's **Python-Fu is effectively gone** — `gimp-python` was
@@ -149,7 +162,7 @@ Techniques are **saved, parameterized, and reused**, not rebuilt each time:
 Recipes are **abilities, not baked-in behavior** — data you can read, edit, share, and
 extend; nothing forces a workflow.
 
-## Tools (16 core + 56 in packs = 72)
+## Tools (16 core + 63 in packs = 79)
 
 Modular: the **core** (~16, always on) reaches the whole PDB and drives the vision loop;
 the rest live in opt-in **packs** ([PACKS.md](PACKS.md)). Listing below is the full set.
@@ -180,6 +193,10 @@ patches), transforms (`crop`, `autocrop`, `rotate`, `flip`, `resize_canvas`,
 `gradient_fill`, `add_border`, `overlay_blend`), placement & transparency
 (`place` — anchor a layer by gravity, `color_to_alpha` — soft-key a bg to transparent,
 `trim_to_content` — crop to the alpha bounds)
+
+**Draw from scratch (`generate`):** `draw_ellipse`, `draw_polygon`, `draw_star`,
+`draw_line`, `sunburst`, `render_plasma`, `render_noise` — vector + procedural primitives
+an agent composes into original art, checking each move with `look`.
 
 **Session & safety:** `load_image`, `list_images`, `new_image`, `export_image`,
 `save_xcf`, `export_layers`, `close_image`, `checkpoint`/`restore_checkpoint`

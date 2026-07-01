@@ -31,7 +31,7 @@ import _core
 from _core import mcp
 
 BUNDLED_PACKS = ["layers", "text", "transform", "color", "fx", "select",
-                 "recipes", "journal", "watch"]
+                 "generate", "recipes", "journal", "watch"]
 
 
 def _enabled_packs():
