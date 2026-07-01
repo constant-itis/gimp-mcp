@@ -1,0 +1,806 @@
+{
+ "domain": "selections",
+ "count": 45,
+ "procedures": {
+  "gimp-channel-combine-masks": {
+   "blurb": "Combine two channel masks.",
+   "help": "This procedure combines two channel masks. The result is stored in the first channel.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel1",
+     "desc": "The channel1"
+    },
+    {
+     "type": "CHANNEL",
+     "name": "channel2",
+     "desc": "The channel2"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "offx",
+     "desc": "x offset between upper left corner of channels: (second - first)"
+    },
+    {
+     "type": "INT32",
+     "name": "offy",
+     "desc": "y offset between upper left corner of channels: (second - first)"
+    }
+   ]
+  },
+  "gimp-channel-copy": {
+   "blurb": "Copy a channel.",
+   "help": "This procedure copies the specified channel and returns the copy.\nThe new channel still needs to be added to the image, as this is not automatic. Add the new channel with 'gimp-image-insert-channel'.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel to copy"
+    }
+   ]
+  },
+  "gimp-channel-delete": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-delete' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-delete' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item to delete"
+    }
+   ]
+  },
+  "gimp-channel-get-color": {
+   "blurb": "Get the compositing color of the specified channel.",
+   "help": "This procedure returns the specified channel's compositing color.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel"
+    }
+   ]
+  },
+  "gimp-channel-get-name": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-name' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-name' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-channel-get-opacity": {
+   "blurb": "Get the opacity of the specified channel.",
+   "help": "This procedure returns the specified channel's opacity.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel"
+    }
+   ]
+  },
+  "gimp-channel-get-show-masked": {
+   "blurb": "Get the composite method of the specified channel.",
+   "help": "This procedure returns the specified channel's composite method. If it is TRUE, then the channel is composited with the image so that masked regions are shown. Otherwise, selected regions are shown.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel"
+    }
+   ]
+  },
+  "gimp-channel-get-tattoo": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-tattoo' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-tattoo' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-channel-get-visible": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-visible' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-visible' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-channel-new": {
+   "blurb": "Create a new channel.",
+   "help": "This procedure creates a new channel with the specified width, height, name, opacity and color.\nThe new channel still needs to be added to the image, as this is not automatic. Add the new channel with 'gimp-image-insert-channel'. Other attributes, such as channel visibility, should be set with explicit procedure calls.\nThe channel's contents are undefined initially.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to which to add the channel"
+    },
+    {
+     "type": "INT32",
+     "name": "width",
+     "desc": "The channel width (1 <= width <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "height",
+     "desc": "The channel height (1 <= height <= 524288)"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The channel name"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The channel opacity (0 <= opacity <= 100)"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The channel compositing color"
+    }
+   ]
+  },
+  "gimp-channel-new-from-component": {
+   "blurb": "Create a new channel from a color component",
+   "help": "This procedure creates a new channel from a color component.\nThe new channel still needs to be added to the image, as this is not automatic. Add the new channel with 'gimp-image-insert-channel'. Other attributes, such as channel visibility, should be set with explicit procedure calls.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to which to add the channel"
+    },
+    {
+     "type": "INT32",
+     "name": "component",
+     "desc": "The image component { CHANNEL-RED (0), CHANNEL-GREEN (1), CHANNEL-BLUE (2), CHANNEL-GRAY (3), CHANNEL-INDEXED (4), CHANNEL-ALPHA (5) }"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The channel name"
+    }
+   ]
+  },
+  "gimp-channel-ops-duplicate": {
+   "blurb": "This procedure is deprecated! Use 'gimp-image-duplicate' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-image-duplicate' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-channel-ops-offset": {
+   "blurb": "This procedure is deprecated! Use 'gimp-drawable-offset' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-drawable-offset' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to offset"
+    },
+    {
+     "type": "INT32",
+     "name": "wrap-around",
+     "desc": "wrap image around or fill vacated regions (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "fill-type",
+     "desc": "fill vacated regions of drawable with background or transparent { OFFSET-BACKGROUND (0), OFFSET-TRANSPARENT (1), OFFSET-WRAP-AROUND (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "offset-x",
+     "desc": "offset by this amount in X direction"
+    },
+    {
+     "type": "INT32",
+     "name": "offset-y",
+     "desc": "offset by this amount in Y direction"
+    }
+   ]
+  },
+  "gimp-channel-set-color": {
+   "blurb": "Set the compositing color of the specified channel.",
+   "help": "This procedure sets the specified channel's compositing color.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The new channel compositing color"
+    }
+   ]
+  },
+  "gimp-channel-set-name": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-set-name' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-set-name' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The new item name"
+    }
+   ]
+  },
+  "gimp-channel-set-opacity": {
+   "blurb": "Set the opacity of the specified channel.",
+   "help": "This procedure sets the specified channel's opacity.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The new channel opacity (0 <= opacity <= 100)"
+    }
+   ]
+  },
+  "gimp-channel-set-show-masked": {
+   "blurb": "Set the composite method of the specified channel.",
+   "help": "This procedure sets the specified channel's composite method. If it is TRUE, then the channel is composited with the image so that masked regions are shown. Otherwise, selected regions are shown.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel"
+    },
+    {
+     "type": "INT32",
+     "name": "show-masked",
+     "desc": "The new channel composite method (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-channel-set-tattoo": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-set-tattoo' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-set-tattoo' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "INT32",
+     "name": "tattoo",
+     "desc": "The new item tattoo"
+    }
+   ]
+  },
+  "gimp-channel-set-visible": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-set-visible' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-set-visible' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "INT32",
+     "name": "visible",
+     "desc": "The new item visibility (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-image-select-color": {
+   "blurb": "Create a selection by selecting all pixels (in the specified drawable) with the same (or similar) color to that specified.",
+   "help": "This tool creates a selection over the specified image. A by-color selection is determined by the supplied color under the constraints of the current context settings. Essentially, all pixels (in the drawable) that have color sufficiently close to the specified color (as determined by the threshold and criterion context values) are included in the selection. To select transparent regions, the color specified must also have minimum alpha.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-antialias', 'gimp-context-set-feather', 'gimp-context-set-feather-radius', 'gimp-context-set-sample-merged', 'gimp-context-set-sample-criterion', 'gimp-context-set-sample-threshold', 'gimp-context-set-sample-transparent'.\n\nIn the case of a merged sampling, the supplied drawable is ignored.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The affected image"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The color to select"
+    }
+   ]
+  },
+  "gimp-image-select-contiguous-color": {
+   "blurb": "Create a selection by selecting all pixels around specified coordinates with the same (or similar) color to that at the coordinates.",
+   "help": "This tool creates a contiguous selection over the specified image. A contiguous color selection is determined by a seed fill under the constraints of the current context settings. Essentially, the color at the specified coordinates (in the drawable) is measured and the selection expands outwards from that point to any adjacent pixels which are not significantly different (as determined by the threshold and criterion context settings). This process continues until no more expansion is possible. If antialiasing is turned on, the final selection mask will contain intermediate values based on close misses to the threshold bar at pixels along the seed fill boundary.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-antialias', 'gimp-context-set-feather', 'gimp-context-set-feather-radius', 'gimp-context-set-sample-merged', 'gimp-context-set-sample-criterion', 'gimp-context-set-sample-threshold', 'gimp-context-set-sample-transparent', 'gimp-context-set-diagonal-neighbors'.\n\nIn the case of a merged sampling, the supplied drawable is ignored. If the sample is merged, the specified coordinates are relative to the image origin; otherwise, they are relative to the drawable's origin.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The affected image"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of initial seed fill point: (image coordinates)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of initial seed fill point: (image coordinates)"
+    }
+   ]
+  },
+  "gimp-image-select-ellipse": {
+   "blurb": "Create an elliptical selection over the specified image.",
+   "help": "This tool creates an elliptical selection over the specified image. The elliptical region can be either added to, subtracted from, or replace the contents of the previous selection mask.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-antialias', 'gimp-context-set-feather', 'gimp-context-set-feather-radius'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of upper-left corner of ellipse bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of upper-left corner of ellipse bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "width",
+     "desc": "The width of the ellipse (width >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "height",
+     "desc": "The height of the ellipse (height >= 0)"
+    }
+   ]
+  },
+  "gimp-image-select-item": {
+   "blurb": "Transforms the specified item into a selection",
+   "help": "This procedure renders the item's outline into the current selection of the image the item belongs to. What exactly the item's outline is depends on the item type: for layers, it's the layer's alpha channel, for vectors the vector's shape.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-antialias', 'gimp-context-set-feather', 'gimp-context-set-feather-radius'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The desired operation with current selection { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item to render to the selection"
+    }
+   ]
+  },
+  "gimp-image-select-polygon": {
+   "blurb": "Create a polygonal selection over the specified image.",
+   "help": "This tool creates a polygonal selection over the specified image. The polygonal region can be either added to, subtracted from, or replace the contents of the previous selection mask. The polygon is specified through an array of floating point numbers and its length. The length of array must be 2n, where n is the number of points. Each point is defined by 2 floating point values which correspond to the x and y coordinates. If the final point does not connect to the starting point, a connecting segment is automatically added.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-antialias', 'gimp-context-set-feather', 'gimp-context-set-feather-radius'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-segs",
+     "desc": "Number of points (count 1 coordinate as two points) (num-segs >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "segs",
+     "desc": "Array of points: { p1.x, p1.y, p2.x, p2.y, ..., pn.x, pn.y}"
+    }
+   ]
+  },
+  "gimp-image-select-rectangle": {
+   "blurb": "Create a rectangular selection over the specified image;",
+   "help": "This tool creates a rectangular selection over the specified image. The rectangular region can be either added to, subtracted from, or replace the contents of the previous selection mask.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-feather', 'gimp-context-set-feather-radius'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "width",
+     "desc": "The width of the rectangle (width >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "height",
+     "desc": "The height of the rectangle (height >= 0)"
+    }
+   ]
+  },
+  "gimp-image-select-round-rectangle": {
+   "blurb": "Create a rectangular selection with round corners over the specified image;",
+   "help": "This tool creates a rectangular selection with round corners over the specified image. The rectangular region can be either added to, subtracted from, or replace the contents of the previous selection mask.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-antialias', 'gimp-context-set-feather', 'gimp-context-set-feather-radius'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "width",
+     "desc": "The width of the rectangle (width >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "height",
+     "desc": "The height of the rectangle (height >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "corner-radius-x",
+     "desc": "The corner radius in X direction (0 <= corner-radius-x <= 524288)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "corner-radius-y",
+     "desc": "The corner radius in Y direction (0 <= corner-radius-y <= 524288)"
+    }
+   ]
+  },
+  "gimp-selection-all": {
+   "blurb": "Select all of the image.",
+   "help": "This procedure sets the selection mask to completely encompass the image. Every pixel in the selection channel is set to 255.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-border": {
+   "blurb": "Border the image's selection",
+   "help": "This procedure borders the selection. Bordering creates a new selection which is defined along the boundary of the previous selection at every point within the specified radius.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "radius",
+     "desc": "Radius of border (in pixels) (radius >= 0)"
+    }
+   ]
+  },
+  "gimp-selection-bounds": {
+   "blurb": "Find the bounding box of the current selection.",
+   "help": "This procedure returns whether there is a selection for the specified image. If there is one, the upper left and lower right corners of the bounding box are returned. These coordinates are relative to the image. Please note that the pixel specified by the lower right coordinate of the bounding box is not part of the selection. The selection ends at the upper left corner of this pixel. This means the width of the selection can be calculated as (x2 - x1), its height as (y2 - y1).",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-clear": {
+   "blurb": "This procedure is deprecated! Use 'gimp-selection-none' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-selection-none' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-combine": {
+   "blurb": "Deprecated: Use 'gimp-image-select-item' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-item' instead.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    }
+   ]
+  },
+  "gimp-selection-feather": {
+   "blurb": "Feather the image's selection",
+   "help": "This procedure feathers the selection. Feathering is implemented using a gaussian blur.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "FLOAT",
+     "name": "radius",
+     "desc": "Radius of feather (in pixels) (radius >= 0)"
+    }
+   ]
+  },
+  "gimp-selection-float": {
+   "blurb": "Float the selection from the specified drawable with initial offsets as specified.",
+   "help": "This procedure determines the region of the specified drawable that lies beneath the current selection. The region is then cut from the drawable and the resulting data is made into a new layer which is instantiated as a floating selection. The offsets allow initial positioning of the new floating selection.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable from which to float selection"
+    },
+    {
+     "type": "INT32",
+     "name": "offx",
+     "desc": "x offset for translation"
+    },
+    {
+     "type": "INT32",
+     "name": "offy",
+     "desc": "y offset for translation"
+    }
+   ]
+  },
+  "gimp-selection-flood": {
+   "blurb": "Remove holes from the image's selection",
+   "help": "This procedure removes holes from the selection, that can come from selecting a patchy area with the Fuzzy Select Tool. In technical terms this procedure floods the selection. See the Algorithms page in the developer wiki for details.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-grow": {
+   "blurb": "Grow the image's selection",
+   "help": "This procedure grows the selection. Growing involves expanding the boundary in all directions by the specified pixel amount.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "steps",
+     "desc": "Steps of grow (in pixels) (steps >= 0)"
+    }
+   ]
+  },
+  "gimp-selection-invert": {
+   "blurb": "Invert the selection mask.",
+   "help": "This procedure inverts the selection mask. For every pixel in the selection channel, its new value is calculated as (255 - old-value).",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-is-empty": {
+   "blurb": "Determine whether the selection is empty.",
+   "help": "This procedure returns TRUE if the selection for the specified image is empty.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-layer-alpha": {
+   "blurb": "Deprecated: Use 'gimp-image-select-item' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-item' instead.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "Layer with alpha"
+    }
+   ]
+  },
+  "gimp-selection-load": {
+   "blurb": "Deprecated: Use 'gimp-image-select-item' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-item' instead.",
+   "args": [
+    {
+     "type": "CHANNEL",
+     "name": "channel",
+     "desc": "The channel"
+    }
+   ]
+  },
+  "gimp-selection-none": {
+   "blurb": "Deselect the entire image.",
+   "help": "This procedure deselects the entire image. Every pixel in the selection channel is set to 0.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-save": {
+   "blurb": "Copy the selection mask to a new channel.",
+   "help": "This procedure copies the selection mask and stores the content in a new channel. The new channel is automatically inserted into the image's list of channels.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-sharpen": {
+   "blurb": "Sharpen the selection mask.",
+   "help": "This procedure sharpens the selection mask. For every pixel in the selection channel, if the value is > 127, the new pixel is assigned a value of 255. This removes any \"anti-aliasing\" that might exist in the selection mask's boundary.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-selection-shrink": {
+   "blurb": "Shrink the image's selection",
+   "help": "This procedure shrinks the selection. Shrinking involves trimming the existing selection boundary on all sides by the specified number of pixels.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "steps",
+     "desc": "Steps of shrink (in pixels) (steps >= 0)"
+    }
+   ]
+  },
+  "gimp-selection-translate": {
+   "blurb": "Translate the selection by the specified offsets.",
+   "help": "This procedure actually translates the selection for the specified image by the specified offsets. Regions that are translated from beyond the bounds of the image are set to empty. Valid regions of the selection which are translated beyond the bounds of the image because of this call are lost.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "offx",
+     "desc": "x offset for translation"
+    },
+    {
+     "type": "INT32",
+     "name": "offy",
+     "desc": "y offset for translation"
+    }
+   ]
+  },
+  "gimp-selection-value": {
+   "blurb": "Find the value of the selection at the specified coordinates.",
+   "help": "This procedure returns the value of the selection at the specified coordinates. If the coordinates lie out of bounds, 0 is returned.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "x",
+     "desc": "x coordinate of value"
+    },
+    {
+     "type": "INT32",
+     "name": "y",
+     "desc": "y coordinate of value"
+    }
+   ]
+  }
+ }
+}

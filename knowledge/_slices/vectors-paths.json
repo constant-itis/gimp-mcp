@@ -1,0 +1,1105 @@
+{
+ "domain": "vectors-paths",
+ "count": 54,
+ "procedures": {
+  "gimp-path-delete": {
+   "blurb": "Deprecated: Use 'gimp-image-remove-vectors' instead.",
+   "help": "Deprecated: Use 'gimp-image-remove-vectors' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to delete the path from"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the path to delete."
+    }
+   ]
+  },
+  "gimp-path-get-current": {
+   "blurb": "Deprecated: Use 'gimp-image-get-active-vectors' instead.",
+   "help": "Deprecated: Use 'gimp-image-get-active-vectors' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to get the current path from"
+    }
+   ]
+  },
+  "gimp-path-get-locked": {
+   "blurb": "Deprecated: Use 'gimp-vectors-get-linked' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-get-linked' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the path whose locked status should be obtained."
+    }
+   ]
+  },
+  "gimp-path-get-point-at-dist": {
+   "blurb": "Deprecated: Use 'gimp-vectors-stroke-get-point-at-dist' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-stroke-get-point-at-dist' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image the paths belongs to"
+    },
+    {
+     "type": "FLOAT",
+     "name": "distance",
+     "desc": "The distance along the path."
+    }
+   ]
+  },
+  "gimp-path-get-points": {
+   "blurb": "Deprecated: Use 'gimp-vectors-stroke-get-points' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-stroke-get-points' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to list the paths from"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the path whose points should be listed."
+    }
+   ]
+  },
+  "gimp-path-get-tattoo": {
+   "blurb": "Deprecated: Use 'gimp-vectors-get-tattoo' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-get-tattoo' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the path whose tattoo should be obtained."
+    }
+   ]
+  },
+  "gimp-path-import": {
+   "blurb": "Deprecated: Use 'gimp-vectors-import-from-file' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-import-from-file' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "filename",
+     "desc": "The name of the SVG file to import."
+    },
+    {
+     "type": "INT32",
+     "name": "merge",
+     "desc": "Merge paths into a single vectors object. (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "scale",
+     "desc": "Scale the SVG to image dimensions. (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-path-list": {
+   "blurb": "Deprecated: Use 'gimp-image-get-vectors' instead.",
+   "help": "Deprecated: Use 'gimp-image-get-vectors' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to list the paths from"
+    }
+   ]
+  },
+  "gimp-path-set-current": {
+   "blurb": "Deprecated: Use 'gimp-image-set-active-vectors' instead.",
+   "help": "Deprecated: Use 'gimp-image-set-active-vectors' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image in which a path will become current"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the path to make current."
+    }
+   ]
+  },
+  "gimp-path-set-locked": {
+   "blurb": "Deprecated: Use 'gimp-vectors-set-linked' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-set-linked' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "the name of the path whose locked status should be set"
+    },
+    {
+     "type": "INT32",
+     "name": "locked",
+     "desc": "Whether the path is locked (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-path-set-points": {
+   "blurb": "Deprecated: Use 'gimp-vectors-stroke-new-from-points' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-stroke-new-from-points' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to set the paths in"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the path to create. If it exists then a unique name will be created - query the list of paths if you want to make sure that the name of the path you create is unique. This will be set as the current path."
+    },
+    {
+     "type": "INT32",
+     "name": "ptype",
+     "desc": "The type of the path. Currently only one type (1 = Bezier) is supported."
+    },
+    {
+     "type": "INT32",
+     "name": "num-path-points",
+     "desc": "The number of elements in the array, i.e. the number of points in the path * 3. Each point is made up of (x, y, type) of floats. Currently only the creation of bezier curves is allowed. The type parameter must be set to (1) to indicate a BEZIER type curve. Note that for BEZIER curves, points must be given in the following order: ACCACCAC... If the path is not closed the last control point is missed off. Points consist of three control points (control/anchor/control) so for a curve that is not closed there must be at least two points passed (2 x,y pairs). If (num_path_points/3) % 3 = 0 then the path is assumed to be closed and the points are ACCACCACCACC. (num-path-points >= 0)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "points-pairs",
+     "desc": "The points in the path represented as 3 floats. The first is the x pos, next is the y pos, last is the type of the pnt. The type field is dependent on the path type. For beziers (type 1 paths) the type can either be (1.0 = BEZIER_ANCHOR, 2.0 = BEZIER_CONTROL, 3.0= BEZIER_MOVE). Note all points are returned in pixel resolution."
+    }
+   ]
+  },
+  "gimp-path-set-tattoo": {
+   "blurb": "Deprecated: Use 'gimp-vectors-set-tattoo' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-set-tattoo' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "the name of the path whose tattoo should be set"
+    },
+    {
+     "type": "INT32",
+     "name": "tattovalue",
+     "desc": "The tattoo associated with the name path. Only values returned from 'path_get_tattoo' should be used here"
+    }
+   ]
+  },
+  "gimp-path-stroke-current": {
+   "blurb": "Deprecated: Use 'gimp-edit-stroke-vectors' instead.",
+   "help": "Deprecated: Use 'gimp-edit-stroke-vectors' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image which contains the path to stroke"
+    }
+   ]
+  },
+  "gimp-path-to-selection": {
+   "blurb": "Deprecated: Use 'gimp-vectors-to-selection' instead.",
+   "help": "Deprecated: Use 'gimp-vectors-to-selection' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the path which should be made into selection."
+    },
+    {
+     "type": "INT32",
+     "name": "op",
+     "desc": "The desired operation with current selection { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialias selection. (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather selection. (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-x",
+     "desc": "Feather radius x."
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-y",
+     "desc": "Feather radius y."
+    }
+   ]
+  },
+  "gimp-vectors-bezier-stroke-conicto": {
+   "blurb": "Extends a bezier stroke with a conic bezier spline.",
+   "help": "Extends a bezier stroke with a conic bezier spline. Actually a cubic bezier spline gets added that realizes the shape of a conic bezier spline.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The x-coordinate of the control point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The y-coordinate of the control point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The x-coordinate of the end point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The y-coordinate of the end point"
+    }
+   ]
+  },
+  "gimp-vectors-bezier-stroke-cubicto": {
+   "blurb": "Extends a bezier stroke with a cubic bezier spline.",
+   "help": "Extends a bezier stroke with a cubic bezier spline.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The x-coordinate of the first control point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The y-coordinate of the first control point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The x-coordinate of the second control point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The y-coordinate of the second control point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "The x-coordinate of the end point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "The y-coordinate of the end point"
+    }
+   ]
+  },
+  "gimp-vectors-bezier-stroke-lineto": {
+   "blurb": "Extends a bezier stroke with a lineto.",
+   "help": "Extends a bezier stroke with a lineto.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The x-coordinate of the lineto"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The y-coordinate of the lineto"
+    }
+   ]
+  },
+  "gimp-vectors-bezier-stroke-new-ellipse": {
+   "blurb": "Adds a bezier stroke describing an ellipse the vectors object.",
+   "help": "Adds a bezier stroke describing an ellipse the vectors object.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The x-coordinate of the center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The y-coordinate of the center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "radius-x",
+     "desc": "The radius in x direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "radius-y",
+     "desc": "The radius in y direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle the x-axis of the ellipse (radians, counterclockwise)"
+    }
+   ]
+  },
+  "gimp-vectors-bezier-stroke-new-moveto": {
+   "blurb": "Adds a bezier stroke with a single moveto to the vectors object.",
+   "help": "Adds a bezier stroke with a single moveto to the vectors object.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The x-coordinate of the moveto"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The y-coordinate of the moveto"
+    }
+   ]
+  },
+  "gimp-vectors-copy": {
+   "blurb": "Copy a vectors object.",
+   "help": "This procedure copies the specified vectors object and returns the copy.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object to copy"
+    }
+   ]
+  },
+  "gimp-vectors-export-to-file": {
+   "blurb": "save a path as an SVG file.",
+   "help": "This procedure creates an SVG file to save a Vectors object, that is, a path. The resulting file can be edited using a vector graphics application, or later reloaded into GIMP. If you pass 0 as the 'vectors' argument, then all paths in the image will be exported.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "filename",
+     "desc": "The name of the SVG file to create."
+    },
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object to be saved, or 0 for all in the image"
+    }
+   ]
+  },
+  "gimp-vectors-export-to-string": {
+   "blurb": "Save a path as an SVG string.",
+   "help": "This procedure works like 'gimp-vectors-export-to-file' but creates a string rather than a file. The contents are a NUL-terminated string that holds a complete XML document. If you pass 0 as the 'vectors' argument, then all paths in the image will be exported.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object to save, or 0 for all in the image"
+    }
+   ]
+  },
+  "gimp-vectors-get-image": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-image' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-image' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-vectors-get-linked": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-linked' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-linked' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-vectors-get-name": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-name' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-name' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-vectors-get-strokes": {
+   "blurb": "List the strokes associated with the passed path.",
+   "help": "Returns an Array with the stroke-IDs associated with the passed path.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    }
+   ]
+  },
+  "gimp-vectors-get-tattoo": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-tattoo' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-tattoo' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-vectors-get-visible": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-visible' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-visible' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-vectors-import-from-file": {
+   "blurb": "Import paths from an SVG file.",
+   "help": "This procedure imports paths from an SVG file. SVG elements other than paths and basic shapes are ignored.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "filename",
+     "desc": "The name of the SVG file to import."
+    },
+    {
+     "type": "INT32",
+     "name": "merge",
+     "desc": "Merge paths into a single vectors object. (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "scale",
+     "desc": "Scale the SVG to image dimensions. (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-vectors-import-from-string": {
+   "blurb": "Import paths from an SVG string.",
+   "help": "This procedure works like 'gimp-vectors-import-from-file' but takes a string rather than reading the SVG from a file. This allows you to write scripts that generate SVG and feed it to GIMP.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "string",
+     "desc": "A string that must be a complete and valid SVG document."
+    },
+    {
+     "type": "INT32",
+     "name": "length",
+     "desc": "Number of bytes in string or -1 if the string is NULL terminated."
+    },
+    {
+     "type": "INT32",
+     "name": "merge",
+     "desc": "Merge paths into a single vectors object. (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "scale",
+     "desc": "Scale the SVG to image dimensions. (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-vectors-is-valid": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-is-valid' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-is-valid' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item to check"
+    }
+   ]
+  },
+  "gimp-vectors-new": {
+   "blurb": "Creates a new empty vectors object.",
+   "help": "Creates a new empty vectors object. The vectors object needs to be added to the image using 'gimp-image-insert-vectors'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "the name of the new vector object."
+    }
+   ]
+  },
+  "gimp-vectors-new-from-text-layer": {
+   "blurb": "Creates a new vectors object from a text layer.",
+   "help": "Creates a new vectors object from a text layer. The vectors object needs to be added to the image using 'gimp-image-insert-vectors'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image."
+    },
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer."
+    }
+   ]
+  },
+  "gimp-vectors-parasite-attach": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-attach-parasite' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-attach-parasite' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "PARASITE",
+     "name": "parasite",
+     "desc": "The parasite to attach to the item"
+    }
+   ]
+  },
+  "gimp-vectors-parasite-detach": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-detach-parasite' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-detach-parasite' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the parasite to detach from the item."
+    }
+   ]
+  },
+  "gimp-vectors-parasite-find": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-parasite' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-parasite' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the parasite to find"
+    }
+   ]
+  },
+  "gimp-vectors-parasite-list": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-get-parasite-list' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-get-parasite-list' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    }
+   ]
+  },
+  "gimp-vectors-remove-stroke": {
+   "blurb": "remove the stroke from a vectors object.",
+   "help": "Remove the stroke from a vectors object.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    }
+   ]
+  },
+  "gimp-vectors-set-linked": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-set-linked' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-set-linked' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "INT32",
+     "name": "linked",
+     "desc": "The new item linked state (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-vectors-set-name": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-set-name' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-set-name' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The new item name"
+    }
+   ]
+  },
+  "gimp-vectors-set-tattoo": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-set-tattoo' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-set-tattoo' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "INT32",
+     "name": "tattoo",
+     "desc": "The new item tattoo"
+    }
+   ]
+  },
+  "gimp-vectors-set-visible": {
+   "blurb": "This procedure is deprecated! Use 'gimp-item-set-visible' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-item-set-visible' instead.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "INT32",
+     "name": "visible",
+     "desc": "The new item visibility (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-close": {
+   "blurb": "closes the specified stroke.",
+   "help": "Closes the specified stroke.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-flip": {
+   "blurb": "flips the given stroke.",
+   "help": "Rotates the given stroke around given center by angle (in degrees).",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "INT32",
+     "name": "flip-type",
+     "desc": "Flip orientation, either vertical or horizontal { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "axis",
+     "desc": "axis coordinate about which to flip, in pixels"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-flip-free": {
+   "blurb": "flips the given stroke about an arbitrary axis.",
+   "help": "Flips the given stroke about an arbitrary axis. Axis is defined by two coordinates in the image (in pixels), through which the flipping axis passes.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "X coordinate of the first point of the flipping axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "Y coordinate of the first point of the flipping axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "X coordinate of the second point of the flipping axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "Y coordinate of the second point of the flipping axis"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-get-length": {
+   "blurb": "Measure the length of the given stroke.",
+   "help": "Measure the length of the given stroke.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "precision",
+     "desc": "The precision used for the approximation"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-get-point-at-dist": {
+   "blurb": "Get point at a specified distance along the stroke.",
+   "help": "This will return the x,y position of a point at a given distance along the stroke. The distance will be obtained by first digitizing the curve internally and then walking along the curve. For a closed stroke the start of the path is the first point on the path that was created. This might not be obvious. If the stroke is not long enough, a \"valid\" flag will be FALSE.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dist",
+     "desc": "The given distance."
+    },
+    {
+     "type": "FLOAT",
+     "name": "precision",
+     "desc": "The precision used for the approximation"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-get-points": {
+   "blurb": "returns the control points of a stroke.",
+   "help": "returns the control points of a stroke. The interpretation of the coordinates returned depends on the type of the stroke. For Gimp 2.4 this is always a bezier stroke, where the coordinates are the control points.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-interpolate": {
+   "blurb": "returns polygonal approximation of the stroke.",
+   "help": "returns polygonal approximation of the stroke.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "precision",
+     "desc": "The precision used for the approximation"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-new-from-points": {
+   "blurb": "Adds a stroke of a given type to the vectors object.",
+   "help": "Adds a stroke of a given type to the vectors object. The coordinates of the control points can be specified. For now only strokes of the type GIMP_VECTORS_STROKE_TYPE_BEZIER are supported. The control points are specified as a pair of float values for the x- and y-coordinate. The Bezier stroke type needs a multiple of three control points. Each Bezier segment endpoint (anchor, A) has two additional control points (C) associated. They are specified in the order CACCACCAC...",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "type",
+     "desc": "type of the stroke (always GIMP_VECTORS_STROKE_TYPE_BEZIER for now). { VECTORS-STROKE-TYPE-BEZIER (0) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-points",
+     "desc": "The number of elements in the array, i.e. the number of controlpoints in the stroke * 2 (x- and y-coordinate). (num-points >= 0)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "controlpoints",
+     "desc": "List of the x- and y-coordinates of the control points."
+    },
+    {
+     "type": "INT32",
+     "name": "closed",
+     "desc": "Whether the stroke is to be closed or not. (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-rotate": {
+   "blurb": "rotates the given stroke.",
+   "help": "Rotates the given stroke around given center by angle (in degrees).",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "center-x",
+     "desc": "X coordinate of the rotation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "center-y",
+     "desc": "Y coordinate of the rotation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "angle to rotate about"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-scale": {
+   "blurb": "scales the given stroke.",
+   "help": "Scale the given stroke.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-x",
+     "desc": "Scale factor in x direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-y",
+     "desc": "Scale factor in y direction"
+    }
+   ]
+  },
+  "gimp-vectors-stroke-translate": {
+   "blurb": "translate the given stroke.",
+   "help": "Translate the given stroke.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    },
+    {
+     "type": "INT32",
+     "name": "stroke-id",
+     "desc": "The stroke ID"
+    },
+    {
+     "type": "INT32",
+     "name": "off-x",
+     "desc": "Offset in x direction"
+    },
+    {
+     "type": "INT32",
+     "name": "off-y",
+     "desc": "Offset in y direction"
+    }
+   ]
+  },
+  "gimp-vectors-to-selection": {
+   "blurb": "Deprecated: Use 'gimp-image-select-item' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-item' instead.",
+   "args": [
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object to render to the selection"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The desired operation with current selection { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialias selection. (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather selection. (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-x",
+     "desc": "Feather radius x."
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-y",
+     "desc": "Feather radius y."
+    }
+   ]
+  }
+ }
+}

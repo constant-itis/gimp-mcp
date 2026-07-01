@@ -1,0 +1,2272 @@
+{
+ "domain": "misc",
+ "count": 130,
+ "procedures": {
+  "extension-gimp-help": {
+   "blurb": "",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "num-domain-names",
+     "desc": ""
+    },
+    {
+     "type": "STRINGARRAY",
+     "name": "domain-names",
+     "desc": ""
+    },
+    {
+     "type": "INT32",
+     "name": "num-domain-uris",
+     "desc": ""
+    },
+    {
+     "type": "STRINGARRAY",
+     "name": "domain-uris",
+     "desc": ""
+    }
+   ]
+  },
+  "extension-script-fu": {
+   "blurb": "A scheme interpreter for scripting GIMP operations",
+   "help": "More help here later",
+   "args": []
+  },
+  "gimp-attach-parasite": {
+   "blurb": "Add a global parasite.",
+   "help": "This procedure attaches a global parasite. It has no return values.",
+   "args": [
+    {
+     "type": "PARASITE",
+     "name": "parasite",
+     "desc": "The parasite to attach"
+    }
+   ]
+  },
+  "gimp-buffer-delete": {
+   "blurb": "Deletes a named buffer.",
+   "help": "This procedure deletes a named buffer.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The buffer name"
+    }
+   ]
+  },
+  "gimp-buffer-get-bytes": {
+   "blurb": "Retrieves the specified buffer's bytes.",
+   "help": "This procedure retrieves the specified named buffer's bytes.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The buffer name"
+    }
+   ]
+  },
+  "gimp-buffer-get-height": {
+   "blurb": "Retrieves the specified buffer's height.",
+   "help": "This procedure retrieves the specified named buffer's height.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The buffer name"
+    }
+   ]
+  },
+  "gimp-buffer-get-image-type": {
+   "blurb": "Retrieves the specified buffer's image type.",
+   "help": "This procedure retrieves the specified named buffer's image type.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The buffer name"
+    }
+   ]
+  },
+  "gimp-buffer-get-width": {
+   "blurb": "Retrieves the specified buffer's width.",
+   "help": "This procedure retrieves the specified named buffer's width.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The buffer name"
+    }
+   ]
+  },
+  "gimp-buffer-rename": {
+   "blurb": "Renames a named buffer.",
+   "help": "This procedure renames a named buffer.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The buffer name"
+    },
+    {
+     "type": "STRING",
+     "name": "new-name",
+     "desc": "The buffer's new name"
+    }
+   ]
+  },
+  "gimp-buffers-get-list": {
+   "blurb": "Retrieve a complete listing of the available buffers.",
+   "help": "This procedure returns a complete listing of available named buffers.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-by-color-select": {
+   "blurb": "Deprecated: Use 'gimp-image-select-color' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-color' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The color to select"
+    },
+    {
+     "type": "INT32",
+     "name": "threshold",
+     "desc": "Threshold in intensity levels (0 <= threshold <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather option for selections (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius",
+     "desc": "Radius for feather operation (feather-radius >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "Use the composite image, not the drawable (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-by-color-select-full": {
+   "blurb": "Deprecated: Use 'gimp-image-select-color' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-color' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The color to select"
+    },
+    {
+     "type": "INT32",
+     "name": "threshold",
+     "desc": "Threshold in intensity levels (0 <= threshold <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather option for selections (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-x",
+     "desc": "Radius for feather operation in X direction (feather-radius-x >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-y",
+     "desc": "Radius for feather operation in Y direction (feather-radius-y >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "Use the composite image, not the drawable (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "select-transparent",
+     "desc": "Whether to consider transparent pixels for selection. If TRUE, transparency is considered as a unique selectable color. (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "select-criterion",
+     "desc": "The criterion used to determine color similarity. SELECT_CRITERION_COMPOSITE is the standard choice. { SELECT-CRITERION-COMPOSITE (0), SELECT-CRITERION-R (1), SELECT-CRITERION-G (2), SELECT-CRITERION-B (3), SELECT-CRITERION-H (4), SELECT-CRITERION-S (5), SELECT-CRITERION-V (6), SELECT-CRITERION-A (7), SELECT-CRITERION-LCH-L (8), SELECT-CRITERION-LCH-C (9), SELECT-CRITERION-LCH-H (10) }"
+    }
+   ]
+  },
+  "gimp-color-picker": {
+   "blurb": "This procedure is deprecated! Use 'gimp-image-pick-color' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-image-pick-color' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to pick from"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "Use the composite image, not the drawable (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-average",
+     "desc": "Average the color of all the pixels in a specified radius (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "average-radius",
+     "desc": "The radius of pixels to average (average-radius >= 0)"
+    }
+   ]
+  },
+  "gimp-convert-grayscale": {
+   "blurb": "This procedure is deprecated! Use 'gimp-image-convert-grayscale' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-image-convert-grayscale' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-convert-indexed": {
+   "blurb": "This procedure is deprecated! Use 'gimp-image-convert-indexed' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-image-convert-indexed' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "dither-type",
+     "desc": "The dither type to use { CONVERT-DITHER-NONE (0), CONVERT-DITHER-FS (1), CONVERT-DITHER-FS-LOWBLEED (2), CONVERT-DITHER-FIXED (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "palette-type",
+     "desc": "The type of palette to use { CONVERT-PALETTE-GENERATE (0), CONVERT-PALETTE-WEB (2), CONVERT-PALETTE-MONO (3), CONVERT-PALETTE-CUSTOM (4) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-cols",
+     "desc": "The number of colors to quantize to, ignored unless (palette_type == GIMP_CONVERT_PALETTE_GENERATE)"
+    },
+    {
+     "type": "INT32",
+     "name": "alpha-dither",
+     "desc": "Dither transparency to fake partial opacity (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "remove-unused",
+     "desc": "Remove unused or duplicate color entries from final palette, ignored if (palette_type == GIMP_CONVERT_PALETTE_GENERATE) (TRUE or FALSE)"
+    },
+    {
+     "type": "STRING",
+     "name": "palette",
+     "desc": "The name of the custom palette to use, ignored unless (palette_type == GIMP_CONVERT_PALETTE_CUSTOM)"
+    }
+   ]
+  },
+  "gimp-convert-rgb": {
+   "blurb": "This procedure is deprecated! Use 'gimp-image-convert-rgb' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-image-convert-rgb' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    }
+   ]
+  },
+  "gimp-convolve": {
+   "blurb": "Convolve (Blur, Sharpen) using the current brush.",
+   "help": "This tool convolves the specified drawable with either a sharpening or blurring kernel. The pressure parameter controls the magnitude of the operation. Like the paintbrush, this tool linearly interpolates between the specified stroke coordinates.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "pressure",
+     "desc": "The pressure (0 <= pressure <= 100)"
+    },
+    {
+     "type": "INT32",
+     "name": "convolve-type",
+     "desc": "Convolve type { CONVOLVE-BLUR (0), CONVOLVE-SHARPEN (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-convolve-default": {
+   "blurb": "Convolve (Blur, Sharpen) using the current brush.",
+   "help": "This tool convolves the specified drawable with either a sharpening or blurring kernel. This function performs exactly the same as the 'gimp-convolve' function except that the tools arguments are obtained from the convolve option dialog. It this dialog has not been activated then the dialogs default values will be used.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-crop": {
+   "blurb": "This procedure is deprecated! Use 'gimp-image-crop' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-image-crop' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "new-width",
+     "desc": "New image width: (0 < new_width <= width) (1 <= new-width <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "new-height",
+     "desc": "New image height: (0 < new_height <= height) (1 <= new-height <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "offx",
+     "desc": "X offset: (0 <= offx <= (width - new_width)) (offx >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "offy",
+     "desc": "Y offset: (0 <= offy <= (height - new_height)) (offy >= 0)"
+    }
+   ]
+  },
+  "gimp-debug-timer-end": {
+   "blurb": "Finishes measuring elapsed time.",
+   "help": "This procedure stops the timer started by a previous 'gimp-debug-timer-start' call, and prints and returns the elapsed time.\nIf there was already an active timer at the time of corresponding call to 'gimp-debug-timer-start', a dummy value is returned.\n\nThis is a debug utility procedure. It is subject to change at any point, and should not be used in production.",
+   "args": []
+  },
+  "gimp-debug-timer-start": {
+   "blurb": "Starts measuring elapsed time.",
+   "help": "This procedure starts a timer, measuring the elapsed time since the call. Each call to this procedure should be matched by a call to 'gimp-debug-timer-end', which returns the elapsed time.\nIf there is already an active timer, it is not affected by the call, however, a matching 'gimp-debug-timer-end' call is still required.\n\nThis is a debug utility procedure. It is subject to change at any point, and should not be used in production.",
+   "args": []
+  },
+  "gimp-detach-parasite": {
+   "blurb": "Removes a global parasite.",
+   "help": "This procedure detaches a global parasite from. It has no return values.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the parasite to detach."
+    }
+   ]
+  },
+  "gimp-displays-flush": {
+   "blurb": "Flush all internal changes to the user interface",
+   "help": "This procedure takes no arguments and returns nothing except a success status. Its purpose is to flush all pending updates of image manipulations to the user interface. It should be called whenever appropriate.",
+   "args": []
+  },
+  "gimp-displays-reconnect": {
+   "blurb": "Reconnect displays from one image to another image.",
+   "help": "This procedure connects all displays of the old_image to the new_image. If the old_image has no display or new_image already has a display the reconnect is not performed and the procedure returns without success. You should rarely need to use this function.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "old-image",
+     "desc": "The old image (must have at least one display)"
+    },
+    {
+     "type": "IMAGE",
+     "name": "new-image",
+     "desc": "The new image (must not have a display)"
+    }
+   ]
+  },
+  "gimp-dodgeburn": {
+   "blurb": "Dodgeburn image with varying exposure.",
+   "help": "Dodgeburn. More details here later.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "exposure",
+     "desc": "The exposure of the strokes (0 <= exposure <= 100)"
+    },
+    {
+     "type": "INT32",
+     "name": "dodgeburn-type",
+     "desc": "The type either dodge or burn { DODGE-BURN-TYPE-DODGE (0), DODGE-BURN-TYPE-BURN (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "dodgeburn-mode",
+     "desc": "The mode { TRANSFER-SHADOWS (0), TRANSFER-MIDTONES (1), TRANSFER-HIGHLIGHTS (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-dodgeburn-default": {
+   "blurb": "Dodgeburn image with varying exposure. This is the same as the gimp_dodgeburn() function except that the exposure, type and mode are taken from the tools option dialog. If the dialog has not been activated then the defaults as used by the dialog will be used.",
+   "help": "Dodgeburn. More details here later.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-ellipse-select": {
+   "blurb": "Deprecated: Use 'gimp-image-select-ellipse' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-ellipse' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of upper-left corner of ellipse bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of upper-left corner of ellipse bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "width",
+     "desc": "The width of the ellipse (width >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "height",
+     "desc": "The height of the ellipse (height >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather option for selections (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius",
+     "desc": "Radius for feather operation (feather-radius >= 0)"
+    }
+   ]
+  },
+  "gimp-equalize": {
+   "blurb": "Deprecated: Use 'gimp-drawable-equalize' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-equalize' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "mask-only",
+     "desc": "Equalization option (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-flip": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-flip-simple' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-flip-simple' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "flip-type",
+     "desc": "Type of flip { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    }
+   ]
+  },
+  "gimp-floating-sel-anchor": {
+   "blurb": "Anchor the specified floating selection to its associated drawable.",
+   "help": "This procedure anchors the floating selection to its associated drawable. This is similar to merging with a merge type of ClipToBottomLayer. The floating selection layer is no longer valid after this operation.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "floating-sel",
+     "desc": "The floating selection"
+    }
+   ]
+  },
+  "gimp-floating-sel-attach": {
+   "blurb": "Attach the specified layer as floating to the specified drawable.",
+   "help": "This procedure attaches the layer as floating selection to the drawable.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The layer (is attached as floating selection)"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable (where to attach the floating selection)"
+    }
+   ]
+  },
+  "gimp-floating-sel-relax": {
+   "blurb": "Deprecated: There is no replacement for this procedure.",
+   "help": "Deprecated: There is no replacement for this procedure.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "floating-sel",
+     "desc": "The floating selection"
+    },
+    {
+     "type": "INT32",
+     "name": "undo",
+     "desc": " (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-floating-sel-remove": {
+   "blurb": "Remove the specified floating selection from its associated drawable.",
+   "help": "This procedure removes the floating selection completely, without any side effects. The associated drawable is then set to active.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "floating-sel",
+     "desc": "The floating selection"
+    }
+   ]
+  },
+  "gimp-floating-sel-rigor": {
+   "blurb": "Deprecated: There is no replacement for this procedure.",
+   "help": "Deprecated: There is no replacement for this procedure.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "floating-sel",
+     "desc": "The floating selection"
+    },
+    {
+     "type": "INT32",
+     "name": "undo",
+     "desc": " (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-floating-sel-to-layer": {
+   "blurb": "Transforms the specified floating selection into a layer.",
+   "help": "This procedure transforms the specified floating selection into a layer with the same offsets and extents. The composited image will look precisely the same, but the floating selection layer will no longer be clipped to the extents of the drawable it was attached to. The floating selection will become the active layer. This procedure will not work if the floating selection has a different base type from the underlying image. This might be the case if the floating selection is above an auxiliary channel or a layer mask.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "floating-sel",
+     "desc": "The floating selection"
+    }
+   ]
+  },
+  "gimp-free-select": {
+   "blurb": "Deprecated: Use 'gimp-image-select-polygon' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-polygon' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "num-segs",
+     "desc": "Number of points (count 1 coordinate as two points) (num-segs >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "segs",
+     "desc": "Array of points: { p1.x, p1.y, p2.x, p2.y, ..., pn.x, pn.y}"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather option for selections (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius",
+     "desc": "Radius for feather operation (feather-radius >= 0)"
+    }
+   ]
+  },
+  "gimp-fuzzy-select": {
+   "blurb": "Deprecated: Use 'gimp-image-select-contiguous-color' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-contiguous-color' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of initial seed fill point: (image coordinates)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of initial seed fill point: (image coordinates)"
+    },
+    {
+     "type": "INT32",
+     "name": "threshold",
+     "desc": "Threshold in intensity levels (0 <= threshold <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather option for selections (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius",
+     "desc": "Radius for feather operation (feather-radius >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "Use the composite image, not the drawable (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-fuzzy-select-full": {
+   "blurb": "Deprecated: Use 'gimp-image-select-contiguous-color' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-contiguous-color' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of initial seed fill point: (image coordinates)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of initial seed fill point: (image coordinates)"
+    },
+    {
+     "type": "INT32",
+     "name": "threshold",
+     "desc": "Threshold in intensity levels (0 <= threshold <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather option for selections (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-x",
+     "desc": "Radius for feather operation in X direction (feather-radius-x >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-y",
+     "desc": "Radius for feather operation in Y direction (feather-radius-y >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "Use the composite image, not the drawable (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "select-transparent",
+     "desc": "Whether to consider transparent pixels for selection. If TRUE, transparency is considered as a unique selectable color. (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "select-criterion",
+     "desc": "The criterion used to determine color similarity. SELECT_CRITERION_COMPOSITE is the standard choice. { SELECT-CRITERION-COMPOSITE (0), SELECT-CRITERION-R (1), SELECT-CRITERION-G (2), SELECT-CRITERION-B (3), SELECT-CRITERION-H (4), SELECT-CRITERION-S (5), SELECT-CRITERION-V (6), SELECT-CRITERION-A (7), SELECT-CRITERION-LCH-L (8), SELECT-CRITERION-LCH-C (9), SELECT-CRITERION-LCH-H (10) }"
+    }
+   ]
+  },
+  "gimp-get-color-configuration": {
+   "blurb": "Get a serialized version of the color management configuration.",
+   "help": "Returns a string that can be deserialized into a GimpColorConfig object representing the current color management configuration.",
+   "args": []
+  },
+  "gimp-get-default-comment": {
+   "blurb": "Get the default image comment as specified in the Preferences.",
+   "help": "Returns a copy of the default image comment.",
+   "args": []
+  },
+  "gimp-get-default-unit": {
+   "blurb": "Get the default unit (taken from the user's locale).",
+   "help": "Returns the default unit's integer ID.",
+   "args": []
+  },
+  "gimp-get-icon-theme-dir": {
+   "blurb": "Get the directory of the current icon theme.",
+   "help": "Returns a copy of the current icon theme dir.\n\nDeprecated: There is no replacement for this procedure.",
+   "args": []
+  },
+  "gimp-get-module-load-inhibit": {
+   "blurb": "Get the list of modules which should not be loaded.",
+   "help": "Returns a copy of the list of modules which should not be loaded.",
+   "args": []
+  },
+  "gimp-get-monitor-resolution": {
+   "blurb": "Get the monitor resolution as specified in the Preferences.",
+   "help": "Returns the resolution of the monitor in pixels/inch. This value is taken from the Preferences (or the windowing system if this is set in the Preferences) and there's no guarantee for the value to be reasonable.",
+   "args": []
+  },
+  "gimp-get-parasite": {
+   "blurb": "Look up a global parasite.",
+   "help": "Finds and returns the global parasite that was previously attached.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the parasite to find"
+    }
+   ]
+  },
+  "gimp-get-parasite-list": {
+   "blurb": "List all parasites.",
+   "help": "Returns a list of all currently attached global parasites.",
+   "args": []
+  },
+  "gimp-get-path-by-tattoo": {
+   "blurb": "Deprecated: Use 'gimp-image-get-vectors-by-tattoo' instead.",
+   "help": "Deprecated: Use 'gimp-image-get-vectors-by-tattoo' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "tattoo",
+     "desc": "The tattoo of the required path."
+    }
+   ]
+  },
+  "gimp-get-theme-dir": {
+   "blurb": "Get the directory of the current GUI theme.",
+   "help": "Returns a copy of the current GUI theme dir.\n\nDeprecated: There is no replacement for this procedure.",
+   "args": []
+  },
+  "gimp-getpid": {
+   "blurb": "Returns the PID of the host GIMP process.",
+   "help": "This procedure returns the process ID of the currently running GIMP.",
+   "args": []
+  },
+  "gimp-gimprc-query": {
+   "blurb": "Queries the gimprc file parser for information on a specified token.",
+   "help": "This procedure is used to locate additional information contained in the gimprc file considered extraneous to the operation of GIMP. Plug-ins that need configuration information can expect it will be stored in the user gimprc file and can use this procedure to retrieve it. This query procedure will return the value associated with the specified token. This corresponds _only_ to entries with the format: (<token> <value>). The value must be a string. Entries not corresponding to this format will cause warnings to be issued on gimprc parsing and will not be queryable.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "token",
+     "desc": "The token to query for"
+    }
+   ]
+  },
+  "gimp-gimprc-set": {
+   "blurb": "Sets a gimprc token to a value and saves it in the gimprc.",
+   "help": "This procedure is used to add or change additional information in the gimprc file that is considered extraneous to the operation of GIMP. Plug-ins that need configuration information can use this function to store it, and 'gimp-gimprc-query' to retrieve it. This will accept _only_ string values in UTF-8 encoding.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "token",
+     "desc": "The token to add or modify"
+    },
+    {
+     "type": "STRING",
+     "name": "value",
+     "desc": "The value to set the token to"
+    }
+   ]
+  },
+  "gimp-heal": {
+   "blurb": "Heal from the source to the dest drawable using the current brush",
+   "help": "This tool heals the source drawable starting at the specified source coordinates to the dest drawable. For image healing, if the sum of the src coordinates and subsequent stroke offsets exceeds the extents of the src drawable, then no paint is transferred. The healing tool is capable of transforming between any image types except RGB->Indexed.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "src-drawable",
+     "desc": "The source drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "src-x",
+     "desc": "The x coordinate in the source image"
+    },
+    {
+     "type": "FLOAT",
+     "name": "src-y",
+     "desc": "The y coordinate in the source image"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-heal-default": {
+   "blurb": "Heal from the source to the dest drawable using the current brush",
+   "help": "This tool heals from the source drawable starting at the specified source coordinates to the dest drawable. This function performs exactly the same as the 'gimp-heal' function except that the tools arguments are obtained from the healing option dialog. It this dialog has not been activated then the dialogs default values will be used.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-help": {
+   "blurb": "Load a help page.",
+   "help": "This procedure loads the specified help page into the helpbrowser or what ever is configured as help viewer. The help page is identified by its domain and ID: if help_domain is NULL, we use the help_domain which was registered using the 'gimp-plugin-help-register' procedure. If help_domain is NULL and no help domain was registered, the help domain of the main GIMP installation is used.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "help-domain",
+     "desc": "The help domain in which help_id is registered"
+    },
+    {
+     "type": "STRING",
+     "name": "help-id",
+     "desc": "The help page's ID"
+    }
+   ]
+  },
+  "gimp-help-concepts-paths": {
+   "blurb": "Bookmark to the user manual",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-help-concepts-usage": {
+   "blurb": "Bookmark to the user manual",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-help-using-docks": {
+   "blurb": "Bookmark to the user manual",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-help-using-fileformats": {
+   "blurb": "Bookmark to the user manual",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-help-using-photography": {
+   "blurb": "Bookmark to the user manual",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-help-using-selections": {
+   "blurb": "Bookmark to the user manual",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-help-using-simpleobjects": {
+   "blurb": "Bookmark to the user manual",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-help-using-web": {
+   "blurb": "Bookmark to the user manual",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-message": {
+   "blurb": "Displays a dialog box with a message.",
+   "help": "Displays a dialog box with a message. Useful for status or error reporting. The message must be in UTF-8 encoding.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "message",
+     "desc": "Message to display in the dialog"
+    }
+   ]
+  },
+  "gimp-message-get-handler": {
+   "blurb": "Returns the current state of where warning messages are displayed.",
+   "help": "This procedure returns the way g_message warnings are displayed. They can be shown in a dialog box or printed on the console where gimp was started.",
+   "args": []
+  },
+  "gimp-message-set-handler": {
+   "blurb": "Controls where warning messages are displayed.",
+   "help": "This procedure controls how g_message warnings are displayed. They can be shown in a dialog box or printed on the console where gimp was started.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "handler",
+     "desc": "The new handler type { MESSAGE-BOX (0), CONSOLE (1), ERROR-CONSOLE (2) }"
+    }
+   ]
+  },
+  "gimp-online-bugs-features": {
+   "blurb": "Bookmark to the bug tracker of GIMP",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-online-developer-web-site": {
+   "blurb": "Bookmark to the GIMP web site",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-online-docs-web-site": {
+   "blurb": "Bookmark to the GIMP web site",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-online-main-web-site": {
+   "blurb": "Bookmark to the GIMP web site",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-online-roadmap": {
+   "blurb": "Bookmark to the roadmap of GIMP",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-online-wiki": {
+   "blurb": "Bookmark to the wiki of GIMP",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    }
+   ]
+  },
+  "gimp-parasite-attach": {
+   "blurb": "This procedure is deprecated! Use 'gimp-attach-parasite' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-attach-parasite' instead.",
+   "args": [
+    {
+     "type": "PARASITE",
+     "name": "parasite",
+     "desc": "The parasite to attach"
+    }
+   ]
+  },
+  "gimp-parasite-detach": {
+   "blurb": "This procedure is deprecated! Use 'gimp-detach-parasite' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-detach-parasite' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the parasite to detach."
+    }
+   ]
+  },
+  "gimp-parasite-find": {
+   "blurb": "This procedure is deprecated! Use 'gimp-get-parasite' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-get-parasite' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the parasite to find"
+    }
+   ]
+  },
+  "gimp-parasite-list": {
+   "blurb": "This procedure is deprecated! Use 'gimp-get-parasite-list' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-get-parasite-list' instead.",
+   "args": []
+  },
+  "gimp-perspective": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-perspective' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-perspective' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Whether to use interpolation (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The new x coordinate of upper-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The new y coordinate of upper-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The new x coordinate of upper-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The new y coordinate of upper-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "The new x coordinate of lower-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "The new y coordinate of lower-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x3",
+     "desc": "The new x coordinate of lower-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y3",
+     "desc": "The new y coordinate of lower-right corner of original bounding box"
+    }
+   ]
+  },
+  "gimp-plugin-domain-register": {
+   "blurb": "Registers a textdomain for localisation.",
+   "help": "This procedure adds a textdomain to the list of domains Gimp searches for strings when translating its menu entries. There is no need to call this function for plug-ins that have their strings included in the 'gimp-std-plugins' domain as that is used by default. If the compiled message catalog is not in the standard location, you may specify an absolute path to another location. This procedure can only be called in the query function of a plug-in and it has to be called before any procedure is installed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "domain-name",
+     "desc": "The name of the textdomain (must be unique)"
+    },
+    {
+     "type": "STRING",
+     "name": "domain-path",
+     "desc": "The absolute path to the compiled message catalog (may be NULL)"
+    }
+   ]
+  },
+  "gimp-plugin-enable-precision": {
+   "blurb": "Switches this plug-in to using the real bit depth of drawables.",
+   "help": "Switches this plug-in to using the real bit depth of drawables. This setting can only be enabled, and not disabled again during the lifetime of the plug-in. Using 'gimp-drawable-get-buffer', 'gimp-drawable-get-shadow-buffer' or 'gimp-drawable-get-format' will automatically call this function.",
+   "args": []
+  },
+  "gimp-plugin-get-pdb-error-handler": {
+   "blurb": "Retrieves the active error handler for procedure calls.",
+   "help": "This procedure retrieves the currently active error handler for procedure calls made by the calling plug-in. See 'gimp-plugin-set-pdb-error-handler' for details.",
+   "args": []
+  },
+  "gimp-plugin-help-register": {
+   "blurb": "Register a help path for a plug-in.",
+   "help": "This procedure registers user documentation for the calling plug-in with the GIMP help system. The domain_uri parameter points to the root directory where the plug-in help is installed. For each supported language there should be a file called 'gimp-help.xml' that maps the help IDs to the actual help files.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "domain-name",
+     "desc": "The XML namespace of the plug-in's help pages"
+    },
+    {
+     "type": "STRING",
+     "name": "domain-uri",
+     "desc": "The root URI of the plug-in's help pages"
+    }
+   ]
+  },
+  "gimp-plugin-icon-register": {
+   "blurb": "Register an icon for a plug-in procedure.",
+   "help": "This procedure installs an icon for the given procedure.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The procedure for which to install the icon"
+    },
+    {
+     "type": "INT32",
+     "name": "icon-type",
+     "desc": "The type of the icon { ICON-TYPE-ICON-NAME (0), ICON-TYPE-INLINE-PIXBUF (1), ICON-TYPE-IMAGE-FILE (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "icon-data-length",
+     "desc": "The length of 'icon-data' (icon-data-length >= 1)"
+    },
+    {
+     "type": "INT8ARRAY",
+     "name": "icon-data",
+     "desc": "The procedure's icon. The format depends on the 'icon_type' parameter"
+    }
+   ]
+  },
+  "gimp-plugin-menu-branch-register": {
+   "blurb": "Register a sub-menu.",
+   "help": "This procedure installs a sub-menu which does not belong to any procedure. The menu-name should be the untranslated menu label. GIMP will look up the translation in the textdomain registered for the plug-in.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "menu-path",
+     "desc": "The sub-menu's menu path"
+    },
+    {
+     "type": "STRING",
+     "name": "menu-name",
+     "desc": "The name of the sub-menu"
+    }
+   ]
+  },
+  "gimp-plugin-menu-register": {
+   "blurb": "Register an additional menu path for a plug-in procedure.",
+   "help": "This procedure installs an additional menu entry for the given procedure.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The procedure for which to install the menu path"
+    },
+    {
+     "type": "STRING",
+     "name": "menu-path",
+     "desc": "The procedure's additional menu path"
+    }
+   ]
+  },
+  "gimp-plugin-precision-enabled": {
+   "blurb": "Whether this plug-in is using the real bit depth of drawables.",
+   "help": "Returns whether this plug-in is using the real bit depth of drawables, which can be more than 8 bits per channel.",
+   "args": []
+  },
+  "gimp-plugin-set-pdb-error-handler": {
+   "blurb": "Sets an error handler for procedure calls.",
+   "help": "This procedure changes the way that errors in procedure calls are handled. By default GIMP will raise an error dialog if a procedure call made by a plug-in fails. Using this procedure the plug-in can change this behavior. If the error handler is set to %GIMP_PDB_ERROR_HANDLER_PLUGIN, then the plug-in is responsible for calling 'gimp-get-pdb-error' and handling the error whenever one if its procedure calls fails. It can do this by displaying the error message or by forwarding it in its own return values.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "handler",
+     "desc": "Who is responsible for handling procedure call errors { PDB-ERROR-HANDLER-INTERNAL (0), PDB-ERROR-HANDLER-PLUGIN (1) }"
+    }
+   ]
+  },
+  "gimp-plugins-query": {
+   "blurb": "Queries the plug-in database for its contents.",
+   "help": "This procedure queries the contents of the plug-in database.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "search-string",
+     "desc": "If not an empty string then use this as a search pattern"
+    }
+   ]
+  },
+  "gimp-procedural-db-dump": {
+   "blurb": "Dumps the current contents of the procedural database",
+   "help": "This procedure dumps the contents of the procedural database to the specified file. The file will contain all of the information provided for each registered procedure.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filename",
+     "desc": "The dump filename"
+    }
+   ]
+  },
+  "gimp-procedural-db-get-data": {
+   "blurb": "Returns data associated with the specified identifier.",
+   "help": "This procedure returns any data which may have been associated with the specified identifier. The data is a variable length array of bytes. If no data has been associated with the identifier, an error is returned.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "identifier",
+     "desc": "The identifier associated with data"
+    }
+   ]
+  },
+  "gimp-procedural-db-get-data-size": {
+   "blurb": "Returns size of data associated with the specified identifier.",
+   "help": "This procedure returns the size of any data which may have been associated with the specified identifier. If no data has been associated with the identifier, an error is returned.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "identifier",
+     "desc": "The identifier associated with data"
+    }
+   ]
+  },
+  "gimp-procedural-db-proc-arg": {
+   "blurb": "Queries the procedural database for information on the specified procedure's argument.",
+   "help": "This procedure returns information on the specified procedure's argument. The argument type, name, and a description are retrieved.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The procedure name"
+    },
+    {
+     "type": "INT32",
+     "name": "arg-num",
+     "desc": "The argument number"
+    }
+   ]
+  },
+  "gimp-procedural-db-proc-exists": {
+   "blurb": "Checks if the specified procedure exists in the procedural database",
+   "help": "This procedure checks if the specified procedure is registered in the procedural database.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The procedure name"
+    }
+   ]
+  },
+  "gimp-procedural-db-proc-info": {
+   "blurb": "Queries the procedural database for information on the specified procedure.",
+   "help": "This procedure returns information on the specified procedure. A short blurb, detailed help, author(s), copyright information, procedure type, number of input, and number of return values are returned. For specific information on each input argument and return value, use the 'gimp-procedural-db-proc-arg' and 'gimp-procedural-db-proc-val' procedures.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The procedure name"
+    }
+   ]
+  },
+  "gimp-procedural-db-proc-val": {
+   "blurb": "Queries the procedural database for information on the specified procedure's return value.",
+   "help": "This procedure returns information on the specified procedure's return value. The return value type, name, and a description are retrieved.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The procedure name"
+    },
+    {
+     "type": "INT32",
+     "name": "val-num",
+     "desc": "The return value number"
+    }
+   ]
+  },
+  "gimp-procedural-db-query": {
+   "blurb": "Queries the procedural database for its contents using regular expression matching.",
+   "help": "This procedure queries the contents of the procedural database. It is supplied with seven arguments matching procedures on { name, blurb, help, author, copyright, date, procedure type}. This is accomplished using regular expression matching. For instance, to find all procedures with \"jpeg\" listed in the blurb, all seven arguments can be supplied as \".*\", except for the second, which can be supplied as \".*jpeg.*\". There are two return arguments for this procedure. The first is the number of procedures matching the query. The second is a concatenated list of procedure names corresponding to those matching the query. If no matching entries are found, then the returned string is NULL and the number of entries is 0.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The regex for procedure name"
+    },
+    {
+     "type": "STRING",
+     "name": "blurb",
+     "desc": "The regex for procedure blurb"
+    },
+    {
+     "type": "STRING",
+     "name": "help",
+     "desc": "The regex for procedure help"
+    },
+    {
+     "type": "STRING",
+     "name": "author",
+     "desc": "The regex for procedure author"
+    },
+    {
+     "type": "STRING",
+     "name": "copyright",
+     "desc": "The regex for procedure copyright"
+    },
+    {
+     "type": "STRING",
+     "name": "date",
+     "desc": "The regex for procedure date"
+    },
+    {
+     "type": "STRING",
+     "name": "proc-type",
+     "desc": "The regex for procedure type: { 'Internal GIMP procedure', 'GIMP Plug-in', 'GIMP Extension', 'Temporary Procedure' }"
+    }
+   ]
+  },
+  "gimp-procedural-db-set-data": {
+   "blurb": "Associates the specified identifier with the supplied data.",
+   "help": "This procedure associates the supplied data with the provided identifier. The data may be subsequently retrieved by a call to 'procedural-db-get-data'.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "identifier",
+     "desc": "The identifier associated with data"
+    },
+    {
+     "type": "INT32",
+     "name": "bytes",
+     "desc": "The number of bytes in the data (bytes >= 1)"
+    },
+    {
+     "type": "INT8ARRAY",
+     "name": "data",
+     "desc": "A byte array containing data"
+    }
+   ]
+  },
+  "gimp-procedural-db-temp-name": {
+   "blurb": "Generates a unique temporary PDB name.",
+   "help": "This procedure generates a temporary PDB entry name that is guaranteed to be unique.",
+   "args": []
+  },
+  "gimp-progress-cancel": {
+   "blurb": "Cancels a running progress.",
+   "help": "This function cancels the currently running progress.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "progress-callback",
+     "desc": "The name of the callback registered for this progress"
+    }
+   ]
+  },
+  "gimp-progress-end": {
+   "blurb": "Ends the progress bar for the current plug-in.",
+   "help": "Ends the progress display for the current plug-in. Most plug-ins don't need to call this, they just exit when the work is done. It is only valid to call this procedure from a plug-in.",
+   "args": []
+  },
+  "gimp-progress-get-window-handle": {
+   "blurb": "Returns the native window ID of the toplevel window this plug-in's progress is displayed in.",
+   "help": "This function returns the native window ID of the toplevel window this plug-in's progress is displayed in.",
+   "args": []
+  },
+  "gimp-progress-init": {
+   "blurb": "Initializes the progress bar for the current plug-in.",
+   "help": "Initializes the progress bar for the current plug-in. It is only valid to call this procedure from a plug-in.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "message",
+     "desc": "Message to use in the progress dialog"
+    },
+    {
+     "type": "DISPLAY",
+     "name": "gdisplay",
+     "desc": "GimpDisplay to update progressbar in, or -1 for a separate window"
+    }
+   ]
+  },
+  "gimp-progress-install": {
+   "blurb": "Installs a progress callback for the current plug-in.",
+   "help": "This function installs a temporary PDB procedure which will handle all progress calls made by this plug-in and any procedure it calls. Calling this function multiple times simply replaces the old progress callbacks.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "progress-callback",
+     "desc": "The callback PDB proc to call"
+    }
+   ]
+  },
+  "gimp-progress-pulse": {
+   "blurb": "Pulses the progress bar for the current plug-in.",
+   "help": "Updates the progress bar for the current plug-in. It is only valid to call this procedure from a plug-in. Use this function instead of 'gimp-progress-update' if you cannot tell how much progress has been made. This usually causes the the progress bar to enter \"activity mode\", where a block bounces back and forth.",
+   "args": []
+  },
+  "gimp-progress-set-text": {
+   "blurb": "Changes the text in the progress bar for the current plug-in.",
+   "help": "This function changes the text in the progress bar for the current plug-in. Unlike 'gimp-progress-init' it does not change the displayed value.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "message",
+     "desc": "Message to use in the progress dialog"
+    }
+   ]
+  },
+  "gimp-progress-uninstall": {
+   "blurb": "Uninstalls the progress callback for the current plug-in.",
+   "help": "This function uninstalls any progress callback installed with 'gimp-progress-install' before.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "progress-callback",
+     "desc": "The name of the callback registered for this progress"
+    }
+   ]
+  },
+  "gimp-progress-update": {
+   "blurb": "Updates the progress bar for the current plug-in.",
+   "help": "Updates the progress bar for the current plug-in. It is only valid to call this procedure from a plug-in.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "percentage",
+     "desc": "Percentage of progress completed which must be between 0.0 and 1.0"
+    }
+   ]
+  },
+  "gimp-quit": {
+   "blurb": "Causes GIMP to exit gracefully.",
+   "help": "If there are unsaved images in an interactive GIMP session, the user will be asked for confirmation. If force is TRUE, the application is quit without querying the user to save any dirty images.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "force",
+     "desc": "Force GIMP to quit without asking (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-rect-select": {
+   "blurb": "Deprecated: Use 'gimp-image-select-rectangle' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-rectangle' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "width",
+     "desc": "The width of the rectangle (width >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "height",
+     "desc": "The height of the rectangle (height >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather option for selections (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius",
+     "desc": "Radius for feather operation (feather-radius >= 0)"
+    }
+   ]
+  },
+  "gimp-register-file-handler-mime": {
+   "blurb": "Associates MIME types with a file handler procedure.",
+   "help": "Registers MIME types for a file handler procedure. This allows GIMP to determine the MIME type of the file opened or saved using this procedure. It is recommended that only one MIME type is registered per file procedure; when registering more than one MIME type, GIMP will associate the first one with files opened or saved with this procedure.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The name of the procedure to associate a MIME type with."
+    },
+    {
+     "type": "STRING",
+     "name": "mime-types",
+     "desc": "A comma-separated list of MIME types, such as \"image/jpeg\"."
+    }
+   ]
+  },
+  "gimp-register-file-handler-priority": {
+   "blurb": "Sets the priority of a file handler procedure.",
+   "help": "Sets the priority of a file handler procedure. When more than one procedure matches a given file, the procedure with the lowest priority is used; if more than one procedure has the lowest priority, it is unspecified which one of them is used. The default priority for file handler procedures is 0.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The name of the procedure to set the priority of."
+    },
+    {
+     "type": "INT32",
+     "name": "priority",
+     "desc": "The procedure priority."
+    }
+   ]
+  },
+  "gimp-register-file-handler-raw": {
+   "blurb": "Registers a file handler procedure as capable of handling raw camera files.",
+   "help": "Registers a file handler procedure as capable of handling raw digital camera files. Use this procedure only to register raw load handlers, calling it on a save handler will generate an error.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The name of the procedure to enable raw handling for."
+    }
+   ]
+  },
+  "gimp-register-file-handler-uri": {
+   "blurb": "Registers a file handler procedure as capable of handling URIs.",
+   "help": "Registers a file handler procedure as capable of handling URIs. This allows GIMP to call the procedure directly for all kinds of URIs, and the 'filename' traditionally passed to file procedures turns into an URI.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The name of the procedure to enable URIs for."
+    }
+   ]
+  },
+  "gimp-register-load-handler": {
+   "blurb": "Registers a file load handler procedure.",
+   "help": "Registers a procedural database procedure to be called to load files of a particular file format.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The name of the procedure to be used for loading"
+    },
+    {
+     "type": "STRING",
+     "name": "extensions",
+     "desc": "comma separated list of extensions this handler can load (i.e. \"jpg,jpeg\")"
+    },
+    {
+     "type": "STRING",
+     "name": "prefixes",
+     "desc": "comma separated list of prefixes this handler can load (i.e. \"http:,ftp:\")"
+    }
+   ]
+  },
+  "gimp-register-magic-load-handler": {
+   "blurb": "Registers a file load handler procedure.",
+   "help": "Registers a procedural database procedure to be called to load files of a particular file format using magic file information.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The name of the procedure to be used for loading"
+    },
+    {
+     "type": "STRING",
+     "name": "extensions",
+     "desc": "comma separated list of extensions this handler can load (i.e. \"jpg,jpeg\")"
+    },
+    {
+     "type": "STRING",
+     "name": "prefixes",
+     "desc": "comma separated list of prefixes this handler can load (i.e. \"http:,ftp:\")"
+    },
+    {
+     "type": "STRING",
+     "name": "magics",
+     "desc": "comma separated list of magic file information this handler can load (i.e. \"0,string,GIF\")"
+    }
+   ]
+  },
+  "gimp-register-save-handler": {
+   "blurb": "Registers a file save handler procedure.",
+   "help": "Registers a procedural database procedure to be called to save files in a particular file format.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "procedure-name",
+     "desc": "The name of the procedure to be used for saving"
+    },
+    {
+     "type": "STRING",
+     "name": "extensions",
+     "desc": "comma separated list of extensions this handler can save (i.e. \"jpg,jpeg\")"
+    },
+    {
+     "type": "STRING",
+     "name": "prefixes",
+     "desc": "comma separated list of prefixes this handler can save (i.e. \"http:,ftp:\")"
+    }
+   ]
+  },
+  "gimp-register-thumbnail-loader": {
+   "blurb": "Associates a thumbnail loader with a file load procedure.",
+   "help": "Some file formats allow for embedded thumbnails, other file formats contain a scalable image or provide the image data in different resolutions. A file plug-in for such a format may register a special procedure that allows GIMP to load a thumbnail preview of the image. This procedure is then associated with the standard load procedure using this function.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "load-proc",
+     "desc": "The name of the procedure the thumbnail loader with."
+    },
+    {
+     "type": "STRING",
+     "name": "thumb-proc",
+     "desc": "The name of the thumbnail load procedure."
+    }
+   ]
+  },
+  "gimp-rotate": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-rotate' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-rotate' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Whether to use interpolation (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle of rotation (radians)"
+    }
+   ]
+  },
+  "gimp-round-rect-select": {
+   "blurb": "Deprecated: Use 'gimp-image-select-round-rectangle' instead.",
+   "help": "Deprecated: Use 'gimp-image-select-round-rectangle' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "x coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "y coordinate of upper-left corner of rectangle"
+    },
+    {
+     "type": "FLOAT",
+     "name": "width",
+     "desc": "The width of the rectangle (width >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "height",
+     "desc": "The height of the rectangle (height >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "corner-radius-x",
+     "desc": "The corner radius in X direction (0 <= corner-radius-x <= 524288)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "corner-radius-y",
+     "desc": "The corner radius in Y direction (0 <= corner-radius-y <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "operation",
+     "desc": "The selection operation { CHANNEL-OP-ADD (0), CHANNEL-OP-SUBTRACT (1), CHANNEL-OP-REPLACE (2), CHANNEL-OP-INTERSECT (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "Feather option for selections (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-x",
+     "desc": "Radius for feather operation in X direction (feather-radius-x >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-y",
+     "desc": "Radius for feather operation in Y direction (feather-radius-y >= 0)"
+    }
+   ]
+  },
+  "gimp-scale": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-scale' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-scale' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Whether to use interpolation (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The new x coordinate of the upper-left corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The new y coordinate of the upper-left corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The new x coordinate of the lower-right corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The new y coordinate of the lower-right corner of the scaled region"
+    }
+   ]
+  },
+  "gimp-shear": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-shear' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-shear' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Whether to use interpolation (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "shear-type",
+     "desc": "Type of shear { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "magnitude",
+     "desc": "The magnitude of the shear"
+    }
+   ]
+  },
+  "gimp-temp-PDB-name": {
+   "blurb": "This procedure is deprecated! Use 'gimp-procedural-db-temp-name' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-procedural-db-temp-name' instead.",
+   "args": []
+  },
+  "gimp-temp-name": {
+   "blurb": "Generates a unique filename.",
+   "help": "Generates a unique filename using the temp path supplied in the user's gimprc.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "extension",
+     "desc": "The extension the file will have"
+    }
+   ]
+  },
+  "gimp-text": {
+   "blurb": "Deprecated: Use 'gimp-text-fontname' instead.",
+   "help": "Deprecated: Use 'gimp-text-fontname' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable: (-1 for a new text layer)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "The x coordinate for the left of the text bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "The y coordinate for the top of the text bounding box"
+    },
+    {
+     "type": "STRING",
+     "name": "text",
+     "desc": "The text to generate (in UTF-8 encoding)"
+    },
+    {
+     "type": "INT32",
+     "name": "border",
+     "desc": "The size of the border (border >= -1)"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "size",
+     "desc": "The size of text in either pixels or points (size >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "size-type",
+     "desc": "The units of specified size { PIXELS (0), POINTS (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "foundry",
+     "desc": "The font foundry"
+    },
+    {
+     "type": "STRING",
+     "name": "family",
+     "desc": "The font family"
+    },
+    {
+     "type": "STRING",
+     "name": "weight",
+     "desc": "The font weight"
+    },
+    {
+     "type": "STRING",
+     "name": "slant",
+     "desc": "The font slant"
+    },
+    {
+     "type": "STRING",
+     "name": "set-width",
+     "desc": "The font set-width"
+    },
+    {
+     "type": "STRING",
+     "name": "spacing",
+     "desc": "The font spacing"
+    },
+    {
+     "type": "STRING",
+     "name": "registry",
+     "desc": "The font registry"
+    },
+    {
+     "type": "STRING",
+     "name": "encoding",
+     "desc": "The font encoding"
+    }
+   ]
+  },
+  "gimp-transform-2d": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-2d' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-2d' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Whether to use interpolation (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "source-x",
+     "desc": "X coordinate of the transformation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "source-y",
+     "desc": "Y coordinate of the transformation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-x",
+     "desc": "Amount to scale in x direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-y",
+     "desc": "Amount to scale in y direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle of rotation (radians)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dest-x",
+     "desc": "X coordinate of where the centre goes"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dest-y",
+     "desc": "Y coordinate of where the centre goes"
+    }
+   ]
+  },
+  "gimp-undo-push-group-end": {
+   "blurb": "This procedure is deprecated! Use 'gimp-image-undo-group-end' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-image-undo-group-end' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The ID of the image in which to close an undo group"
+    }
+   ]
+  },
+  "gimp-undo-push-group-start": {
+   "blurb": "This procedure is deprecated! Use 'gimp-image-undo-group-start' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-image-undo-group-start' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The ID of the image in which to open an undo group"
+    }
+   ]
+  },
+  "gimp-version": {
+   "blurb": "Returns the host GIMP version.",
+   "help": "This procedure returns the version number of the currently running GIMP.",
+   "args": []
+  },
+  "gimp-xcf-load": {
+   "blurb": "Loads file saved in the .xcf file format",
+   "help": "The XCF file format has been designed specifically for loading and saving tiled and layered images in GIMP. This procedure will load the specified file.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "dummy-param",
+     "desc": "Dummy parameter"
+    },
+    {
+     "type": "STRING",
+     "name": "filename",
+     "desc": "The name of the file to load, in the on-disk character set and encoding"
+    },
+    {
+     "type": "STRING",
+     "name": "raw-filename",
+     "desc": "The basename of the file, in UTF-8"
+    }
+   ]
+  },
+  "gimp-xcf-save": {
+   "blurb": "Saves file in the .xcf file format",
+   "help": "The XCF file format has been designed specifically for loading and saving tiled and layered images in GIMP. This procedure will save the specified image in the xcf file format.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "dummy-param",
+     "desc": "Dummy parameter"
+    },
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "Input image"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "Active drawable of input image"
+    },
+    {
+     "type": "STRING",
+     "name": "filename",
+     "desc": "The name of the file to save the image in, in URI format and UTF-8 encoding"
+    },
+    {
+     "type": "STRING",
+     "name": "raw-filename",
+     "desc": "The basename of the file, in UTF-8"
+    }
+   ]
+  },
+  "temp-procedure-number-0": {
+   "blurb": "Temporary progress callback procedure",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "command",
+     "desc": ""
+    },
+    {
+     "type": "STRING",
+     "name": "text",
+     "desc": ""
+    },
+    {
+     "type": "FLOAT",
+     "name": "value",
+     "desc": ""
+    }
+   ]
+  },
+  "xsane": {
+   "blurb": "Front-end to the SANE interface",
+   "help": "This function provides access to scanners and other image acquisition devices through the SANE (Scanner Access Now Easy) interface.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "Interactive, non-interactive"
+    }
+   ]
+  }
+ }
+}

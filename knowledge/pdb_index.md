@@ -1,0 +1,1291 @@
+# GIMP 2.10.30 PDB Index — 1264 procedures
+
+Auto-generated from the installed GIMP via `build_pdb_dump.py` + `build_index.py`.
+Full machine reference: `pdb_full.json`. Per-domain cookbooks: `cookbook/`.
+For live signatures in a session use the `pdb_help` / `pdb_query` MCP tools.
+
+## text-fonts  (39)
+- `gimp-fonts-close-popup` (1 args) — Close the font selection dialog.
+- `gimp-fonts-get-list` (1 args) — Retrieve the list of loaded fonts.
+- `gimp-fonts-popup` (3 args) — Invokes the Gimp font selection.
+- `gimp-fonts-refresh` (0 args) — Refresh current fonts. This function always succeeds.
+- `gimp-fonts-set-popup` (2 args) — Sets the current font in a font selection dialog.
+- `gimp-text-fontname` (10 args) — Add text at the specified location as a floating selection or a new layer.
+- `gimp-text-get-extents` (11 args) — Deprecated: Use 'gimp-text-get-extents-fontname' instead.
+- `gimp-text-get-extents-fontname` (4 args) — Get extents of the bounding box for the specified text.
+- `gimp-text-layer-get-antialias` (1 args) — Check if antialiasing is used in the text layer.
+- `gimp-text-layer-get-base-direction` (1 args) — Get the base direction used for rendering the text layer.
+- `gimp-text-layer-get-color` (1 args) — Get the color of the text in a text layer.
+- `gimp-text-layer-get-font` (1 args) — Get the font from a text layer as string.
+- `gimp-text-layer-get-font-size` (1 args) — Get the font size from a text layer.
+- `gimp-text-layer-get-hint-style` (1 args) — Get information about hinting in the specified text layer.
+- `gimp-text-layer-get-hinting` (1 args) — Deprecated: Use 'gimp-text-layer-get-hint-style' instead.
+- `gimp-text-layer-get-indent` (1 args) — Get the line indentation of text layer.
+- `gimp-text-layer-get-justification` (1 args) — Get the text justification information of the text layer.
+- `gimp-text-layer-get-kerning` (1 args) — Check if kerning is used in the text layer.
+- `gimp-text-layer-get-language` (1 args) — Get the language used in the text layer.
+- `gimp-text-layer-get-letter-spacing` (1 args) — Get the letter spacing used in a text layer.
+- `gimp-text-layer-get-line-spacing` (1 args) — Get the spacing between lines of text.
+- `gimp-text-layer-get-markup` (1 args) — Get the markup from a text layer as string.
+- `gimp-text-layer-get-text` (1 args) — Get the text from a text layer as string.
+- `gimp-text-layer-new` (5 args) — Creates a new text layer.
+- `gimp-text-layer-resize` (3 args) — Resize the box of a text layer.
+- `gimp-text-layer-set-antialias` (2 args) — Enable/disable anti-aliasing in a text layer.
+- `gimp-text-layer-set-base-direction` (2 args) — Set the base direction in the text layer.
+- `gimp-text-layer-set-color` (2 args) — Set the color of the text in the text layer.
+- `gimp-text-layer-set-font` (2 args) — Set the font of a text layer.
+- `gimp-text-layer-set-font-size` (3 args) — Set the font size.
+- `gimp-text-layer-set-hint-style` (2 args) — Control how font outlines are hinted in a text layer.
+- `gimp-text-layer-set-hinting` (3 args) — Enable/disable the use of hinting in a text layer.
+- `gimp-text-layer-set-indent` (2 args) — Set the indentation of the first line in a text layer.
+- `gimp-text-layer-set-justification` (2 args) — Set the justification of the text in a text layer.
+- `gimp-text-layer-set-kerning` (2 args) — Enable/disable kerning in a text layer.
+- `gimp-text-layer-set-language` (2 args) — Set the language of the text layer.
+- `gimp-text-layer-set-letter-spacing` (2 args) — Adjust the letter spacing in a text layer.
+- `gimp-text-layer-set-line-spacing` (2 args) — Adjust the line spacing in a text layer.
+- `gimp-text-layer-set-text` (2 args) — Set the text of a text layer.
+
+## layers-masks  (75)
+- `gimp-image-add-layer` (3 args) — Deprecated: Use 'gimp-image-insert-layer' instead.
+- `gimp-image-add-layer-mask` (3 args) — Deprecated: Use 'gimp-layer-add-mask' instead.
+- `gimp-image-flatten` (1 args) — Flatten all visible layers into a single layer. Discard all invisible layers.
+- `gimp-image-freeze-layers` (1 args) — Freeze the image's layer list.
+- `gimp-image-get-active-layer` (1 args) — Returns the specified image's active layer.
+- `gimp-image-get-default-new-layer-mode` (1 args) — Get the default mode for newly created layers of this image.
+- `gimp-image-get-layer-by-name` (2 args) — Find a layer with a given name in an image.
+- `gimp-image-get-layer-by-tattoo` (2 args) — Find a layer with a given tattoo in an image.
+- `gimp-image-get-layer-position` (2 args) — This procedure is deprecated! Use 'gimp-image-get-item-position' instead.
+- `gimp-image-get-layers` (1 args) — Returns the list of layers contained in the specified image.
+- `gimp-image-insert-channel` (4 args) — Add the specified channel to the image.
+- `gimp-image-insert-layer` (4 args) — Add the specified layer to the image.
+- `gimp-image-insert-vectors` (4 args) — Add the specified vectors to the image.
+- `gimp-image-lower-layer` (2 args) — This procedure is deprecated! Use 'gimp-image-lower-item' instead.
+- `gimp-image-lower-layer-to-bottom` (2 args) — This procedure is deprecated! Use 'gimp-image-lower-item-to-bottom' instead.
+- `gimp-image-merge-down` (3 args) — Merge the layer passed and the first visible layer below.
+- `gimp-image-merge-layer-group` (2 args) — Merge the passed layer group's layers into one normal layer.
+- `gimp-image-merge-visible-layers` (2 args) — Merge the visible image layers into one.
+- `gimp-image-pick-correlate-layer` (3 args) — Find the layer visible at the specified coordinates.
+- `gimp-image-raise-layer` (2 args) — This procedure is deprecated! Use 'gimp-image-raise-item' instead.
+- `gimp-image-raise-layer-to-top` (2 args) — This procedure is deprecated! Use 'gimp-image-raise-item-to-top' instead.
+- `gimp-image-remove-layer` (2 args) — Remove the specified layer from the image.
+- `gimp-image-remove-layer-mask` (3 args) — Deprecated: Use 'gimp-layer-remove-mask' instead.
+- `gimp-image-resize-to-layers` (1 args) — Resize the image to fit all layers.
+- `gimp-image-set-active-layer` (2 args) — Sets the specified image's active layer.
+- `gimp-image-thaw-layers` (1 args) — Thaw the image's layer list.
+- `gimp-layer-add-alpha` (1 args) — Add an alpha channel to the layer if it doesn't already have one.
+- `gimp-layer-add-mask` (2 args) — Add a layer mask to the specified layer.
+- `gimp-layer-copy` (2 args) — Copy a layer.
+- `gimp-layer-create-mask` (2 args) — Create a layer mask for the specified layer.
+- `gimp-layer-delete` (1 args) — This procedure is deprecated! Use 'gimp-item-delete' instead.
+- `gimp-layer-flatten` (1 args) — Remove the alpha channel from the layer if it has one.
+- `gimp-layer-from-mask` (1 args) — Get the specified mask's layer.
+- `gimp-layer-get-apply-mask` (1 args) — Get the apply mask setting of the specified layer.
+- `gimp-layer-get-blend-space` (1 args) — Get the blend space of the specified layer.
+- `gimp-layer-get-composite-mode` (1 args) — Get the composite mode of the specified layer.
+- `gimp-layer-get-composite-space` (1 args) — Get the composite space of the specified layer.
+- `gimp-layer-get-edit-mask` (1 args) — Get the edit mask setting of the specified layer.
+- `gimp-layer-get-linked` (1 args) — This procedure is deprecated! Use 'gimp-item-get-linked' instead.
+- `gimp-layer-get-lock-alpha` (1 args) — Get the lock alpha channel setting of the specified layer.
+- `gimp-layer-get-mask` (1 args) — Get the specified layer's mask if it exists.
+- `gimp-layer-get-mode` (1 args) — Get the combination mode of the specified layer.
+- `gimp-layer-get-name` (1 args) — This procedure is deprecated! Use 'gimp-item-get-name' instead.
+- `gimp-layer-get-opacity` (1 args) — Get the opacity of the specified layer.
+- `gimp-layer-get-preserve-trans` (1 args) — This procedure is deprecated! Use 'gimp-layer-get-lock-alpha' instead.
+- `gimp-layer-get-show-mask` (1 args) — Get the show mask setting of the specified layer.
+- `gimp-layer-get-tattoo` (1 args) — This procedure is deprecated! Use 'gimp-item-get-tattoo' instead.
+- `gimp-layer-get-visible` (1 args) — This procedure is deprecated! Use 'gimp-item-get-visible' instead.
+- `gimp-layer-group-new` (1 args) — Create a new layer group.
+- `gimp-layer-is-floating-sel` (1 args) — Is the specified layer a floating selection?
+- `gimp-layer-mask` (1 args) — This procedure is deprecated! Use 'gimp-layer-get-mask' instead.
+- `gimp-layer-new` (7 args) — Create a new layer.
+- `gimp-layer-new-from-drawable` (2 args) — Create a new layer by copying an existing drawable.
+- `gimp-layer-new-from-visible` (3 args) — Create a new layer from what is visible in an image.
+- `gimp-layer-remove-mask` (2 args) — Remove the specified layer mask from the layer.
+- `gimp-layer-resize` (5 args) — Resize the layer to the specified extents.
+- `gimp-layer-resize-to-image-size` (1 args) — Resize a layer to the image size.
+- `gimp-layer-scale` (4 args) — Scale the layer using the default interpolation method.
+- `gimp-layer-scale-full` (5 args) — Deprecated: Use 'gimp-layer-scale' instead.
+- `gimp-layer-set-apply-mask` (2 args) — Set the apply mask setting of the specified layer.
+- `gimp-layer-set-blend-space` (2 args) — Set the blend space of the specified layer.
+- `gimp-layer-set-composite-mode` (2 args) — Set the composite mode of the specified layer.
+- `gimp-layer-set-composite-space` (2 args) — Set the composite space of the specified layer.
+- `gimp-layer-set-edit-mask` (2 args) — Set the edit mask setting of the specified layer.
+- `gimp-layer-set-linked` (2 args) — This procedure is deprecated! Use 'gimp-item-set-linked' instead.
+- `gimp-layer-set-lock-alpha` (2 args) — Set the lock alpha channel setting of the specified layer.
+- `gimp-layer-set-mode` (2 args) — Set the combination mode of the specified layer.
+- `gimp-layer-set-name` (2 args) — This procedure is deprecated! Use 'gimp-item-set-name' instead.
+- `gimp-layer-set-offsets` (3 args) — Set the layer offsets.
+- `gimp-layer-set-opacity` (2 args) — Set the opacity of the specified layer.
+- `gimp-layer-set-preserve-trans` (2 args) — This procedure is deprecated! Use 'gimp-layer-set-lock-alpha' instead.
+- `gimp-layer-set-show-mask` (2 args) — Set the show mask setting of the specified layer.
+- `gimp-layer-set-tattoo` (2 args) — This procedure is deprecated! Use 'gimp-item-set-tattoo' instead.
+- `gimp-layer-set-visible` (2 args) — This procedure is deprecated! Use 'gimp-item-set-visible' instead.
+- `gimp-layer-translate` (3 args) — Translate the layer by the specified offsets.
+
+## selections  (45)
+- `gimp-channel-combine-masks` (5 args) — Combine two channel masks.
+- `gimp-channel-copy` (1 args) — Copy a channel.
+- `gimp-channel-delete` (1 args) — This procedure is deprecated! Use 'gimp-item-delete' instead.
+- `gimp-channel-get-color` (1 args) — Get the compositing color of the specified channel.
+- `gimp-channel-get-name` (1 args) — This procedure is deprecated! Use 'gimp-item-get-name' instead.
+- `gimp-channel-get-opacity` (1 args) — Get the opacity of the specified channel.
+- `gimp-channel-get-show-masked` (1 args) — Get the composite method of the specified channel.
+- `gimp-channel-get-tattoo` (1 args) — This procedure is deprecated! Use 'gimp-item-get-tattoo' instead.
+- `gimp-channel-get-visible` (1 args) — This procedure is deprecated! Use 'gimp-item-get-visible' instead.
+- `gimp-channel-new` (6 args) — Create a new channel.
+- `gimp-channel-new-from-component` (3 args) — Create a new channel from a color component
+- `gimp-channel-ops-duplicate` (1 args) — This procedure is deprecated! Use 'gimp-image-duplicate' instead.
+- `gimp-channel-ops-offset` (5 args) — This procedure is deprecated! Use 'gimp-drawable-offset' instead.
+- `gimp-channel-set-color` (2 args) — Set the compositing color of the specified channel.
+- `gimp-channel-set-name` (2 args) — This procedure is deprecated! Use 'gimp-item-set-name' instead.
+- `gimp-channel-set-opacity` (2 args) — Set the opacity of the specified channel.
+- `gimp-channel-set-show-masked` (2 args) — Set the composite method of the specified channel.
+- `gimp-channel-set-tattoo` (2 args) — This procedure is deprecated! Use 'gimp-item-set-tattoo' instead.
+- `gimp-channel-set-visible` (2 args) — This procedure is deprecated! Use 'gimp-item-set-visible' instead.
+- `gimp-image-select-color` (4 args) — Create a selection by selecting all pixels (in the specified drawable) with the same (or similar) color to that specified.
+- `gimp-image-select-contiguous-color` (5 args) — Create a selection by selecting all pixels around specified coordinates with the same (or similar) color to that at the coordinates.
+- `gimp-image-select-ellipse` (6 args) — Create an elliptical selection over the specified image.
+- `gimp-image-select-item` (3 args) — Transforms the specified item into a selection
+- `gimp-image-select-polygon` (4 args) — Create a polygonal selection over the specified image.
+- `gimp-image-select-rectangle` (6 args) — Create a rectangular selection over the specified image;
+- `gimp-image-select-round-rectangle` (8 args) — Create a rectangular selection with round corners over the specified image;
+- `gimp-selection-all` (1 args) — Select all of the image.
+- `gimp-selection-border` (2 args) — Border the image's selection
+- `gimp-selection-bounds` (1 args) — Find the bounding box of the current selection.
+- `gimp-selection-clear` (1 args) — This procedure is deprecated! Use 'gimp-selection-none' instead.
+- `gimp-selection-combine` (2 args) — Deprecated: Use 'gimp-image-select-item' instead.
+- `gimp-selection-feather` (2 args) — Feather the image's selection
+- `gimp-selection-float` (3 args) — Float the selection from the specified drawable with initial offsets as specified.
+- `gimp-selection-flood` (1 args) — Remove holes from the image's selection
+- `gimp-selection-grow` (2 args) — Grow the image's selection
+- `gimp-selection-invert` (1 args) — Invert the selection mask.
+- `gimp-selection-is-empty` (1 args) — Determine whether the selection is empty.
+- `gimp-selection-layer-alpha` (1 args) — Deprecated: Use 'gimp-image-select-item' instead.
+- `gimp-selection-load` (1 args) — Deprecated: Use 'gimp-image-select-item' instead.
+- `gimp-selection-none` (1 args) — Deselect the entire image.
+- `gimp-selection-save` (1 args) — Copy the selection mask to a new channel.
+- `gimp-selection-sharpen` (1 args) — Sharpen the selection mask.
+- `gimp-selection-shrink` (2 args) — Shrink the image's selection
+- `gimp-selection-translate` (3 args) — Translate the selection by the specified offsets.
+- `gimp-selection-value` (3 args) — Find the value of the selection at the specified coordinates.
+
+## transforms-canvas  (32)
+- `gimp-drawable-transform-2d` (13 args) — Deprecated: Use 'gimp-item-transform-2d' instead.
+- `gimp-drawable-transform-2d-default` (10 args) — Deprecated: Use 'gimp-item-transform-2d' instead.
+- `gimp-drawable-transform-flip` (10 args) — Deprecated: Use 'gimp-item-transform-flip' instead.
+- `gimp-drawable-transform-flip-default` (7 args) — Deprecated: Use 'gimp-item-transform-flip' instead.
+- `gimp-drawable-transform-flip-simple` (5 args) — Deprecated: Use 'gimp-item-transform-flip-simple' instead.
+- `gimp-drawable-transform-matrix` (15 args) — Deprecated: Use 'gimp-item-transform-matrix' instead.
+- `gimp-drawable-transform-matrix-default` (12 args) — Deprecated: Use 'gimp-item-transform-matrix' instead.
+- `gimp-drawable-transform-perspective` (14 args) — Deprecated: Use 'gimp-item-transform-perspective' instead.
+- `gimp-drawable-transform-perspective-default` (11 args) — Deprecated: Use 'gimp-item-transform-perspective' instead.
+- `gimp-drawable-transform-rotate` (10 args) — Deprecated: Use 'gimp-item-transform-rotate' instead.
+- `gimp-drawable-transform-rotate-default` (7 args) — Deprecated: Use 'gimp-item-transform-rotate' instead.
+- `gimp-drawable-transform-rotate-simple` (6 args) — Deprecated: Use 'gimp-item-transform-rotate-simple' instead.
+- `gimp-drawable-transform-scale` (10 args) — Deprecated: Use 'gimp-item-transform-scale' instead.
+- `gimp-drawable-transform-scale-default` (7 args) — Deprecated: Use 'gimp-item-transform-scale' instead.
+- `gimp-drawable-transform-shear` (8 args) — Deprecated: Use 'gimp-item-transform-shear' instead.
+- `gimp-drawable-transform-shear-default` (5 args) — Deprecated: Use 'gimp-item-transform-shear' instead.
+- `gimp-image-crop` (5 args) — Crop the image to the specified extents.
+- `gimp-image-flip` (2 args) — Flips the image horizontally or vertically.
+- `gimp-image-resize` (5 args) — Resize the image to the specified extents.
+- `gimp-image-rotate` (2 args) — Rotates the image by the specified degrees.
+- `gimp-image-scale` (3 args) — Scale the image using the default interpolation method.
+- `gimp-image-scale-full` (4 args) — Deprecated: Use 'gimp-image-scale' instead.
+- `gimp-item-transform-2d` (8 args) — Transform the specified item in 2d.
+- `gimp-item-transform-flip` (5 args) — Flip the specified item around a given line.
+- `gimp-item-transform-flip-simple` (4 args) — Flip the specified item either vertically or horizontally.
+- `gimp-item-transform-matrix` (10 args) — Transform the specified item in 2d.
+- `gimp-item-transform-perspective` (9 args) — Perform a possibly non-affine transformation on the specified item.
+- `gimp-item-transform-rotate` (5 args) — Rotate the specified item about given coordinates through the specified angle.
+- `gimp-item-transform-rotate-simple` (5 args) — Rotate the specified item about given coordinates through the specified angle.
+- `gimp-item-transform-scale` (5 args) — Scale the specified item.
+- `gimp-item-transform-shear` (3 args) — Shear the specified item about its center by the specified magnitude.
+- `gimp-item-transform-translate` (3 args) — Translate the item by the specified offsets.
+
+## color-tone  (35)
+- `gimp-brightness-contrast` (3 args) — Deprecated: Use 'gimp-drawable-brightness-contrast' instead.
+- `gimp-color-balance` (6 args) — Modify the color balance of the specified drawable.
+- `gimp-colorize` (4 args) — Deprecated: Use 'gimp-drawable-colorize-hsl' instead.
+- `gimp-context-get-sample-threshold` (0 args) — Get the sample threshold setting.
+- `gimp-context-get-sample-threshold-int` (0 args) — Get the sample threshold setting as an integer value.
+- `gimp-context-set-sample-threshold` (1 args) — Set the sample threshold setting.
+- `gimp-context-set-sample-threshold-int` (1 args) — Set the sample threshold setting as an integer value.
+- `gimp-curves-explicit` (4 args) — Deprecated: Use 'gimp-drawable-curves-explicit' instead.
+- `gimp-curves-spline` (4 args) — Deprecated: Use 'gimp-drawable-curves-spline' instead.
+- `gimp-desaturate` (1 args) — Deprecated: Use 'gimp-drawable-desaturate' instead.
+- `gimp-desaturate-full` (2 args) — Deprecated: Use 'gimp-drawable-desaturate' instead.
+- `gimp-drawable-brightness-contrast` (3 args) — Modify brightness/contrast in the specified drawable.
+- `gimp-drawable-color-balance` (6 args) — Modify the color balance of the specified drawable.
+- `gimp-drawable-colorize-hsl` (4 args) — Render the drawable as a grayscale image seen through a colored glass.
+- `gimp-drawable-curves-explicit` (4 args) — Modifies the intensity curve(s) for specified drawable.
+- `gimp-drawable-curves-spline` (4 args) — Modifies the intensity curve(s) for specified drawable.
+- `gimp-drawable-desaturate` (2 args) — Desaturate the contents of the specified drawable, with the specified formula.
+- `gimp-drawable-histogram` (4 args) — Returns information on the intensity histogram for the specified drawable.
+- `gimp-drawable-hue-saturation` (6 args) — Modify hue, lightness, and saturation in the specified drawable.
+- `gimp-drawable-invert` (2 args) — Invert the contents of the specified drawable.
+- `gimp-drawable-levels` (9 args) — Modifies intensity levels in the specified drawable.
+- `gimp-drawable-levels-stretch` (1 args) — Automatically modifies intensity levels in the specified drawable.
+- `gimp-drawable-posterize` (2 args) — Posterize the specified drawable.
+- `gimp-drawable-threshold` (4 args) — Threshold the specified drawable.
+- `gimp-histogram` (4 args) — Deprecated: Use 'gimp-drawable-histogram' instead.
+- `gimp-hue-saturation` (5 args) — Deprecated: Use 'gimp-drawable-hue-saturation' instead.
+- `gimp-invert` (1 args) — Deprecated: Use 'gimp-drawable-invert' instead.
+- `gimp-levels` (7 args) — Deprecated: Use 'gimp-drawable-levels' instead.
+- `gimp-levels-auto` (1 args) — Deprecated: Use 'gimp-drawable-levels-stretch' instead.
+- `gimp-levels-stretch` (1 args) — Deprecated: Use 'gimp-drawable-levels-stretch' instead.
+- `gimp-posterize` (2 args) — Deprecated: Use 'gimp-drawable-posterize' instead.
+- `gimp-threshold` (3 args) — Deprecated: Use 'gimp-drawable-threshold' instead.
+- `plug-in-sample-colorize` (13 args) — Colorize image using a sample image as a guide
+- `plug-in-threshold-alpha` (4 args) — Make transparency all-or-nothing
+- `plug-in-vinvert` (3 args) — Invert the brightness of each pixel
+
+## paint-draw  (69)
+- `gimp-airbrush` (4 args) — Paint in the current brush with varying pressure. Paint application is time-dependent.
+- `gimp-airbrush-default` (3 args) — Paint in the current brush with varying pressure. Paint application is time-dependent.
+- `gimp-blend` (16 args) — This procedure is deprecated! Use 'gimp-edit-blend' instead.
+- `gimp-bucket-fill` (8 args) — This procedure is deprecated! Use 'gimp-edit-bucket-fill' instead.
+- `gimp-clone` (7 args) — Clone from the source to the dest drawable using the current brush
+- `gimp-clone-default` (3 args) — Clone from the source to the dest drawable using the current brush
+- `gimp-drawable-edit-bucket-fill` (4 args) — Fill the area by a seed fill starting at the specified coordinates.
+- `gimp-drawable-edit-clear` (1 args) — Clear selected area of drawable.
+- `gimp-drawable-edit-fill` (2 args) — Fill selected area of drawable.
+- `gimp-drawable-edit-gradient-fill` (11 args) — Draw a gradient between the starting and ending coordinates with the specified gradient type.
+- `gimp-drawable-edit-stroke-item` (2 args) — Stroke the specified item
+- `gimp-drawable-edit-stroke-selection` (1 args) — Stroke the current selection
+- `gimp-edit-blend` (16 args) — Blend between the starting and ending coordinates with the specified blend mode and gradient type.
+- `gimp-edit-bucket-fill` (8 args) — Fill the area specified either by the current selection if there is one, or by a seed fill starting at the specified coordinates.
+- `gimp-edit-bucket-fill-full` (10 args) — Fill the area specified either by the current selection if there is one, or by a seed fill starting at the specified coordinates.
+- `gimp-edit-clear` (1 args) — Clear selected area of drawable.
+- `gimp-edit-copy` (1 args) — Copy from the specified drawable.
+- `gimp-edit-copy-visible` (1 args) — Copy from the projection.
+- `gimp-edit-cut` (1 args) — Cut from the specified drawable.
+- `gimp-edit-fill` (2 args) — Fill selected area of drawable.
+- `gimp-edit-named-copy` (2 args) — Copy into a named buffer.
+- `gimp-edit-named-copy-visible` (2 args) — Copy from the projection into a named buffer.
+- `gimp-edit-named-cut` (2 args) — Cut into a named buffer.
+- `gimp-edit-named-paste` (3 args) — Paste named buffer to the specified drawable.
+- `gimp-edit-named-paste-as-new` (1 args) — This procedure is deprecated! Use 'gimp-edit-named-paste-as-new-image' instead.
+- `gimp-edit-named-paste-as-new-image` (1 args) — Paste named buffer to a new image.
+- `gimp-edit-paste` (2 args) — Paste buffer to the specified drawable.
+- `gimp-edit-paste-as-new` (0 args) — This procedure is deprecated! Use 'gimp-edit-paste-as-new-image' instead.
+- `gimp-edit-paste-as-new-image` (0 args) — Paste buffer to a new image.
+- `gimp-edit-stroke` (1 args) — Stroke the current selection
+- `gimp-edit-stroke-vectors` (2 args) — Stroke the specified vectors object
+- `gimp-eraser` (5 args) — Erase using the current brush.
+- `gimp-eraser-default` (3 args) — Erase using the current brush.
+- `gimp-gradient-delete` (1 args) — Deletes a gradient
+- `gimp-gradient-duplicate` (1 args) — Duplicates a gradient
+- `gimp-gradient-get-custom-samples` (4 args) — Sample the specified gradient in custom positions.
+- `gimp-gradient-get-number-of-segments` (1 args) — Returns the number of segments of the specified gradient
+- `gimp-gradient-get-uniform-samples` (3 args) — Sample the specified in uniform parts.
+- `gimp-gradient-is-editable` (1 args) — Tests if gradient can be edited
+- `gimp-gradient-new` (1 args) — Creates a new gradient
+- `gimp-gradient-rename` (2 args) — Rename a gradient
+- `gimp-gradient-segment-get-blending-function` (2 args) — Retrieves the gradient segment's blending function
+- `gimp-gradient-segment-get-coloring-type` (2 args) — Retrieves the gradient segment's coloring type
+- `gimp-gradient-segment-get-left-color` (2 args) — Retrieves the left endpoint color of the specified segment
+- `gimp-gradient-segment-get-left-pos` (2 args) — Retrieves the left endpoint position of the specified segment
+- `gimp-gradient-segment-get-middle-pos` (2 args) — Retrieves the middle point position of the specified segment
+- `gimp-gradient-segment-get-right-color` (2 args) — Retrieves the right endpoint color of the specified segment
+- `gimp-gradient-segment-get-right-pos` (2 args) — Retrieves the right endpoint position of the specified segment
+- `gimp-gradient-segment-range-blend-colors` (3 args) — Blend the colors of the segment range.
+- `gimp-gradient-segment-range-blend-opacity` (3 args) — Blend the opacity of the segment range.
+- `gimp-gradient-segment-range-delete` (3 args) — Delete the segment range
+- `gimp-gradient-segment-range-flip` (3 args) — Flip the segment range
+- `gimp-gradient-segment-range-move` (5 args) — Move the position of an entire segment range by a delta.
+- `gimp-gradient-segment-range-redistribute-handles` (3 args) — Uniformly redistribute the segment range's handles
+- `gimp-gradient-segment-range-replicate` (4 args) — Replicate the segment range
+- `gimp-gradient-segment-range-set-blending-function` (4 args) — Change the blending function of a segments range
+- `gimp-gradient-segment-range-set-coloring-type` (4 args) — Change the coloring type of a segments range
+- `gimp-gradient-segment-range-split-midpoint` (3 args) — Splits each segment in the segment range at midpoint
+- `gimp-gradient-segment-range-split-uniform` (4 args) — Splits each segment in the segment range uniformly
+- `gimp-gradient-segment-set-left-color` (4 args) — Sets the left endpoint color of the specified segment
+- `gimp-gradient-segment-set-left-pos` (3 args) — Sets the left endpoint position of the specified segment
+- `gimp-gradient-segment-set-middle-pos` (3 args) — Sets the middle point position of the specified segment
+- `gimp-gradient-segment-set-right-color` (4 args) — Sets the right endpoint color of the specified segment
+- `gimp-gradient-segment-set-right-pos` (3 args) — Sets the right endpoint position of the specified segment
+- `gimp-paintbrush` (6 args) — Paint in the current brush with optional fade out parameter and pull colors from a gradient.
+- `gimp-paintbrush-default` (3 args) — Paint in the current brush. The fade out parameter and pull colors from a gradient parameter are set from the paintbrush options dialog. If this dialog has not been activated then the dialog defaults will be used.
+- `gimp-pencil` (3 args) — Paint in the current brush without sub-pixel sampling.
+- `gimp-smudge` (4 args) — Smudge image with varying pressure.
+- `gimp-smudge-default` (3 args) — Smudge image with varying pressure.
+
+## vectors-paths  (54)
+- `gimp-path-delete` (2 args) — Deprecated: Use 'gimp-image-remove-vectors' instead.
+- `gimp-path-get-current` (1 args) — Deprecated: Use 'gimp-image-get-active-vectors' instead.
+- `gimp-path-get-locked` (2 args) — Deprecated: Use 'gimp-vectors-get-linked' instead.
+- `gimp-path-get-point-at-dist` (2 args) — Deprecated: Use 'gimp-vectors-stroke-get-point-at-dist' instead.
+- `gimp-path-get-points` (2 args) — Deprecated: Use 'gimp-vectors-stroke-get-points' instead.
+- `gimp-path-get-tattoo` (2 args) — Deprecated: Use 'gimp-vectors-get-tattoo' instead.
+- `gimp-path-import` (4 args) — Deprecated: Use 'gimp-vectors-import-from-file' instead.
+- `gimp-path-list` (1 args) — Deprecated: Use 'gimp-image-get-vectors' instead.
+- `gimp-path-set-current` (2 args) — Deprecated: Use 'gimp-image-set-active-vectors' instead.
+- `gimp-path-set-locked` (3 args) — Deprecated: Use 'gimp-vectors-set-linked' instead.
+- `gimp-path-set-points` (5 args) — Deprecated: Use 'gimp-vectors-stroke-new-from-points' instead.
+- `gimp-path-set-tattoo` (3 args) — Deprecated: Use 'gimp-vectors-set-tattoo' instead.
+- `gimp-path-stroke-current` (1 args) — Deprecated: Use 'gimp-edit-stroke-vectors' instead.
+- `gimp-path-to-selection` (7 args) — Deprecated: Use 'gimp-vectors-to-selection' instead.
+- `gimp-vectors-bezier-stroke-conicto` (6 args) — Extends a bezier stroke with a conic bezier spline.
+- `gimp-vectors-bezier-stroke-cubicto` (8 args) — Extends a bezier stroke with a cubic bezier spline.
+- `gimp-vectors-bezier-stroke-lineto` (4 args) — Extends a bezier stroke with a lineto.
+- `gimp-vectors-bezier-stroke-new-ellipse` (6 args) — Adds a bezier stroke describing an ellipse the vectors object.
+- `gimp-vectors-bezier-stroke-new-moveto` (3 args) — Adds a bezier stroke with a single moveto to the vectors object.
+- `gimp-vectors-copy` (1 args) — Copy a vectors object.
+- `gimp-vectors-export-to-file` (3 args) — save a path as an SVG file.
+- `gimp-vectors-export-to-string` (2 args) — Save a path as an SVG string.
+- `gimp-vectors-get-image` (1 args) — This procedure is deprecated! Use 'gimp-item-get-image' instead.
+- `gimp-vectors-get-linked` (1 args) — This procedure is deprecated! Use 'gimp-item-get-linked' instead.
+- `gimp-vectors-get-name` (1 args) — This procedure is deprecated! Use 'gimp-item-get-name' instead.
+- `gimp-vectors-get-strokes` (1 args) — List the strokes associated with the passed path.
+- `gimp-vectors-get-tattoo` (1 args) — This procedure is deprecated! Use 'gimp-item-get-tattoo' instead.
+- `gimp-vectors-get-visible` (1 args) — This procedure is deprecated! Use 'gimp-item-get-visible' instead.
+- `gimp-vectors-import-from-file` (4 args) — Import paths from an SVG file.
+- `gimp-vectors-import-from-string` (5 args) — Import paths from an SVG string.
+- `gimp-vectors-is-valid` (1 args) — This procedure is deprecated! Use 'gimp-item-is-valid' instead.
+- `gimp-vectors-new` (2 args) — Creates a new empty vectors object.
+- `gimp-vectors-new-from-text-layer` (2 args) — Creates a new vectors object from a text layer.
+- `gimp-vectors-parasite-attach` (2 args) — This procedure is deprecated! Use 'gimp-item-attach-parasite' instead.
+- `gimp-vectors-parasite-detach` (2 args) — This procedure is deprecated! Use 'gimp-item-detach-parasite' instead.
+- `gimp-vectors-parasite-find` (2 args) — This procedure is deprecated! Use 'gimp-item-get-parasite' instead.
+- `gimp-vectors-parasite-list` (1 args) — This procedure is deprecated! Use 'gimp-item-get-parasite-list' instead.
+- `gimp-vectors-remove-stroke` (2 args) — remove the stroke from a vectors object.
+- `gimp-vectors-set-linked` (2 args) — This procedure is deprecated! Use 'gimp-item-set-linked' instead.
+- `gimp-vectors-set-name` (2 args) — This procedure is deprecated! Use 'gimp-item-set-name' instead.
+- `gimp-vectors-set-tattoo` (2 args) — This procedure is deprecated! Use 'gimp-item-set-tattoo' instead.
+- `gimp-vectors-set-visible` (2 args) — This procedure is deprecated! Use 'gimp-item-set-visible' instead.
+- `gimp-vectors-stroke-close` (2 args) — closes the specified stroke.
+- `gimp-vectors-stroke-flip` (4 args) — flips the given stroke.
+- `gimp-vectors-stroke-flip-free` (6 args) — flips the given stroke about an arbitrary axis.
+- `gimp-vectors-stroke-get-length` (3 args) — Measure the length of the given stroke.
+- `gimp-vectors-stroke-get-point-at-dist` (4 args) — Get point at a specified distance along the stroke.
+- `gimp-vectors-stroke-get-points` (2 args) — returns the control points of a stroke.
+- `gimp-vectors-stroke-interpolate` (3 args) — returns polygonal approximation of the stroke.
+- `gimp-vectors-stroke-new-from-points` (5 args) — Adds a stroke of a given type to the vectors object.
+- `gimp-vectors-stroke-rotate` (5 args) — rotates the given stroke.
+- `gimp-vectors-stroke-scale` (4 args) — scales the given stroke.
+- `gimp-vectors-stroke-translate` (4 args) — translate the given stroke.
+- `gimp-vectors-to-selection` (6 args) — Deprecated: Use 'gimp-image-select-item' instead.
+
+## filters-fx  (209)
+- `plug-in-alienmap2` (13 args) — Alter colors in various psychedelic ways
+- `plug-in-align-layers` (5 args) — Align all visible layers of the image
+- `plug-in-animationoptimize` (3 args) — Modify image to reduce size when saved as GIF animation
+- `plug-in-animationoptimize-diff` (3 args) — Reduce file size where combining layers is possible
+- `plug-in-animationplay` (3 args) — Preview a GIMP layer-based animation
+- `plug-in-animationunoptimize` (3 args) — Remove optimization to make editing easier
+- `plug-in-antialias` (3 args) — Antialias using the Scale3X edge-extrapolation algorithm
+- `plug-in-apply-canvas` (5 args) — Add a canvas texture to the image
+- `plug-in-applylens` (7 args) — Simulate an elliptical lens over the image
+- `plug-in-autocrop` (3 args) — Remove empty borders from the image
+- `plug-in-autocrop-layer` (3 args) — Crop the active layer based on empty borders of the input drawable
+- `plug-in-autostretch-hsv` (3 args) — Stretch contrast to cover the maximum possible range
+- `plug-in-blinds` (7 args) — Simulate an image painted on window blinds
+- `plug-in-blur` (3 args) — Simple blur, fast but not very strong
+- `plug-in-borderaverage` (5 args) — Set foreground to the average color of the image border
+- `plug-in-bump-map` (14 args) — Create an embossing effect using a bump map
+- `plug-in-bump-map-tiled` (14 args) — Create an embossing effect using a tiled image as a bump map
+- `plug-in-busy-dialog` (5 args) — Show a dialog while waiting for an operation to finish
+- `plug-in-c-astretch` (3 args) — Stretch contrast to cover the maximum possible range
+- `plug-in-cartoon` (5 args) — Simulate a cartoon by enhancing edges
+- `plug-in-ccanalyze` (3 args) — Analyze the set of colors in the image
+- `plug-in-checkerboard` (5 args) — Create a checkerboard pattern
+- `plug-in-cml-explorer` (4 args) — Create abstract Coupled-Map Lattice patterns
+- `plug-in-color-enhance` (3 args) — Stretch color saturation to cover maximum possible range
+- `plug-in-colorify` (4 args) — Replace all colors with shades of a specified color
+- `plug-in-colormap-remap` (5 args) — Rearrange the colormap
+- `plug-in-colormap-swap` (5 args) — Swap two colors in the colormap
+- `plug-in-colors-channel-mixer` (13 args) — Alter colors by mixing RGB Channels
+- `plug-in-colortoalpha` (4 args) — Convert a specified color to transparency
+- `plug-in-compose` (7 args) — Create an image using multiple gray images as color channels
+- `plug-in-convmatrix` (11 args) — Apply a generic 5x5 convolution matrix
+- `plug-in-cubism` (6 args) — Convert the image into randomly rotated square blobs
+- `plug-in-curve-bend` (20 args) — Bend the image using two control curves
+- `plug-in-curve-bend-Iterator` (4 args) — This procedure calculates the modified values for one iterationstep for the call of plug_in_curve_bend
+- `plug-in-dbbrowser` (1 args) — List available procedures in the PDB
+- `plug-in-decompose` (5 args) — Decompose an image into separate colorspace components
+- `plug-in-decompose-registered` (5 args) — Decompose an image into separate colorspace components
+- `plug-in-deinterlace` (4 args) — Fix images where every other row is missing
+- `plug-in-depth-merge` (11 args) — Combine two images using depth maps (z-buffers)
+- `plug-in-despeckle` (7 args) — Remove speckle noise from the image
+- `plug-in-destripe` (4 args) — Remove vertical stripe artifacts from the image
+- `plug-in-diffraction` (15 args) — Generate diffraction patterns
+- `plug-in-dilate` (9 args) — Grow lighter areas of the image
+- `plug-in-displace` (10 args) — Displace pixels as indicated by displacement maps
+- `plug-in-displace-polar` (10 args) — Displace pixels as indicated by displacement maps
+- `plug-in-dog` (7 args) — Edge detection with control of edge thickness
+- `plug-in-drawable-compose` (7 args) — Compose an image from multiple drawables of gray images
+- `plug-in-edge` (6 args) — Several simple methods for detecting edges
+- `plug-in-emboss` (7 args) — Simulate an image created by embossing
+- `plug-in-engrave` (5 args) — Simulate an antique engraving
+- `plug-in-erode` (9 args) — Shrink lighter areas of the image
+- `plug-in-exchange` (12 args) — Swap one color with another
+- `plug-in-film` (12 args) — Combine several images on a film strip
+- `plug-in-filter-pack` (3 args) — Interactively modify the image colors
+- `plug-in-flame` (3 args) — Create cosmic recursive fractal flames
+- `plug-in-flarefx` (5 args) — Add a lens flare effect
+- `plug-in-fractal-trace` (9 args) — Transform image with the Mandelbrot Fractal
+- `plug-in-fractalexplorer` (22 args) — Render fractal art
+- `plug-in-gauss` (6 args) — Simplest, most commonly used way of blurring
+- `plug-in-gauss-iir` (6 args) — Apply a gaussian blur
+- `plug-in-gauss-iir2` (5 args) — Apply a gaussian blur
+- `plug-in-gauss-rle` (6 args) — Apply a gaussian blur
+- `plug-in-gauss-rle2` (5 args) — Apply a gaussian blur
+- `plug-in-gfig` (4 args) — Create geometric shapes
+- `plug-in-gflare` (14 args) — Produce a lense flare effect using gradients
+- `plug-in-gimpressionist` (4 args) — Performs various artistic operations
+- `plug-in-glasstile` (5 args) — Simulate distortion caused by square glass tiles
+- `plug-in-goat-exercise` (3 args) — Exercise a goat
+- `plug-in-gradmap` (3 args) — Recolor the image using colors from the active gradient
+- `plug-in-grid` (18 args) — Draw a grid on the image
+- `plug-in-guillotine` (3 args) — Slice the image into subimages using guides
+- `plug-in-hot` (6 args) — Find and fix pixels that may be unsafely bright
+- `plug-in-hsv-noise` (7 args) — Randomize hue, saturation and value independently
+- `plug-in-icc-profile-apply` (5 args) — Apply a color profile on the image
+- `plug-in-icc-profile-apply-rgb` (4 args) — Apply default RGB color profile on the image
+- `plug-in-icc-profile-file-info` (1 args) — Retrieve information about a color profile
+- `plug-in-icc-profile-info` (1 args) — Retrieve information about an image's color profile
+- `plug-in-icc-profile-set` (3 args) — Set a color profile on the image
+- `plug-in-icc-profile-set-rgb` (2 args) — Set the default RGB color profile on the image
+- `plug-in-ifscompose` (3 args) — Create an Iterated Function System (IFS) fractal
+- `plug-in-illusion` (5 args) — Superimpose many altered copies of the image
+- `plug-in-imagemap` (3 args) — Create a clickable imagemap
+- `plug-in-jigsaw` (8 args) — Add a jigsaw-puzzle pattern to the image
+- `plug-in-laplace` (3 args) — High-resolution edge detection
+- `plug-in-lens-distortion` (9 args) — Corrects lens distortion
+- `plug-in-lic` (3 args) — Special effects that nobody understands
+- `plug-in-lighting` (24 args) — Apply various lighting effects to an image
+- `plug-in-mail-image` (9 args) — Send the image by email
+- `plug-in-make-seamless` (3 args) — Alters edges to make the image seamlessly tileable
+- `plug-in-map-object` (49 args) — Map the image to an object (plane, sphere, box or cylinder)
+- `plug-in-max-rgb` (4 args) — Reduce image to pure red, green, and blue
+- `plug-in-maze` (10 args) — Draw a labyrinth
+- `plug-in-mblur` (8 args) — Simulate movement using directional blur
+- `plug-in-mblur-inward` (8 args) — Simulate movement using directional blur
+- `plug-in-median-blur` (5 args) — Blur using the median color near each pixel
+- `plug-in-metadata-editor` (2 args) — Edit metadata (IPTC, EXIF, XMP)
+- `plug-in-metadata-viewer` (2 args) — View metadata (Exif, IPTC, XMP)
+- `plug-in-mosaic` (15 args) — Convert the image into irregular tiles
+- `plug-in-neon` (5 args) — Simulate the glowing boundary of a neon light
+- `plug-in-newsprint` (15 args) — Halftone the image to give newspaper-like effect
+- `plug-in-nlfilt` (6 args) — Nonlinear swiss army knife filter
+- `plug-in-noisify` (8 args) — Adds random noise to image channels
+- `plug-in-normalize` (3 args) — Stretch brightness values to cover the full range
+- `plug-in-nova` (9 args) — Add a starburst to the image
+- `plug-in-oilify` (5 args) — Smear colors to simulate an oil painting
+- `plug-in-oilify-enhanced` (8 args) — Smear colors to simulate an oil painting
+- `plug-in-pagecurl` (7 args) — Curl up one of the image corners
+- `plug-in-palettemap` (3 args) — Recolor the image using colors from the active palette
+- `plug-in-papertile` (11 args) — Cut image into paper tiles, and slide them
+- `plug-in-photocopy` (7 args) — Simulate color distortion produced by a copy machine
+- `plug-in-pixelize` (4 args) — Simplify image into an array of solid-colored squares
+- `plug-in-pixelize2` (5 args) — Simplify image into an array of solid-colored rectangles
+- `plug-in-plasma` (5 args) — Create a random plasma texture
+- `plug-in-plug-in-details` (1 args) — Display information about plug-ins
+- `plug-in-polar-coords` (8 args) — Convert image to or from polar coordinates
+- `plug-in-qbist` (3 args) — Generate a huge variety of abstract patterns
+- `plug-in-randomize-hurl` (7 args) — Completely randomize a fraction of pixels
+- `plug-in-randomize-pick` (7 args) — Randomly interchange some pixels with neighbors
+- `plug-in-randomize-slur` (7 args) — Randomly slide some pixels downward (similar to melting
+- `plug-in-recompose` (3 args) — Recompose an image that was previously decomposed
+- `plug-in-red-eye-removal` (4 args) — Remove the red eye effect caused by camera flashes
+- `plug-in-retinex` (7 args) — Enhance contrast using the Retinex method
+- `plug-in-rgb-noise` (9 args) — Distort colors by random amounts
+- `plug-in-ripple` (10 args) — Displace pixels in a ripple pattern
+- `plug-in-rotate` (5 args) — Rotates a layer or the whole image by 90, 180 or 270 degrees
+- `plug-in-screenshot` (7 args) — Create an image from an area of the screen
+- `plug-in-script-fu-console` (1 args) — Interactive console for Script-Fu development
+- `plug-in-script-fu-eval` (2 args) — Evaluate scheme code
+- `plug-in-script-fu-server` (4 args) — Server for remote Script-Fu operation
+- `plug-in-script-fu-text-console` (1 args) — Provides a text console mode for script-fu development
+- `plug-in-sel-gauss` (5 args) — Blur neighboring pixels, but only in low-contrast areas
+- `plug-in-sel2path` (3 args) — Converts a selection to a path
+- `plug-in-sel2path-advanced` (23 args) — Converts a selection to a path (with advanced user menu)
+- `plug-in-semiflatten` (3 args) — Replace partial transparency with the current background color
+- `plug-in-sharpen` (4 args) — Make image sharper (less powerful than Unsharp Mask)
+- `plug-in-shift` (5 args) — Shift each row or column of pixels by a random amount
+- `plug-in-sinus` (16 args) — Generate complex sinusoidal textures
+- `plug-in-small-tiles` (4 args) — Tile image into smaller versions of the original
+- `plug-in-smooth-palette` (7 args) — Derive a smooth color palette from the image
+- `plug-in-sobel` (6 args) — Specialized direction-dependent edge detection
+- `plug-in-softglow` (6 args) — Simulate glow by making highlights intense and fuzzy
+- `plug-in-solid-noise` (9 args) — Create a random cloud-like texture
+- `plug-in-sparkle` (16 args) — Turn bright spots into starry sparkles
+- `plug-in-spheredesigner` (3 args) — Create an image of a textured sphere
+- `plug-in-spread` (5 args) — Move pixels around randomly
+- `plug-in-tile` (6 args) — Create an array of copies of the image
+- `plug-in-unit-editor` (1 args) — Create or alter units used in GIMP
+- `plug-in-unsharp-mask` (6 args) — The most widely useful method for sharpening an image
+- `plug-in-video` (6 args) — Simulate distortion produced by a fuzzy or low-res monitor
+- `plug-in-vpropagate` (9 args) — Propagate certain colors to neighboring pixels
+- `plug-in-warp` (17 args) — Twist or smear image in many different ways
+- `plug-in-wavelet-decompose` (6 args) — Wavelet decompose
+- `plug-in-waves` (8 args) — Distort the image with waves
+- `plug-in-web-browser` (1 args) — Open an URL in the user specified web browser
+- `plug-in-whirl-pinch` (6 args) — Distort an image by whirling and pinching
+- `plug-in-wind` (8 args) — Smear image to give windblown effect
+- `plug-in-zealouscrop` (3 args) — Autocrop unused space from edges and middle
+- `script-fu-add-bevel` (6 args) — Add a beveled border to an image
+- `script-fu-addborder` (7 args) — Add a border around an image
+- `script-fu-blend-anim` (6 args) — Create intermediate layers to blend two or more layers over a background as an animation
+- `script-fu-burn-in-anim` (11 args) — Create intermediate layers to produce an animated 'burn-in' transition between two layers
+- `script-fu-carve-it` (5 args) — Use the specified drawable as a stencil to carve from the specified image.
+- `script-fu-circuit` (8 args) — Fill the selected region (or alpha) with traces like those on a circuit board
+- `script-fu-clothify` (8 args) — Add a cloth-like texture to the selected region (or alpha)
+- `script-fu-coffee-stain` (5 args) — Add realistic looking coffee stains to the image
+- `script-fu-copy-visible` (3 args) — This procedure is deprecated! Use 'gimp-edit-copy-visible' instead.
+- `script-fu-difference-clouds` (3 args) — Solid noise applied with Difference layer mode
+- `script-fu-distress-selection` (9 args) — Distress the selection
+- `script-fu-drop-shadow` (9 args) — Add a drop shadow to the selected region (or alpha)
+- `script-fu-erase-nth-rows` (7 args) — Erase every nth row or column
+- `script-fu-erase-rows` (6 args) — Erase every other row or column
+- `script-fu-font-map` (8 args) — Create an image filled with previews of fonts matching a fontname filter
+- `script-fu-fuzzy-border` (11 args) — Add a jagged, fuzzy border to an image
+- `script-fu-gradient-example` (4 args) — Create an image filled with an example of the current gradient
+- `script-fu-grid-system` (5 args) — Draw a grid as specified by the lists of X and Y locations using the current brush
+- `script-fu-guide-new` (5 args) — Add a guide at the orientation and position specified (in pixels)
+- `script-fu-guide-new-percent` (5 args) — Add a guide at the position specified as a percentage of the image size
+- `script-fu-guides-from-selection` (3 args) — Create four guides around the bounding box of the current selection
+- `script-fu-guides-remove` (3 args) — Remove all horizontal and vertical guides
+- `script-fu-lava` (10 args) — Fill the current selection with lava
+- `script-fu-line-nova` (7 args) — Fill a layer with rays emanating outward from its center using the foreground color
+- `script-fu-make-brush-elliptical` (5 args) — Create an elliptical brush
+- `script-fu-make-brush-elliptical-feathered` (6 args) — Create an elliptical brush with feathered edges
+- `script-fu-make-brush-rectangular` (5 args) — Create a rectangular brush
+- `script-fu-make-brush-rectangular-feathered` (6 args) — Create a rectangular brush with feathered edges
+- `script-fu-old-photo` (8 args) — Make an image look like an old photo
+- `script-fu-paste-as-brush` (4 args) — Paste the clipboard contents into a new brush
+- `script-fu-paste-as-pattern` (3 args) — Paste the clipboard contents into a new pattern
+- `script-fu-perspective-shadow` (11 args) — Add a perspective shadow to the selected region (or alpha)
+- `script-fu-predator` (8 args) — Add a 'Predator' effect to the selected region (or alpha)
+- `script-fu-refresh` (1 args) — Re-read all available Script-Fu scripts
+- `script-fu-reverse-layers` (3 args) — Reverse the order of layers in the image
+- `script-fu-ripply-anim` (6 args) — Create a multi-layer image by adding a ripple effect to the current layer
+- `script-fu-round-corners` (10 args) — Round the corners of an image and optionally add a drop-shadow and background
+- `script-fu-selection-round` (4 args) — This procedure is deprecated! Use 'script-fu-selection-rounded-rectangle' instead.
+- `script-fu-selection-rounded-rectangle` (5 args) — Round the corners of the current selection
+- `script-fu-selection-to-brush` (6 args) — Convert a selection to a brush
+- `script-fu-selection-to-image` (3 args) — Convert a selection to an image
+- `script-fu-selection-to-pattern` (5 args) — Convert a selection to a pattern
+- `script-fu-set-cmap` (4 args) — Change the colormap of an image to the colors in a specified palette.
+- `script-fu-slide` (8 args) — Add a slide-film like frame, sprocket holes, and labels to an image
+- `script-fu-sota-chrome-it` (10 args) — Add a chrome effect to the selected region (or alpha) using a specified (grayscale) stencil
+- `script-fu-spinning-globe` (8 args) — Create an animation by mapping the current image onto a spinning sphere
+- `script-fu-spyrogimp` (15 args) — This procedure is deprecated! Use 'plug-in-spyrogimp' instead.
+- `script-fu-tile-blur` (7 args) — Blur the edges of an image so the result tiles seamlessly
+- `script-fu-unsharp-mask` (5 args) — Make a new image from the current layer by applying the unsharp mask method
+- `script-fu-waves-anim` (7 args) — Create a multi-layer image with an effect like a stone was thrown into the current image
+- `script-fu-weave` (10 args) — Create a new layer filled with a weave effect to be used as an overlay or bump map
+- `script-fu-xach-effect` (13 args) — Add a subtle translucent 3D effect to the selected region (or alpha)
+
+## context-resources  (220)
+- `gimp-brush-delete` (1 args) — Deletes a brush.
+- `gimp-brush-duplicate` (1 args) — Duplicates a brush.
+- `gimp-brush-get-angle` (1 args) — Gets the rotation angle of a generated brush.
+- `gimp-brush-get-aspect-ratio` (1 args) — Gets the aspect ratio of a generated brush.
+- `gimp-brush-get-hardness` (1 args) — Gets the hardness of a generated brush.
+- `gimp-brush-get-info` (1 args) — Retrieves information about the specified brush.
+- `gimp-brush-get-pixels` (1 args) — Retrieves information about the specified brush.
+- `gimp-brush-get-radius` (1 args) — Gets the radius of a generated brush.
+- `gimp-brush-get-shape` (1 args) — Gets the shape of a generated brush.
+- `gimp-brush-get-spacing` (1 args) — Gets the brush spacing.
+- `gimp-brush-get-spikes` (1 args) — Gets the number of spikes for a generated brush.
+- `gimp-brush-is-editable` (1 args) — Tests if brush can be edited.
+- `gimp-brush-is-generated` (1 args) — Tests if brush is generated.
+- `gimp-brush-new` (1 args) — Creates a new brush.
+- `gimp-brush-rename` (2 args) — Renames a brush.
+- `gimp-brush-set-angle` (2 args) — Sets the rotation angle of a generated brush.
+- `gimp-brush-set-aspect-ratio` (2 args) — Sets the aspect ratio of a generated brush.
+- `gimp-brush-set-hardness` (2 args) — Sets the hardness of a generated brush.
+- `gimp-brush-set-radius` (2 args) — Sets the radius of a generated brush.
+- `gimp-brush-set-shape` (2 args) — Sets the shape of a generated brush.
+- `gimp-brush-set-spacing` (2 args) — Sets the brush spacing.
+- `gimp-brush-set-spikes` (2 args) — Sets the number of spikes for a generated brush.
+- `gimp-brushes-close-popup` (1 args) — Close the brush selection dialog.
+- `gimp-brushes-get-brush` (0 args) — Deprecated: Use 'gimp-context-get-brush' instead.
+- `gimp-brushes-get-brush-data` (1 args) — Deprecated: Use 'gimp-brush-get-pixels' instead.
+- `gimp-brushes-get-list` (1 args) — Retrieve a complete listing of the available brushes.
+- `gimp-brushes-get-opacity` (0 args) — This procedure is deprecated! Use 'gimp-context-get-opacity' instead.
+- `gimp-brushes-get-paint-mode` (0 args) — This procedure is deprecated! Use 'gimp-context-get-paint-mode' instead.
+- `gimp-brushes-get-spacing` (0 args) — Deprecated: Use 'gimp-brush-get-spacing' instead.
+- `gimp-brushes-list` (1 args) — This procedure is deprecated! Use 'gimp-brushes-get-list' instead.
+- `gimp-brushes-popup` (6 args) — Invokes the Gimp brush selection.
+- `gimp-brushes-refresh` (0 args) — Refresh current brushes. This function always succeeds.
+- `gimp-brushes-set-brush` (1 args) — This procedure is deprecated! Use 'gimp-context-set-brush' instead.
+- `gimp-brushes-set-opacity` (1 args) — This procedure is deprecated! Use 'gimp-context-set-opacity' instead.
+- `gimp-brushes-set-paint-mode` (1 args) — This procedure is deprecated! Use 'gimp-context-set-paint-mode' instead.
+- `gimp-brushes-set-popup` (5 args) — Sets the current brush in a brush selection dialog.
+- `gimp-brushes-set-spacing` (1 args) — Deprecated: Use 'gimp-brush-set-spacing' instead.
+- `gimp-context-get-antialias` (0 args) — Get the antialias setting.
+- `gimp-context-get-background` (0 args) — Get the current GIMP background color.
+- `gimp-context-get-brush` (0 args) — Retrieve the currently active brush.
+- `gimp-context-get-brush-angle` (0 args) — Get brush angle in degrees.
+- `gimp-context-get-brush-aspect-ratio` (0 args) — Get brush aspect ratio.
+- `gimp-context-get-brush-force` (0 args) — Get brush force in paint options.
+- `gimp-context-get-brush-hardness` (0 args) — Get brush hardness in paint options.
+- `gimp-context-get-brush-size` (0 args) — Get brush size in pixels.
+- `gimp-context-get-brush-spacing` (0 args) — Get brush spacing as percent of size.
+- `gimp-context-get-diagonal-neighbors` (0 args) — Get the diagonal neighbors setting.
+- `gimp-context-get-distance-metric` (0 args) — Get the distance metric used in some computations.
+- `gimp-context-get-dynamics` (0 args) — Retrieve the currently active paint dynamics.
+- `gimp-context-get-feather` (0 args) — Get the feather setting.
+- `gimp-context-get-feather-radius` (0 args) — Get the feather radius setting.
+- `gimp-context-get-font` (0 args) — Retrieve the currently active font.
+- `gimp-context-get-foreground` (0 args) — Get the current GIMP foreground color.
+- `gimp-context-get-gradient` (0 args) — Retrieve the currently active gradient.
+- `gimp-context-get-gradient-blend-color-space` (0 args) — Get the gradient blend color space.
+- `gimp-context-get-gradient-repeat-mode` (0 args) — Get the gradient repeat mode.
+- `gimp-context-get-gradient-reverse` (0 args) — Get the gradient reverse setting.
+- `gimp-context-get-ink-angle` (0 args) — Get ink angle in degrees.
+- `gimp-context-get-ink-blob-angle` (0 args) — Get ink blob angle in degrees.
+- `gimp-context-get-ink-blob-aspect-ratio` (0 args) — Get ink blob aspect ratio.
+- `gimp-context-get-ink-blob-type` (0 args) — Get ink blob type.
+- `gimp-context-get-ink-size` (0 args) — Get ink blob size in pixels.
+- `gimp-context-get-ink-size-sensitivity` (0 args) — Get ink size sensitivity.
+- `gimp-context-get-ink-speed-sensitivity` (0 args) — Get ink speed sensitivity.
+- `gimp-context-get-ink-tilt-sensitivity` (0 args) — Get ink tilt sensitivity.
+- `gimp-context-get-interpolation` (0 args) — Get the interpolation type.
+- `gimp-context-get-line-cap-style` (0 args) — Get the line cap style setting.
+- `gimp-context-get-line-dash-offset` (0 args) — Get the line dash offset setting.
+- `gimp-context-get-line-dash-pattern` (0 args) — Get the line dash pattern setting.
+- `gimp-context-get-line-join-style` (0 args) — Get the line join style setting.
+- `gimp-context-get-line-miter-limit` (0 args) — Get the line miter limit setting.
+- `gimp-context-get-line-width` (0 args) — Get the line width setting.
+- `gimp-context-get-line-width-unit` (0 args) — Get the line width unit setting.
+- `gimp-context-get-mypaint-brush` (0 args) — Retrieve the currently active MyPaint brush.
+- `gimp-context-get-opacity` (0 args) — Get the opacity.
+- `gimp-context-get-paint-method` (0 args) — Retrieve the currently active paint method.
+- `gimp-context-get-paint-mode` (0 args) — Get the paint mode.
+- `gimp-context-get-palette` (0 args) — Retrieve the currently active palette.
+- `gimp-context-get-pattern` (0 args) — Retrieve the currently active pattern.
+- `gimp-context-get-sample-criterion` (0 args) — Get the sample criterion setting.
+- `gimp-context-get-sample-merged` (0 args) — Get the sample merged setting.
+- `gimp-context-get-sample-transparent` (0 args) — Get the sample transparent setting.
+- `gimp-context-get-stroke-method` (0 args) — Retrieve the currently active stroke method.
+- `gimp-context-get-transform-direction` (0 args) — Get the transform direction.
+- `gimp-context-get-transform-recursion` (0 args) — Deprecated: There is no replacement for this procedure.
+- `gimp-context-get-transform-resize` (0 args) — Get the transform resize type.
+- `gimp-context-list-paint-methods` (0 args) — Lists the available paint methods.
+- `gimp-context-pop` (0 args) — Pops the topmost context from the plug-in's context stack.
+- `gimp-context-push` (0 args) — Pushes a context to the top of the plug-in's context stack.
+- `gimp-context-set-antialias` (1 args) — Set the antialias setting.
+- `gimp-context-set-background` (1 args) — Set the current GIMP background color.
+- `gimp-context-set-brush` (1 args) — Set the specified brush as the active brush.
+- `gimp-context-set-brush-angle` (1 args) — Set brush angle in degrees.
+- `gimp-context-set-brush-aspect-ratio` (1 args) — Set brush aspect ratio.
+- `gimp-context-set-brush-default-hardness` (0 args) — Set brush spacing to its default.
+- `gimp-context-set-brush-default-size` (0 args) — Set brush size to its default.
+- `gimp-context-set-brush-default-spacing` (0 args) — Set brush spacing to its default.
+- `gimp-context-set-brush-force` (1 args) — Set brush application force.
+- `gimp-context-set-brush-hardness` (1 args) — Set brush hardness.
+- `gimp-context-set-brush-size` (1 args) — Set brush size in pixels.
+- `gimp-context-set-brush-spacing` (1 args) — Set brush spacing as percent of size.
+- `gimp-context-set-default-colors` (0 args) — Set the current GIMP foreground and background colors to black and white.
+- `gimp-context-set-defaults` (0 args) — Reset context settings to their default values.
+- `gimp-context-set-diagonal-neighbors` (1 args) — Set the diagonal neighbors setting.
+- `gimp-context-set-distance-metric` (1 args) — Set the distance metric used in some computations.
+- `gimp-context-set-dynamics` (1 args) — Set the specified paint dynamics as the active paint dynamics.
+- `gimp-context-set-feather` (1 args) — Set the feather setting.
+- `gimp-context-set-feather-radius` (2 args) — Set the feather radius setting.
+- `gimp-context-set-font` (1 args) — Set the specified font as the active font.
+- `gimp-context-set-foreground` (1 args) — Set the current GIMP foreground color.
+- `gimp-context-set-gradient` (1 args) — Sets the specified gradient as the active gradient.
+- `gimp-context-set-gradient-blend-color-space` (1 args) — Set the gradient blend color space.
+- `gimp-context-set-gradient-fg-bg-hsv-ccw` (0 args) — Sets the built-in FG-BG HSV (ccw) gradient as the active gradient.
+- `gimp-context-set-gradient-fg-bg-hsv-cw` (0 args) — Sets the built-in FG-BG HSV (cw) gradient as the active gradient.
+- `gimp-context-set-gradient-fg-bg-rgb` (0 args) — Sets the built-in FG-BG RGB gradient as the active gradient.
+- `gimp-context-set-gradient-fg-transparent` (0 args) — Sets the built-in FG-Transparent gradient as the active gradient.
+- `gimp-context-set-gradient-repeat-mode` (1 args) — Set the gradient repeat mode.
+- `gimp-context-set-gradient-reverse` (1 args) — Set the gradient reverse setting.
+- `gimp-context-set-ink-angle` (1 args) — Set ink angle in degrees.
+- `gimp-context-set-ink-blob-angle` (1 args) — Set ink blob angle in degrees.
+- `gimp-context-set-ink-blob-aspect-ratio` (1 args) — Set ink blob aspect ratio.
+- `gimp-context-set-ink-blob-type` (1 args) — Set ink blob type.
+- `gimp-context-set-ink-size` (1 args) — Set ink blob size in pixels.
+- `gimp-context-set-ink-size-sensitivity` (1 args) — Set ink size sensitivity.
+- `gimp-context-set-ink-speed-sensitivity` (1 args) — Set ink speed sensitivity.
+- `gimp-context-set-ink-tilt-sensitivity` (1 args) — Set ink tilt sensitivity.
+- `gimp-context-set-interpolation` (1 args) — Set the interpolation type.
+- `gimp-context-set-line-cap-style` (1 args) — Set the line cap style setting.
+- `gimp-context-set-line-dash-offset` (1 args) — Set the line dash offset setting.
+- `gimp-context-set-line-dash-pattern` (2 args) — Set the line dash pattern setting.
+- `gimp-context-set-line-join-style` (1 args) — Set the line join style setting.
+- `gimp-context-set-line-miter-limit` (1 args) — Set the line miter limit setting.
+- `gimp-context-set-line-width` (1 args) — Set the line width setting.
+- `gimp-context-set-line-width-unit` (1 args) — Set the line width unit setting.
+- `gimp-context-set-mypaint-brush` (1 args) — Set the specified MyPaint brush as the active MyPaint brush.
+- `gimp-context-set-opacity` (1 args) — Set the opacity.
+- `gimp-context-set-paint-method` (1 args) — Set the specified paint method as the active paint method.
+- `gimp-context-set-paint-mode` (1 args) — Set the paint mode.
+- `gimp-context-set-palette` (1 args) — Set the specified palette as the active palette.
+- `gimp-context-set-pattern` (1 args) — Set the specified pattern as the active pattern.
+- `gimp-context-set-sample-criterion` (1 args) — Set the sample criterion setting.
+- `gimp-context-set-sample-merged` (1 args) — Set the sample merged setting.
+- `gimp-context-set-sample-transparent` (1 args) — Set the sample transparent setting.
+- `gimp-context-set-stroke-method` (1 args) — Set the specified stroke method as the active stroke method.
+- `gimp-context-set-transform-direction` (1 args) — Set the transform direction.
+- `gimp-context-set-transform-recursion` (1 args) — Deprecated: There is no replacement for this procedure.
+- `gimp-context-set-transform-resize` (1 args) — Set the transform resize type.
+- `gimp-context-swap-colors` (0 args) — Swap the current GIMP foreground and background colors.
+- `gimp-dynamics-get-list` (1 args) — Retrieve the list of loaded paint dynamics.
+- `gimp-dynamics-refresh` (0 args) — Refresh current paint dynamics. This function always succeeds.
+- `gimp-gradients-close-popup` (1 args) — Close the gradient selection dialog.
+- `gimp-gradients-get-active` (0 args) — This procedure is deprecated! Use 'gimp-context-get-gradient' instead.
+- `gimp-gradients-get-gradient` (0 args) — This procedure is deprecated! Use 'gimp-context-get-gradient' instead.
+- `gimp-gradients-get-gradient-data` (3 args) — Deprecated: Use 'gimp-gradient-get-uniform-samples' instead.
+- `gimp-gradients-get-list` (1 args) — Retrieve the list of loaded gradients.
+- `gimp-gradients-popup` (4 args) — Invokes the Gimp gradients selection.
+- `gimp-gradients-refresh` (0 args) — Refresh current gradients. This function always succeeds.
+- `gimp-gradients-sample-custom` (3 args) — Deprecated: Use 'gimp-gradient-get-custom-samples' instead.
+- `gimp-gradients-sample-uniform` (2 args) — Deprecated: Use 'gimp-gradient-get-uniform-samples' instead.
+- `gimp-gradients-set-active` (1 args) — This procedure is deprecated! Use 'gimp-context-set-gradient' instead.
+- `gimp-gradients-set-gradient` (1 args) — This procedure is deprecated! Use 'gimp-context-set-gradient' instead.
+- `gimp-gradients-set-popup` (2 args) — Sets the current gradient in a gradient selection dialog.
+- `gimp-palette-add-entry` (3 args) — Adds a palette entry to the specified palette.
+- `gimp-palette-delete` (1 args) — Deletes a palette
+- `gimp-palette-delete-entry` (2 args) — Deletes a palette entry from the specified palette.
+- `gimp-palette-duplicate` (1 args) — Duplicates a palette
+- `gimp-palette-entry-get-color` (2 args) — Gets the specified palette entry from the specified palette.
+- `gimp-palette-entry-get-name` (2 args) — Gets the specified palette entry from the specified palette.
+- `gimp-palette-entry-set-color` (3 args) — Sets the specified palette entry in the specified palette.
+- `gimp-palette-entry-set-name` (3 args) — Sets the specified palette entry in the specified palette.
+- `gimp-palette-export-css` (3 args) — Export the active palette as a CSS stylesheet with the color entry name as their class name, and the color itself as the color attribute
+- `gimp-palette-export-java` (3 args) — Export the active palette as a java.util.Hashtable<String, Color>
+- `gimp-palette-export-php` (3 args) — Export the active palette as a PHP dictionary (name => color)
+- `gimp-palette-export-python` (3 args) — Export the active palette as a Python dictionary (name: color)
+- `gimp-palette-export-text` (3 args) — Write all the colors in a palette to a text file, one hexadecimal value per line (no names)
+- `gimp-palette-get-background` (0 args) — This procedure is deprecated! Use 'gimp-context-get-background' instead.
+- `gimp-palette-get-colors` (1 args) — Gets all colors from the specified palette.
+- `gimp-palette-get-columns` (1 args) — Retrieves the number of columns to use to display this palette
+- `gimp-palette-get-foreground` (0 args) — This procedure is deprecated! Use 'gimp-context-get-foreground' instead.
+- `gimp-palette-get-info` (1 args) — Retrieve information about the specified palette.
+- `gimp-palette-is-editable` (1 args) — Tests if palette can be edited
+- `gimp-palette-new` (1 args) — Creates a new palette
+- `gimp-palette-refresh` (0 args) — This procedure is deprecated! Use 'gimp-palettes-refresh' instead.
+- `gimp-palette-rename` (2 args) — Rename a palette
+- `gimp-palette-set-background` (1 args) — This procedure is deprecated! Use 'gimp-context-set-background' instead.
+- `gimp-palette-set-columns` (2 args) — Sets the number of columns to use when displaying the palette
+- `gimp-palette-set-default-colors` (0 args) — This procedure is deprecated! Use 'gimp-context-set-default-colors' instead.
+- `gimp-palette-set-foreground` (1 args) — This procedure is deprecated! Use 'gimp-context-set-foreground' instead.
+- `gimp-palette-swap-colors` (0 args) — This procedure is deprecated! Use 'gimp-context-swap-colors' instead.
+- `gimp-palettes-close-popup` (1 args) — Close the palette selection dialog.
+- `gimp-palettes-get-list` (1 args) — Retrieves a list of all of the available palettes
+- `gimp-palettes-get-palette` (0 args) — Deprecated: Use 'gimp-context-get-palette' instead.
+- `gimp-palettes-get-palette-entry` (2 args) — Deprecated: Use 'gimp-palette-entry-get-color' instead.
+- `gimp-palettes-popup` (3 args) — Invokes the Gimp palette selection.
+- `gimp-palettes-refresh` (0 args) — Refreshes current palettes. This function always succeeds.
+- `gimp-palettes-set-palette` (1 args) — This procedure is deprecated! Use 'gimp-context-set-palette' instead.
+- `gimp-palettes-set-popup` (2 args) — Sets the current palette in a palette selection dialog.
+- `gimp-pattern-get-info` (1 args) — Retrieve information about the specified pattern.
+- `gimp-pattern-get-pixels` (1 args) — Retrieve information about the specified pattern (including pixels).
+- `gimp-patterns-close-popup` (1 args) — Close the pattern selection dialog.
+- `gimp-patterns-get-list` (1 args) — Retrieve a complete listing of the available patterns.
+- `gimp-patterns-get-pattern` (0 args) — Deprecated: Use 'gimp-context-get-pattern' instead.
+- `gimp-patterns-get-pattern-data` (1 args) — Deprecated: Use 'gimp-pattern-get-pixels' instead.
+- `gimp-patterns-list` (1 args) — This procedure is deprecated! Use 'gimp-patterns-get-list' instead.
+- `gimp-patterns-popup` (3 args) — Invokes the Gimp pattern selection.
+- `gimp-patterns-refresh` (0 args) — Refresh current patterns. This function always succeeds.
+- `gimp-patterns-set-pattern` (1 args) — This procedure is deprecated! Use 'gimp-context-set-pattern' instead.
+- `gimp-patterns-set-popup` (2 args) — Sets the current pattern in a pattern selection dialog.
+- `gimp-unit-get-abbreviation` (1 args) — Returns the abbreviation of the unit.
+- `gimp-unit-get-deletion-flag` (1 args) — Returns the deletion flag of the unit.
+- `gimp-unit-get-digits` (1 args) — Returns the number of digits of the unit.
+- `gimp-unit-get-factor` (1 args) — Returns the factor of the unit.
+- `gimp-unit-get-identifier` (1 args) — Returns the textual identifier of the unit.
+- `gimp-unit-get-number-of-built-in-units` (0 args) — Returns the number of built-in units.
+- `gimp-unit-get-number-of-units` (0 args) — Returns the number of units.
+- `gimp-unit-get-plural` (1 args) — Returns the plural form of the unit.
+- `gimp-unit-get-singular` (1 args) — Returns the singular form of the unit.
+- `gimp-unit-get-symbol` (1 args) — Returns the symbol of the unit.
+- `gimp-unit-new` (7 args) — Creates a new unit and returns it's integer ID.
+- `gimp-unit-set-deletion-flag` (2 args) — Sets the deletion flag of a unit.
+
+## images-io  (356)
+- `file-aa-save` (6 args) — Saves grayscale image in various text formats
+- `file-bmp-load` (3 args) — Loads files of Windows BMP file format
+- `file-bmp-save` (5 args) — Saves files in Windows BMP file format
+- `file-bz2-load` (3 args) — loads files compressed with bzip2
+- `file-bz2-save` (5 args) — saves files compressed with bzip2
+- `file-cel-load` (4 args) — Loads files in KISS CEL file format
+- `file-cel-save` (6 args) — Exports files in KISS CEL file format
+- `file-csource-save` (5 args) — Dump image data in RGB(A) format for C source
+- `file-dds-load` (5 args) — Loads files in DDS image format
+- `file-dds-save` (18 args) — Saves files in DDS image format
+- `file-desktop-link-load` (3 args) — Follows a link to an image in a .desktop file
+- `file-dicom-load` (3 args) — loads files of the dicom file format
+- `file-dicom-save` (5 args) — Save file in the DICOM file format
+- `file-eps-load` (3 args) — load Encapsulated PostScript images
+- `file-eps-save` (15 args) — export image as Encapsulated PostScript image
+- `file-exr-load` (3 args) — Loads files in the OpenEXR file format
+- `file-exr-save` (5 args) — Saves files in the OpenEXR file format
+- `file-faxg3-load` (3 args) — loads g3 fax files
+- `file-fits-load` (3 args) — load file of the FITS file format
+- `file-fits-save` (5 args) — export file in the FITS file format
+- `file-fli-info` (1 args) — Get information about a Fli movie
+- `file-fli-load` (3 args) — load FLI-movies
+- `file-fli-save` (7 args) — export FLI-movies
+- `file-gbr-load` (3 args) — Loads GIMP brushes
+- `file-gbr-save` (7 args) — Exports files in the GIMP brush file format
+- `file-gbr-save-internal` (7 args) — Exports Gimp brush file (.GBR)
+- `file-gif-load` (3 args) — Loads files of Compuserve GIF file format
+- `file-gif-load-thumb` (2 args) — Loads only the first frame of a GIF image, to be used as a thumbnail
+- `file-gif-save` (9 args) — exports files in Compuserve GIF file format
+- `file-gif-save2` (12 args) — exports files in Compuserve GIF file format
+- `file-gih-load` (3 args) — Loads GIMP animated brushes
+- `file-gih-save` (15 args) — exports images in GIMP brush pipe format
+- `file-gih-save-internal` (8 args) — Exports Gimp animated brush file (.gih)
+- `file-glob` (2 args) — Returns a list of matching filenames
+- `file-gtm-save` (5 args) — GIMP Table Magic
+- `file-gz-load` (3 args) — loads files compressed with gzip
+- `file-gz-save` (5 args) — saves files compressed with gzip
+- `file-header-save` (5 args) — saves files as C unsigned character array
+- `file-heif-av1-save` (7 args) — Exports AVIF images
+- `file-heif-load` (3 args) — Loads HEIF images
+- `file-heif-save` (7 args) — Exports HEIF images
+- `file-hgt-load` (4 args) — Load HGT data as images
+- `file-ico-load` (3 args) — Loads files of Windows ICO file format
+- `file-ico-load-thumb` (2 args) — Loads a preview from an Windows ICO file
+- `file-ico-save` (5 args) — Saves files in Windows ICO file format
+- `file-j2k-load` (4 args) — Loads JPEG 2000 codestream.
+- `file-jp2-load` (3 args) — Loads JPEG 2000 images.
+- `file-jpeg-load` (3 args) — loads files in the JPEG file format
+- `file-jpeg-load-thumb` (2 args) — Loads a thumbnail from a JPEG image
+- `file-jpeg-save` (14 args) — saves files in the JPEG file format
+- `file-load-rgbe` (3 args) — Load files in the RGBE file format
+- `file-mng-save` (17 args) — Saves images in the MNG file format
+- `file-pat-load` (3 args) — Loads GIMP patterns
+- `file-pat-save` (6 args) — Exports Gimp pattern file (.PAT)
+- `file-pat-save-internal` (6 args) — Exports Gimp pattern file (.PAT)
+- `file-pbm-save` (6 args) — Exports files in the PBM file format
+- `file-pcx-load` (3 args) — Loads files in Zsoft PCX file format
+- `file-pcx-save` (5 args) — Exports files in ZSoft PCX file format
+- `file-pdf-load` (3 args) — Load file in PDF format
+- `file-pdf-load-thumb` (2 args) — Loads a preview from a PDF file.
+- `file-pdf-load2` (6 args) — Load file in PDF format
+- `file-pdf-save` (8 args) — Save files in PDF format
+- `file-pdf-save-multi` (8 args) — Save files in PDF format
+- `file-pdf-save2` (10 args) — Save files in PDF format
+- `file-pfm-save` (5 args) — Exports files in the PFM file format
+- `file-pgm-save` (6 args) — Exports files in the PGM file format
+- `file-pix-load` (3 args) — loads files of the Alias|Wavefront Pix file format
+- `file-pix-save` (5 args) — export file in the Alias|Wavefront pix/matte file format
+- `file-png-get-defaults` (0 args) — Get the current set of defaults used by the PNG file export plug-in
+- `file-png-load` (3 args) — Loads files in PNG file format
+- `file-png-save` (12 args) — Exports files in PNG file format
+- `file-png-save-defaults` (5 args) — Exports files in PNG file format
+- `file-png-save2` (14 args) — Exports files in PNG file format
+- `file-png-set-defaults` (9 args) — Set the current set of defaults used by the PNG file export plug-in
+- `file-pnm-load` (3 args) — Loads files in the PNM file format
+- `file-pnm-save` (6 args) — Exports files in the PNM file format
+- `file-ppm-save` (6 args) — Exports files in the PPM file format
+- `file-print-gtk` (2 args) — Print the image
+- `file-ps-load` (3 args) — load PostScript documents
+- `file-ps-load-setargs` (8 args) — set additional parameters for procedure file-ps-load
+- `file-ps-load-thumb` (2 args) — Loads a small preview from a PostScript or PDF document
+- `file-ps-save` (15 args) — export image as PostScript document
+- `file-psd-load` (3 args) — Loads images from the Photoshop PSD file format
+- `file-psd-load-merged` (3 args) — Loads merged images from the Photoshop PSD file format
+- `file-psd-load-thumb` (2 args) — Loads thumbnails from the Photoshop PSD file format
+- `file-psd-save` (7 args) — saves files in the Photoshop(tm) PSD file format
+- `file-psp-load` (3 args) — loads images from the Paint Shop Pro PSP file format
+- `file-raw-get-defaults` (0 args) — Get the current set of defaults used by the raw image data dump plug-in
+- `file-raw-load` (3 args) — Load raw images, specifying image information
+- `file-raw-placeholder-ari-load` (3 args) — Load files in the ARI raw format via raw-placeholder
+- `file-raw-placeholder-bay-load` (3 args) — Load files in the BAY raw format via raw-placeholder
+- `file-raw-placeholder-canon-load` (3 args) — Load files in the Canon raw formats via raw-placeholder
+- `file-raw-placeholder-cine-load` (3 args) — Load files in the CINE raw format via raw-placeholder
+- `file-raw-placeholder-dng-load` (3 args) — Load files in the DNG raw format via raw-placeholder
+- `file-raw-placeholder-erf-load` (3 args) — Load files in the ERF raw format via raw-placeholder
+- `file-raw-placeholder-hasselblad-load` (3 args) — Load files in the Hasselblad raw formats via raw-placeholder
+- `file-raw-placeholder-kodak-load` (3 args) — Load files in the Kodak raw formats via raw-placeholder
+- `file-raw-placeholder-mef-load` (3 args) — Load files in the MEF raw format via raw-placeholder
+- `file-raw-placeholder-minolta-load` (3 args) — Load files in the Minolta raw formats via raw-placeholder
+- `file-raw-placeholder-mos-load` (3 args) — Load files in the MOS raw format via raw-placeholder
+- `file-raw-placeholder-nikon-load` (3 args) — Load files in the Nikon raw formats via raw-placeholder
+- `file-raw-placeholder-orf-load` (3 args) — Load files in the ORF raw format via raw-placeholder
+- `file-raw-placeholder-panasonic-load` (3 args) — Load files in the Panasonic raw formats via raw-placeholder
+- `file-raw-placeholder-pef-load` (3 args) — Load files in the PEF raw format via raw-placeholder
+- `file-raw-placeholder-phaseone-load` (3 args) — Load files in the Phase One raw formats via raw-placeholder
+- `file-raw-placeholder-pxn-load` (3 args) — Load files in the PXN raw format via raw-placeholder
+- `file-raw-placeholder-qtk-load` (3 args) — Load files in the QTK raw format via raw-placeholder
+- `file-raw-placeholder-raf-load` (3 args) — Load files in the RAF raw format via raw-placeholder
+- `file-raw-placeholder-rdc-load` (3 args) — Load files in the RDC raw format via raw-placeholder
+- `file-raw-placeholder-rwl-load` (3 args) — Load files in the RWL raw format via raw-placeholder
+- `file-raw-placeholder-sinar-load` (3 args) — Load files in the Sinar raw formats via raw-placeholder
+- `file-raw-placeholder-sony-load` (3 args) — Load files in the Sony raw formats via raw-placeholder
+- `file-raw-placeholder-srw-load` (3 args) — Load files in the SRW raw format via raw-placeholder
+- `file-raw-placeholder-x3f-load` (3 args) — Load files in the X3F raw format via raw-placeholder
+- `file-raw-save` (5 args) — Dump images to disk in raw format
+- `file-raw-save2` (7 args) — Dump images to disk in raw format
+- `file-raw-set-defaults` (2 args) — Set the current set of defaults used by the raw image dump plug-in
+- `file-save-rgbe` (5 args) — Saves files in the RGBE file format
+- `file-sgi-load` (3 args) — Loads files in SGI image file format
+- `file-sgi-save` (6 args) — Exports files in SGI image file format
+- `file-sunras-load` (3 args) — load file of the SunRaster file format
+- `file-sunras-save` (6 args) — export file in the SunRaster file format
+- `file-svg-load` (7 args) — Loads files in the SVG file format
+- `file-svg-load-thumb` (2 args) — Generates a thumbnail of an SVG image
+- `file-tga-load` (3 args) — Loads files of Targa file format
+- `file-tga-save` (7 args) — exports files in the Targa file format
+- `file-tiff-load` (3 args) — loads files of the tiff file format
+- `file-tiff-save` (6 args) — saves files in the tiff file format
+- `file-tiff-save2` (7 args) — saves files in the tiff file format
+- `file-webp-load` (3 args) — Loads images in the WebP file format
+- `file-webp-save` (18 args) — Saves files in the WebP image format
+- `file-wmf-load` (6 args) — Loads files in the WMF file format
+- `file-wmf-load-thumb` (2 args) — Loads a small preview from a WMF image
+- `file-xbm-load` (3 args) — Load a file in X10 or X11 bitmap (XBM) file format
+- `file-xbm-save` (12 args) — Export a file in X10 or X11 bitmap (XBM) file format
+- `file-xmc-load` (3 args) — Loads files of X11 Mouse Cursor file format
+- `file-xmc-load-thumb` (2 args) — Loads only first frame of X11 Mouse Cursor's animation sequence which nominal size is the closest of thumb-size to be used as a thumbnail
+- `file-xmc-save` (15 args) — Exports files of X11 cursor file
+- `file-xpm-load` (3 args) — Load files in XPM (X11 Pixmap) format.
+- `file-xpm-save` (6 args) — Export files in XPM (X11 Pixmap) format.
+- `file-xwd-load` (3 args) — Loads files in the XWD (X Window Dump) format
+- `file-xwd-save` (5 args) — Exports files in the XWD (X Window Dump) format
+- `file-xz-load` (3 args) — loads files compressed with xz
+- `file-xz-save` (5 args) — saves files compressed with xz
+- `gimp-display-delete` (1 args) — Delete the specified display.
+- `gimp-display-get-window-handle` (1 args) — Get a handle to the native window for an image display.
+- `gimp-display-is-valid` (1 args) — Returns TRUE if the display is valid.
+- `gimp-display-new` (1 args) — Create a new display for the specified image.
+- `gimp-drawable-bpp` (1 args) — Returns the bytes per pixel.
+- `gimp-drawable-bytes` (1 args) — This procedure is deprecated! Use 'gimp-drawable-bpp' instead.
+- `gimp-drawable-delete` (1 args) — This procedure is deprecated! Use 'gimp-item-delete' instead.
+- `gimp-drawable-equalize` (2 args) — Equalize the contents of the specified drawable.
+- `gimp-drawable-fill` (2 args) — Fill the drawable with the specified fill mode.
+- `gimp-drawable-foreground-extract` (3 args) — Extract the foreground of a drawable using a given trimap.
+- `gimp-drawable-free-shadow` (1 args) — Free the specified drawable's shadow data (if it exists).
+- `gimp-drawable-get-format` (1 args) — Returns the drawable's Babl format
+- `gimp-drawable-get-image` (1 args) — This procedure is deprecated! Use 'gimp-item-get-image' instead.
+- `gimp-drawable-get-linked` (1 args) — This procedure is deprecated! Use 'gimp-item-get-linked' instead.
+- `gimp-drawable-get-name` (1 args) — This procedure is deprecated! Use 'gimp-item-get-name' instead.
+- `gimp-drawable-get-pixel` (3 args) — Gets the value of the pixel at the specified coordinates.
+- `gimp-drawable-get-tattoo` (1 args) — This procedure is deprecated! Use 'gimp-item-get-tattoo' instead.
+- `gimp-drawable-get-thumbnail-format` (1 args) — Returns the drawable's thumbnail Babl format
+- `gimp-drawable-get-visible` (1 args) — This procedure is deprecated! Use 'gimp-item-get-visible' instead.
+- `gimp-drawable-has-alpha` (1 args) — Returns TRUE if the drawable has an alpha channel.
+- `gimp-drawable-height` (1 args) — Returns the height of the drawable.
+- `gimp-drawable-is-channel` (1 args) — This procedure is deprecated! Use 'gimp-item-is-channel' instead.
+- `gimp-drawable-is-gray` (1 args) — Returns whether the drawable is a grayscale type.
+- `gimp-drawable-is-indexed` (1 args) — Returns whether the drawable is an indexed type.
+- `gimp-drawable-is-layer` (1 args) — This procedure is deprecated! Use 'gimp-item-is-layer' instead.
+- `gimp-drawable-is-layer-mask` (1 args) — This procedure is deprecated! Use 'gimp-item-is-layer-mask' instead.
+- `gimp-drawable-is-rgb` (1 args) — Returns whether the drawable is an RGB type.
+- `gimp-drawable-is-text-layer` (1 args) — This procedure is deprecated! Use 'gimp-item-is-text-layer' instead.
+- `gimp-drawable-is-valid` (1 args) — This procedure is deprecated! Use 'gimp-item-is-valid' instead.
+- `gimp-drawable-mask-bounds` (1 args) — Find the bounding box of the current selection in relation to the specified drawable.
+- `gimp-drawable-mask-intersect` (1 args) — Find the bounding box of the current selection in relation to the specified drawable.
+- `gimp-drawable-merge-shadow` (2 args) — Merge the shadow buffer with the specified drawable.
+- `gimp-drawable-offset` (5 args) — Offset the drawable by the specified amounts in the X and Y directions
+- `gimp-drawable-offsets` (1 args) — Returns the offsets for the drawable.
+- `gimp-drawable-parasite-attach` (2 args) — This procedure is deprecated! Use 'gimp-item-attach-parasite' instead.
+- `gimp-drawable-parasite-detach` (2 args) — This procedure is deprecated! Use 'gimp-item-detach-parasite' instead.
+- `gimp-drawable-parasite-find` (2 args) — This procedure is deprecated! Use 'gimp-item-get-parasite' instead.
+- `gimp-drawable-parasite-list` (1 args) — This procedure is deprecated! Use 'gimp-item-get-parasite-list' instead.
+- `gimp-drawable-set-image` (2 args) — Deprecated: There is no replacement for this procedure.
+- `gimp-drawable-set-linked` (2 args) — This procedure is deprecated! Use 'gimp-item-set-linked' instead.
+- `gimp-drawable-set-name` (2 args) — This procedure is deprecated! Use 'gimp-item-set-name' instead.
+- `gimp-drawable-set-pixel` (5 args) — Sets the value of the pixel at the specified coordinates.
+- `gimp-drawable-set-tattoo` (2 args) — This procedure is deprecated! Use 'gimp-item-set-tattoo' instead.
+- `gimp-drawable-set-visible` (2 args) — This procedure is deprecated! Use 'gimp-item-set-visible' instead.
+- `gimp-drawable-sub-thumbnail` (7 args) — Get a thumbnail of a sub-area of a drawable drawable.
+- `gimp-drawable-thumbnail` (3 args) — Get a thumbnail of a drawable.
+- `gimp-drawable-type` (1 args) — Returns the drawable's type.
+- `gimp-drawable-type-with-alpha` (1 args) — Returns the drawable's type with alpha.
+- `gimp-drawable-update` (5 args) — Update the specified region of the drawable.
+- `gimp-drawable-width` (1 args) — Returns the width of the drawable.
+- `gimp-file-load` (3 args) — Loads an image file by invoking the right load handler.
+- `gimp-file-load-layer` (3 args) — Loads an image file as a layer for an existing image.
+- `gimp-file-load-layers` (3 args) — Loads an image file as layers for an existing image.
+- `gimp-file-load-thumbnail` (1 args) — Loads the thumbnail for a file.
+- `gimp-file-save` (5 args) — Saves a file by extension.
+- `gimp-file-save-thumbnail` (2 args) — Saves a thumbnail for the given image
+- `gimp-image-active-drawable` (1 args) — This procedure is deprecated! Use 'gimp-image-get-active-drawable' instead.
+- `gimp-image-add-channel` (3 args) — Deprecated: Use 'gimp-image-insert-channel' instead.
+- `gimp-image-add-hguide` (2 args) — Add a horizontal guide to an image.
+- `gimp-image-add-sample-point` (3 args) — Add a sample point to an image.
+- `gimp-image-add-vectors` (3 args) — Deprecated: Use 'gimp-image-insert-vectors' instead.
+- `gimp-image-add-vguide` (2 args) — Add a vertical guide to an image.
+- `gimp-image-attach-parasite` (2 args) — Add a parasite to an image.
+- `gimp-image-base-type` (1 args) — Get the base type of the image.
+- `gimp-image-clean-all` (1 args) — Set the image dirty count to 0.
+- `gimp-image-convert-color-profile` (5 args) — Convert the image's layers to a color profile
+- `gimp-image-convert-color-profile-from-file` (4 args) — Convert the image's layers to a color profile
+- `gimp-image-convert-grayscale` (1 args) — Convert specified image to grayscale
+- `gimp-image-convert-indexed` (7 args) — Convert specified image to and Indexed image
+- `gimp-image-convert-precision` (2 args) — Convert the image to the specified precision
+- `gimp-image-convert-rgb` (1 args) — Convert specified image to RGB color
+- `gimp-image-convert-set-dither-matrix` (4 args) — Set dither matrix for conversion to indexed
+- `gimp-image-delete` (1 args) — Delete the specified image.
+- `gimp-image-delete-guide` (2 args) — Deletes a guide from an image.
+- `gimp-image-delete-sample-point` (2 args) — Deletes a sample point from an image.
+- `gimp-image-detach-parasite` (2 args) — Removes a parasite from an image.
+- `gimp-image-duplicate` (1 args) — Duplicate the specified image
+- `gimp-image-find-next-guide` (2 args) — Find next guide on an image.
+- `gimp-image-find-next-sample-point` (2 args) — Find next sample point on an image.
+- `gimp-image-floating-sel-attached-to` (1 args) — Return the drawable the floating selection is attached to.
+- `gimp-image-floating-selection` (1 args) — This procedure is deprecated! Use 'gimp-image-get-floating-sel' instead.
+- `gimp-image-free-shadow` (1 args) — Deprecated: Use 'gimp-drawable-free-shadow' instead.
+- `gimp-image-freeze-channels` (1 args) — Freeze the image's channel list.
+- `gimp-image-freeze-vectors` (1 args) — Freeze the image's vectors list.
+- `gimp-image-get-active-channel` (1 args) — Returns the specified image's active channel.
+- `gimp-image-get-active-drawable` (1 args) — Get the image's active drawable
+- `gimp-image-get-active-vectors` (1 args) — Returns the specified image's active vectors.
+- `gimp-image-get-channel-by-name` (2 args) — Find a channel with a given name in an image.
+- `gimp-image-get-channel-by-tattoo` (2 args) — Find a channel with a given tattoo in an image.
+- `gimp-image-get-channel-position` (2 args) — This procedure is deprecated! Use 'gimp-image-get-item-position' instead.
+- `gimp-image-get-channels` (1 args) — Returns the list of channels contained in the specified image.
+- `gimp-image-get-cmap` (1 args) — This procedure is deprecated! Use 'gimp-image-get-colormap' instead.
+- `gimp-image-get-color-profile` (1 args) — Returns the image's color profile
+- `gimp-image-get-colormap` (1 args) — Returns the image's colormap
+- `gimp-image-get-component-active` (2 args) — Returns if the specified image's image component is active.
+- `gimp-image-get-component-visible` (2 args) — Returns if the specified image's image component is visible.
+- `gimp-image-get-effective-color-profile` (1 args) — Returns the color profile that is used for the image
+- `gimp-image-get-exported-uri` (1 args) — Returns the exported URI for the specified image.
+- `gimp-image-get-filename` (1 args) — Returns the specified image's filename.
+- `gimp-image-get-floating-sel` (1 args) — Return the floating selection of the image.
+- `gimp-image-get-guide-orientation` (2 args) — Get orientation of a guide on an image.
+- `gimp-image-get-guide-position` (2 args) — Get position of a guide on an image.
+- `gimp-image-get-imported-uri` (1 args) — Returns the imported URI for the specified image.
+- `gimp-image-get-item-position` (2 args) — Returns the position of the item in its level of its item tree.
+- `gimp-image-get-metadata` (1 args) — Returns the image's metadata.
+- `gimp-image-get-name` (1 args) — Returns the specified image's name.
+- `gimp-image-get-parasite` (2 args) — Look up a parasite in an image
+- `gimp-image-get-parasite-list` (1 args) — List all parasites.
+- `gimp-image-get-precision` (1 args) — Get the precision of the image.
+- `gimp-image-get-resolution` (1 args) — Returns the specified image's resolution.
+- `gimp-image-get-sample-point-position` (2 args) — Get position of a sample point on an image.
+- `gimp-image-get-selection` (1 args) — Returns the specified image's selection.
+- `gimp-image-get-tattoo-state` (1 args) — Returns the tattoo state associated with the image.
+- `gimp-image-get-unit` (1 args) — Returns the specified image's unit.
+- `gimp-image-get-uri` (1 args) — Returns the URI for the specified image.
+- `gimp-image-get-vectors` (1 args) — Returns the list of vectors contained in the specified image.
+- `gimp-image-get-vectors-by-name` (2 args) — Find a vectors with a given name in an image.
+- `gimp-image-get-vectors-by-tattoo` (2 args) — Find a vectors with a given tattoo in an image.
+- `gimp-image-get-vectors-position` (2 args) — This procedure is deprecated! Use 'gimp-image-get-item-position' instead.
+- `gimp-image-get-xcf-uri` (1 args) — Returns the XCF URI for the specified image.
+- `gimp-image-grid-get-background-color` (1 args) — Sets the background color of an image's grid.
+- `gimp-image-grid-get-foreground-color` (1 args) — Sets the foreground color of an image's grid.
+- `gimp-image-grid-get-offset` (1 args) — Gets the offset of an image's grid.
+- `gimp-image-grid-get-spacing` (1 args) — Gets the spacing of an image's grid.
+- `gimp-image-grid-get-style` (1 args) — Gets the style of an image's grid.
+- `gimp-image-grid-set-background-color` (2 args) — Gets the background color of an image's grid.
+- `gimp-image-grid-set-foreground-color` (2 args) — Gets the foreground color of an image's grid.
+- `gimp-image-grid-set-offset` (3 args) — Sets the offset of an image's grid.
+- `gimp-image-grid-set-spacing` (3 args) — Sets the spacing of an image's grid.
+- `gimp-image-grid-set-style` (2 args) — Sets the style unit of an image's grid.
+- `gimp-image-height` (1 args) — Return the height of the image
+- `gimp-image-is-dirty` (1 args) — Checks if the image has unsaved changes.
+- `gimp-image-is-valid` (1 args) — Returns TRUE if the image is valid.
+- `gimp-image-list` (0 args) — Returns the list of images currently open.
+- `gimp-image-lower-channel` (2 args) — This procedure is deprecated! Use 'gimp-image-lower-item' instead.
+- `gimp-image-lower-item` (2 args) — Lower the specified item in its level in its item tree
+- `gimp-image-lower-item-to-bottom` (2 args) — Lower the specified item to the bottom of its level in its item tree
+- `gimp-image-lower-vectors` (2 args) — This procedure is deprecated! Use 'gimp-image-lower-item' instead.
+- `gimp-image-lower-vectors-to-bottom` (2 args) — This procedure is deprecated! Use 'gimp-image-lower-item-to-bottom' instead.
+- `gimp-image-new` (3 args) — Creates a new image with the specified width, height, and type.
+- `gimp-image-new-with-precision` (4 args) — Creates a new image with the specified width, height, type and precision.
+- `gimp-image-parasite-attach` (2 args) — This procedure is deprecated! Use 'gimp-image-attach-parasite' instead.
+- `gimp-image-parasite-detach` (2 args) — This procedure is deprecated! Use 'gimp-image-detach-parasite' instead.
+- `gimp-image-parasite-find` (2 args) — This procedure is deprecated! Use 'gimp-image-get-parasite' instead.
+- `gimp-image-parasite-list` (1 args) — This procedure is deprecated! Use 'gimp-image-get-parasite-list' instead.
+- `gimp-image-pick-color` (7 args) — Determine the color at the given drawable coordinates
+- `gimp-image-raise-channel` (2 args) — This procedure is deprecated! Use 'gimp-image-raise-item' instead.
+- `gimp-image-raise-item` (2 args) — Raise the specified item in its level in its item tree
+- `gimp-image-raise-item-to-top` (2 args) — Raise the specified item to the top of its level in its item tree
+- `gimp-image-raise-vectors` (2 args) — This procedure is deprecated! Use 'gimp-image-raise-item' instead.
+- `gimp-image-raise-vectors-to-top` (2 args) — This procedure is deprecated! Use 'gimp-image-raise-item-to-top' instead.
+- `gimp-image-remove-channel` (2 args) — Remove the specified channel from the image.
+- `gimp-image-remove-vectors` (2 args) — Remove the specified path from the image.
+- `gimp-image-reorder-item` (4 args) — Reorder the specified item within its item tree
+- `gimp-image-set-active-channel` (2 args) — Sets the specified image's active channel.
+- `gimp-image-set-active-vectors` (2 args) — Sets the specified image's active vectors.
+- `gimp-image-set-cmap` (3 args) — This procedure is deprecated! Use 'gimp-image-set-colormap' instead.
+- `gimp-image-set-color-profile` (3 args) — Sets the image's color profile
+- `gimp-image-set-color-profile-from-file` (2 args) — Sets the image's color profile from an ICC file
+- `gimp-image-set-colormap` (3 args) — Sets the entries in the image's colormap.
+- `gimp-image-set-component-active` (3 args) — Sets if the specified image's image component is active.
+- `gimp-image-set-component-visible` (3 args) — Sets if the specified image's image component is visible.
+- `gimp-image-set-filename` (2 args) — Sets the specified image's filename.
+- `gimp-image-set-metadata` (2 args) — Set the image's metadata.
+- `gimp-image-set-resolution` (3 args) — Sets the specified image's resolution.
+- `gimp-image-set-tattoo-state` (2 args) — Set the tattoo state associated with the image.
+- `gimp-image-set-unit` (2 args) — Sets the specified image's unit.
+- `gimp-image-thaw-channels` (1 args) — Thaw the image's channel list.
+- `gimp-image-thaw-vectors` (1 args) — Thaw the image's vectors list.
+- `gimp-image-thumbnail` (3 args) — Get a thumbnail of an image.
+- `gimp-image-undo-disable` (1 args) — Disable the image's undo stack.
+- `gimp-image-undo-enable` (1 args) — Enable the image's undo stack.
+- `gimp-image-undo-freeze` (1 args) — Freeze the image's undo stack.
+- `gimp-image-undo-group-end` (1 args) — Finish a group undo.
+- `gimp-image-undo-group-start` (1 args) — Starts a group undo.
+- `gimp-image-undo-is-enabled` (1 args) — Check if the image's undo stack is enabled.
+- `gimp-image-undo-thaw` (1 args) — Thaw the image's undo stack.
+- `gimp-image-unset-active-channel` (1 args) — Unsets the active channel in the specified image.
+- `gimp-image-width` (1 args) — Return the width of the image
+- `gimp-item-attach-parasite` (2 args) — Add a parasite to an item.
+- `gimp-item-delete` (1 args) — Delete a item.
+- `gimp-item-detach-parasite` (2 args) — Removes a parasite from an item.
+- `gimp-item-get-children` (1 args) — Returns the item's list of children.
+- `gimp-item-get-color-tag` (1 args) — Get the color tag of the specified item.
+- `gimp-item-get-expanded` (1 args) — Returns whether the item is expanded.
+- `gimp-item-get-image` (1 args) — Returns the item's image.
+- `gimp-item-get-linked` (1 args) — Get the linked state of the specified item.
+- `gimp-item-get-lock-content` (1 args) — Get the 'lock content' state of the specified item.
+- `gimp-item-get-lock-position` (1 args) — Get the 'lock position' state of the specified item.
+- `gimp-item-get-name` (1 args) — Get the name of the specified item.
+- `gimp-item-get-parasite` (2 args) — Look up a parasite in an item
+- `gimp-item-get-parasite-list` (1 args) — List all parasites.
+- `gimp-item-get-parent` (1 args) — Returns the item's parent item.
+- `gimp-item-get-tattoo` (1 args) — Get the tattoo of the specified item.
+- `gimp-item-get-visible` (1 args) — Get the visibility of the specified item.
+- `gimp-item-is-channel` (1 args) — Returns whether the item is a channel.
+- `gimp-item-is-drawable` (1 args) — Returns whether the item is a drawable.
+- `gimp-item-is-group` (1 args) — Returns whether the item is a group item.
+- `gimp-item-is-layer` (1 args) — Returns whether the item is a layer.
+- `gimp-item-is-layer-mask` (1 args) — Returns whether the item is a layer mask.
+- `gimp-item-is-selection` (1 args) — Returns whether the item is a selection.
+- `gimp-item-is-text-layer` (1 args) — Returns whether the item is a text layer.
+- `gimp-item-is-valid` (1 args) — Returns TRUE if the item is valid.
+- `gimp-item-is-vectors` (1 args) — Returns whether the item is a vectors.
+- `gimp-item-set-color-tag` (2 args) — Set the color tag of the specified item.
+- `gimp-item-set-expanded` (2 args) — Sets the expanded state of the item.
+- `gimp-item-set-linked` (2 args) — Set the linked state of the specified item.
+- `gimp-item-set-lock-content` (2 args) — Set the 'lock content' state of the specified item.
+- `gimp-item-set-lock-position` (2 args) — Set the 'lock position' state of the specified item.
+- `gimp-item-set-name` (2 args) — Set the name of the specified item.
+- `gimp-item-set-tattoo` (2 args) — Set the tattoo of the specified item.
+- `gimp-item-set-visible` (2 args) — Set the visibility of the specified item.
+
+## misc  (130)
+- `extension-gimp-help` (4 args) — 
+- `extension-script-fu` (0 args) — A scheme interpreter for scripting GIMP operations
+- `gimp-attach-parasite` (1 args) — Add a global parasite.
+- `gimp-buffer-delete` (1 args) — Deletes a named buffer.
+- `gimp-buffer-get-bytes` (1 args) — Retrieves the specified buffer's bytes.
+- `gimp-buffer-get-height` (1 args) — Retrieves the specified buffer's height.
+- `gimp-buffer-get-image-type` (1 args) — Retrieves the specified buffer's image type.
+- `gimp-buffer-get-width` (1 args) — Retrieves the specified buffer's width.
+- `gimp-buffer-rename` (2 args) — Renames a named buffer.
+- `gimp-buffers-get-list` (1 args) — Retrieve a complete listing of the available buffers.
+- `gimp-by-color-select` (8 args) — Deprecated: Use 'gimp-image-select-color' instead.
+- `gimp-by-color-select-full` (11 args) — Deprecated: Use 'gimp-image-select-color' instead.
+- `gimp-color-picker` (7 args) — This procedure is deprecated! Use 'gimp-image-pick-color' instead.
+- `gimp-convert-grayscale` (1 args) — This procedure is deprecated! Use 'gimp-image-convert-grayscale' instead.
+- `gimp-convert-indexed` (7 args) — This procedure is deprecated! Use 'gimp-image-convert-indexed' instead.
+- `gimp-convert-rgb` (1 args) — This procedure is deprecated! Use 'gimp-image-convert-rgb' instead.
+- `gimp-convolve` (5 args) — Convolve (Blur, Sharpen) using the current brush.
+- `gimp-convolve-default` (3 args) — Convolve (Blur, Sharpen) using the current brush.
+- `gimp-crop` (5 args) — This procedure is deprecated! Use 'gimp-image-crop' instead.
+- `gimp-debug-timer-end` (0 args) — Finishes measuring elapsed time.
+- `gimp-debug-timer-start` (0 args) — Starts measuring elapsed time.
+- `gimp-detach-parasite` (1 args) — Removes a global parasite.
+- `gimp-displays-flush` (0 args) — Flush all internal changes to the user interface
+- `gimp-displays-reconnect` (2 args) — Reconnect displays from one image to another image.
+- `gimp-dodgeburn` (6 args) — Dodgeburn image with varying exposure.
+- `gimp-dodgeburn-default` (3 args) — Dodgeburn image with varying exposure. This is the same as the gimp_dodgeburn() function except that the exposure, type and mode are taken from the tools option dialog. If the dialog has not been activated then the defaults as used by the dialog will be used.
+- `gimp-ellipse-select` (9 args) — Deprecated: Use 'gimp-image-select-ellipse' instead.
+- `gimp-equalize` (2 args) — Deprecated: Use 'gimp-drawable-equalize' instead.
+- `gimp-flip` (2 args) — Deprecated: Use 'gimp-item-transform-flip-simple' instead.
+- `gimp-floating-sel-anchor` (1 args) — Anchor the specified floating selection to its associated drawable.
+- `gimp-floating-sel-attach` (2 args) — Attach the specified layer as floating to the specified drawable.
+- `gimp-floating-sel-relax` (2 args) — Deprecated: There is no replacement for this procedure.
+- `gimp-floating-sel-remove` (1 args) — Remove the specified floating selection from its associated drawable.
+- `gimp-floating-sel-rigor` (2 args) — Deprecated: There is no replacement for this procedure.
+- `gimp-floating-sel-to-layer` (1 args) — Transforms the specified floating selection into a layer.
+- `gimp-free-select` (7 args) — Deprecated: Use 'gimp-image-select-polygon' instead.
+- `gimp-fuzzy-select` (9 args) — Deprecated: Use 'gimp-image-select-contiguous-color' instead.
+- `gimp-fuzzy-select-full` (12 args) — Deprecated: Use 'gimp-image-select-contiguous-color' instead.
+- `gimp-get-color-configuration` (0 args) — Get a serialized version of the color management configuration.
+- `gimp-get-default-comment` (0 args) — Get the default image comment as specified in the Preferences.
+- `gimp-get-default-unit` (0 args) — Get the default unit (taken from the user's locale).
+- `gimp-get-icon-theme-dir` (0 args) — Get the directory of the current icon theme.
+- `gimp-get-module-load-inhibit` (0 args) — Get the list of modules which should not be loaded.
+- `gimp-get-monitor-resolution` (0 args) — Get the monitor resolution as specified in the Preferences.
+- `gimp-get-parasite` (1 args) — Look up a global parasite.
+- `gimp-get-parasite-list` (0 args) — List all parasites.
+- `gimp-get-path-by-tattoo` (2 args) — Deprecated: Use 'gimp-image-get-vectors-by-tattoo' instead.
+- `gimp-get-theme-dir` (0 args) — Get the directory of the current GUI theme.
+- `gimp-getpid` (0 args) — Returns the PID of the host GIMP process.
+- `gimp-gimprc-query` (1 args) — Queries the gimprc file parser for information on a specified token.
+- `gimp-gimprc-set` (2 args) — Sets a gimprc token to a value and saves it in the gimprc.
+- `gimp-heal` (6 args) — Heal from the source to the dest drawable using the current brush
+- `gimp-heal-default` (3 args) — Heal from the source to the dest drawable using the current brush
+- `gimp-help` (2 args) — Load a help page.
+- `gimp-help-concepts-paths` (1 args) — Bookmark to the user manual
+- `gimp-help-concepts-usage` (1 args) — Bookmark to the user manual
+- `gimp-help-using-docks` (1 args) — Bookmark to the user manual
+- `gimp-help-using-fileformats` (1 args) — Bookmark to the user manual
+- `gimp-help-using-photography` (1 args) — Bookmark to the user manual
+- `gimp-help-using-selections` (1 args) — Bookmark to the user manual
+- `gimp-help-using-simpleobjects` (1 args) — Bookmark to the user manual
+- `gimp-help-using-web` (1 args) — Bookmark to the user manual
+- `gimp-message` (1 args) — Displays a dialog box with a message.
+- `gimp-message-get-handler` (0 args) — Returns the current state of where warning messages are displayed.
+- `gimp-message-set-handler` (1 args) — Controls where warning messages are displayed.
+- `gimp-online-bugs-features` (1 args) — Bookmark to the bug tracker of GIMP
+- `gimp-online-developer-web-site` (1 args) — Bookmark to the GIMP web site
+- `gimp-online-docs-web-site` (1 args) — Bookmark to the GIMP web site
+- `gimp-online-main-web-site` (1 args) — Bookmark to the GIMP web site
+- `gimp-online-roadmap` (1 args) — Bookmark to the roadmap of GIMP
+- `gimp-online-wiki` (1 args) — Bookmark to the wiki of GIMP
+- `gimp-parasite-attach` (1 args) — This procedure is deprecated! Use 'gimp-attach-parasite' instead.
+- `gimp-parasite-detach` (1 args) — This procedure is deprecated! Use 'gimp-detach-parasite' instead.
+- `gimp-parasite-find` (1 args) — This procedure is deprecated! Use 'gimp-get-parasite' instead.
+- `gimp-parasite-list` (0 args) — This procedure is deprecated! Use 'gimp-get-parasite-list' instead.
+- `gimp-perspective` (10 args) — Deprecated: Use 'gimp-item-transform-perspective' instead.
+- `gimp-plugin-domain-register` (2 args) — Registers a textdomain for localisation.
+- `gimp-plugin-enable-precision` (0 args) — Switches this plug-in to using the real bit depth of drawables.
+- `gimp-plugin-get-pdb-error-handler` (0 args) — Retrieves the active error handler for procedure calls.
+- `gimp-plugin-help-register` (2 args) — Register a help path for a plug-in.
+- `gimp-plugin-icon-register` (4 args) — Register an icon for a plug-in procedure.
+- `gimp-plugin-menu-branch-register` (2 args) — Register a sub-menu.
+- `gimp-plugin-menu-register` (2 args) — Register an additional menu path for a plug-in procedure.
+- `gimp-plugin-precision-enabled` (0 args) — Whether this plug-in is using the real bit depth of drawables.
+- `gimp-plugin-set-pdb-error-handler` (1 args) — Sets an error handler for procedure calls.
+- `gimp-plugins-query` (1 args) — Queries the plug-in database for its contents.
+- `gimp-procedural-db-dump` (1 args) — Dumps the current contents of the procedural database
+- `gimp-procedural-db-get-data` (1 args) — Returns data associated with the specified identifier.
+- `gimp-procedural-db-get-data-size` (1 args) — Returns size of data associated with the specified identifier.
+- `gimp-procedural-db-proc-arg` (2 args) — Queries the procedural database for information on the specified procedure's argument.
+- `gimp-procedural-db-proc-exists` (1 args) — Checks if the specified procedure exists in the procedural database
+- `gimp-procedural-db-proc-info` (1 args) — Queries the procedural database for information on the specified procedure.
+- `gimp-procedural-db-proc-val` (2 args) — Queries the procedural database for information on the specified procedure's return value.
+- `gimp-procedural-db-query` (7 args) — Queries the procedural database for its contents using regular expression matching.
+- `gimp-procedural-db-set-data` (3 args) — Associates the specified identifier with the supplied data.
+- `gimp-procedural-db-temp-name` (0 args) — Generates a unique temporary PDB name.
+- `gimp-progress-cancel` (1 args) — Cancels a running progress.
+- `gimp-progress-end` (0 args) — Ends the progress bar for the current plug-in.
+- `gimp-progress-get-window-handle` (0 args) — Returns the native window ID of the toplevel window this plug-in's progress is displayed in.
+- `gimp-progress-init` (2 args) — Initializes the progress bar for the current plug-in.
+- `gimp-progress-install` (1 args) — Installs a progress callback for the current plug-in.
+- `gimp-progress-pulse` (0 args) — Pulses the progress bar for the current plug-in.
+- `gimp-progress-set-text` (1 args) — Changes the text in the progress bar for the current plug-in.
+- `gimp-progress-uninstall` (1 args) — Uninstalls the progress callback for the current plug-in.
+- `gimp-progress-update` (1 args) — Updates the progress bar for the current plug-in.
+- `gimp-quit` (1 args) — Causes GIMP to exit gracefully.
+- `gimp-rect-select` (8 args) — Deprecated: Use 'gimp-image-select-rectangle' instead.
+- `gimp-register-file-handler-mime` (2 args) — Associates MIME types with a file handler procedure.
+- `gimp-register-file-handler-priority` (2 args) — Sets the priority of a file handler procedure.
+- `gimp-register-file-handler-raw` (1 args) — Registers a file handler procedure as capable of handling raw camera files.
+- `gimp-register-file-handler-uri` (1 args) — Registers a file handler procedure as capable of handling URIs.
+- `gimp-register-load-handler` (3 args) — Registers a file load handler procedure.
+- `gimp-register-magic-load-handler` (4 args) — Registers a file load handler procedure.
+- `gimp-register-save-handler` (3 args) — Registers a file save handler procedure.
+- `gimp-register-thumbnail-loader` (2 args) — Associates a thumbnail loader with a file load procedure.
+- `gimp-rotate` (3 args) — Deprecated: Use 'gimp-item-transform-rotate' instead.
+- `gimp-round-rect-select` (12 args) — Deprecated: Use 'gimp-image-select-round-rectangle' instead.
+- `gimp-scale` (6 args) — Deprecated: Use 'gimp-item-transform-scale' instead.
+- `gimp-shear` (4 args) — Deprecated: Use 'gimp-item-transform-shear' instead.
+- `gimp-temp-PDB-name` (0 args) — This procedure is deprecated! Use 'gimp-procedural-db-temp-name' instead.
+- `gimp-temp-name` (1 args) — Generates a unique filename.
+- `gimp-text` (17 args) — Deprecated: Use 'gimp-text-fontname' instead.
+- `gimp-transform-2d` (9 args) — Deprecated: Use 'gimp-item-transform-2d' instead.
+- `gimp-undo-push-group-end` (1 args) — This procedure is deprecated! Use 'gimp-image-undo-group-end' instead.
+- `gimp-undo-push-group-start` (1 args) — This procedure is deprecated! Use 'gimp-image-undo-group-start' instead.
+- `gimp-version` (0 args) — Returns the host GIMP version.
+- `gimp-xcf-load` (3 args) — Loads file saved in the .xcf file format
+- `gimp-xcf-save` (5 args) — Saves file in the .xcf file format
+- `temp-procedure-number-0` (3 args) — Temporary progress callback procedure
+- `xsane` (1 args) — Front-end to the SANE interface

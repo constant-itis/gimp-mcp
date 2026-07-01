@@ -1,0 +1,819 @@
+{
+ "domain": "color-tone",
+ "count": 35,
+ "procedures": {
+  "gimp-brightness-contrast": {
+   "blurb": "Deprecated: Use 'gimp-drawable-brightness-contrast' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-brightness-contrast' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "brightness",
+     "desc": "Brightness adjustment (-127 <= brightness <= 127)"
+    },
+    {
+     "type": "INT32",
+     "name": "contrast",
+     "desc": "Contrast adjustment (-127 <= contrast <= 127)"
+    }
+   ]
+  },
+  "gimp-color-balance": {
+   "blurb": "Modify the color balance of the specified drawable.",
+   "help": "Modify the color balance of the specified drawable. There are three axis which can be modified: cyan-red, magenta-green, and yellow-blue. Negative values increase the amount of the former, positive values increase the amount of the latter. Color balance can be controlled with the 'transfer_mode' setting, which allows shadows, mid-tones, and highlights in an image to be affected differently. The 'preserve-lum' parameter, if TRUE, ensures that the luminosity of each pixel remains fixed.\n\nDeprecated: Use 'gimp-drawable-color-color-balance' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "transfer-mode",
+     "desc": "Transfer mode { TRANSFER-SHADOWS (0), TRANSFER-MIDTONES (1), TRANSFER-HIGHLIGHTS (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "preserve-lum",
+     "desc": "Preserve luminosity values at each pixel (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "cyan-red",
+     "desc": "Cyan-Red color balance (-100 <= cyan-red <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "magenta-green",
+     "desc": "Magenta-Green color balance (-100 <= magenta-green <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "yellow-blue",
+     "desc": "Yellow-Blue color balance (-100 <= yellow-blue <= 100)"
+    }
+   ]
+  },
+  "gimp-colorize": {
+   "blurb": "Deprecated: Use 'gimp-drawable-colorize-hsl' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-colorize-hsl' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "hue",
+     "desc": "Hue in degrees (0 <= hue <= 360)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "saturation",
+     "desc": "Saturation in percent (0 <= saturation <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "lightness",
+     "desc": "Lightness in percent (-100 <= lightness <= 100)"
+    }
+   ]
+  },
+  "gimp-context-get-sample-threshold": {
+   "blurb": "Get the sample threshold setting.",
+   "help": "This procedure returns the sample threshold setting.",
+   "args": []
+  },
+  "gimp-context-get-sample-threshold-int": {
+   "blurb": "Get the sample threshold setting as an integer value.",
+   "help": "This procedure returns the sample threshold setting as an integer value. See 'gimp-context-get-sample-threshold'.",
+   "args": []
+  },
+  "gimp-context-set-sample-threshold": {
+   "blurb": "Set the sample threshold setting.",
+   "help": "This procedure modifies the sample threshold setting. If an operation depends on the colors of the pixels present in a drawable, like when doing a seed fill, this setting controls what is \"sufficiently close\" to be considered a similar color. If the sample threshold has not been set explicitly, the default threshold set in gimprc will be used.\n\nThis setting affects the following procedures: 'gimp-image-select-color', 'gimp-image-select-contiguous-color', 'gimp-drawable-edit-bucket-fill'.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "sample-threshold",
+     "desc": "The sample threshold setting (0 <= sample-threshold <= 1)"
+    }
+   ]
+  },
+  "gimp-context-set-sample-threshold-int": {
+   "blurb": "Set the sample threshold setting as an integer value.",
+   "help": "This procedure modifies the sample threshold setting as an integer value. See 'gimp-context-set-sample-threshold'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "sample-threshold",
+     "desc": "The sample threshold setting (0 <= sample-threshold <= 255)"
+    }
+   ]
+  },
+  "gimp-curves-explicit": {
+   "blurb": "Deprecated: Use 'gimp-drawable-curves-explicit' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-curves-explicit' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to modify { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-bytes",
+     "desc": "The number of bytes in the new curve (always 256) (num-bytes >= 0)"
+    },
+    {
+     "type": "INT8ARRAY",
+     "name": "curve",
+     "desc": "The explicit curve"
+    }
+   ]
+  },
+  "gimp-curves-spline": {
+   "blurb": "Deprecated: Use 'gimp-drawable-curves-spline' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-curves-spline' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to modify { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-points",
+     "desc": "The number of values in the control point array (4 <= num-points <= 34)"
+    },
+    {
+     "type": "INT8ARRAY",
+     "name": "control-pts",
+     "desc": "The spline control points: { cp1.x, cp1.y, cp2.x, cp2.y, ... }"
+    }
+   ]
+  },
+  "gimp-desaturate": {
+   "blurb": "Deprecated: Use 'gimp-drawable-desaturate' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-desaturate' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    }
+   ]
+  },
+  "gimp-desaturate-full": {
+   "blurb": "Deprecated: Use 'gimp-drawable-desaturate' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-desaturate' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "desaturate-mode",
+     "desc": "The formula to use to desaturate { DESATURATE-LIGHTNESS (0), DESATURATE-LUMA (1), DESATURATE-AVERAGE (2), DESATURATE-LUMINANCE (3), DESATURATE-VALUE (4) }"
+    }
+   ]
+  },
+  "gimp-drawable-brightness-contrast": {
+   "blurb": "Modify brightness/contrast in the specified drawable.",
+   "help": "This procedures allows the brightness and contrast of the specified drawable to be modified. Both 'brightness' and 'contrast' parameters are defined between -0.5 and 0.5.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "brightness",
+     "desc": "Brightness adjustment (-0.5 <= brightness <= 0.5)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "contrast",
+     "desc": "Contrast adjustment (-0.5 <= contrast <= 0.5)"
+    }
+   ]
+  },
+  "gimp-drawable-color-balance": {
+   "blurb": "Modify the color balance of the specified drawable.",
+   "help": "Modify the color balance of the specified drawable. There are three axis which can be modified: cyan-red, magenta-green, and yellow-blue. Negative values increase the amount of the former, positive values increase the amount of the latter. Color balance can be controlled with the 'transfer_mode' setting, which allows shadows, mid-tones, and highlights in an image to be affected differently. The 'preserve-lum' parameter, if TRUE, ensures that the luminosity of each pixel remains fixed.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "transfer-mode",
+     "desc": "Transfer mode { TRANSFER-SHADOWS (0), TRANSFER-MIDTONES (1), TRANSFER-HIGHLIGHTS (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "preserve-lum",
+     "desc": "Preserve luminosity values at each pixel (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "cyan-red",
+     "desc": "Cyan-Red color balance (-100 <= cyan-red <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "magenta-green",
+     "desc": "Magenta-Green color balance (-100 <= magenta-green <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "yellow-blue",
+     "desc": "Yellow-Blue color balance (-100 <= yellow-blue <= 100)"
+    }
+   ]
+  },
+  "gimp-drawable-colorize-hsl": {
+   "blurb": "Render the drawable as a grayscale image seen through a colored glass.",
+   "help": "Desaturates the drawable, then tints it with the specified color. This tool is only valid on RGB color images. It will not operate on grayscale drawables.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "hue",
+     "desc": "Hue in degrees (0 <= hue <= 360)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "saturation",
+     "desc": "Saturation in percent (0 <= saturation <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "lightness",
+     "desc": "Lightness in percent (-100 <= lightness <= 100)"
+    }
+   ]
+  },
+  "gimp-drawable-curves-explicit": {
+   "blurb": "Modifies the intensity curve(s) for specified drawable.",
+   "help": "Modifies the intensity mapping for one channel in the specified drawable. The channel can be either an intensity component, or the value. The 'values' parameter is an array of doubles which explicitly defines how each pixel value in the drawable will be modified. Use the 'gimp-curves-spline' function to modify intensity levels with Catmull Rom splines.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to modify { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-values",
+     "desc": "The number of values in the new curve (256 <= num-values <= 2096)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "values",
+     "desc": "The explicit curve"
+    }
+   ]
+  },
+  "gimp-drawable-curves-spline": {
+   "blurb": "Modifies the intensity curve(s) for specified drawable.",
+   "help": "Modifies the intensity mapping for one channel in the specified drawable. The channel can be either an intensity component, or the value. The 'points' parameter is an array of doubles which define a set of control points which describe a Catmull Rom spline which yields the final intensity curve. Use the 'gimp-curves-explicit' function to explicitly modify intensity levels.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to modify { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "INT32",
+     "name": "num-points",
+     "desc": "The number of values in the control point array (4 <= num-points <= 2048)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "points",
+     "desc": "The spline control points: { cp1.x, cp1.y, cp2.x, cp2.y, ... }"
+    }
+   ]
+  },
+  "gimp-drawable-desaturate": {
+   "blurb": "Desaturate the contents of the specified drawable, with the specified formula.",
+   "help": "This procedure desaturates the contents of the specified drawable, with the specified formula. This procedure only works on drawables of type RGB color.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "desaturate-mode",
+     "desc": "The formula to use to desaturate { DESATURATE-LIGHTNESS (0), DESATURATE-LUMA (1), DESATURATE-AVERAGE (2), DESATURATE-LUMINANCE (3), DESATURATE-VALUE (4) }"
+    }
+   ]
+  },
+  "gimp-drawable-histogram": {
+   "blurb": "Returns information on the intensity histogram for the specified drawable.",
+   "help": "This tool makes it possible to gather information about the intensity histogram of a drawable. A channel to examine is first specified. This can be either value, red, green, or blue, depending on whether the drawable is of type color or grayscale. Second, a range of intensities are specified. The 'gimp-drawable-histogram' function returns statistics based on the pixels in the drawable that fall under this range of values. Mean, standard deviation, median, number of pixels, and percentile are all returned. Additionally, the total count of pixels in the image is returned. Counts of pixels are weighted by any associated alpha values and by the current selection mask. That is, pixels that lie outside an active selection mask will not be counted. Similarly, pixels with transparent alpha values will not be counted. The returned mean, std_dev and median are in the range (0..255) for 8-bit images or if the plug-in is not precision-aware, and in the range (0.0..1.0) otherwise.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to query { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "start-range",
+     "desc": "Start of the intensity measurement range (0 <= start-range <= 1)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "end-range",
+     "desc": "End of the intensity measurement range (0 <= end-range <= 1)"
+    }
+   ]
+  },
+  "gimp-drawable-hue-saturation": {
+   "blurb": "Modify hue, lightness, and saturation in the specified drawable.",
+   "help": "This procedure allows the hue, lightness, and saturation in the specified drawable to be modified. The 'hue-range' parameter provides the capability to limit range of affected hues. The 'overlap' parameter provides blending into neighboring hue channels when rendering.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "hue-range",
+     "desc": "Range of affected hues { HUE-RANGE-ALL (0), HUE-RANGE-RED (1), HUE-RANGE-YELLOW (2), HUE-RANGE-GREEN (3), HUE-RANGE-CYAN (4), HUE-RANGE-BLUE (5), HUE-RANGE-MAGENTA (6) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "hue-offset",
+     "desc": "Hue offset in degrees (-180 <= hue-offset <= 180)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "lightness",
+     "desc": "Lightness modification (-100 <= lightness <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "saturation",
+     "desc": "Saturation modification (-100 <= saturation <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "overlap",
+     "desc": "Overlap other hue channels (0 <= overlap <= 100)"
+    }
+   ]
+  },
+  "gimp-drawable-invert": {
+   "blurb": "Invert the contents of the specified drawable.",
+   "help": "This procedure inverts the contents of the specified drawable. Each intensity channel is inverted independently. The inverted intensity is given as inten' = (255 - inten). If 'linear' is TRUE, the drawable is inverted in linear space.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "linear",
+     "desc": "Whether to invert in linear space (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-drawable-levels": {
+   "blurb": "Modifies intensity levels in the specified drawable.",
+   "help": "This tool allows intensity levels in the specified drawable to be remapped according to a set of parameters. The low/high input levels specify an initial mapping from the source intensities. The gamma value determines how intensities between the low and high input intensities are interpolated. A gamma value of 1.0 results in a linear interpolation. Higher gamma values result in more high-level intensities. Lower gamma values result in more low-level intensities. The low/high output levels constrain the final intensity mapping--that is, no final intensity will be lower than the low output level and no final intensity will be higher than the high output level. This tool is only valid on RGB color and grayscale images.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to modify { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "low-input",
+     "desc": "Intensity of lowest input (0 <= low-input <= 1)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "high-input",
+     "desc": "Intensity of highest input (0 <= high-input <= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clamp-input",
+     "desc": "Clamp input values before applying output levels (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "gamma",
+     "desc": "Gamma adjustment factor (0.1 <= gamma <= 10)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "low-output",
+     "desc": "Intensity of lowest output (0 <= low-output <= 1)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "high-output",
+     "desc": "Intensity of highest output (0 <= high-output <= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clamp-output",
+     "desc": "Clamp final output values (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-drawable-levels-stretch": {
+   "blurb": "Automatically modifies intensity levels in the specified drawable.",
+   "help": "This procedure allows intensity levels in the specified drawable to be remapped according to a set of guessed parameters. It is equivalent to clicking the \"Auto\" button in the Levels tool.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    }
+   ]
+  },
+  "gimp-drawable-posterize": {
+   "blurb": "Posterize the specified drawable.",
+   "help": "This procedures reduces the number of shades allows in each intensity channel to the specified 'levels' parameter.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "levels",
+     "desc": "Levels of posterization (2 <= levels <= 255)"
+    }
+   ]
+  },
+  "gimp-drawable-threshold": {
+   "blurb": "Threshold the specified drawable.",
+   "help": "This procedures generates a threshold map of the specified drawable. All pixels between the values of 'low_threshold' and 'high_threshold', on the scale of 'channel' are replaced with white, and all other pixels with black.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to base the threshold on { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "low-threshold",
+     "desc": "The low threshold value (0 <= low-threshold <= 1)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "high-threshold",
+     "desc": "The high threshold value (0 <= high-threshold <= 1)"
+    }
+   ]
+  },
+  "gimp-histogram": {
+   "blurb": "Deprecated: Use 'gimp-drawable-histogram' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-histogram' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to modify { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "INT32",
+     "name": "start-range",
+     "desc": "Start of the intensity measurement range (0 <= start-range <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-range",
+     "desc": "End of the intensity measurement range (0 <= end-range <= 255)"
+    }
+   ]
+  },
+  "gimp-hue-saturation": {
+   "blurb": "Deprecated: Use 'gimp-drawable-hue-saturation' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-hue-saturation' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "hue-range",
+     "desc": "Range of affected hues { HUE-RANGE-ALL (0), HUE-RANGE-RED (1), HUE-RANGE-YELLOW (2), HUE-RANGE-GREEN (3), HUE-RANGE-CYAN (4), HUE-RANGE-BLUE (5), HUE-RANGE-MAGENTA (6) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "hue-offset",
+     "desc": "Hue offset in degrees (-180 <= hue-offset <= 180)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "lightness",
+     "desc": "Lightness modification (-100 <= lightness <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "saturation",
+     "desc": "Saturation modification (-100 <= saturation <= 100)"
+    }
+   ]
+  },
+  "gimp-invert": {
+   "blurb": "Deprecated: Use 'gimp-drawable-invert' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-invert' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    }
+   ]
+  },
+  "gimp-levels": {
+   "blurb": "Deprecated: Use 'gimp-drawable-levels' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-levels' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "channel",
+     "desc": "The channel to modify { HISTOGRAM-VALUE (0), HISTOGRAM-RED (1), HISTOGRAM-GREEN (2), HISTOGRAM-BLUE (3), HISTOGRAM-ALPHA (4), HISTOGRAM-LUMINANCE (5), HISTOGRAM-RGB (6) }"
+    },
+    {
+     "type": "INT32",
+     "name": "low-input",
+     "desc": "Intensity of lowest input (0 <= low-input <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "high-input",
+     "desc": "Intensity of highest input (0 <= high-input <= 255)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "gamma",
+     "desc": "Gamma adjustment factor (0.1 <= gamma <= 10)"
+    },
+    {
+     "type": "INT32",
+     "name": "low-output",
+     "desc": "Intensity of lowest output (0 <= low-output <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "high-output",
+     "desc": "Intensity of highest output (0 <= high-output <= 255)"
+    }
+   ]
+  },
+  "gimp-levels-auto": {
+   "blurb": "Deprecated: Use 'gimp-drawable-levels-stretch' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-levels-stretch' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    }
+   ]
+  },
+  "gimp-levels-stretch": {
+   "blurb": "Deprecated: Use 'gimp-drawable-levels-stretch' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-levels-stretch' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    }
+   ]
+  },
+  "gimp-posterize": {
+   "blurb": "Deprecated: Use 'gimp-drawable-posterize' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-posterize' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "levels",
+     "desc": "Levels of posterization (2 <= levels <= 255)"
+    }
+   ]
+  },
+  "gimp-threshold": {
+   "blurb": "Deprecated: Use 'gimp-drawable-threshold' instead.",
+   "help": "Deprecated: Use 'gimp-drawable-threshold' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "low-threshold",
+     "desc": "The low threshold value (0 <= low-threshold <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "high-threshold",
+     "desc": "The high threshold value (0 <= high-threshold <= 255)"
+    }
+   ]
+  },
+  "plug-in-sample-colorize": {
+   "blurb": "Colorize image using a sample image as a guide",
+   "help": "This plug-in colorizes the contents of the specified (gray) layer with the help of a  sample (color) layer. It analyzes all colors in the sample layer. The sample colors are sorted by brightness (== intentisty) and amount and stored in a sample colortable (where brightness is the index) The pixels of the destination layer are remapped with the help of the sample colortable. If use_subcolors is TRUE, the remapping process uses all sample colors of the corresponding brightness-intensity and distributes the subcolors according to their amount in the sample (If the sample has 5 green, 3 yellow, and 1 red pixel of the  intensity value 105, the destination pixels at intensity value 105 are randomly painted in green, yellow and red in a relation of 5:3:1 If use_subcolors is FALSE only one sample color per intensity is used. (green will be used in this example) The brightness intensity value is transformed at the remapping process according to the levels: out_lo, out_hi, in_lo, in_high and gamma The in_low / in_high levels specify an initial mapping of the intensity. The gamma value determines how intensities are interpolated between the in_lo and in_high levels. A gamma value of 1.0 results in linear interpolation. Higher gamma values results in more high-level intensities Lower gamma values results in more low-level intensities The out_low/out_high levels constrain the resulting intensity index The intensity index is used to pick the corresponding color in the sample colortable. If hold_inten is FALSE the picked color is used 1:1 as resulting remap_color. If hold_inten is TRUE The brightness of the picked color is adjusted back to the origial intensity value (only hue and saturation are taken from the picked sample color) (or to the input level, if orig_inten is set FALSE) Works on both Grayscale and RGB image with/without alpha channel. (the image with the dst_drawable is converted to RGB if necessary) The sample_drawable should be of type RGB or RGBA",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    },
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "Input image (unused)"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "dst-drawable",
+     "desc": "The drawable to be colorized (Type GRAY* or RGB*)"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "sample-drawable",
+     "desc": "Sample drawable (should be of Type RGB or RGBA)"
+    },
+    {
+     "type": "INT32",
+     "name": "hold-inten",
+     "desc": "hold brightness intensity levels (TRUE, FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "orig-inten",
+     "desc": "TRUE: hold brightness of original intensity levels. FALSE: Hold Intensity of input levels"
+    },
+    {
+     "type": "INT32",
+     "name": "rnd-subcolors",
+     "desc": "TRUE: Use all subcolors of same intensity, FALSE: use only one color per intensity"
+    },
+    {
+     "type": "INT32",
+     "name": "guess-missing",
+     "desc": "TRUE: guess samplecolors for the missing intensity values FALSE: use only colors found in the sample"
+    },
+    {
+     "type": "INT32",
+     "name": "in-low",
+     "desc": "intensity of lowest input (0 <= in_low <= 254)"
+    },
+    {
+     "type": "INT32",
+     "name": "in-high",
+     "desc": "intensity of highest input (1 <= in_high <= 255)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "gamma",
+     "desc": "gamma adjustment factor (0.1 <= gamma <= 10) where 1.0 is linear"
+    },
+    {
+     "type": "INT32",
+     "name": "out-low",
+     "desc": "lowest sample color intensity (0 <= out_low <= 254)"
+    },
+    {
+     "type": "INT32",
+     "name": "out-high",
+     "desc": "highest sample color intensity (1 <= out_high <= 255)"
+    }
+   ]
+  },
+  "plug-in-threshold-alpha": {
+   "blurb": "Make transparency all-or-nothing",
+   "help": "Make transparency all-or-nothing.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1), RUN-WITH-LAST-VALS (2) }"
+    },
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "Input image (unused)"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "Input drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "threshold",
+     "desc": "Threshold (0 <= threshold <= 255)"
+    }
+   ]
+  },
+  "plug-in-vinvert": {
+   "blurb": "Invert the brightness of each pixel",
+   "help": "This function takes an indexed/RGB image and inverts its 'value' in HSV space. The upshot of this is that the color and saturation at any given point remains the same, but its brightness is effectively inverted. Quite strange. Sometimes produces unpleasant color artifacts on images from lossy sources (ie. JPEG).",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1), RUN-WITH-LAST-VALS (2) }"
+    },
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "Input image (unused)"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "Input drawable"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,664 @@
+{
+ "domain": "text-fonts",
+ "count": 39,
+ "procedures": {
+  "gimp-fonts-close-popup": {
+   "blurb": "Close the font selection dialog.",
+   "help": "This procedure closes an opened font selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "font-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    }
+   ]
+  },
+  "gimp-fonts-get-list": {
+   "blurb": "Retrieve the list of loaded fonts.",
+   "help": "This procedure returns a list of the fonts that are currently available.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-fonts-popup": {
+   "blurb": "Invokes the Gimp font selection.",
+   "help": "This procedure opens the font selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "font-callback",
+     "desc": "The callback PDB proc to call when font selection is made"
+    },
+    {
+     "type": "STRING",
+     "name": "popup-title",
+     "desc": "Title of the font selection dialog"
+    },
+    {
+     "type": "STRING",
+     "name": "initial-font",
+     "desc": "The name of the font to set as the first selected"
+    }
+   ]
+  },
+  "gimp-fonts-refresh": {
+   "blurb": "Refresh current fonts. This function always succeeds.",
+   "help": "This procedure retrieves all fonts currently in the user's font path and updates the font dialogs accordingly. Depending on the amount of fonts on the system, this can take considerable time.",
+   "args": []
+  },
+  "gimp-fonts-set-popup": {
+   "blurb": "Sets the current font in a font selection dialog.",
+   "help": "Sets the current font in a font selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "font-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    },
+    {
+     "type": "STRING",
+     "name": "font-name",
+     "desc": "The name of the font to set as selected"
+    }
+   ]
+  },
+  "gimp-text-fontname": {
+   "blurb": "Add text at the specified location as a floating selection or a new layer.",
+   "help": "This tool requires a fontname matching an installed PangoFT2 font. You can specify the fontsize in units of pixels or points, and the appropriate metric is specified using the size_type argument. The x and y parameters together control the placement of the new text by specifying the upper left corner of the text bounding box. If the specified drawable parameter is valid, the text will be created as a floating selection attached to the drawable. If the drawable parameter is not valid (-1), the text will appear as a new layer. Finally, a border can be specified around the final rendered text. The border is measured in pixels. Parameter size-type is not used and is currently ignored. If you need to display a font in points, divide the size in points by 72.0 and multiply it by the image's vertical resolution.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable: (-1 for a new text layer)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "The x coordinate for the left of the text bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "The y coordinate for the top of the text bounding box"
+    },
+    {
+     "type": "STRING",
+     "name": "text",
+     "desc": "The text to generate (in UTF-8 encoding)"
+    },
+    {
+     "type": "INT32",
+     "name": "border",
+     "desc": "The size of the border (border >= -1)"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Antialiasing (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "size",
+     "desc": "The size of text in either pixels or points (size >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "size-type",
+     "desc": "The units of specified size { PIXELS (0), POINTS (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "fontname",
+     "desc": "The name of the font"
+    }
+   ]
+  },
+  "gimp-text-get-extents": {
+   "blurb": "Deprecated: Use 'gimp-text-get-extents-fontname' instead.",
+   "help": "Deprecated: Use 'gimp-text-get-extents-fontname' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "text",
+     "desc": "The text to generate (in UTF-8 encoding)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "size",
+     "desc": "The size of text in either pixels or points (size >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "size-type",
+     "desc": "The units of specified size { PIXELS (0), POINTS (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "foundry",
+     "desc": "The font foundry"
+    },
+    {
+     "type": "STRING",
+     "name": "family",
+     "desc": "The font family"
+    },
+    {
+     "type": "STRING",
+     "name": "weight",
+     "desc": "The font weight"
+    },
+    {
+     "type": "STRING",
+     "name": "slant",
+     "desc": "The font slant"
+    },
+    {
+     "type": "STRING",
+     "name": "set-width",
+     "desc": "The font set-width"
+    },
+    {
+     "type": "STRING",
+     "name": "spacing",
+     "desc": "The font spacing"
+    },
+    {
+     "type": "STRING",
+     "name": "registry",
+     "desc": "The font registry"
+    },
+    {
+     "type": "STRING",
+     "name": "encoding",
+     "desc": "The font encoding"
+    }
+   ]
+  },
+  "gimp-text-get-extents-fontname": {
+   "blurb": "Get extents of the bounding box for the specified text.",
+   "help": "This tool returns the width and height of a bounding box for the specified text string with the specified font information. Ascent and descent for the specified font are returned as well. Parameter size-type is not used and is currently ignored. If you need to display a font in points, divide the size in points by 72.0 and multiply it by the vertical resolution of the image you are taking into account.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "text",
+     "desc": "The text to generate (in UTF-8 encoding)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "size",
+     "desc": "The size of text in either pixels or points (size >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "size-type",
+     "desc": "The units of specified size { PIXELS (0), POINTS (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "fontname",
+     "desc": "The name of the font"
+    }
+   ]
+  },
+  "gimp-text-layer-get-antialias": {
+   "blurb": "Check if antialiasing is used in the text layer.",
+   "help": "This procedure checks if antialiasing is enabled in the specified text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-get-base-direction": {
+   "blurb": "Get the base direction used for rendering the text layer.",
+   "help": "This procedure returns the base direction used for rendering the text in the text layer",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer."
+    }
+   ]
+  },
+  "gimp-text-layer-get-color": {
+   "blurb": "Get the color of the text in a text layer.",
+   "help": "This procedure returns the color of the text in a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer."
+    }
+   ]
+  },
+  "gimp-text-layer-get-font": {
+   "blurb": "Get the font from a text layer as string.",
+   "help": "This procedure returns the name of the font from a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-get-font-size": {
+   "blurb": "Get the font size from a text layer.",
+   "help": "This procedure returns the size of the font which is used in a text layer. You will receive the size as a float 'font-size' in 'unit' units.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-get-hint-style": {
+   "blurb": "Get information about hinting in the specified text layer.",
+   "help": "This procedure provides information about the hinting that is being used in a text layer. Hinting can be optimized for fidelity or contrast or it can be turned entirely off.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-get-hinting": {
+   "blurb": "Deprecated: Use 'gimp-text-layer-get-hint-style' instead.",
+   "help": "Deprecated: Use 'gimp-text-layer-get-hint-style' instead.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-get-indent": {
+   "blurb": "Get the line indentation of text layer.",
+   "help": "This procedure returns the indentation of the first line in a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer."
+    }
+   ]
+  },
+  "gimp-text-layer-get-justification": {
+   "blurb": "Get the text justification information of the text layer.",
+   "help": "This procedure returns the alignment of the lines in the text layer relative to each other.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer."
+    }
+   ]
+  },
+  "gimp-text-layer-get-kerning": {
+   "blurb": "Check if kerning is used in the text layer.",
+   "help": "This procedure checks if kerning is enabled in the specified text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-get-language": {
+   "blurb": "Get the language used in the text layer.",
+   "help": "This procedure returns the language string which is set for the text in the text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer."
+    }
+   ]
+  },
+  "gimp-text-layer-get-letter-spacing": {
+   "blurb": "Get the letter spacing used in a text layer.",
+   "help": "This procedure returns the additional spacing between the single glyphs in a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer."
+    }
+   ]
+  },
+  "gimp-text-layer-get-line-spacing": {
+   "blurb": "Get the spacing between lines of text.",
+   "help": "This procedure returns the line-spacing between lines of text in a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer."
+    }
+   ]
+  },
+  "gimp-text-layer-get-markup": {
+   "blurb": "Get the markup from a text layer as string.",
+   "help": "This procedure returns the markup of the styles from a text layer. The markup will be in the form of Pango's markup - See https://www.pango.org/ for more information about Pango and its markup. Note: Setting the markup of a text layer using Pango's markup is not supported for now.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-get-text": {
+   "blurb": "Get the text from a text layer as string.",
+   "help": "This procedure returns the text from a text layer as a string.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-new": {
+   "blurb": "Creates a new text layer.",
+   "help": "This procedure creates a new text layer. The arguments are kept as simple as necessary for the normal case. All text attributes, however, can be modified with the appropriate gimp_text_layer_set_*() procedures. The new layer still needs to be added to the image, as this is not automatic. Add the new layer using 'gimp-image-insert-layer'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "STRING",
+     "name": "text",
+     "desc": "The text to generate (in UTF-8 encoding)"
+    },
+    {
+     "type": "STRING",
+     "name": "fontname",
+     "desc": "The name of the font"
+    },
+    {
+     "type": "FLOAT",
+     "name": "size",
+     "desc": "The size of text in either pixels or points (0 <= size <= 8192)"
+    },
+    {
+     "type": "INT32",
+     "name": "unit",
+     "desc": "The units of specified size"
+    }
+   ]
+  },
+  "gimp-text-layer-resize": {
+   "blurb": "Resize the box of a text layer.",
+   "help": "This procedure changes the width and height of a text layer while keeping it as a text layer and not converting it to a bitmap like 'gimp-layer-resize' would do.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "FLOAT",
+     "name": "width",
+     "desc": "The new box width in pixels (0 <= width <= 524288)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "height",
+     "desc": "The new box height in pixels (0 <= height <= 524288)"
+    }
+   ]
+  },
+  "gimp-text-layer-set-antialias": {
+   "blurb": "Enable/disable anti-aliasing in a text layer.",
+   "help": "This procedure enables or disables anti-aliasing of the text in a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "Enable/disable antialiasing of the text (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-text-layer-set-base-direction": {
+   "blurb": "Set the base direction in the text layer.",
+   "help": "This procedure sets the base direction used in applying the Unicode bidirectional algorithm when rendering the text.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "INT32",
+     "name": "direction",
+     "desc": "The base direction of the text. { TEXT-DIRECTION-LTR (0), TEXT-DIRECTION-RTL (1), TEXT-DIRECTION-TTB-RTL (2), TEXT-DIRECTION-TTB-RTL-UPRIGHT (3), TEXT-DIRECTION-TTB-LTR (4), TEXT-DIRECTION-TTB-LTR-UPRIGHT (5) }"
+    }
+   ]
+  },
+  "gimp-text-layer-set-color": {
+   "blurb": "Set the color of the text in the text layer.",
+   "help": "This procedure sets the text color in the text layer 'layer'.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The color to use for the text"
+    }
+   ]
+  },
+  "gimp-text-layer-set-font": {
+   "blurb": "Set the font of a text layer.",
+   "help": "This procedure modifies the font used in the specified text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "STRING",
+     "name": "font",
+     "desc": "The new font to use"
+    }
+   ]
+  },
+  "gimp-text-layer-set-font-size": {
+   "blurb": "Set the font size.",
+   "help": "This procedure changes the font size of a text layer. The size of your font will be a double 'font-size' of 'unit' units.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "FLOAT",
+     "name": "font-size",
+     "desc": "The font size (0 <= font-size <= 8192)"
+    },
+    {
+     "type": "INT32",
+     "name": "unit",
+     "desc": "The unit to use for the font size"
+    }
+   ]
+  },
+  "gimp-text-layer-set-hint-style": {
+   "blurb": "Control how font outlines are hinted in a text layer.",
+   "help": "This procedure sets the hint style for font outlines in a text layer. This controls whether to fit font outlines to the pixel grid, and if so, whether to optimize for fidelity or contrast.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "INT32",
+     "name": "style",
+     "desc": "The new hint style { TEXT-HINT-STYLE-NONE (0), TEXT-HINT-STYLE-SLIGHT (1), TEXT-HINT-STYLE-MEDIUM (2), TEXT-HINT-STYLE-FULL (3) }"
+    }
+   ]
+  },
+  "gimp-text-layer-set-hinting": {
+   "blurb": "Enable/disable the use of hinting in a text layer.",
+   "help": "This procedure enables or disables hinting on the text of a text layer. If you enable 'auto-hint', FreeType's automatic hinter will be used and hinting information from the font will be ignored.\n\nDeprecated: Use 'gimp-text-layer-set-hint-style' instead.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "INT32",
+     "name": "hinting",
+     "desc": "Enable/disable the use of hinting on the text (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "autohint",
+     "desc": "Force the use of the autohinter provided through FreeType (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-text-layer-set-indent": {
+   "blurb": "Set the indentation of the first line in a text layer.",
+   "help": "This procedure sets the indentation of the first line in the text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "FLOAT",
+     "name": "indent",
+     "desc": "The indentation for the first line. (-8192 <= indent <= 8192)"
+    }
+   ]
+  },
+  "gimp-text-layer-set-justification": {
+   "blurb": "Set the justification of the text in a text layer.",
+   "help": "This procedure sets the alignment of the lines in the text layer relative to each other.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "INT32",
+     "name": "justify",
+     "desc": "The justification for your text. { TEXT-JUSTIFY-LEFT (0), TEXT-JUSTIFY-RIGHT (1), TEXT-JUSTIFY-CENTER (2), TEXT-JUSTIFY-FILL (3) }"
+    }
+   ]
+  },
+  "gimp-text-layer-set-kerning": {
+   "blurb": "Enable/disable kerning in a text layer.",
+   "help": "This procedure enables or disables kerning in a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "INT32",
+     "name": "kerning",
+     "desc": "Enable/disable kerning in the text (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-text-layer-set-language": {
+   "blurb": "Set the language of the text layer.",
+   "help": "This procedure sets the language of the text in text layer. For some scripts the language has an influence of how the text is rendered.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "STRING",
+     "name": "language",
+     "desc": "The new language to use for the text layer"
+    }
+   ]
+  },
+  "gimp-text-layer-set-letter-spacing": {
+   "blurb": "Adjust the letter spacing in a text layer.",
+   "help": "This procedure sets the additional spacing between the single glyphs in a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "FLOAT",
+     "name": "letter-spacing",
+     "desc": "The additional letter spacing to use. (-8192 <= letter-spacing <= 8192)"
+    }
+   ]
+  },
+  "gimp-text-layer-set-line-spacing": {
+   "blurb": "Adjust the line spacing in a text layer.",
+   "help": "This procedure sets the additional spacing used between lines a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "FLOAT",
+     "name": "line-spacing",
+     "desc": "The additional line spacing to use. (-8192 <= line-spacing <= 8192)"
+    }
+   ]
+  },
+  "gimp-text-layer-set-text": {
+   "blurb": "Set the text of a text layer.",
+   "help": "This procedure changes the text of a text layer.",
+   "args": [
+    {
+     "type": "LAYER",
+     "name": "layer",
+     "desc": "The text layer"
+    },
+    {
+     "type": "STRING",
+     "name": "text",
+     "desc": "The new text to set"
+    }
+   ]
+  }
+ }
+}

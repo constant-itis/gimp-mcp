@@ -1,0 +1,2249 @@
+{
+ "domain": "context-resources",
+ "count": 220,
+ "procedures": {
+  "gimp-brush-delete": {
+   "blurb": "Deletes a brush.",
+   "help": "This procedure deletes a brush.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-duplicate": {
+   "blurb": "Duplicates a brush.",
+   "help": "This procedure creates an identical brush by a different name.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-angle": {
+   "blurb": "Gets the rotation angle of a generated brush.",
+   "help": "This procedure gets the angle of rotation for a generated brush. If called for any other type of brush, it does not succeed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-aspect-ratio": {
+   "blurb": "Gets the aspect ratio of a generated brush.",
+   "help": "This procedure gets the aspect ratio of a generated brush. If called for any other type of brush, it does not succeed. The return value is a float between 0.0 and 1000.0.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-hardness": {
+   "blurb": "Gets the hardness of a generated brush.",
+   "help": "This procedure gets the hardness of a generated brush. The hardness of a brush is the amount its intensity fades at the outside edge, as a float between 0.0 and 1.0. If called for any other type of brush, the function does not succeed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-info": {
+   "blurb": "Retrieves information about the specified brush.",
+   "help": "This procedure retrieves information about the specified brush: brush extents (width and height), color depth and mask depth.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-pixels": {
+   "blurb": "Retrieves information about the specified brush.",
+   "help": "This procedure retrieves information about the specified brush. This includes the brush extents (width and height) and its pixels data.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-radius": {
+   "blurb": "Gets the radius of a generated brush.",
+   "help": "This procedure gets the radius value for a generated brush. If called for any other type of brush, it does not succeed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-shape": {
+   "blurb": "Gets the shape of a generated brush.",
+   "help": "This procedure gets the shape value for a generated brush. If called for any other type of brush, it does not succeed. The current possibilities are Circle (GIMP_BRUSH_GENERATED_CIRCLE), Square (GIMP_BRUSH_GENERATED_SQUARE), and Diamond (GIMP_BRUSH_GENERATED_DIAMOND). Other shapes are likely to be added in the future.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-spacing": {
+   "blurb": "Gets the brush spacing.",
+   "help": "This procedure returns the spacing setting for the specified brush. The return value is an integer between 0 and 1000 which represents percentage of the maximum of the width and height of the mask.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-get-spikes": {
+   "blurb": "Gets the number of spikes for a generated brush.",
+   "help": "This procedure gets the number of spikes for a generated brush. If called for any other type of brush, it does not succeed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-is-editable": {
+   "blurb": "Tests if brush can be edited.",
+   "help": "Returns TRUE if you have permission to change the brush.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-is-generated": {
+   "blurb": "Tests if brush is generated.",
+   "help": "Returns TRUE if this brush is parametric, FALSE for other types.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    }
+   ]
+  },
+  "gimp-brush-new": {
+   "blurb": "Creates a new brush.",
+   "help": "This procedure creates a new, uninitialized brush.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The requested name of the new brush"
+    }
+   ]
+  },
+  "gimp-brush-rename": {
+   "blurb": "Renames a brush.",
+   "help": "This procedure renames a brush.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    },
+    {
+     "type": "STRING",
+     "name": "new-name",
+     "desc": "The new name of the brush"
+    }
+   ]
+  },
+  "gimp-brush-set-angle": {
+   "blurb": "Sets the rotation angle of a generated brush.",
+   "help": "This procedure sets the rotation angle for a generated brush. If called for any other type of brush, it does not succeed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle-in",
+     "desc": "The desired brush rotation angle in degree"
+    }
+   ]
+  },
+  "gimp-brush-set-aspect-ratio": {
+   "blurb": "Sets the aspect ratio of a generated brush.",
+   "help": "This procedure sets the aspect ratio for a generated brush. If called for any other type of brush, it does not succeed. The value should be a float between 0.0 and 1000.0.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    },
+    {
+     "type": "FLOAT",
+     "name": "aspect-ratio-in",
+     "desc": "The desired brush aspect ratio"
+    }
+   ]
+  },
+  "gimp-brush-set-hardness": {
+   "blurb": "Sets the hardness of a generated brush.",
+   "help": "This procedure sets the hardness for a generated brush. If called for any other type of brush, it does not succeed. The value should be a float between 0.0 and 1.0.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    },
+    {
+     "type": "FLOAT",
+     "name": "hardness-in",
+     "desc": "The desired brush hardness"
+    }
+   ]
+  },
+  "gimp-brush-set-radius": {
+   "blurb": "Sets the radius of a generated brush.",
+   "help": "This procedure sets the radius for a generated brush. If called for any other type of brush, it does not succeed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    },
+    {
+     "type": "FLOAT",
+     "name": "radius-in",
+     "desc": "The desired brush radius in pixel"
+    }
+   ]
+  },
+  "gimp-brush-set-shape": {
+   "blurb": "Sets the shape of a generated brush.",
+   "help": "This procedure sets the shape value for a generated brush. If called for any other type of brush, it does not succeed. The current possibilities are Circle (GIMP_BRUSH_GENERATED_CIRCLE), Square (GIMP_BRUSH_GENERATED_SQUARE), and Diamond (GIMP_BRUSH_GENERATED_DIAMOND). Other shapes are likely to be added in the future.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    },
+    {
+     "type": "INT32",
+     "name": "shape-in",
+     "desc": "The brush shape { BRUSH-GENERATED-CIRCLE (0), BRUSH-GENERATED-SQUARE (1), BRUSH-GENERATED-DIAMOND (2) }"
+    }
+   ]
+  },
+  "gimp-brush-set-spacing": {
+   "blurb": "Sets the brush spacing.",
+   "help": "This procedure modifies the spacing setting for the specified brush. The value should be a integer between 0 and 1000.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    },
+    {
+     "type": "INT32",
+     "name": "spacing",
+     "desc": "The brush spacing (0 <= spacing <= 1000)"
+    }
+   ]
+  },
+  "gimp-brush-set-spikes": {
+   "blurb": "Sets the number of spikes for a generated brush.",
+   "help": "This procedure sets the number of spikes for a generated brush. If called for any other type of brush, it does not succeed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name"
+    },
+    {
+     "type": "INT32",
+     "name": "spikes-in",
+     "desc": "The desired number of spikes"
+    }
+   ]
+  },
+  "gimp-brushes-close-popup": {
+   "blurb": "Close the brush selection dialog.",
+   "help": "This procedure closes an opened brush selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "brush-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    }
+   ]
+  },
+  "gimp-brushes-get-brush": {
+   "blurb": "Deprecated: Use 'gimp-context-get-brush' instead.",
+   "help": "Deprecated: Use 'gimp-context-get-brush' instead.",
+   "args": []
+  },
+  "gimp-brushes-get-brush-data": {
+   "blurb": "Deprecated: Use 'gimp-brush-get-pixels' instead.",
+   "help": "Deprecated: Use 'gimp-brush-get-pixels' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The brush name (\"\" means current active brush)"
+    }
+   ]
+  },
+  "gimp-brushes-get-list": {
+   "blurb": "Retrieve a complete listing of the available brushes.",
+   "help": "This procedure returns a complete listing of available GIMP brushes. Each name returned can be used as input to the 'gimp-context-set-brush' procedure.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-brushes-get-opacity": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-get-opacity' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-get-opacity' instead.",
+   "args": []
+  },
+  "gimp-brushes-get-paint-mode": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-get-paint-mode' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-get-paint-mode' instead.",
+   "args": []
+  },
+  "gimp-brushes-get-spacing": {
+   "blurb": "Deprecated: Use 'gimp-brush-get-spacing' instead.",
+   "help": "Deprecated: Use 'gimp-brush-get-spacing' instead.",
+   "args": []
+  },
+  "gimp-brushes-list": {
+   "blurb": "This procedure is deprecated! Use 'gimp-brushes-get-list' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-brushes-get-list' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-brushes-popup": {
+   "blurb": "Invokes the Gimp brush selection.",
+   "help": "This procedure opens the brush selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "brush-callback",
+     "desc": "The callback PDB proc to call when brush selection is made"
+    },
+    {
+     "type": "STRING",
+     "name": "popup-title",
+     "desc": "Title of the brush selection dialog"
+    },
+    {
+     "type": "STRING",
+     "name": "initial-brush",
+     "desc": "The name of the brush to set as the first selected"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The initial opacity of the brush (0 <= opacity <= 100)"
+    },
+    {
+     "type": "INT32",
+     "name": "spacing",
+     "desc": "The initial spacing of the brush (if < 0 then use brush default spacing) (spacing <= 1000)"
+    },
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The initial paint mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    }
+   ]
+  },
+  "gimp-brushes-refresh": {
+   "blurb": "Refresh current brushes. This function always succeeds.",
+   "help": "This procedure retrieves all brushes currently in the user's brush path and updates the brush dialogs accordingly.",
+   "args": []
+  },
+  "gimp-brushes-set-brush": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-brush' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-brush' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the brush"
+    }
+   ]
+  },
+  "gimp-brushes-set-opacity": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-opacity' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-opacity' instead.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity (0 <= opacity <= 100)"
+    }
+   ]
+  },
+  "gimp-brushes-set-paint-mode": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-paint-mode' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-paint-mode' instead.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The paint mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    }
+   ]
+  },
+  "gimp-brushes-set-popup": {
+   "blurb": "Sets the current brush in a brush selection dialog.",
+   "help": "Sets the current brush in a brush selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "brush-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    },
+    {
+     "type": "STRING",
+     "name": "brush-name",
+     "desc": "The name of the brush to set as selected"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The initial opacity of the brush (0 <= opacity <= 100)"
+    },
+    {
+     "type": "INT32",
+     "name": "spacing",
+     "desc": "The initial spacing of the brush (if < 0 then use brush default spacing) (spacing <= 1000)"
+    },
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The initial paint mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    }
+   ]
+  },
+  "gimp-brushes-set-spacing": {
+   "blurb": "Deprecated: Use 'gimp-brush-set-spacing' instead.",
+   "help": "Deprecated: Use 'gimp-brush-set-spacing' instead.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "spacing",
+     "desc": "The brush spacing (0 <= spacing <= 1000)"
+    }
+   ]
+  },
+  "gimp-context-get-antialias": {
+   "blurb": "Get the antialias setting.",
+   "help": "This procedure returns the antialias setting.",
+   "args": []
+  },
+  "gimp-context-get-background": {
+   "blurb": "Get the current GIMP background color.",
+   "help": "This procedure returns the current GIMP background color. The background color is used in a variety of tools such as blending, erasing (with non-alpha images), and image filling.",
+   "args": []
+  },
+  "gimp-context-get-brush": {
+   "blurb": "Retrieve the currently active brush.",
+   "help": "This procedure returns the name of the currently active brush. All paint operations and stroke operations use this brush to control the application of paint to the image.",
+   "args": []
+  },
+  "gimp-context-get-brush-angle": {
+   "blurb": "Get brush angle in degrees.",
+   "help": "Set the angle in degrees for brush based paint tools.",
+   "args": []
+  },
+  "gimp-context-get-brush-aspect-ratio": {
+   "blurb": "Get brush aspect ratio.",
+   "help": "Set the aspect ratio for brush based paint tools.",
+   "args": []
+  },
+  "gimp-context-get-brush-force": {
+   "blurb": "Get brush force in paint options.",
+   "help": "Get the brush application force for brush based paint tools.",
+   "args": []
+  },
+  "gimp-context-get-brush-hardness": {
+   "blurb": "Get brush hardness in paint options.",
+   "help": "Get the brush hardness for brush based paint tools.",
+   "args": []
+  },
+  "gimp-context-get-brush-size": {
+   "blurb": "Get brush size in pixels.",
+   "help": "Get the brush size in pixels for brush based paint tools.",
+   "args": []
+  },
+  "gimp-context-get-brush-spacing": {
+   "blurb": "Get brush spacing as percent of size.",
+   "help": "Get the brush spacing as percent of size for brush based paint tools.",
+   "args": []
+  },
+  "gimp-context-get-diagonal-neighbors": {
+   "blurb": "Get the diagonal neighbors setting.",
+   "help": "This procedure returns the diagonal neighbors setting.",
+   "args": []
+  },
+  "gimp-context-get-distance-metric": {
+   "blurb": "Get the distance metric used in some computations.",
+   "help": "This procedure returns the distance metric in the current context. See 'gimp-context-set-distance-metric' to know more about its usage.",
+   "args": []
+  },
+  "gimp-context-get-dynamics": {
+   "blurb": "Retrieve the currently active paint dynamics.",
+   "help": "This procedure returns the name of the currently active paint dynamics. All paint operations and stroke operations use this paint dynamics to control the application of paint to the image.",
+   "args": []
+  },
+  "gimp-context-get-feather": {
+   "blurb": "Get the feather setting.",
+   "help": "This procedure returns the feather setting.",
+   "args": []
+  },
+  "gimp-context-get-feather-radius": {
+   "blurb": "Get the feather radius setting.",
+   "help": "This procedure returns the feather radius setting.",
+   "args": []
+  },
+  "gimp-context-get-font": {
+   "blurb": "Retrieve the currently active font.",
+   "help": "This procedure returns the name of the currently active font.",
+   "args": []
+  },
+  "gimp-context-get-foreground": {
+   "blurb": "Get the current GIMP foreground color.",
+   "help": "This procedure returns the current GIMP foreground color. The foreground color is used in a variety of tools such as paint tools, blending, and bucket fill.",
+   "args": []
+  },
+  "gimp-context-get-gradient": {
+   "blurb": "Retrieve the currently active gradient.",
+   "help": "This procedure returns the name of the currently active gradient.",
+   "args": []
+  },
+  "gimp-context-get-gradient-blend-color-space": {
+   "blurb": "Get the gradient blend color space.",
+   "help": "Get the gradient blend color space for paint tools and the gradient tool.",
+   "args": []
+  },
+  "gimp-context-get-gradient-repeat-mode": {
+   "blurb": "Get the gradient repeat mode.",
+   "help": "Get the gradient repeat mode for paint tools and the gradient tool.",
+   "args": []
+  },
+  "gimp-context-get-gradient-reverse": {
+   "blurb": "Get the gradient reverse setting.",
+   "help": "Get the gradient reverse setting for paint tools and the gradient tool.",
+   "args": []
+  },
+  "gimp-context-get-ink-angle": {
+   "blurb": "Get ink angle in degrees.",
+   "help": "Get the ink angle in degrees for ink tool.",
+   "args": []
+  },
+  "gimp-context-get-ink-blob-angle": {
+   "blurb": "Get ink blob angle in degrees.",
+   "help": "Get the ink blob angle in degrees for ink tool.",
+   "args": []
+  },
+  "gimp-context-get-ink-blob-aspect-ratio": {
+   "blurb": "Get ink blob aspect ratio.",
+   "help": "Get the ink blob aspect ratio for ink tool.",
+   "args": []
+  },
+  "gimp-context-get-ink-blob-type": {
+   "blurb": "Get ink blob type.",
+   "help": "Get the ink blob type for ink tool.",
+   "args": []
+  },
+  "gimp-context-get-ink-size": {
+   "blurb": "Get ink blob size in pixels.",
+   "help": "Get the ink blob size in pixels for ink tool.",
+   "args": []
+  },
+  "gimp-context-get-ink-size-sensitivity": {
+   "blurb": "Get ink size sensitivity.",
+   "help": "Get the ink size sensitivity for ink tool.",
+   "args": []
+  },
+  "gimp-context-get-ink-speed-sensitivity": {
+   "blurb": "Get ink speed sensitivity.",
+   "help": "Get the ink speed sensitivity for ink tool.",
+   "args": []
+  },
+  "gimp-context-get-ink-tilt-sensitivity": {
+   "blurb": "Get ink tilt sensitivity.",
+   "help": "Get the ink tilt sensitivity for ink tool.",
+   "args": []
+  },
+  "gimp-context-get-interpolation": {
+   "blurb": "Get the interpolation type.",
+   "help": "This procedure returns the interpolation setting. The return value is an integer which corresponds to the values listed in the argument description. If the interpolation has not been set explicitly by 'gimp-context-set-interpolation', the default interpolation set in gimprc will be used.",
+   "args": []
+  },
+  "gimp-context-get-line-cap-style": {
+   "blurb": "Get the line cap style setting.",
+   "help": "This procedure returns the line cap style setting.",
+   "args": []
+  },
+  "gimp-context-get-line-dash-offset": {
+   "blurb": "Get the line dash offset setting.",
+   "help": "This procedure returns the line dash offset setting.",
+   "args": []
+  },
+  "gimp-context-get-line-dash-pattern": {
+   "blurb": "Get the line dash pattern setting.",
+   "help": "This procedure returns the line dash pattern setting.",
+   "args": []
+  },
+  "gimp-context-get-line-join-style": {
+   "blurb": "Get the line join style setting.",
+   "help": "This procedure returns the line join style setting.",
+   "args": []
+  },
+  "gimp-context-get-line-miter-limit": {
+   "blurb": "Get the line miter limit setting.",
+   "help": "This procedure returns the line miter limit setting.",
+   "args": []
+  },
+  "gimp-context-get-line-width": {
+   "blurb": "Get the line width setting.",
+   "help": "This procedure returns the line width setting.",
+   "args": []
+  },
+  "gimp-context-get-line-width-unit": {
+   "blurb": "Get the line width unit setting.",
+   "help": "This procedure returns the line width unit setting.",
+   "args": []
+  },
+  "gimp-context-get-mypaint-brush": {
+   "blurb": "Retrieve the currently active MyPaint brush.",
+   "help": "This procedure returns the name of the currently active MyPaint brush.",
+   "args": []
+  },
+  "gimp-context-get-opacity": {
+   "blurb": "Get the opacity.",
+   "help": "This procedure returns the opacity setting. The return value is a floating point number between 0 and 100.",
+   "args": []
+  },
+  "gimp-context-get-paint-method": {
+   "blurb": "Retrieve the currently active paint method.",
+   "help": "This procedure returns the name of the currently active paint method.",
+   "args": []
+  },
+  "gimp-context-get-paint-mode": {
+   "blurb": "Get the paint mode.",
+   "help": "This procedure returns the paint-mode setting. The return value is an integer which corresponds to the values listed in the argument description.",
+   "args": []
+  },
+  "gimp-context-get-palette": {
+   "blurb": "Retrieve the currently active palette.",
+   "help": "This procedure returns the name of the the currently active palette.",
+   "args": []
+  },
+  "gimp-context-get-pattern": {
+   "blurb": "Retrieve the currently active pattern.",
+   "help": "This procedure returns name of the the currently active pattern. All clone and bucket-fill operations with patterns will use this pattern to control the application of paint to the image.",
+   "args": []
+  },
+  "gimp-context-get-sample-criterion": {
+   "blurb": "Get the sample criterion setting.",
+   "help": "This procedure returns the sample criterion setting.",
+   "args": []
+  },
+  "gimp-context-get-sample-merged": {
+   "blurb": "Get the sample merged setting.",
+   "help": "This procedure returns the sample merged setting.",
+   "args": []
+  },
+  "gimp-context-get-sample-transparent": {
+   "blurb": "Get the sample transparent setting.",
+   "help": "This procedure returns the sample transparent setting.",
+   "args": []
+  },
+  "gimp-context-get-stroke-method": {
+   "blurb": "Retrieve the currently active stroke method.",
+   "help": "This procedure returns the currently active stroke method.",
+   "args": []
+  },
+  "gimp-context-get-transform-direction": {
+   "blurb": "Get the transform direction.",
+   "help": "This procedure returns the transform direction. The return value is an integer which corresponds to the values listed in the argument description.",
+   "args": []
+  },
+  "gimp-context-get-transform-recursion": {
+   "blurb": "Deprecated: There is no replacement for this procedure.",
+   "help": "Deprecated: There is no replacement for this procedure.",
+   "args": []
+  },
+  "gimp-context-get-transform-resize": {
+   "blurb": "Get the transform resize type.",
+   "help": "This procedure returns the transform resize setting. The return value is an integer which corresponds to the values listed in the argument description.",
+   "args": []
+  },
+  "gimp-context-list-paint-methods": {
+   "blurb": "Lists the available paint methods.",
+   "help": "This procedure lists the names of the available paint methods. Any of the results can be used for 'gimp-context-set-paint-method'.",
+   "args": []
+  },
+  "gimp-context-pop": {
+   "blurb": "Pops the topmost context from the plug-in's context stack.",
+   "help": "This procedure removes the topmost context from the plug-in's context stack. The context that was active before the corresponding call to 'gimp-context-push' becomes the new current context of the plug-in.",
+   "args": []
+  },
+  "gimp-context-push": {
+   "blurb": "Pushes a context to the top of the plug-in's context stack.",
+   "help": "This procedure creates a new context by copying the current context. This copy becomes the new current context for the calling plug-in until it is popped again using 'gimp-context-pop'.",
+   "args": []
+  },
+  "gimp-context-set-antialias": {
+   "blurb": "Set the antialias setting.",
+   "help": "This procedure modifies the antialias setting. If antialiasing is turned on, the edges of selected region will contain intermediate values which give the appearance of a sharper, less pixelized edge. This should be set as TRUE most of the time unless a binary-only selection is wanted.\n\nThis setting affects the following procedures: 'gimp-image-select-color', 'gimp-image-select-contiguous-color', 'gimp-image-select-round-rectangle', 'gimp-image-select-ellipse', 'gimp-image-select-polygon', 'gimp-image-select-item', 'gimp-drawable-edit-bucket-fill', 'gimp-drawable-edit-stroke-item', 'gimp-drawable-edit-stroke-selection'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "antialias",
+     "desc": "The antialias setting (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-context-set-background": {
+   "blurb": "Set the current GIMP background color.",
+   "help": "This procedure sets the current GIMP background color. After this is set, operations which use background such as blending, filling images, clearing, and erasing (in non-alpha images) will use the new value.",
+   "args": [
+    {
+     "type": "COLOR",
+     "name": "background",
+     "desc": "The background color"
+    }
+   ]
+  },
+  "gimp-context-set-brush": {
+   "blurb": "Set the specified brush as the active brush.",
+   "help": "This procedure allows the active brush to be set by specifying its name. The name is simply a string which corresponds to one of the names of the installed brushes. If there is no matching brush found, this procedure will return an error. Otherwise, the specified brush becomes active and will be used in all subsequent paint operations.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the brush"
+    }
+   ]
+  },
+  "gimp-context-set-brush-angle": {
+   "blurb": "Set brush angle in degrees.",
+   "help": "Set the angle in degrees for brush based paint tools.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "Angle in degrees (-180 <= angle <= 180)"
+    }
+   ]
+  },
+  "gimp-context-set-brush-aspect-ratio": {
+   "blurb": "Set brush aspect ratio.",
+   "help": "Set the aspect ratio for brush based paint tools.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "aspect",
+     "desc": "Aspect ratio (-20 <= aspect <= 20)"
+    }
+   ]
+  },
+  "gimp-context-set-brush-default-hardness": {
+   "blurb": "Set brush spacing to its default.",
+   "help": "Set the brush spacing to the default for paintbrush, airbrush, or pencil tools.",
+   "args": []
+  },
+  "gimp-context-set-brush-default-size": {
+   "blurb": "Set brush size to its default.",
+   "help": "Set the brush size to the default (max of width and height) for paintbrush, airbrush, or pencil tools.",
+   "args": []
+  },
+  "gimp-context-set-brush-default-spacing": {
+   "blurb": "Set brush spacing to its default.",
+   "help": "Set the brush spacing to the default for paintbrush, airbrush, or pencil tools.",
+   "args": []
+  },
+  "gimp-context-set-brush-force": {
+   "blurb": "Set brush application force.",
+   "help": "Set the brush application force for brush based paint tools.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "force",
+     "desc": "Brush application force (0 <= force <= 1)"
+    }
+   ]
+  },
+  "gimp-context-set-brush-hardness": {
+   "blurb": "Set brush hardness.",
+   "help": "Set the brush hardness for brush based paint tools.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "hardness",
+     "desc": "Brush hardness (0 <= hardness <= 1)"
+    }
+   ]
+  },
+  "gimp-context-set-brush-size": {
+   "blurb": "Set brush size in pixels.",
+   "help": "Set the brush size in pixels for brush based paint tools.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "size",
+     "desc": "Brush size in pixels (1 <= size <= 10000)"
+    }
+   ]
+  },
+  "gimp-context-set-brush-spacing": {
+   "blurb": "Set brush spacing as percent of size.",
+   "help": "Set the brush spacing as percent of size for brush based paint tools.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "spacing",
+     "desc": "Brush spacing as fraction of size (0.01 <= spacing <= 50)"
+    }
+   ]
+  },
+  "gimp-context-set-default-colors": {
+   "blurb": "Set the current GIMP foreground and background colors to black and white.",
+   "help": "This procedure sets the current GIMP foreground and background colors to their initial default values, black and white.",
+   "args": []
+  },
+  "gimp-context-set-defaults": {
+   "blurb": "Reset context settings to their default values.",
+   "help": "This procedure resets context settings used by various procedures to their default value. This procedure will usually be called after a context push so that a script which calls procedures affected by context settings will not be affected by changes in the global context.",
+   "args": []
+  },
+  "gimp-context-set-diagonal-neighbors": {
+   "blurb": "Set the diagonal neighbors setting.",
+   "help": "This procedure modifies the diagonal neighbors setting. If the affected region of an operation is based on a seed point, like when doing a seed fill, then, when this setting is TRUE, all eight neighbors of each pixel are considered when calculating the affected region; in contrast, when this setting is FALSE, only the four orthogonal neighbors of each pixel are considered.\n\nThis setting affects the following procedures: 'gimp-image-select-contiguous-color', 'gimp-drawable-edit-bucket-fill'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "diagonal-neighbors",
+     "desc": "The diagonal neighbors setting (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-context-set-distance-metric": {
+   "blurb": "Set the distance metric used in some computations.",
+   "help": "This procedure modifies the distance metric used in some computations, such as 'gimp-drawable-edit-gradient-fill'. In particular, it does not change the metric used in generic distance computation on canvas, as in the Measure tool.\n\nThis setting affects the following procedures: 'gimp-drawable-edit-gradient-fill'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "metric",
+     "desc": "The distance metric { Euclidean (0), Manhattan (1), Chebyshev (2) }"
+    }
+   ]
+  },
+  "gimp-context-set-dynamics": {
+   "blurb": "Set the specified paint dynamics as the active paint dynamics.",
+   "help": "This procedure allows the active paint dynamics to be set by specifying its name. The name is simply a string which corresponds to one of the names of the installed paint dynamics. If there is no matching paint dynamics found, this procedure will return an error. Otherwise, the specified paint dynamics becomes active and will be used in all subsequent paint operations.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the paint dynamics"
+    }
+   ]
+  },
+  "gimp-context-set-feather": {
+   "blurb": "Set the feather setting.",
+   "help": "This procedure modifies the feather setting. If the feather option is enabled, selections will be blurred before combining. The blur is a gaussian blur; its radii can be controlled using 'gimp-context-set-feather-radius'.\n\nThis setting affects the following procedures: 'gimp-image-select-color', 'gimp-image-select-contiguous-color', 'gimp-image-select-rectangle', 'gimp-image-select-round-rectangle', 'gimp-image-select-ellipse', 'gimp-image-select-polygon', 'gimp-image-select-item'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "feather",
+     "desc": "The feather setting (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-context-set-feather-radius": {
+   "blurb": "Set the feather radius setting.",
+   "help": "This procedure modifies the feather radius setting.\n\nThis setting affects all procedures that are affected by 'gimp-context-set-feather'.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-x",
+     "desc": "The horizontal feather radius (0 <= feather-radius-x <= 1000)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "feather-radius-y",
+     "desc": "The vertical feather radius (0 <= feather-radius-y <= 1000)"
+    }
+   ]
+  },
+  "gimp-context-set-font": {
+   "blurb": "Set the specified font as the active font.",
+   "help": "This procedure allows the active font to be set by specifying its name. The name is simply a string which corresponds to one of the names of the installed fonts. If no matching font is found, this procedure will return an error. Otherwise, the specified font becomes active and will be used in all subsequent font operations.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the font"
+    }
+   ]
+  },
+  "gimp-context-set-foreground": {
+   "blurb": "Set the current GIMP foreground color.",
+   "help": "This procedure sets the current GIMP foreground color. After this is set, operations which use foreground such as paint tools, blending, and bucket fill will use the new value.",
+   "args": [
+    {
+     "type": "COLOR",
+     "name": "foreground",
+     "desc": "The foreground color"
+    }
+   ]
+  },
+  "gimp-context-set-gradient": {
+   "blurb": "Sets the specified gradient as the active gradient.",
+   "help": "This procedure lets you set the specified gradient as the active or \"current\" one. The name is simply a string which corresponds to one of the loaded gradients. If no matching gradient is found, this procedure will return an error. Otherwise, the specified gradient will become active and will be used for subsequent custom gradient operations.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the gradient"
+    }
+   ]
+  },
+  "gimp-context-set-gradient-blend-color-space": {
+   "blurb": "Set the gradient blend color space.",
+   "help": "Set the gradient blend color space for paint tools and the gradient tool.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "blend-color-space",
+     "desc": "Blend color space { GRADIENT-BLEND-RGB-PERCEPTUAL (0), GRADIENT-BLEND-RGB-LINEAR (1), GRADIENT-BLEND-CIE-LAB (2) }"
+    }
+   ]
+  },
+  "gimp-context-set-gradient-fg-bg-hsv-ccw": {
+   "blurb": "Sets the built-in FG-BG HSV (ccw) gradient as the active gradient.",
+   "help": "This procedure sets the built-in FG-BG HSV (ccw) gradient as the active gradient. The gradient will be used for subsequent gradient operations.",
+   "args": []
+  },
+  "gimp-context-set-gradient-fg-bg-hsv-cw": {
+   "blurb": "Sets the built-in FG-BG HSV (cw) gradient as the active gradient.",
+   "help": "This procedure sets the built-in FG-BG HSV (cw) gradient as the active gradient. The gradient will be used for subsequent gradient operations.",
+   "args": []
+  },
+  "gimp-context-set-gradient-fg-bg-rgb": {
+   "blurb": "Sets the built-in FG-BG RGB gradient as the active gradient.",
+   "help": "This procedure sets the built-in FG-BG RGB gradient as the active gradient. The gradient will be used for subsequent gradient operations.",
+   "args": []
+  },
+  "gimp-context-set-gradient-fg-transparent": {
+   "blurb": "Sets the built-in FG-Transparent gradient as the active gradient.",
+   "help": "This procedure sets the built-in FG-Transparent gradient as the active gradient. The gradient will be used for subsequent gradient operations.",
+   "args": []
+  },
+  "gimp-context-set-gradient-repeat-mode": {
+   "blurb": "Set the gradient repeat mode.",
+   "help": "Set the gradient repeat mode for paint tools and the gradient tool.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "repeat-mode",
+     "desc": "Repeat mode { REPEAT-NONE (0), REPEAT-SAWTOOTH (1), REPEAT-TRIANGULAR (2), REPEAT-TRUNCATE (3) }"
+    }
+   ]
+  },
+  "gimp-context-set-gradient-reverse": {
+   "blurb": "Set the gradient reverse setting.",
+   "help": "Set the gradient reverse setting for paint tools and the gradient tool.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "reverse",
+     "desc": "Reverse (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-context-set-ink-angle": {
+   "blurb": "Set ink angle in degrees.",
+   "help": "Set the ink angle in degrees for ink tool.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "ink angle in degrees (-90 <= angle <= 90)"
+    }
+   ]
+  },
+  "gimp-context-set-ink-blob-angle": {
+   "blurb": "Set ink blob angle in degrees.",
+   "help": "Set the ink blob angle in degrees for ink tool.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "ink blob angle in degrees (-180 <= angle <= 180)"
+    }
+   ]
+  },
+  "gimp-context-set-ink-blob-aspect-ratio": {
+   "blurb": "Set ink blob aspect ratio.",
+   "help": "Set the ink blob aspect ratio for ink tool.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "aspect",
+     "desc": "ink blob aspect ratio (1 <= aspect <= 10)"
+    }
+   ]
+  },
+  "gimp-context-set-ink-blob-type": {
+   "blurb": "Set ink blob type.",
+   "help": "Set the ink blob type for ink tool.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "type",
+     "desc": "Ink blob type { INK-BLOB-TYPE-CIRCLE (0), INK-BLOB-TYPE-SQUARE (1), INK-BLOB-TYPE-DIAMOND (2) }"
+    }
+   ]
+  },
+  "gimp-context-set-ink-size": {
+   "blurb": "Set ink blob size in pixels.",
+   "help": "Set the ink blob size in pixels for ink tool.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "size",
+     "desc": "ink blob size in pixels (0 <= size <= 200)"
+    }
+   ]
+  },
+  "gimp-context-set-ink-size-sensitivity": {
+   "blurb": "Set ink size sensitivity.",
+   "help": "Set the ink size sensitivity for ink tool.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "size",
+     "desc": "ink size sensitivity (0 <= size <= 1)"
+    }
+   ]
+  },
+  "gimp-context-set-ink-speed-sensitivity": {
+   "blurb": "Set ink speed sensitivity.",
+   "help": "Set the ink speed sensitivity for ink tool.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "speed",
+     "desc": "ink speed sensitivity (0 <= speed <= 1)"
+    }
+   ]
+  },
+  "gimp-context-set-ink-tilt-sensitivity": {
+   "blurb": "Set ink tilt sensitivity.",
+   "help": "Set the ink tilt sensitivity for ink tool.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "tilt",
+     "desc": "ink tilt sensitivity (0 <= tilt <= 1)"
+    }
+   ]
+  },
+  "gimp-context-set-interpolation": {
+   "blurb": "Set the interpolation type.",
+   "help": "This procedure modifies the interpolation setting.\n\nThis setting affects affects the following procedures: 'gimp-item-transform-flip', 'gimp-item-transform-perspective', 'gimp-item-transform-rotate', 'gimp-item-transform-scale', 'gimp-item-transform-shear', 'gimp-item-transform-2d', 'gimp-item-transform-matrix', 'gimp-image-scale', 'gimp-layer-scale'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "The interpolation type { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    }
+   ]
+  },
+  "gimp-context-set-line-cap-style": {
+   "blurb": "Set the line cap style setting.",
+   "help": "This procedure modifies the line cap style setting for stroking lines.\n\nThis setting affects the following procedures: 'gimp-drawable-edit-stroke-selection', 'gimp-drawable-edit-stroke-item'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "cap-style",
+     "desc": "The line cap style setting { CAP-BUTT (0), CAP-ROUND (1), CAP-SQUARE (2) }"
+    }
+   ]
+  },
+  "gimp-context-set-line-dash-offset": {
+   "blurb": "Set the line dash offset setting.",
+   "help": "This procedure modifies the line dash offset setting for stroking lines.\n\nThis setting affects the following procedures: 'gimp-drawable-edit-stroke-selection', 'gimp-drawable-edit-stroke-item'.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "dash-offset",
+     "desc": "The line dash offset setting (0 <= dash-offset <= 100)"
+    }
+   ]
+  },
+  "gimp-context-set-line-dash-pattern": {
+   "blurb": "Set the line dash pattern setting.",
+   "help": "This procedure modifies the line dash pattern setting for stroking lines.\n\nThe unit of the dash pattern segments is the actual line width used for the stroke operation, in other words a segment length of 1.0 results in a square segment shape (or gap shape).\n\nThis setting affects the following procedures: 'gimp-drawable-edit-stroke-selection-', 'gimp-drawable-edit-stroke-item'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "num-dashes",
+     "desc": "The number of dashes in the dash_pattern array (num-dashes >= 0)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "dashes",
+     "desc": "The line dash pattern setting"
+    }
+   ]
+  },
+  "gimp-context-set-line-join-style": {
+   "blurb": "Set the line join style setting.",
+   "help": "This procedure modifies the line join style setting for stroking lines.\n\nThis setting affects the following procedures: 'gimp-drawable-edit-stroke-selection', 'gimp-drawable-edit-stroke-item'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "join-style",
+     "desc": "The line join style setting { JOIN-MITER (0), JOIN-ROUND (1), JOIN-BEVEL (2) }"
+    }
+   ]
+  },
+  "gimp-context-set-line-miter-limit": {
+   "blurb": "Set the line miter limit setting.",
+   "help": "This procedure modifies the line miter limit setting for stroking lines.\nA mitered join is converted to a bevelled join if the miter would extend to a distance of more than (miter-limit * line-width) from the actual join point.\n\nThis setting affects the following procedures: 'gimp-drawable-edit-stroke-selection', 'gimp-drawable-edit-stroke-item'.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "miter-limit",
+     "desc": "The line miter limit setting (0 <= miter-limit <= 100)"
+    }
+   ]
+  },
+  "gimp-context-set-line-width": {
+   "blurb": "Set the line width setting.",
+   "help": "This procedure modifies the line width setting for stroking lines.\n\nThis setting affects the following procedures: 'gimp-drawable-edit-stroke-selection', 'gimp-drawable-edit-stroke-item'.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "line-width",
+     "desc": "The line width setting (0 <= line-width <= 2000)"
+    }
+   ]
+  },
+  "gimp-context-set-line-width-unit": {
+   "blurb": "Set the line width unit setting.",
+   "help": "This procedure modifies the line width unit setting for stroking lines.\n\nThis setting affects the following procedures: 'gimp-drawable-edit-stroke-selection', 'gimp-drawable-edit-stroke-item'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "line-width-unit",
+     "desc": "The line width setting unit"
+    }
+   ]
+  },
+  "gimp-context-set-mypaint-brush": {
+   "blurb": "Set the specified MyPaint brush as the active MyPaint brush.",
+   "help": "This procedure allows the active MyPaint brush to be set by specifying its name. The name is simply a string which corresponds to one of the names of the installed MyPaint brushes. If there is no matching MyPaint brush found, this procedure will return an error. Otherwise, the specified MyPaint brush becomes active and will be used in all subsequent MyPaint paint operations.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the MyPaint brush"
+    }
+   ]
+  },
+  "gimp-context-set-opacity": {
+   "blurb": "Set the opacity.",
+   "help": "This procedure modifies the opacity setting. The value should be a floating point number between 0 and 100.",
+   "args": [
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity (0 <= opacity <= 100)"
+    }
+   ]
+  },
+  "gimp-context-set-paint-method": {
+   "blurb": "Set the specified paint method as the active paint method.",
+   "help": "This procedure allows the active paint method to be set by specifying its name. The name is simply a string which corresponds to one of the names of the available paint methods. If there is no matching method found, this procedure will return an error. Otherwise, the specified method becomes active and will be used in all subsequent paint operations.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the paint method"
+    }
+   ]
+  },
+  "gimp-context-set-paint-mode": {
+   "blurb": "Set the paint mode.",
+   "help": "This procedure modifies the paint_mode setting.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The paint mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    }
+   ]
+  },
+  "gimp-context-set-palette": {
+   "blurb": "Set the specified palette as the active palette.",
+   "help": "This procedure allows the active palette to be set by specifying its name. The name is simply a string which corresponds to one of the names of the installed palettes. If no matching palette is found, this procedure will return an error. Otherwise, the specified palette becomes active and will be used in all subsequent palette operations.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the palette"
+    }
+   ]
+  },
+  "gimp-context-set-pattern": {
+   "blurb": "Set the specified pattern as the active pattern.",
+   "help": "This procedure allows the active pattern to be set by specifying its name. The name is simply a string which corresponds to one of the names of the installed patterns. If there is no matching pattern found, this procedure will return an error. Otherwise, the specified pattern becomes active and will be used in all subsequent paint operations.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the pattern"
+    }
+   ]
+  },
+  "gimp-context-set-sample-criterion": {
+   "blurb": "Set the sample criterion setting.",
+   "help": "This procedure modifies the sample criterion setting. If an operation depends on the colors of the pixels present in a drawable, like when doing a seed fill, this setting controls how color similarity is determined. SELECT_CRITERION_COMPOSITE is the default value.\n\nThis setting affects the following procedures: 'gimp-image-select-color', 'gimp-image-select-contiguous-color', 'gimp-drawable-edit-bucket-fill'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "sample-criterion",
+     "desc": "The sample criterion setting { SELECT-CRITERION-COMPOSITE (0), SELECT-CRITERION-R (1), SELECT-CRITERION-G (2), SELECT-CRITERION-B (3), SELECT-CRITERION-H (4), SELECT-CRITERION-S (5), SELECT-CRITERION-V (6), SELECT-CRITERION-A (7), SELECT-CRITERION-LCH-L (8), SELECT-CRITERION-LCH-C (9), SELECT-CRITERION-LCH-H (10) }"
+    }
+   ]
+  },
+  "gimp-context-set-sample-merged": {
+   "blurb": "Set the sample merged setting.",
+   "help": "This procedure modifies the sample merged setting. If an operation depends on the colors of the pixels present in a drawable, like when doing a seed fill, this setting controls whether the pixel data from the specified drawable is used ('sample-merged' is FALSE), or the pixel data from the composite image ('sample-merged' is TRUE. This is equivalent to sampling for colors after merging all visible layers).\n\nThis setting affects the following procedures: 'gimp-image-select-color', 'gimp-image-select-contiguous-color', 'gimp-drawable-edit-bucket-fill'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "The sample merged setting (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-context-set-sample-transparent": {
+   "blurb": "Set the sample transparent setting.",
+   "help": "This procedure modifies the sample transparent setting. If an operation depends on the colors of the pixels present in a drawable, like when doing a seed fill, this setting controls whether transparency is considered to be a unique selectable color. When this setting is TRUE, transparent areas can be selected or filled.\n\nThis setting affects the following procedures: 'gimp-image-select-color', 'gimp-image-select-contiguous-color', 'gimp-drawable-edit-bucket-fill'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "sample-transparent",
+     "desc": "The sample transparent setting (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-context-set-stroke-method": {
+   "blurb": "Set the specified stroke method as the active stroke method.",
+   "help": "This procedure set the specified stroke method as the active stroke method. The new method will be used in all subsequent stroke operations.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "stroke-method",
+     "desc": "The new stroke method { STROKE-LINE (0), STROKE-PAINT-METHOD (1) }"
+    }
+   ]
+  },
+  "gimp-context-set-transform-direction": {
+   "blurb": "Set the transform direction.",
+   "help": "This procedure modifies the transform direction setting.\n\nThis setting affects affects the following procedures: 'gimp-item-transform-flip', 'gimp-item-transform-perspective', 'gimp-item-transform-rotate', 'gimp-item-transform-scale', 'gimp-item-transform-shear', 'gimp-item-transform-2d', 'gimp-item-transform-matrix'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "transform-direction",
+     "desc": "The transform direction { TRANSFORM-FORWARD (0), TRANSFORM-BACKWARD (1) }"
+    }
+   ]
+  },
+  "gimp-context-set-transform-recursion": {
+   "blurb": "Deprecated: There is no replacement for this procedure.",
+   "help": "Deprecated: There is no replacement for this procedure.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "transform-recursion",
+     "desc": "This parameter is ignored (transform-recursion >= 1)"
+    }
+   ]
+  },
+  "gimp-context-set-transform-resize": {
+   "blurb": "Set the transform resize type.",
+   "help": "This procedure modifies the transform resize setting. When transforming pixels, if the result of a transform operation has a different size than the original area, this setting determines how the resulting area is sized.\n\nThis setting affects affects the following procedures: 'gimp-item-transform-flip', 'gimp-item-transform-flip-simple', 'gimp-item-transform-perspective', 'gimp-item-transform-rotate', 'gimp-item-transform-rotate-simple', 'gimp-item-transform-scale', 'gimp-item-transform-shear', 'gimp-item-transform-2d', 'gimp-item-transform-matrix'.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "transform-resize",
+     "desc": "The transform resize type { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-context-swap-colors": {
+   "blurb": "Swap the current GIMP foreground and background colors.",
+   "help": "This procedure swaps the current GIMP foreground and background colors, so that the new foreground color becomes the old background color and vice versa.",
+   "args": []
+  },
+  "gimp-dynamics-get-list": {
+   "blurb": "Retrieve the list of loaded paint dynamics.",
+   "help": "This procedure returns a list of the paint dynamics that are currently available.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-dynamics-refresh": {
+   "blurb": "Refresh current paint dynamics. This function always succeeds.",
+   "help": "This procedure retrieves all paint dynamics currently in the user's paint dynamics path and updates the paint dynamics dialogs accordingly.",
+   "args": []
+  },
+  "gimp-gradients-close-popup": {
+   "blurb": "Close the gradient selection dialog.",
+   "help": "This procedure closes an opened gradient selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "gradient-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    }
+   ]
+  },
+  "gimp-gradients-get-active": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-get-gradient' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-get-gradient' instead.",
+   "args": []
+  },
+  "gimp-gradients-get-gradient": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-get-gradient' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-get-gradient' instead.",
+   "args": []
+  },
+  "gimp-gradients-get-gradient-data": {
+   "blurb": "Deprecated: Use 'gimp-gradient-get-uniform-samples' instead.",
+   "help": "Deprecated: Use 'gimp-gradient-get-uniform-samples' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name (\"\" means current active gradient)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-size",
+     "desc": "Size of the sample to return when the gradient is changed (1 <= sample-size <= 10000)"
+    },
+    {
+     "type": "INT32",
+     "name": "reverse",
+     "desc": "Use the reverse gradient (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-gradients-get-list": {
+   "blurb": "Retrieve the list of loaded gradients.",
+   "help": "This procedure returns a list of the gradients that are currently loaded. You can later use the 'gimp-context-set-gradient' function to set the active gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-gradients-popup": {
+   "blurb": "Invokes the Gimp gradients selection.",
+   "help": "This procedure opens the gradient selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "gradient-callback",
+     "desc": "The callback PDB proc to call when gradient selection is made"
+    },
+    {
+     "type": "STRING",
+     "name": "popup-title",
+     "desc": "Title of the gradient selection dialog"
+    },
+    {
+     "type": "STRING",
+     "name": "initial-gradient",
+     "desc": "The name of the gradient to set as the first selected"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-size",
+     "desc": "Size of the sample to return when the gradient is changed (1 <= sample-size <= 10000)"
+    }
+   ]
+  },
+  "gimp-gradients-refresh": {
+   "blurb": "Refresh current gradients. This function always succeeds.",
+   "help": "This procedure retrieves all gradients currently in the user's gradient path and updates the gradient dialogs accordingly.",
+   "args": []
+  },
+  "gimp-gradients-sample-custom": {
+   "blurb": "Deprecated: Use 'gimp-gradient-get-custom-samples' instead.",
+   "help": "Deprecated: Use 'gimp-gradient-get-custom-samples' instead.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "num-samples",
+     "desc": "The number of samples to take (num-samples >= 0)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "positions",
+     "desc": "The list of positions to sample along the gradient"
+    },
+    {
+     "type": "INT32",
+     "name": "reverse",
+     "desc": "Use the reverse gradient (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-gradients-sample-uniform": {
+   "blurb": "Deprecated: Use 'gimp-gradient-get-uniform-samples' instead.",
+   "help": "Deprecated: Use 'gimp-gradient-get-uniform-samples' instead.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "num-samples",
+     "desc": "The number of samples to take (num-samples >= 2)"
+    },
+    {
+     "type": "INT32",
+     "name": "reverse",
+     "desc": "Use the reverse gradient (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-gradients-set-active": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-gradient' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-gradient' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the gradient"
+    }
+   ]
+  },
+  "gimp-gradients-set-gradient": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-gradient' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-gradient' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the gradient"
+    }
+   ]
+  },
+  "gimp-gradients-set-popup": {
+   "blurb": "Sets the current gradient in a gradient selection dialog.",
+   "help": "Sets the current gradient in a gradient selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "gradient-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    },
+    {
+     "type": "STRING",
+     "name": "gradient-name",
+     "desc": "The name of the gradient to set as selected"
+    }
+   ]
+  },
+  "gimp-palette-add-entry": {
+   "blurb": "Adds a palette entry to the specified palette.",
+   "help": "This procedure adds an entry to the specified palette. It returns an error if the entry palette does not exist.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    },
+    {
+     "type": "STRING",
+     "name": "entry-name",
+     "desc": "The name of the entry"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The new entry's color color"
+    }
+   ]
+  },
+  "gimp-palette-delete": {
+   "blurb": "Deletes a palette",
+   "help": "This procedure deletes a palette",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    }
+   ]
+  },
+  "gimp-palette-delete-entry": {
+   "blurb": "Deletes a palette entry from the specified palette.",
+   "help": "This procedure deletes an entry from the specified palette. It returns an error if the entry palette does not exist.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    },
+    {
+     "type": "INT32",
+     "name": "entry-num",
+     "desc": "The index of the added entry"
+    }
+   ]
+  },
+  "gimp-palette-duplicate": {
+   "blurb": "Duplicates a palette",
+   "help": "This procedure creates an identical palette by a different name",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    }
+   ]
+  },
+  "gimp-palette-entry-get-color": {
+   "blurb": "Gets the specified palette entry from the specified palette.",
+   "help": "This procedure retrieves the color of the zero-based entry specified for the specified palette. It returns an error if the entry does not exist.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    },
+    {
+     "type": "INT32",
+     "name": "entry-num",
+     "desc": "The entry to retrieve"
+    }
+   ]
+  },
+  "gimp-palette-entry-get-name": {
+   "blurb": "Gets the specified palette entry from the specified palette.",
+   "help": "This procedure retrieves the name of the zero-based entry specified for the specified palette. It returns an error if the entry does not exist.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    },
+    {
+     "type": "INT32",
+     "name": "entry-num",
+     "desc": "The entry to retrieve"
+    }
+   ]
+  },
+  "gimp-palette-entry-set-color": {
+   "blurb": "Sets the specified palette entry in the specified palette.",
+   "help": "This procedure sets the color of the zero-based entry specified for the specified palette. It returns an error if the entry does not exist.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    },
+    {
+     "type": "INT32",
+     "name": "entry-num",
+     "desc": "The entry to retrieve"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The new color"
+    }
+   ]
+  },
+  "gimp-palette-entry-set-name": {
+   "blurb": "Sets the specified palette entry in the specified palette.",
+   "help": "This procedure sets the name of the zero-based entry specified for the specified palette. It returns an error if the entry does not exist.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    },
+    {
+     "type": "INT32",
+     "name": "entry-num",
+     "desc": "The entry to retrieve"
+    },
+    {
+     "type": "STRING",
+     "name": "entry-name",
+     "desc": "The new name"
+    }
+   ]
+  },
+  "gimp-palette-export-css": {
+   "blurb": "Export the active palette as a CSS stylesheet with the color entry name as their class name, and the color itself as the color attribute",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "dirname",
+     "desc": "Folder for the output file"
+    },
+    {
+     "type": "STRING",
+     "name": "string",
+     "desc": "The name of the file to create (if a file with this name already exist, it will be replaced)"
+    }
+   ]
+  },
+  "gimp-palette-export-java": {
+   "blurb": "Export the active palette as a java.util.Hashtable<String, Color>",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "dirname",
+     "desc": "Folder for the output file"
+    },
+    {
+     "type": "STRING",
+     "name": "string",
+     "desc": "The name of the file to create (if a file with this name already exist, it will be replaced)"
+    }
+   ]
+  },
+  "gimp-palette-export-php": {
+   "blurb": "Export the active palette as a PHP dictionary (name => color)",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "dirname",
+     "desc": "Folder for the output file"
+    },
+    {
+     "type": "STRING",
+     "name": "string",
+     "desc": "The name of the file to create (if a file with this name already exist, it will be replaced)"
+    }
+   ]
+  },
+  "gimp-palette-export-python": {
+   "blurb": "Export the active palette as a Python dictionary (name: color)",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "dirname",
+     "desc": "Folder for the output file"
+    },
+    {
+     "type": "STRING",
+     "name": "string",
+     "desc": "The name of the file to create (if a file with this name already exist, it will be replaced)"
+    }
+   ]
+  },
+  "gimp-palette-export-text": {
+   "blurb": "Write all the colors in a palette to a text file, one hexadecimal value per line (no names)",
+   "help": "",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "run-mode",
+     "desc": "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }"
+    },
+    {
+     "type": "STRING",
+     "name": "dirname",
+     "desc": "Folder for the output file"
+    },
+    {
+     "type": "STRING",
+     "name": "string",
+     "desc": "The name of the file to create (if a file with this name already exist, it will be replaced)"
+    }
+   ]
+  },
+  "gimp-palette-get-background": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-get-background' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-get-background' instead.",
+   "args": []
+  },
+  "gimp-palette-get-colors": {
+   "blurb": "Gets all colors from the specified palette.",
+   "help": "This procedure retrieves all color entries of the specified palette.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    }
+   ]
+  },
+  "gimp-palette-get-columns": {
+   "blurb": "Retrieves the number of columns to use to display this palette",
+   "help": "This procedures retrieves the preferred number of columns to use when the palette is being displayed.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    }
+   ]
+  },
+  "gimp-palette-get-foreground": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-get-foreground' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-get-foreground' instead.",
+   "args": []
+  },
+  "gimp-palette-get-info": {
+   "blurb": "Retrieve information about the specified palette.",
+   "help": "This procedure retrieves information about the specified palette. This includes the name, and the number of colors.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    }
+   ]
+  },
+  "gimp-palette-is-editable": {
+   "blurb": "Tests if palette can be edited",
+   "help": "Returns TRUE if you have permission to change the palette",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    }
+   ]
+  },
+  "gimp-palette-new": {
+   "blurb": "Creates a new palette",
+   "help": "This procedure creates a new, uninitialized palette",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The requested name of the new palette"
+    }
+   ]
+  },
+  "gimp-palette-refresh": {
+   "blurb": "This procedure is deprecated! Use 'gimp-palettes-refresh' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-palettes-refresh' instead.",
+   "args": []
+  },
+  "gimp-palette-rename": {
+   "blurb": "Rename a palette",
+   "help": "This procedure renames a palette",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    },
+    {
+     "type": "STRING",
+     "name": "new-name",
+     "desc": "The new name of the palette"
+    }
+   ]
+  },
+  "gimp-palette-set-background": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-background' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-background' instead.",
+   "args": [
+    {
+     "type": "COLOR",
+     "name": "background",
+     "desc": "The background color"
+    }
+   ]
+  },
+  "gimp-palette-set-columns": {
+   "blurb": "Sets the number of columns to use when displaying the palette",
+   "help": "This procedures controls how many colors are shown per row when the palette is being displayed. This value can only be changed if the palette is writable. The maximum allowed value is 64.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name"
+    },
+    {
+     "type": "INT32",
+     "name": "columns",
+     "desc": "The new number of columns (0 <= columns <= 64)"
+    }
+   ]
+  },
+  "gimp-palette-set-default-colors": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-default-colors' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-default-colors' instead.",
+   "args": []
+  },
+  "gimp-palette-set-foreground": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-foreground' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-foreground' instead.",
+   "args": [
+    {
+     "type": "COLOR",
+     "name": "foreground",
+     "desc": "The foreground color"
+    }
+   ]
+  },
+  "gimp-palette-swap-colors": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-swap-colors' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-swap-colors' instead.",
+   "args": []
+  },
+  "gimp-palettes-close-popup": {
+   "blurb": "Close the palette selection dialog.",
+   "help": "This procedure closes an opened palette selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "palette-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    }
+   ]
+  },
+  "gimp-palettes-get-list": {
+   "blurb": "Retrieves a list of all of the available palettes",
+   "help": "This procedure returns a complete listing of available palettes. Each name returned can be used as input to the command 'gimp-context-set-palette'.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-palettes-get-palette": {
+   "blurb": "Deprecated: Use 'gimp-context-get-palette' instead.",
+   "help": "Deprecated: Use 'gimp-context-get-palette' instead.",
+   "args": []
+  },
+  "gimp-palettes-get-palette-entry": {
+   "blurb": "Deprecated: Use 'gimp-palette-entry-get-color' instead.",
+   "help": "Deprecated: Use 'gimp-palette-entry-get-color' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The palette name (\"\" means currently active palette)"
+    },
+    {
+     "type": "INT32",
+     "name": "entry-num",
+     "desc": "The entry to retrieve"
+    }
+   ]
+  },
+  "gimp-palettes-popup": {
+   "blurb": "Invokes the Gimp palette selection.",
+   "help": "This procedure opens the palette selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "palette-callback",
+     "desc": "The callback PDB proc to call when palette selection is made"
+    },
+    {
+     "type": "STRING",
+     "name": "popup-title",
+     "desc": "Title of the palette selection dialog"
+    },
+    {
+     "type": "STRING",
+     "name": "initial-palette",
+     "desc": "The name of the palette to set as the first selected"
+    }
+   ]
+  },
+  "gimp-palettes-refresh": {
+   "blurb": "Refreshes current palettes. This function always succeeds.",
+   "help": "This procedure retrieves all palettes currently in the user's palette path and updates the palette dialogs accordingly.",
+   "args": []
+  },
+  "gimp-palettes-set-palette": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-palette' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-palette' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the palette"
+    }
+   ]
+  },
+  "gimp-palettes-set-popup": {
+   "blurb": "Sets the current palette in a palette selection dialog.",
+   "help": "Sets the current palette in a palette selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "palette-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    },
+    {
+     "type": "STRING",
+     "name": "palette-name",
+     "desc": "The name of the palette to set as selected"
+    }
+   ]
+  },
+  "gimp-pattern-get-info": {
+   "blurb": "Retrieve information about the specified pattern.",
+   "help": "This procedure retrieves information about the specified pattern. This includes the pattern extents (width and height).",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The pattern name."
+    }
+   ]
+  },
+  "gimp-pattern-get-pixels": {
+   "blurb": "Retrieve information about the specified pattern (including pixels).",
+   "help": "This procedure retrieves information about the specified. This includes the pattern extents (width and height), its bpp and its pixel data.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The pattern name."
+    }
+   ]
+  },
+  "gimp-patterns-close-popup": {
+   "blurb": "Close the pattern selection dialog.",
+   "help": "This procedure closes an opened pattern selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "pattern-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    }
+   ]
+  },
+  "gimp-patterns-get-list": {
+   "blurb": "Retrieve a complete listing of the available patterns.",
+   "help": "This procedure returns a complete listing of available GIMP patterns. Each name returned can be used as input to the 'gimp-context-set-pattern'.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-patterns-get-pattern": {
+   "blurb": "Deprecated: Use 'gimp-context-get-pattern' instead.",
+   "help": "Deprecated: Use 'gimp-context-get-pattern' instead.",
+   "args": []
+  },
+  "gimp-patterns-get-pattern-data": {
+   "blurb": "Deprecated: Use 'gimp-pattern-get-pixels' instead.",
+   "help": "Deprecated: Use 'gimp-pattern-get-pixels' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The pattern name (\"\" means currently active pattern)"
+    }
+   ]
+  },
+  "gimp-patterns-list": {
+   "blurb": "This procedure is deprecated! Use 'gimp-patterns-get-list' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-patterns-get-list' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "filter",
+     "desc": "An optional regular expression used to filter the list"
+    }
+   ]
+  },
+  "gimp-patterns-popup": {
+   "blurb": "Invokes the Gimp pattern selection.",
+   "help": "This procedure opens the pattern selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "pattern-callback",
+     "desc": "The callback PDB proc to call when pattern selection is made"
+    },
+    {
+     "type": "STRING",
+     "name": "popup-title",
+     "desc": "Title of the pattern selection dialog"
+    },
+    {
+     "type": "STRING",
+     "name": "initial-pattern",
+     "desc": "The name of the pattern to set as the first selected"
+    }
+   ]
+  },
+  "gimp-patterns-refresh": {
+   "blurb": "Refresh current patterns. This function always succeeds.",
+   "help": "This procedure retrieves all patterns currently in the user's pattern path and updates all pattern dialogs accordingly.",
+   "args": []
+  },
+  "gimp-patterns-set-pattern": {
+   "blurb": "This procedure is deprecated! Use 'gimp-context-set-pattern' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-context-set-pattern' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The name of the pattern"
+    }
+   ]
+  },
+  "gimp-patterns-set-popup": {
+   "blurb": "Sets the current pattern in a pattern selection dialog.",
+   "help": "Sets the current pattern in a pattern selection dialog.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "pattern-callback",
+     "desc": "The name of the callback registered for this pop-up"
+    },
+    {
+     "type": "STRING",
+     "name": "pattern-name",
+     "desc": "The name of the pattern to set as selected"
+    }
+   ]
+  },
+  "gimp-unit-get-abbreviation": {
+   "blurb": "Returns the abbreviation of the unit.",
+   "help": "This procedure returns the abbreviation of the unit (\"in\" for inches).",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    }
+   ]
+  },
+  "gimp-unit-get-deletion-flag": {
+   "blurb": "Returns the deletion flag of the unit.",
+   "help": "This procedure returns the deletion flag of the unit. If this value is TRUE the unit's definition will not be saved in the user's unitrc file on gimp exit.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    }
+   ]
+  },
+  "gimp-unit-get-digits": {
+   "blurb": "Returns the number of digits of the unit.",
+   "help": "This procedure returns the number of digits you should provide in input or output functions to get approximately the same accuracy as with two digits and inches. Note that asking for the digits of \"pixels\" will produce an error.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    }
+   ]
+  },
+  "gimp-unit-get-factor": {
+   "blurb": "Returns the factor of the unit.",
+   "help": "This procedure returns the unit's factor which indicates how many units make up an inch. Note that asking for the factor of \"pixels\" will produce an error.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    }
+   ]
+  },
+  "gimp-unit-get-identifier": {
+   "blurb": "Returns the textual identifier of the unit.",
+   "help": "This procedure returns the textual identifier of the unit. For built-in units it will be the english singular form of the unit's name. For user-defined units this should equal to the singular form.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    }
+   ]
+  },
+  "gimp-unit-get-number-of-built-in-units": {
+   "blurb": "Returns the number of built-in units.",
+   "help": "This procedure returns the number of defined units built-in to GIMP.",
+   "args": []
+  },
+  "gimp-unit-get-number-of-units": {
+   "blurb": "Returns the number of units.",
+   "help": "This procedure returns the number of defined units.",
+   "args": []
+  },
+  "gimp-unit-get-plural": {
+   "blurb": "Returns the plural form of the unit.",
+   "help": "This procedure returns the plural form of the unit.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    }
+   ]
+  },
+  "gimp-unit-get-singular": {
+   "blurb": "Returns the singular form of the unit.",
+   "help": "This procedure returns the singular form of the unit.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    }
+   ]
+  },
+  "gimp-unit-get-symbol": {
+   "blurb": "Returns the symbol of the unit.",
+   "help": "This procedure returns the symbol of the unit (\"''\" for inches).",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    }
+   ]
+  },
+  "gimp-unit-new": {
+   "blurb": "Creates a new unit and returns it's integer ID.",
+   "help": "This procedure creates a new unit and returns it's integer ID. Note that the new unit will have it's deletion flag set to TRUE, so you will have to set it to FALSE with 'gimp-unit-set-deletion-flag' to make it persistent.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "identifier",
+     "desc": "The new unit's identifier"
+    },
+    {
+     "type": "FLOAT",
+     "name": "factor",
+     "desc": "The new unit's factor"
+    },
+    {
+     "type": "INT32",
+     "name": "digits",
+     "desc": "The new unit's digits"
+    },
+    {
+     "type": "STRING",
+     "name": "symbol",
+     "desc": "The new unit's symbol"
+    },
+    {
+     "type": "STRING",
+     "name": "abbreviation",
+     "desc": "The new unit's abbreviation"
+    },
+    {
+     "type": "STRING",
+     "name": "singular",
+     "desc": "The new unit's singular form"
+    },
+    {
+     "type": "STRING",
+     "name": "plural",
+     "desc": "The new unit's plural form"
+    }
+   ]
+  },
+  "gimp-unit-set-deletion-flag": {
+   "blurb": "Sets the deletion flag of a unit.",
+   "help": "This procedure sets the unit's deletion flag. If the deletion flag of a unit is TRUE on gimp exit, this unit's definition will not be saved in the user's unitrc.",
+   "args": [
+    {
+     "type": "INT32",
+     "name": "unit-id",
+     "desc": "The unit's integer ID"
+    },
+    {
+     "type": "INT32",
+     "name": "deletion-flag",
+     "desc": "The new deletion flag of the unit (TRUE or FALSE)"
+    }
+   ]
+  }
+ }
+}

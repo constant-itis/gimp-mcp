@@ -1,0 +1,1563 @@
+{
+ "domain": "paint-draw",
+ "count": 69,
+ "procedures": {
+  "gimp-airbrush": {
+   "blurb": "Paint in the current brush with varying pressure. Paint application is time-dependent.",
+   "help": "This tool simulates the use of an airbrush. Paint pressure represents the relative intensity of the paint application. High pressure results in a thicker layer of paint while low pressure results in a thinner layer.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "pressure",
+     "desc": "The pressure of the airbrush strokes (0 <= pressure <= 100)"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-airbrush-default": {
+   "blurb": "Paint in the current brush with varying pressure. Paint application is time-dependent.",
+   "help": "This tool simulates the use of an airbrush. It is similar to 'gimp-airbrush' except that the pressure is derived from the airbrush tools options box. It the option has not been set the default for the option will be used.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-blend": {
+   "blurb": "This procedure is deprecated! Use 'gimp-edit-blend' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-edit-blend' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "blend-mode",
+     "desc": "The type of blend { BLEND-FG-BG-RGB (0), BLEND-FG-BG-HSV (1), BLEND-FG-TRANSPARENT (2), BLEND-CUSTOM (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The paint application mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    },
+    {
+     "type": "INT32",
+     "name": "gradient-type",
+     "desc": "The type of gradient { GRADIENT-LINEAR (0), GRADIENT-BILINEAR (1), GRADIENT-RADIAL (2), GRADIENT-SQUARE (3), GRADIENT-CONICAL-SYMMETRIC (4), GRADIENT-CONICAL-ASYMMETRIC (5), GRADIENT-SHAPEBURST-ANGULAR (6), GRADIENT-SHAPEBURST-SPHERICAL (7), GRADIENT-SHAPEBURST-DIMPLED (8), GRADIENT-SPIRAL-CLOCKWISE (9), GRADIENT-SPIRAL-ANTICLOCKWISE (10) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity of the final blend (0 <= opacity <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "offset",
+     "desc": "Offset relates to the starting and ending coordinates specified for the blend. This parameter is mode dependent. (offset >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "repeat",
+     "desc": "Repeat mode { REPEAT-NONE (0), REPEAT-SAWTOOTH (1), REPEAT-TRIANGULAR (2), REPEAT-TRUNCATE (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "reverse",
+     "desc": "Use the reverse gradient (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "Do adaptive supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "max-depth",
+     "desc": "Maximum recursion levels for supersampling (1 <= max-depth <= 9)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "threshold",
+     "desc": "Supersampling threshold (0 <= threshold <= 4)"
+    },
+    {
+     "type": "INT32",
+     "name": "dither",
+     "desc": "Use dithering to reduce banding (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The x coordinate of this blend's starting point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The y coordinate of this blend's starting point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "The x coordinate of this blend's ending point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "The y coordinate of this blend's ending point"
+    }
+   ]
+  },
+  "gimp-bucket-fill": {
+   "blurb": "This procedure is deprecated! Use 'gimp-edit-bucket-fill' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-edit-bucket-fill' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "fill-mode",
+     "desc": "The type of fill { BUCKET-FILL-FG (0), BUCKET-FILL-BG (1), BUCKET-FILL-PATTERN (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The paint application mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity of the final bucket fill (0 <= opacity <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "threshold",
+     "desc": "The threshold determines how extensive the seed fill will be. It's value is specified in terms of intensity levels. This parameter is only valid when there is no selection in the specified image. (0 <= threshold <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "Use the composite image, not the drawable (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "The x coordinate of this bucket fill's application. This parameter is only valid when there is no selection in the specified image."
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "The y coordinate of this bucket fill's application. This parameter is only valid when there is no selection in the specified image."
+    }
+   ]
+  },
+  "gimp-clone": {
+   "blurb": "Clone from the source to the dest drawable using the current brush",
+   "help": "This tool clones (copies) from the source drawable starting at the specified source coordinates to the dest drawable. If the \"clone_type\" argument is set to PATTERN-CLONE, then the current pattern is used as the source and the \"src_drawable\" argument is ignored. Pattern cloning assumes a tileable pattern and mods the sum of the src coordinates and subsequent stroke offsets with the width and height of the pattern. For image cloning, if the sum of the src coordinates and subsequent stroke offsets exceeds the extents of the src drawable, then no paint is transferred. The clone tool is capable of transforming between any image types including RGB->Indexed--although converting from any type to indexed is significantly slower.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "DRAWABLE",
+     "name": "src-drawable",
+     "desc": "The source drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "clone-type",
+     "desc": "The type of clone { CLONE-IMAGE (0), CLONE-PATTERN (1) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "src-x",
+     "desc": "The x coordinate in the source image"
+    },
+    {
+     "type": "FLOAT",
+     "name": "src-y",
+     "desc": "The y coordinate in the source image"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-clone-default": {
+   "blurb": "Clone from the source to the dest drawable using the current brush",
+   "help": "This tool clones (copies) from the source drawable starting at the specified source coordinates to the dest drawable. This function performs exactly the same as the 'gimp-clone' function except that the tools arguments are obtained from the clones option dialog. It this dialog has not been activated then the dialogs default values will be used.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-drawable-edit-bucket-fill": {
+   "blurb": "Fill the area by a seed fill starting at the specified coordinates.",
+   "help": "This procedure does a seed fill at the specified coordinates, using various parameters from the current context.\nIn the case of merged sampling, the x and y coordinates are relative to the image's origin; otherwise, they are relative to the drawable's origin.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-opacity', 'gimp-context-set-paint-mode', 'gimp-context-set-foreground', 'gimp-context-set-background', 'gimp-context-set-pattern', 'gimp-context-set-sample-threshold', 'gimp-context-set-sample-merged', 'gimp-context-set-sample-criterion', 'gimp-context-set-diagonal-neighbors', 'gimp-context-set-antialias'.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "fill-type",
+     "desc": "The type of fill { FILL-FOREGROUND (0), FILL-BACKGROUND (1), FILL-WHITE (2), FILL-TRANSPARENT (3), FILL-PATTERN (4) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "The x coordinate of this bucket fill's application."
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "The y coordinate of this bucket fill's application."
+    }
+   ]
+  },
+  "gimp-drawable-edit-clear": {
+   "blurb": "Clear selected area of drawable.",
+   "help": "This procedure clears the specified drawable. If the drawable has an alpha channel, the cleared pixels will become transparent. If the drawable does not have an alpha channel, cleared pixels will be set to the background color. This procedure only affects regions within a selection if there is a selection active.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-background'.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to clear from"
+    }
+   ]
+  },
+  "gimp-drawable-edit-fill": {
+   "blurb": "Fill selected area of drawable.",
+   "help": "This procedure fills the specified drawable according to fill mode. This procedure only affects regions within a selection if there is a selection active. If you want to fill the whole drawable, regardless of the selection, use 'gimp-drawable-fill'.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-opacity', 'gimp-context-set-paint-mode', 'gimp-context-set-foreground', 'gimp-context-set-background', 'gimp-context-set-pattern'.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to fill to"
+    },
+    {
+     "type": "INT32",
+     "name": "fill-type",
+     "desc": "The type of fill { FILL-FOREGROUND (0), FILL-BACKGROUND (1), FILL-WHITE (2), FILL-TRANSPARENT (3), FILL-PATTERN (4) }"
+    }
+   ]
+  },
+  "gimp-drawable-edit-gradient-fill": {
+   "blurb": "Draw a gradient between the starting and ending coordinates with the specified gradient type.",
+   "help": "This tool requires information on the gradient type. It creates the specified variety of gradient using the starting and ending coordinates as defined for each gradient type. For shapeburst gradient types, the context's distance metric is also relevant and can be updated with 'gimp-context-set-distance-metric'.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-opacity', 'gimp-context-set-paint-mode', 'gimp-context-set-foreground', 'gimp-context-set-background', 'gimp-context-set-gradient' and all gradient property settings, 'gimp-context-set-distance-metric'.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "gradient-type",
+     "desc": "The type of gradient { GRADIENT-LINEAR (0), GRADIENT-BILINEAR (1), GRADIENT-RADIAL (2), GRADIENT-SQUARE (3), GRADIENT-CONICAL-SYMMETRIC (4), GRADIENT-CONICAL-ASYMMETRIC (5), GRADIENT-SHAPEBURST-ANGULAR (6), GRADIENT-SHAPEBURST-SPHERICAL (7), GRADIENT-SHAPEBURST-DIMPLED (8), GRADIENT-SPIRAL-CLOCKWISE (9), GRADIENT-SPIRAL-ANTICLOCKWISE (10) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "offset",
+     "desc": "Offset relates to the starting and ending coordinates specified for the blend. This parameter is mode dependent. (offset >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "Do adaptive supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample-max-depth",
+     "desc": "Maximum recursion levels for supersampling (1 <= supersample-max-depth <= 9)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "supersample-threshold",
+     "desc": "Supersampling threshold (0 <= supersample-threshold <= 4)"
+    },
+    {
+     "type": "INT32",
+     "name": "dither",
+     "desc": "Use dithering to reduce banding (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The x coordinate of this gradient's starting point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The y coordinate of this gradient's starting point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "The x coordinate of this gradient's ending point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "The y coordinate of this gradient's ending point"
+    }
+   ]
+  },
+  "gimp-drawable-edit-stroke-item": {
+   "blurb": "Stroke the specified item",
+   "help": "This procedure strokes the specified item, painting along its outline (e.g. along a path, or along a channel's boundary), with the active paint method and brush, or using a plain line with configurable properties.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-opacity', 'gimp-context-set-paint-mode', 'gimp-context-set-paint-method', 'gimp-context-set-stroke-method', 'gimp-context-set-foreground', 'gimp-context-set-brush' and all brush property settings, 'gimp-context-set-gradient' and all gradient property settings, 'gimp-context-set-line-width' and all line property settings, 'gimp-context-set-antialias'.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to stroke to"
+    },
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item to stroke"
+    }
+   ]
+  },
+  "gimp-drawable-edit-stroke-selection": {
+   "blurb": "Stroke the current selection",
+   "help": "This procedure strokes the current selection, painting along the selection boundary with the active paint method and brush, or using a plain line with configurable properties. The paint is applied to the specified drawable regardless of the active selection.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-opacity', 'gimp-context-set-paint-mode', 'gimp-context-set-paint-method', 'gimp-context-set-stroke-method', 'gimp-context-set-foreground', 'gimp-context-set-brush' and all brush property settings, 'gimp-context-set-gradient' and all gradient property settings, 'gimp-context-set-line-width' and all line property settings, 'gimp-context-set-antialias'.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to stroke to"
+    }
+   ]
+  },
+  "gimp-edit-blend": {
+   "blurb": "Blend between the starting and ending coordinates with the specified blend mode and gradient type.",
+   "help": "This tool requires information on the paint application mode, the blend mode, and the gradient type. It creates the specified variety of blend using the starting and ending coordinates as defined for each gradient type. For shapeburst gradient types, the context's distance metric is also relevant and can be updated with 'gimp-context-set-distance-metric'.\n\nDeprecated: Use 'gimp-drawable-edit-gradient-fill' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "blend-mode",
+     "desc": "The type of blend { BLEND-FG-BG-RGB (0), BLEND-FG-BG-HSV (1), BLEND-FG-TRANSPARENT (2), BLEND-CUSTOM (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The paint application mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    },
+    {
+     "type": "INT32",
+     "name": "gradient-type",
+     "desc": "The type of gradient { GRADIENT-LINEAR (0), GRADIENT-BILINEAR (1), GRADIENT-RADIAL (2), GRADIENT-SQUARE (3), GRADIENT-CONICAL-SYMMETRIC (4), GRADIENT-CONICAL-ASYMMETRIC (5), GRADIENT-SHAPEBURST-ANGULAR (6), GRADIENT-SHAPEBURST-SPHERICAL (7), GRADIENT-SHAPEBURST-DIMPLED (8), GRADIENT-SPIRAL-CLOCKWISE (9), GRADIENT-SPIRAL-ANTICLOCKWISE (10) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity of the final blend (0 <= opacity <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "offset",
+     "desc": "Offset relates to the starting and ending coordinates specified for the blend. This parameter is mode dependent. (offset >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "repeat",
+     "desc": "Repeat mode { REPEAT-NONE (0), REPEAT-SAWTOOTH (1), REPEAT-TRIANGULAR (2), REPEAT-TRUNCATE (3) }"
+    },
+    {
+     "type": "INT32",
+     "name": "reverse",
+     "desc": "Use the reverse gradient (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "Do adaptive supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "max-depth",
+     "desc": "Maximum recursion levels for supersampling (1 <= max-depth <= 9)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "threshold",
+     "desc": "Supersampling threshold (0 <= threshold <= 4)"
+    },
+    {
+     "type": "INT32",
+     "name": "dither",
+     "desc": "Use dithering to reduce banding (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The x coordinate of this blend's starting point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The y coordinate of this blend's starting point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "The x coordinate of this blend's ending point"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "The y coordinate of this blend's ending point"
+    }
+   ]
+  },
+  "gimp-edit-bucket-fill": {
+   "blurb": "Fill the area specified either by the current selection if there is one, or by a seed fill starting at the specified coordinates.",
+   "help": "This tool requires information on the paint application mode, and the fill mode, which can either be in the foreground color, or in the currently active pattern. If there is no selection, a seed fill is executed at the specified coordinates and extends outward in keeping with the threshold parameter. If there is a selection in the target image, the threshold, sample merged, x, and y arguments are unused. If the sample_merged parameter is TRUE, the data of the composite image will be used instead of that for the specified drawable. This is equivalent to sampling for colors after merging all visible layers. In the case of merged sampling, the x and y coordinates are relative to the image's origin; otherwise, they are relative to the drawable's origin.\n\nDeprecated: Use 'gimp-drawable-edit-bucket-fill' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "fill-mode",
+     "desc": "The type of fill { BUCKET-FILL-FG (0), BUCKET-FILL-BG (1), BUCKET-FILL-PATTERN (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The paint application mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity of the final bucket fill (0 <= opacity <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "threshold",
+     "desc": "The threshold determines how extensive the seed fill will be. It's value is specified in terms of intensity levels. This parameter is only valid when there is no selection in the specified image. (0 <= threshold <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "Use the composite image, not the drawable (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "The x coordinate of this bucket fill's application. This parameter is only valid when there is no selection in the specified image."
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "The y coordinate of this bucket fill's application. This parameter is only valid when there is no selection in the specified image."
+    }
+   ]
+  },
+  "gimp-edit-bucket-fill-full": {
+   "blurb": "Fill the area specified either by the current selection if there is one, or by a seed fill starting at the specified coordinates.",
+   "help": "This tool requires information on the paint application mode, and the fill mode, which can either be in the foreground color, or in the currently active pattern. If there is no selection, a seed fill is executed at the specified coordinates and extends outward in keeping with the threshold parameter. If there is a selection in the target image, the threshold, sample merged, x, and y arguments are unused. If the sample_merged parameter is TRUE, the data of the composite image will be used instead of that for the specified drawable. This is equivalent to sampling for colors after merging all visible layers. In the case of merged sampling, the x and y coordinates are relative to the image's origin; otherwise, they are relative to the drawable's origin.\n\nDeprecated: Use 'gimp-drawable-edit-bucket-fill' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "fill-mode",
+     "desc": "The type of fill { BUCKET-FILL-FG (0), BUCKET-FILL-BG (1), BUCKET-FILL-PATTERN (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "paint-mode",
+     "desc": "The paint application mode { LAYER-MODE-NORMAL-LEGACY (0), LAYER-MODE-DISSOLVE (1), LAYER-MODE-BEHIND-LEGACY (2), LAYER-MODE-MULTIPLY-LEGACY (3), LAYER-MODE-SCREEN-LEGACY (4), LAYER-MODE-OVERLAY-LEGACY (5), LAYER-MODE-DIFFERENCE-LEGACY (6), LAYER-MODE-ADDITION-LEGACY (7), LAYER-MODE-SUBTRACT-LEGACY (8), LAYER-MODE-DARKEN-ONLY-LEGACY (9), LAYER-MODE-LIGHTEN-ONLY-LEGACY (10), LAYER-MODE-HSV-HUE-LEGACY (11), LAYER-MODE-HSV-SATURATION-LEGACY (12), LAYER-MODE-HSL-COLOR-LEGACY (13), LAYER-MODE-HSV-VALUE-LEGACY (14), LAYER-MODE-DIVIDE-LEGACY (15), LAYER-MODE-DODGE-LEGACY (16), LAYER-MODE-BURN-LEGACY (17), LAYER-MODE-HARDLIGHT-LEGACY (18), LAYER-MODE-SOFTLIGHT-LEGACY (19), LAYER-MODE-GRAIN-EXTRACT-LEGACY (20), LAYER-MODE-GRAIN-MERGE-LEGACY (21), LAYER-MODE-COLOR-ERASE-LEGACY (22), LAYER-MODE-OVERLAY (23), LAYER-MODE-LCH-HUE (24), LAYER-MODE-LCH-CHROMA (25), LAYER-MODE-LCH-COLOR (26), LAYER-MODE-LCH-LIGHTNESS (27), LAYER-MODE-NORMAL (28), LAYER-MODE-BEHIND (29), LAYER-MODE-MULTIPLY (30), LAYER-MODE-SCREEN (31), LAYER-MODE-DIFFERENCE (32), LAYER-MODE-ADDITION (33), LAYER-MODE-SUBTRACT (34), LAYER-MODE-DARKEN-ONLY (35), LAYER-MODE-LIGHTEN-ONLY (36), LAYER-MODE-HSV-HUE (37), LAYER-MODE-HSV-SATURATION (38), LAYER-MODE-HSL-COLOR (39), LAYER-MODE-HSV-VALUE (40), LAYER-MODE-DIVIDE (41), LAYER-MODE-DODGE (42), LAYER-MODE-BURN (43), LAYER-MODE-HARDLIGHT (44), LAYER-MODE-SOFTLIGHT (45), LAYER-MODE-GRAIN-EXTRACT (46), LAYER-MODE-GRAIN-MERGE (47), LAYER-MODE-VIVID-LIGHT (48), LAYER-MODE-PIN-LIGHT (49), LAYER-MODE-LINEAR-LIGHT (50), LAYER-MODE-HARD-MIX (51), LAYER-MODE-EXCLUSION (52), LAYER-MODE-LINEAR-BURN (53), LAYER-MODE-LUMA-DARKEN-ONLY (54), LAYER-MODE-LUMA-LIGHTEN-ONLY (55), LAYER-MODE-LUMINANCE (56), LAYER-MODE-COLOR-ERASE (57), LAYER-MODE-ERASE (58), LAYER-MODE-MERGE (59), LAYER-MODE-SPLIT (60), LAYER-MODE-PASS-THROUGH (61), LAYER-MODE-REPLACE (62), LAYER-MODE-ANTI-ERASE (63) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity of the final bucket fill (0 <= opacity <= 100)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "threshold",
+     "desc": "The threshold determines how extensive the seed fill will be. It's value is specified in terms of intensity levels. This parameter is only valid when there is no selection in the specified image. (0 <= threshold <= 255)"
+    },
+    {
+     "type": "INT32",
+     "name": "sample-merged",
+     "desc": "Use the composite image, not the drawable (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "fill-transparent",
+     "desc": "Whether to consider transparent pixels for filling. If TRUE, transparency is considered as a unique fillable color. (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "select-criterion",
+     "desc": "The criterion used to determine color similarity. SELECT_CRITERION_COMPOSITE is the standard choice. { SELECT-CRITERION-COMPOSITE (0), SELECT-CRITERION-R (1), SELECT-CRITERION-G (2), SELECT-CRITERION-B (3), SELECT-CRITERION-H (4), SELECT-CRITERION-S (5), SELECT-CRITERION-V (6), SELECT-CRITERION-A (7), SELECT-CRITERION-LCH-L (8), SELECT-CRITERION-LCH-C (9), SELECT-CRITERION-LCH-H (10) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x",
+     "desc": "The x coordinate of this bucket fill's application. This parameter is only valid when there is no selection in the specified image."
+    },
+    {
+     "type": "FLOAT",
+     "name": "y",
+     "desc": "The y coordinate of this bucket fill's application. This parameter is only valid when there is no selection in the specified image."
+    }
+   ]
+  },
+  "gimp-edit-clear": {
+   "blurb": "Clear selected area of drawable.",
+   "help": "This procedure clears the specified drawable. If the drawable has an alpha channel, the cleared pixels will become transparent. If the drawable does not have an alpha channel, cleared pixels will be set to the background color. This procedure only affects regions within a selection if there is a selection active.\n\nDeprecated: Use 'gimp-drawable-edit-clear' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to clear from"
+    }
+   ]
+  },
+  "gimp-edit-copy": {
+   "blurb": "Copy from the specified drawable.",
+   "help": "If there is a selection in the image, then the area specified by the selection is copied from the specified drawable and placed in an internal GIMP edit buffer. It can subsequently be retrieved using the 'gimp-edit-paste' command. If there is no selection, then the specified drawable's contents will be stored in the internal GIMP edit buffer. This procedure will fail if the selected area lies completely outside the bounds of the current drawable and there is nothing to copy from.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to copy from"
+    }
+   ]
+  },
+  "gimp-edit-copy-visible": {
+   "blurb": "Copy from the projection.",
+   "help": "If there is a selection in the image, then the area specified by the selection is copied from the projection and placed in an internal GIMP edit buffer. It can subsequently be retrieved using the 'gimp-edit-paste' command. If there is no selection, then the projection's contents will be stored in the internal GIMP edit buffer.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to copy from"
+    }
+   ]
+  },
+  "gimp-edit-cut": {
+   "blurb": "Cut from the specified drawable.",
+   "help": "If there is a selection in the image, then the area specified by the selection is cut from the specified drawable and placed in an internal GIMP edit buffer. It can subsequently be retrieved using the 'gimp-edit-paste' command. If there is no selection, then the specified drawable will be removed and its contents stored in the internal GIMP edit buffer. This procedure will fail if the selected area lies completely outside the bounds of the current drawable and there is nothing to copy from.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to cut from"
+    }
+   ]
+  },
+  "gimp-edit-fill": {
+   "blurb": "Fill selected area of drawable.",
+   "help": "This procedure fills the specified drawable with the fill mode. If the fill mode is foreground, the current foreground color is used. If the fill mode is background, the current background color is used. Other fill modes should not be used. This procedure only affects regions within a selection if there is a selection active. If you want to fill the whole drawable, regardless of the selection, use 'gimp-drawable-fill'.\n\nDeprecated: Use 'gimp-drawable-edit-fill' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to fill to"
+    },
+    {
+     "type": "INT32",
+     "name": "fill-type",
+     "desc": "The type of fill { FILL-FOREGROUND (0), FILL-BACKGROUND (1), FILL-WHITE (2), FILL-TRANSPARENT (3), FILL-PATTERN (4) }"
+    }
+   ]
+  },
+  "gimp-edit-named-copy": {
+   "blurb": "Copy into a named buffer.",
+   "help": "This procedure works like 'gimp-edit-copy', but additionally stores the copied buffer into a named buffer that will stay available for later pasting, regardless of any intermediate copy or cut operations.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to copy from"
+    },
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The name of the buffer to create"
+    }
+   ]
+  },
+  "gimp-edit-named-copy-visible": {
+   "blurb": "Copy from the projection into a named buffer.",
+   "help": "This procedure works like 'gimp-edit-copy-visible', but additionally stores the copied buffer into a named buffer that will stay available for later pasting, regardless of any intermediate copy or cut operations.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image to copy from"
+    },
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The name of the buffer to create"
+    }
+   ]
+  },
+  "gimp-edit-named-cut": {
+   "blurb": "Cut into a named buffer.",
+   "help": "This procedure works like 'gimp-edit-cut', but additionally stores the cut buffer into a named buffer that will stay available for later pasting, regardless of any intermediate copy or cut operations.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to cut from"
+    },
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The name of the buffer to create"
+    }
+   ]
+  },
+  "gimp-edit-named-paste": {
+   "blurb": "Paste named buffer to the specified drawable.",
+   "help": "This procedure works like 'gimp-edit-paste' but pastes a named buffer instead of the global buffer.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to paste to"
+    },
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The name of the buffer to paste"
+    },
+    {
+     "type": "INT32",
+     "name": "paste-into",
+     "desc": "Clear selection, or paste behind it? (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-edit-named-paste-as-new": {
+   "blurb": "This procedure is deprecated! Use 'gimp-edit-named-paste-as-new-image' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-edit-named-paste-as-new-image' instead.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The name of the buffer to paste"
+    }
+   ]
+  },
+  "gimp-edit-named-paste-as-new-image": {
+   "blurb": "Paste named buffer to a new image.",
+   "help": "This procedure works like 'gimp-edit-paste-as-new-image' but pastes a named buffer instead of the global buffer.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "buffer-name",
+     "desc": "The name of the buffer to paste"
+    }
+   ]
+  },
+  "gimp-edit-paste": {
+   "blurb": "Paste buffer to the specified drawable.",
+   "help": "This procedure pastes a copy of the internal GIMP edit buffer to the specified drawable. The GIMP edit buffer will be empty unless a call was previously made to either 'gimp-edit-cut' or 'gimp-edit-copy'. The \"paste_into\" option specifies whether to clear the current image selection, or to paste the buffer \"behind\" the selection. This allows the selection to act as a mask for the pasted buffer. Anywhere that the selection mask is non-zero, the pasted buffer will show through. The pasted buffer will be a new layer in the image which is designated as the image floating selection. If the image has a floating selection at the time of pasting, the old floating selection will be anchored to its drawable before the new floating selection is added. This procedure returns the new floating layer. The resulting floating selection will already be attached to the specified drawable, and a subsequent call to floating_sel_attach is not needed.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to paste to"
+    },
+    {
+     "type": "INT32",
+     "name": "paste-into",
+     "desc": "Clear selection, or paste behind it? (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-edit-paste-as-new": {
+   "blurb": "This procedure is deprecated! Use 'gimp-edit-paste-as-new-image' instead.",
+   "help": "This procedure is deprecated! Use 'gimp-edit-paste-as-new-image' instead.",
+   "args": []
+  },
+  "gimp-edit-paste-as-new-image": {
+   "blurb": "Paste buffer to a new image.",
+   "help": "This procedure pastes a copy of the internal GIMP edit buffer to a new image. The GIMP edit buffer will be empty unless a call was previously made to either 'gimp-edit-cut' or 'gimp-edit-copy'. This procedure returns the new image or -1 if the edit buffer was empty.",
+   "args": []
+  },
+  "gimp-edit-stroke": {
+   "blurb": "Stroke the current selection",
+   "help": "This procedure strokes the current selection, painting along the selection boundary with the active brush and foreground color. The paint is applied to the specified drawable regardless of the active selection.\n\nDeprecated: Use 'gimp-drawable-edit-stroke-selection' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to stroke to"
+    }
+   ]
+  },
+  "gimp-edit-stroke-vectors": {
+   "blurb": "Stroke the specified vectors object",
+   "help": "This procedure strokes the specified vectors object, painting along the path with the active brush and foreground color.\n\nDeprecated: Use 'gimp-drawable-edit-stroke-item' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The drawable to stroke to"
+    },
+    {
+     "type": "VECTORS",
+     "name": "vectors",
+     "desc": "The vectors object"
+    }
+   ]
+  },
+  "gimp-eraser": {
+   "blurb": "Erase using the current brush.",
+   "help": "This tool erases using the current brush mask. If the specified drawable contains an alpha channel, then the erased pixels will become transparent. Otherwise, the eraser tool replaces the contents of the drawable with the background color. Like paintbrush, this tool linearly interpolates between the specified stroke coordinates.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    },
+    {
+     "type": "INT32",
+     "name": "hardness",
+     "desc": "How to apply the brush { BRUSH-HARD (0), BRUSH-SOFT (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "method",
+     "desc": "The paint method to use { PAINT-CONSTANT (0), PAINT-INCREMENTAL (1) }"
+    }
+   ]
+  },
+  "gimp-eraser-default": {
+   "blurb": "Erase using the current brush.",
+   "help": "This tool erases using the current brush mask. This function performs exactly the same as the 'gimp-eraser' function except that the tools arguments are obtained from the eraser option dialog. It this dialog has not been activated then the dialogs default values will be used.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-gradient-delete": {
+   "blurb": "Deletes a gradient",
+   "help": "This procedure deletes a gradient",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    }
+   ]
+  },
+  "gimp-gradient-duplicate": {
+   "blurb": "Duplicates a gradient",
+   "help": "This procedure creates an identical gradient by a different name",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    }
+   ]
+  },
+  "gimp-gradient-get-custom-samples": {
+   "blurb": "Sample the specified gradient in custom positions.",
+   "help": "This procedure samples the active gradient in the specified number of points. The procedure will sample the gradient in the specified positions from the list. The left endpoint of the gradient corresponds to position 0.0, and the right endpoint corresponds to 1.0. The procedure returns a list of floating-point values which correspond to the RGBA values for each sample.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "num-samples",
+     "desc": "The number of samples to take (num-samples >= 1)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "positions",
+     "desc": "The list of positions to sample along the gradient"
+    },
+    {
+     "type": "INT32",
+     "name": "reverse",
+     "desc": "Use the reverse gradient (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-gradient-get-number-of-segments": {
+   "blurb": "Returns the number of segments of the specified gradient",
+   "help": "This procedure returns the number of segments of the specified gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    }
+   ]
+  },
+  "gimp-gradient-get-uniform-samples": {
+   "blurb": "Sample the specified in uniform parts.",
+   "help": "This procedure samples the active gradient in the specified number of uniform parts. It returns a list of floating-point values which correspond to the RGBA values for each sample. The minimum number of samples to take is 2, in which case the returned colors will correspond to the { 0.0, 1.0 } positions in the gradient. For example, if the number of samples is 3, the procedure will return the colors at positions { 0.0, 0.5, 1.0 }.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "num-samples",
+     "desc": "The number of samples to take (num-samples >= 2)"
+    },
+    {
+     "type": "INT32",
+     "name": "reverse",
+     "desc": "Use the reverse gradient (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-gradient-is-editable": {
+   "blurb": "Tests if gradient can be edited",
+   "help": "Returns TRUE if you have permission to change the gradient",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    }
+   ]
+  },
+  "gimp-gradient-new": {
+   "blurb": "Creates a new gradient",
+   "help": "This procedure creates a new, uninitialized gradient",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The requested name of the new gradient"
+    }
+   ]
+  },
+  "gimp-gradient-rename": {
+   "blurb": "Rename a gradient",
+   "help": "This procedure renames a gradient",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "STRING",
+     "name": "new-name",
+     "desc": "The new name of the gradient"
+    }
+   ]
+  },
+  "gimp-gradient-segment-get-blending-function": {
+   "blurb": "Retrieves the gradient segment's blending function",
+   "help": "This procedure retrieves the blending function of the segment at the specified gradient name and segment index.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-get-coloring-type": {
+   "blurb": "Retrieves the gradient segment's coloring type",
+   "help": "This procedure retrieves the coloring type of the segment at the specified gradient name and segment index.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-get-left-color": {
+   "blurb": "Retrieves the left endpoint color of the specified segment",
+   "help": "This procedure retrieves the left endpoint color of the specified segment of the specified gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-get-left-pos": {
+   "blurb": "Retrieves the left endpoint position of the specified segment",
+   "help": "This procedure retrieves the left endpoint position of the specified segment of the specified gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-get-middle-pos": {
+   "blurb": "Retrieves the middle point position of the specified segment",
+   "help": "This procedure retrieves the middle point position of the specified segment of the specified gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-get-right-color": {
+   "blurb": "Retrieves the right endpoint color of the specified segment",
+   "help": "This procedure retrieves the right endpoint color of the specified segment of the specified gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-get-right-pos": {
+   "blurb": "Retrieves the right endpoint position of the specified segment",
+   "help": "This procedure retrieves the right endpoint position of the specified segment of the specified gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-blend-colors": {
+   "blurb": "Blend the colors of the segment range.",
+   "help": "This function blends the colors (but not the opacity) of the segments' range of the gradient. Using it, the colors' transition will be uniform across the range.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-blend-opacity": {
+   "blurb": "Blend the opacity of the segment range.",
+   "help": "This function blends the opacity (but not the colors) of the segments' range of the gradient. Using it, the opacity's transition will be uniform across the range.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-delete": {
+   "blurb": "Delete the segment range",
+   "help": "This function deletes a segment range.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-flip": {
+   "blurb": "Flip the segment range",
+   "help": "This function flips a segment range.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-move": {
+   "blurb": "Move the position of an entire segment range by a delta.",
+   "help": "This function moves the position of an entire segment range by a delta. The actual delta (which is returned) will be limited by the control points of the neighboring segments.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    },
+    {
+     "type": "FLOAT",
+     "name": "delta",
+     "desc": "The delta to move the segment range (-1 <= delta <= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "control-compress",
+     "desc": "Whether or not to compress the neighboring segments (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-redistribute-handles": {
+   "blurb": "Uniformly redistribute the segment range's handles",
+   "help": "This function redistributes the handles of the specified segment range of the specified gradient, so they'll be evenly spaced.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-replicate": {
+   "blurb": "Replicate the segment range",
+   "help": "This function replicates a segment range a given number of times. Instead of the original segment range, several smaller scaled copies of it will appear in equal widths.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    },
+    {
+     "type": "INT32",
+     "name": "replicate-times",
+     "desc": "The number of times to replicate (2 <= replicate-times <= 20)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-set-blending-function": {
+   "blurb": "Change the blending function of a segments range",
+   "help": "This function changes the blending function of a segment range to the specified blending function.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    },
+    {
+     "type": "INT32",
+     "name": "blending-function",
+     "desc": "The blending function { GRADIENT-SEGMENT-LINEAR (0), GRADIENT-SEGMENT-CURVED (1), GRADIENT-SEGMENT-SINE (2), GRADIENT-SEGMENT-SPHERE-INCREASING (3), GRADIENT-SEGMENT-SPHERE-DECREASING (4), GRADIENT-SEGMENT-STEP (5) }"
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-set-coloring-type": {
+   "blurb": "Change the coloring type of a segments range",
+   "help": "This function changes the coloring type of a segment range to the specified coloring type.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    },
+    {
+     "type": "INT32",
+     "name": "coloring-type",
+     "desc": "The coloring type { GRADIENT-SEGMENT-RGB (0), GRADIENT-SEGMENT-HSV-CCW (1), GRADIENT-SEGMENT-HSV-CW (2) }"
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-split-midpoint": {
+   "blurb": "Splits each segment in the segment range at midpoint",
+   "help": "This function splits each segment in the segment range at its midpoint.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    }
+   ]
+  },
+  "gimp-gradient-segment-range-split-uniform": {
+   "blurb": "Splits each segment in the segment range uniformly",
+   "help": "This function splits each segment in the segment range uniformly according to the number of times specified by the parameter.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "start-segment",
+     "desc": "The index of the first segment to operate on (start-segment >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "end-segment",
+     "desc": "The index of the last segment to operate on. If negative, the selection will extend to the end of the string."
+    },
+    {
+     "type": "INT32",
+     "name": "split-parts",
+     "desc": "The number of uniform divisions to split each segment to (2 <= split-parts <= 1024)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-set-left-color": {
+   "blurb": "Sets the left endpoint color of the specified segment",
+   "help": "This procedure sets the left endpoint color of the specified segment of the specified gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The color to set"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity to set for the endpoint (0 <= opacity <= 100)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-set-left-pos": {
+   "blurb": "Sets the left endpoint position of the specified segment",
+   "help": "This procedure sets the left endpoint position of the specified segment of the specified gradient. The final position will be between the position of the middle point to the left to the middle point of the current segment.\nThis procedure returns the final position.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "pos",
+     "desc": "The position to set the guidepoint to (0 <= pos <= 1)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-set-middle-pos": {
+   "blurb": "Sets the middle point position of the specified segment",
+   "help": "This procedure sets the middle point position of the specified segment of the specified gradient. The final position will be between the two endpoints of the segment.\nThis procedure returns the final position.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "pos",
+     "desc": "The position to set the guidepoint to (0 <= pos <= 1)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-set-right-color": {
+   "blurb": "Sets the right endpoint color of the specified segment",
+   "help": "This procedure sets the right endpoint color of the specified segment of the specified gradient.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    },
+    {
+     "type": "COLOR",
+     "name": "color",
+     "desc": "The color to set"
+    },
+    {
+     "type": "FLOAT",
+     "name": "opacity",
+     "desc": "The opacity to set for the endpoint (0 <= opacity <= 100)"
+    }
+   ]
+  },
+  "gimp-gradient-segment-set-right-pos": {
+   "blurb": "Sets the right endpoint position of the specified segment",
+   "help": "This procedure sets the right endpoint position of the specified segment of the specified gradient. The final position will be between the position of the middle point of the current segment and the middle point of the segment to the right.\nThis procedure returns the final position.",
+   "args": [
+    {
+     "type": "STRING",
+     "name": "name",
+     "desc": "The gradient name"
+    },
+    {
+     "type": "INT32",
+     "name": "segment",
+     "desc": "The index of the segment within the gradient (segment >= 0)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "pos",
+     "desc": "The position to set the guidepoint to (0 <= pos <= 1)"
+    }
+   ]
+  },
+  "gimp-paintbrush": {
+   "blurb": "Paint in the current brush with optional fade out parameter and pull colors from a gradient.",
+   "help": "This tool is the standard paintbrush. It draws linearly interpolated lines through the specified stroke coordinates. It operates on the specified drawable in the foreground color with the active brush. The 'fade-out' parameter is measured in pixels and allows the brush stroke to linearly fall off. The pressure is set to the maximum at the beginning of the stroke. As the distance of the stroke nears the fade-out value, the pressure will approach zero. The gradient-length is the distance to spread the gradient over. It is measured in pixels. If the gradient-length is 0, no gradient is used.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "fade-out",
+     "desc": "Fade out parameter (fade-out >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    },
+    {
+     "type": "INT32",
+     "name": "method",
+     "desc": "The paint method to use { PAINT-CONSTANT (0), PAINT-INCREMENTAL (1) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "gradient-length",
+     "desc": "Length of gradient to draw (gradient-length >= 0)"
+    }
+   ]
+  },
+  "gimp-paintbrush-default": {
+   "blurb": "Paint in the current brush. The fade out parameter and pull colors from a gradient parameter are set from the paintbrush options dialog. If this dialog has not been activated then the dialog defaults will be used.",
+   "help": "This tool is similar to the standard paintbrush. It draws linearly interpolated lines through the specified stroke coordinates. It operates on the specified drawable in the foreground color with the active brush. The 'fade-out' parameter is measured in pixels and allows the brush stroke to linearly fall off (value obtained from the option dialog). The pressure is set to the maximum at the beginning of the stroke. As the distance of the stroke nears the fade-out value, the pressure will approach zero. The gradient-length (value obtained from the option dialog) is the distance to spread the gradient over. It is measured in pixels. If the gradient-length is 0, no gradient is used.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-pencil": {
+   "blurb": "Paint in the current brush without sub-pixel sampling.",
+   "help": "This tool is the standard pencil. It draws linearly interpolated lines through the specified stroke coordinates. It operates on the specified drawable in the foreground color with the active brush. The brush mask is treated as though it contains only black and white values. Any value below half is treated as black; any above half, as white.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-smudge": {
+   "blurb": "Smudge image with varying pressure.",
+   "help": "This tool simulates a smudge using the current brush. High pressure results in a greater smudge of paint while low pressure results in a lesser smudge.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "pressure",
+     "desc": "The pressure of the smudge strokes (0 <= pressure <= 100)"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  },
+  "gimp-smudge-default": {
+   "blurb": "Smudge image with varying pressure.",
+   "help": "This tool simulates a smudge using the current brush. It behaves exactly the same as 'gimp-smudge' except that the pressure value is taken from the smudge tool options or the options default if the tools option dialog has not been activated.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "num-strokes",
+     "desc": "Number of stroke control points (count each coordinate as 2 points) (num-strokes >= 2)"
+    },
+    {
+     "type": "FLOATARRAY",
+     "name": "strokes",
+     "desc": "Array of stroke coordinates: { s1.x, s1.y, s2.x, s2.y, ..., sn.x, sn.y }"
+    }
+   ]
+  }
+ }
+}

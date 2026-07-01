@@ -1,0 +1,1338 @@
+{
+ "domain": "transforms-canvas",
+ "count": 32,
+ "procedures": {
+  "gimp-drawable-transform-2d": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-2d' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-2d' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "source-x",
+     "desc": "X coordinate of the transformation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "source-y",
+     "desc": "Y coordinate of the transformation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-x",
+     "desc": "Amount to scale in x direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-y",
+     "desc": "Amount to scale in y direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle of rotation (radians)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dest-x",
+     "desc": "X coordinate of where the center goes"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dest-y",
+     "desc": "Y coordinate of where the center goes"
+    },
+    {
+     "type": "INT32",
+     "name": "transform-direction",
+     "desc": "Direction of transformation { TRANSFORM-FORWARD (0), TRANSFORM-BACKWARD (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Type of interpolation { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "This parameter is ignored (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "recursion-level",
+     "desc": "This parameter is ignored (recursion-level >= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-2d-default": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-2d' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-2d' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "source-x",
+     "desc": "X coordinate of the transformation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "source-y",
+     "desc": "Y coordinate of the transformation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-x",
+     "desc": "Amount to scale in x direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-y",
+     "desc": "Amount to scale in y direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle of rotation (radians)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dest-x",
+     "desc": "X coordinate of where the center goes"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dest-y",
+     "desc": "Y coordinate of where the center goes"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolate",
+     "desc": "Whether to use interpolation and supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-flip": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-flip' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-flip' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "horz. coord. of one end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "vert. coord. of one end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "horz. coord. of other end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "vert. coord. of other end of axis"
+    },
+    {
+     "type": "INT32",
+     "name": "transform-direction",
+     "desc": "Direction of transformation { TRANSFORM-FORWARD (0), TRANSFORM-BACKWARD (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Type of interpolation { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "This parameter is ignored (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "recursion-level",
+     "desc": "This parameter is ignored (recursion-level >= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "Whether to clip results (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-drawable-transform-flip-default": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-flip' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-flip' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "horz. coord. of one end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "vert. coord. of one end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "horz. coord. of other end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "vert. coord. of other end of axis"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolate",
+     "desc": "Whether to use interpolation and supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "Whether to clip results (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-drawable-transform-flip-simple": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-flip-simple' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-flip-simple' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "flip-type",
+     "desc": "Type of flip { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "auto-center",
+     "desc": "Whether to automatically position the axis in the selection center (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "axis",
+     "desc": "coord. of flip axis"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "Whether to clip results (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-drawable-transform-matrix": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-matrix' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-matrix' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-0",
+     "desc": "coefficient (0,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-1",
+     "desc": "coefficient (0,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-2",
+     "desc": "coefficient (0,2) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-0",
+     "desc": "coefficient (1,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-1",
+     "desc": "coefficient (1,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-2",
+     "desc": "coefficient (1,2) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-0",
+     "desc": "coefficient (2,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-1",
+     "desc": "coefficient (2,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-2",
+     "desc": "coefficient (2,2) of the transformation matrix"
+    },
+    {
+     "type": "INT32",
+     "name": "transform-direction",
+     "desc": "Direction of transformation { TRANSFORM-FORWARD (0), TRANSFORM-BACKWARD (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Type of interpolation { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "This parameter is ignored (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "recursion-level",
+     "desc": "This parameter is ignored (recursion-level >= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-matrix-default": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-matrix' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-matrix' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-0",
+     "desc": "coefficient (0,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-1",
+     "desc": "coefficient (0,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-2",
+     "desc": "coefficient (0,2) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-0",
+     "desc": "coefficient (1,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-1",
+     "desc": "coefficient (1,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-2",
+     "desc": "coefficient (1,2) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-0",
+     "desc": "coefficient (2,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-1",
+     "desc": "coefficient (2,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-2",
+     "desc": "coefficient (2,2) of the transformation matrix"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolate",
+     "desc": "Whether to use interpolation and supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-perspective": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-perspective' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-perspective' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The new x coordinate of upper-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The new y coordinate of upper-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The new x coordinate of upper-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The new y coordinate of upper-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "The new x coordinate of lower-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "The new y coordinate of lower-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x3",
+     "desc": "The new x coordinate of lower-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y3",
+     "desc": "The new y coordinate of lower-right corner of original bounding box"
+    },
+    {
+     "type": "INT32",
+     "name": "transform-direction",
+     "desc": "Direction of transformation { TRANSFORM-FORWARD (0), TRANSFORM-BACKWARD (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Type of interpolation { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "This parameter is ignored (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "recursion-level",
+     "desc": "This parameter is ignored (recursion-level >= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-perspective-default": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-perspective' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-perspective' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The new x coordinate of upper-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The new y coordinate of upper-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The new x coordinate of upper-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The new y coordinate of upper-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "The new x coordinate of lower-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "The new y coordinate of lower-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x3",
+     "desc": "The new x coordinate of lower-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y3",
+     "desc": "The new y coordinate of lower-right corner of original bounding box"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolate",
+     "desc": "Whether to use interpolation and supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-rotate": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-rotate' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-rotate' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle of rotation (radians)"
+    },
+    {
+     "type": "INT32",
+     "name": "auto-center",
+     "desc": "Whether to automatically rotate around the selection center (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "center-x",
+     "desc": "The hor. coordinate of the center of rotation"
+    },
+    {
+     "type": "INT32",
+     "name": "center-y",
+     "desc": "The vert. coordinate of the center of rotation"
+    },
+    {
+     "type": "INT32",
+     "name": "transform-direction",
+     "desc": "Direction of transformation { TRANSFORM-FORWARD (0), TRANSFORM-BACKWARD (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Type of interpolation { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "This parameter is ignored (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "recursion-level",
+     "desc": "This parameter is ignored (recursion-level >= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-rotate-default": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-rotate' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-rotate' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle of rotation (radians)"
+    },
+    {
+     "type": "INT32",
+     "name": "auto-center",
+     "desc": "Whether to automatically rotate around the selection center (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "center-x",
+     "desc": "The hor. coordinate of the center of rotation"
+    },
+    {
+     "type": "INT32",
+     "name": "center-y",
+     "desc": "The vert. coordinate of the center of rotation"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolate",
+     "desc": "Whether to use interpolation and supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-rotate-simple": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-rotate-simple' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-rotate-simple' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "rotate-type",
+     "desc": "Type of rotation { ROTATE-90 (0), ROTATE-180 (1), ROTATE-270 (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "auto-center",
+     "desc": "Whether to automatically rotate around the selection center (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "center-x",
+     "desc": "The hor. coordinate of the center of rotation"
+    },
+    {
+     "type": "INT32",
+     "name": "center-y",
+     "desc": "The vert. coordinate of the center of rotation"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "Whether to clip results (TRUE or FALSE)"
+    }
+   ]
+  },
+  "gimp-drawable-transform-scale": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-scale' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-scale' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The new x coordinate of the upper-left corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The new y coordinate of the upper-left corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The new x coordinate of the lower-right corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The new y coordinate of the lower-right corner of the scaled region"
+    },
+    {
+     "type": "INT32",
+     "name": "transform-direction",
+     "desc": "Direction of transformation { TRANSFORM-FORWARD (0), TRANSFORM-BACKWARD (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Type of interpolation { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "This parameter is ignored (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "recursion-level",
+     "desc": "This parameter is ignored (recursion-level >= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-scale-default": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-scale' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-scale' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The new x coordinate of the upper-left corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The new y coordinate of the upper-left corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The new x coordinate of the lower-right corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The new y coordinate of the lower-right corner of the scaled region"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolate",
+     "desc": "Whether to use interpolation and supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-shear": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-shear' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-shear' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "shear-type",
+     "desc": "Type of shear { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "magnitude",
+     "desc": "The magnitude of the shear"
+    },
+    {
+     "type": "INT32",
+     "name": "transform-direction",
+     "desc": "Direction of transformation { TRANSFORM-FORWARD (0), TRANSFORM-BACKWARD (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Type of interpolation { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    },
+    {
+     "type": "INT32",
+     "name": "supersample",
+     "desc": "This parameter is ignored (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "recursion-level",
+     "desc": "This parameter is ignored (recursion-level >= 1)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-drawable-transform-shear-default": {
+   "blurb": "Deprecated: Use 'gimp-item-transform-shear' instead.",
+   "help": "Deprecated: Use 'gimp-item-transform-shear' instead.",
+   "args": [
+    {
+     "type": "DRAWABLE",
+     "name": "drawable",
+     "desc": "The affected drawable"
+    },
+    {
+     "type": "INT32",
+     "name": "shear-type",
+     "desc": "Type of shear { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "magnitude",
+     "desc": "The magnitude of the shear"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolate",
+     "desc": "Whether to use interpolation and supersampling (TRUE or FALSE)"
+    },
+    {
+     "type": "INT32",
+     "name": "clip-result",
+     "desc": "How to clip results { TRANSFORM-RESIZE-ADJUST (0), TRANSFORM-RESIZE-CLIP (1), TRANSFORM-RESIZE-CROP (2), TRANSFORM-RESIZE-CROP-WITH-ASPECT (3) }"
+    }
+   ]
+  },
+  "gimp-image-crop": {
+   "blurb": "Crop the image to the specified extents.",
+   "help": "This procedure crops the image so that it's new width and height are equal to the supplied parameters. Offsets are also provided which describe the position of the previous image's content. All channels and layers within the image are cropped to the new image extents; this includes the image selection mask. If any parameters are out of range, an error is returned.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "new-width",
+     "desc": "New image width: (0 < new_width <= width) (1 <= new-width <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "new-height",
+     "desc": "New image height: (0 < new_height <= height) (1 <= new-height <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "offx",
+     "desc": "X offset: (0 <= offx <= (width - new_width)) (offx >= 0)"
+    },
+    {
+     "type": "INT32",
+     "name": "offy",
+     "desc": "Y offset: (0 <= offy <= (height - new_height)) (offy >= 0)"
+    }
+   ]
+  },
+  "gimp-image-flip": {
+   "blurb": "Flips the image horizontally or vertically.",
+   "help": "This procedure flips (mirrors) the image.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "flip-type",
+     "desc": "Type of flip { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    }
+   ]
+  },
+  "gimp-image-resize": {
+   "blurb": "Resize the image to the specified extents.",
+   "help": "This procedure resizes the image so that it's new width and height are equal to the supplied parameters. Offsets are also provided which describe the position of the previous image's content. All channels within the image are resized according to the specified parameters; this includes the image selection mask. All layers within the image are repositioned according to the specified offsets.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "new-width",
+     "desc": "New image width (1 <= new-width <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "new-height",
+     "desc": "New image height (1 <= new-height <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "offx",
+     "desc": "x offset between upper left corner of old and new images: (new - old)"
+    },
+    {
+     "type": "INT32",
+     "name": "offy",
+     "desc": "y offset between upper left corner of old and new images: (new - old)"
+    }
+   ]
+  },
+  "gimp-image-rotate": {
+   "blurb": "Rotates the image by the specified degrees.",
+   "help": "This procedure rotates the image.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "rotate-type",
+     "desc": "Angle of rotation { ROTATE-90 (0), ROTATE-180 (1), ROTATE-270 (2) }"
+    }
+   ]
+  },
+  "gimp-image-scale": {
+   "blurb": "Scale the image using the default interpolation method.",
+   "help": "This procedure scales the image so that its new width and height are equal to the supplied parameters. All layers and channels within the image are scaled according to the specified parameters; this includes the image selection mask. The interpolation method used can be set with 'gimp-context-set-interpolation'.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "new-width",
+     "desc": "New image width (1 <= new-width <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "new-height",
+     "desc": "New image height (1 <= new-height <= 524288)"
+    }
+   ]
+  },
+  "gimp-image-scale-full": {
+   "blurb": "Deprecated: Use 'gimp-image-scale' instead.",
+   "help": "Deprecated: Use 'gimp-image-scale' instead.",
+   "args": [
+    {
+     "type": "IMAGE",
+     "name": "image",
+     "desc": "The image"
+    },
+    {
+     "type": "INT32",
+     "name": "new-width",
+     "desc": "New image width (1 <= new-width <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "new-height",
+     "desc": "New image height (1 <= new-height <= 524288)"
+    },
+    {
+     "type": "INT32",
+     "name": "interpolation",
+     "desc": "Type of interpolation { INTERPOLATION-NONE (0), INTERPOLATION-LINEAR (1), INTERPOLATION-CUBIC (2), INTERPOLATION-NOHALO (3), INTERPOLATION-LOHALO (4) }"
+    }
+   ]
+  },
+  "gimp-item-transform-2d": {
+   "blurb": "Transform the specified item in 2d.",
+   "help": "This procedure transforms the specified item.\n\nThe transformation is done by scaling by the x and y scale factors about the point (source_x, source_y), then rotating around the same point, then translating that point to the new position (dest_x, dest_y).\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then transformed as specified. The return value is the ID of the transformed floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be transformed according to the specified parameters. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be transformed the same way. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-interpolation', 'gimp-context-set-transform-direction', 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "FLOAT",
+     "name": "source-x",
+     "desc": "X coordinate of the transformation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "source-y",
+     "desc": "Y coordinate of the transformation center"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-x",
+     "desc": "Amount to scale in x direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "scale-y",
+     "desc": "Amount to scale in y direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle of rotation (radians)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dest-x",
+     "desc": "X coordinate of where the center goes"
+    },
+    {
+     "type": "FLOAT",
+     "name": "dest-y",
+     "desc": "Y coordinate of where the center goes"
+    }
+   ]
+  },
+  "gimp-item-transform-flip": {
+   "blurb": "Flip the specified item around a given line.",
+   "help": "This procedure flips the specified item.\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then flipped. The axis to flip around is specified by specifying two points from that line. The return value is the ID of the flipped floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be flipped around the specified axis. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be flipped around the same axis. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-interpolation', 'gimp-context-set-transform-direction', 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "horz. coord. of one end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "vert. coord. of one end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "horz. coord. of other end of axis"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "vert. coord. of other end of axis"
+    }
+   ]
+  },
+  "gimp-item-transform-flip-simple": {
+   "blurb": "Flip the specified item either vertically or horizontally.",
+   "help": "This procedure flips the specified item.\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then flipped. If auto_center is set to TRUE, the flip is around the selection's center. Otherwise, the coordinate of the axis needs to be specified. The return value is the ID of the flipped floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be flipped around its center if auto_center is set to TRUE, otherwise the coordinate of the axis needs to be specified. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be flipped around the same axis. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "INT32",
+     "name": "flip-type",
+     "desc": "Type of flip { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    },
+    {
+     "type": "INT32",
+     "name": "auto-center",
+     "desc": "Whether to automatically position the axis in the selection center (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "axis",
+     "desc": "coord. of flip axis"
+    }
+   ]
+  },
+  "gimp-item-transform-matrix": {
+   "blurb": "Transform the specified item in 2d.",
+   "help": "This procedure transforms the specified item.\n\nThe transformation is done by assembling a 3x3 matrix from the coefficients passed.\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then transformed as specified. The return value is the ID of the transformed floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be transformed according to the specified matrix. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be transformed the same way. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-interpolation', 'gimp-context-set-transform-direction', 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-0",
+     "desc": "coefficient (0,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-1",
+     "desc": "coefficient (0,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-0-2",
+     "desc": "coefficient (0,2) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-0",
+     "desc": "coefficient (1,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-1",
+     "desc": "coefficient (1,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-1-2",
+     "desc": "coefficient (1,2) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-0",
+     "desc": "coefficient (2,0) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-1",
+     "desc": "coefficient (2,1) of the transformation matrix"
+    },
+    {
+     "type": "FLOAT",
+     "name": "coeff-2-2",
+     "desc": "coefficient (2,2) of the transformation matrix"
+    }
+   ]
+  },
+  "gimp-item-transform-perspective": {
+   "blurb": "Perform a possibly non-affine transformation on the specified item.",
+   "help": "This procedure performs a possibly non-affine transformation on the specified item by allowing the corners of the original bounding box to be arbitrarily remapped to any values.\n\nThe 4 coordinates specify the new locations of each corner of the original bounding box. By specifying these values, any affine transformation (rotation, scaling, translation) can be affected. Additionally, these values can be specified such that the resulting transformed item will appear to have been projected via a perspective transform.\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then transformed as specified. The return value is the ID of the transformed floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be transformed according to the specified mapping. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be transformed the same way. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-interpolation', 'gimp-context-set-transform-direction', 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The new x coordinate of upper-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The new y coordinate of upper-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The new x coordinate of upper-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The new y coordinate of upper-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x2",
+     "desc": "The new x coordinate of lower-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y2",
+     "desc": "The new y coordinate of lower-left corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x3",
+     "desc": "The new x coordinate of lower-right corner of original bounding box"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y3",
+     "desc": "The new y coordinate of lower-right corner of original bounding box"
+    }
+   ]
+  },
+  "gimp-item-transform-rotate": {
+   "blurb": "Rotate the specified item about given coordinates through the specified angle.",
+   "help": "This function rotates the specified item.\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then rotated by the specified amount. If auto_center is set to TRUE, the rotation is around the selection's center. Otherwise, the coordinate of the center point needs to be specified. The return value is the ID of the rotated floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be rotated around its center if auto_center is set to TRUE, otherwise the coordinate of the center point needs to be specified. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be rotated around the same center point. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-interpolation', 'gimp-context-set-transform-direction', 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "FLOAT",
+     "name": "angle",
+     "desc": "The angle of rotation (radians)"
+    },
+    {
+     "type": "INT32",
+     "name": "auto-center",
+     "desc": "Whether to automatically rotate around the selection center (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "center-x",
+     "desc": "The hor. coordinate of the center of rotation"
+    },
+    {
+     "type": "FLOAT",
+     "name": "center-y",
+     "desc": "The vert. coordinate of the center of rotation"
+    }
+   ]
+  },
+  "gimp-item-transform-rotate-simple": {
+   "blurb": "Rotate the specified item about given coordinates through the specified angle.",
+   "help": "This function rotates the specified item.\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then rotated by the specified amount. If auto_center is set to TRUE, the rotation is around the selection's center. Otherwise, the coordinate of the center point needs to be specified. The return value is the ID of the rotated floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be rotated around its center if auto_center is set to TRUE, otherwise the coordinate of the center point needs to be specified. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be rotated around the same center point. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "INT32",
+     "name": "rotate-type",
+     "desc": "Type of rotation { ROTATE-90 (0), ROTATE-180 (1), ROTATE-270 (2) }"
+    },
+    {
+     "type": "INT32",
+     "name": "auto-center",
+     "desc": "Whether to automatically rotate around the selection center (TRUE or FALSE)"
+    },
+    {
+     "type": "FLOAT",
+     "name": "center-x",
+     "desc": "The hor. coordinate of the center of rotation"
+    },
+    {
+     "type": "FLOAT",
+     "name": "center-y",
+     "desc": "The vert. coordinate of the center of rotation"
+    }
+   ]
+  },
+  "gimp-item-transform-scale": {
+   "blurb": "Scale the specified item.",
+   "help": "This procedure scales the specified item.\n\nThe 2 coordinates specify the new locations of the top-left and bottom-roght corners of the original bounding box.\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then scaled as specified. The return value is the ID of the scaled floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be scaled according to the specified coordinates. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be scaled the same way. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-interpolation', 'gimp-context-set-transform-direction', 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x0",
+     "desc": "The new x coordinate of the upper-left corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y0",
+     "desc": "The new y coordinate of the upper-left corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "x1",
+     "desc": "The new x coordinate of the lower-right corner of the scaled region"
+    },
+    {
+     "type": "FLOAT",
+     "name": "y1",
+     "desc": "The new y coordinate of the lower-right corner of the scaled region"
+    }
+   ]
+  },
+  "gimp-item-transform-shear": {
+   "blurb": "Shear the specified item about its center by the specified magnitude.",
+   "help": "This procedure shears the specified item.\n\nThe shear type parameter indicates whether the shear will be applied horizontally or vertically. The magnitude can be either positive or negative and indicates the extent (in pixels) to shear by.\n\nIf a selection exists and the item is a drawable, the portion of the drawable which lies under the selection is cut from the drawable and made into a floating selection which is then sheared as specified. The return value is the ID of the sheared floating selection.\n\nIf there is no selection or the item is not a drawable, the entire item will be sheared according to the specified parameters. Additionally, if the item has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be sheared the same way. The return value will be equal to the item ID supplied as input.\n\nThis procedure is affected by the following context setters: 'gimp-context-set-interpolation', 'gimp-context-set-transform-direction', 'gimp-context-set-transform-resize'.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The affected item"
+    },
+    {
+     "type": "INT32",
+     "name": "shear-type",
+     "desc": "Type of shear { ORIENTATION-HORIZONTAL (0), ORIENTATION-VERTICAL (1) }"
+    },
+    {
+     "type": "FLOAT",
+     "name": "magnitude",
+     "desc": "The magnitude of the shear"
+    }
+   ]
+  },
+  "gimp-item-transform-translate": {
+   "blurb": "Translate the item by the specified offsets.",
+   "help": "This procedure translates the item by the amounts specified in the off_x and off_y arguments. These can be negative, and are considered offsets from the current position. The offsets will be rounded to the nearest pixel unless the item is a path.\n\nIf the item is attached to an image and has its linked flag set to TRUE, all additional items contained in the image which have the linked flag set to TRUE will also be translated by the specified offsets.",
+   "args": [
+    {
+     "type": "ITEM",
+     "name": "item",
+     "desc": "The item"
+    },
+    {
+     "type": "FLOAT",
+     "name": "off-x",
+     "desc": "Offset in x direction"
+    },
+    {
+     "type": "FLOAT",
+     "name": "off-y",
+     "desc": "Offset in y direction"
+    }
+   ]
+  }
+ }
+}

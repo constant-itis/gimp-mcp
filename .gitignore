@@ -1,0 +1,14 @@
+# build
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# venv
+.venv/
+venv/
+
+# local logs / scratch
+*.log
+/tmp/
