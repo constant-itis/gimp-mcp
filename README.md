@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="assets/crest.png" alt="gimp-mcp crest" width="300">
+  <br>
+  <sub><i>this crest was designed entirely by an agent driving gimp-mcp — shapes + arc-text + transparency, no human in the pixels</i></sub>
+</p>
+
 ```
        _                                            
   __ _(_)_ __ ___  _ __        _ __ ___   ___ _ __  
