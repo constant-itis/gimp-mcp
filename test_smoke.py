@@ -16,7 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 BUNDLED_PACKS = ["layers", "text", "transform", "color", "fx", "select",
-                 "generate", "recipes", "journal", "watch"]
+                 "generate", "paths", "batch", "animate", "recipes", "journal", "watch"]
 
 
 def _tool_count(mcp):

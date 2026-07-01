@@ -76,6 +76,18 @@ The `generate` pack (`draw_ellipse`/`draw_polygon`/`draw_star`/`draw_line`/`sunb
 procedural `render_plasma`/`render_noise`) turns the tool from an *editor* into a *canvas*:
 an agent composes original vector/procedural art and iterates against the vision loop.
 
+## Beyond one image — automation, vectors, motion
+
+GIMP's real power isn't editing a single file; it's scale and range. Three packs open that up:
+
+- **`batch`** — process whole *folders*: `batch_resize`, `batch_convert`, `batch_watermark`,
+  `batch_recipe` (apply any saved recipe to every image), `contact_sheet`. The
+  production-pipeline unlock: "watermark these 200 photos," "vintage the whole shoot."
+- **`paths`** — `draw_curve`: real smooth bezier curves through anchor points (waves,
+  ribbons, organic outlines) — proper vector illustration, not just rectangles and ellipses.
+- **`animate`** — `frames_to_gif` (layers → animated GIF), `gif_from_folder` (a frame
+  sequence → GIF), `spin_gif` (rotate a layer into a looping spinner). Motion graphics.
+
 ## Why a Script-Fu bridge (not a GIMP plugin)
 
 On modern Linux, GIMP 2.10's **Python-Fu is effectively gone** — `gimp-python` was
@@ -162,7 +174,7 @@ Techniques are **saved, parameterized, and reused**, not rebuilt each time:
 Recipes are **abilities, not baked-in behavior** — data you can read, edit, share, and
 extend; nothing forces a workflow.
 
-## Tools (16 core + 64 in packs = 80)
+## Tools (16 core + 73 in packs = 89)
 
 Modular: the **core** (~16, always on) reaches the whole PDB and drives the vision loop;
 the rest live in opt-in **packs** ([PACKS.md](PACKS.md)). Listing below is the full set.

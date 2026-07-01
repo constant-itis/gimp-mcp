@@ -11,7 +11,7 @@ Set `GIMP_MCP_PACKS`:
 
 | value | loads | ~tools |
 |-------|-------|--------|
-| *(unset)* or `all` | core + every bundled pack | 80 |
+| *(unset)* or `all` | core + every bundled pack | 89 |
 | `core` | core only | 16 |
 | `text,fx,recipes` | core + just those | varies |
 
@@ -44,6 +44,9 @@ and `_render`.
 | `fx` | gaussian_blur, sharpen, pixelize, drop_shadow, vignette, oilify, emboss, lens_flare, motion_blur, gradient_fill, add_border, overlay_blend |
 | `select` | select, fill, erase, draw_rect, select_by_color, feather_selection, grow_shrink_selection, color_to_alpha, trim_to_content |
 | `generate` | draw_ellipse, draw_polygon, draw_star, draw_line, sunburst, render_plasma, render_noise — *draw imagery from scratch* |
+| `paths` | draw_curve — *smooth vector bezier curves* (waves, ribbons, organic outlines) |
+| `batch` | batch_resize, batch_convert, batch_watermark, batch_recipe, contact_sheet — *process whole FOLDERS of images* |
+| `animate` | frames_to_gif, gif_from_folder, spin_gif — *layers/frames → animated GIF* |
 | `recipes` | apply_recipe, list_recipes, show_recipe, save_recipe, delete_recipe |
 | `journal` | journal (macro-recorder) |
 | `watch` | show (watch in the GIMP window), suggest (context-aware next moves) |
